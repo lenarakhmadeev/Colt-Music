@@ -22,6 +22,7 @@ start = getMs()
 @keypath = (object, keypath, _default = null)->
 	l 'keypath', arguments
 
+	keypath = if _.isNumber(keypath) then '' + keypath else keypath
 	keys = if _.isString(keypath) then keypath.split(".") else keypath
 	result = object
 	for key in keys

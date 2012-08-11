@@ -1,9 +1,18 @@
 <script src="javascripts/lib/underscore.js"></script>
 
-<script src="javascripts/"></script>
+<script src="javascripts/lib/jquery-1.8.0.js"></script>
+<script src="javascripts/utils.js"></script>
+<script src="javascripts/fake.js"></script>
+<script src="javascripts/lastfm.js"></script>
 
 <script>
 
+	api = new LastFm(api_key, api_url);
+	proxy = new ApiProxy(api);
+
+	proxy.getInfo('sher', 'believe', function (err, data) {
+		console.log(arguments);
+	});
 </script>
 <body>
 

@@ -1,8 +1,6 @@
 
 class @ItemModel extends Backbone.Model
 
-	# todo ошибки ajax как обраб??
-
 	# todo надо ли?
 	defaults:
 		artist: null
@@ -21,7 +19,9 @@ class @ItemModel extends Backbone.Model
 	getInfo: ()=>
 		l 'ItemModel.getInfo', arguments
 
-		_proxy.getInfo(@get('artist'), @get('title'))
-			.done((data)=>
-				@set(info: data)
-			)
+		_proxy.getInfo @get('artist'), @get('title'), (err, data)=>
+			if err
+				return l err
+
+			@set(info: data)
+

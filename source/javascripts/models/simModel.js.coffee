@@ -13,23 +13,20 @@ class @SimModel extends Backbone.Model
 			tags: null
 			wiki: null
 
-	getInfo: ()=>
-		l 'ItemModel.getInfo', arguments
 
-		_proxy.getInfo(@get('artist'), @get('title'))
-			.done((data)=>
-				@set(info: data)
-			)
+	getInfo: ()=>
+		l 'SimModel.getInfo', arguments
+
+		_proxy.getInfo @get('artist'), @get('title'), (err, data)=>
+			if err
+				return l err
+
+			@set(info: data)
+
 
 	getAudioUrl: ()=>
 		l 'ItemModel.getAudioUrl', arguments
 
-		limit = 10
-		_proxy.searchAudio(@get('artist'), @get('title'), limit)
-			.done((data)=>
-				l 'ItemModel.getAudioUrl done', arguments
 
-				@set(audio_url: keypath(data, '0.url'))
-			)
 
 

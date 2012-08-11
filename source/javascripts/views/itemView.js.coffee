@@ -4,6 +4,8 @@ class @ItemView extends Backbone.View
 	infoTpl: compileTemplate('#item-info-tpl')
 	similarTpl: compileTemplate('#item-sim-tpl')
 
+	# todo пока грузятся рекомендации заморозить кнопку еще
+
 	initialize: ()->
 		l 'ItemView.initialize', arguments
 

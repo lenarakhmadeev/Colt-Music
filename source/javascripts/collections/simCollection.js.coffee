@@ -1,16 +1,27 @@
 
 class @SimCollection extends Backbone.Collection
 
-	# получать сразу все реком, выдавать пачками
-	# если реком мало, то запрос топа артиста
-
 	model: SimModel
-	rawModels: []
-	limitStep: 2
-	limit: 0
-	wait: false
+
+	###
+		Еще - показывает еще часть рекомендаций
+		Всегда кратно 2
+
+		Кнопка еще должна иметь 3 состояния
+			1) Еще
+			2) Загрузка
+			3) больше нет рекомендаций (неактивна)
+	###
+
+	# todo если реком мало, то запрос топа артиста
+
 
 	initialize: (@artist, @title)->
+
+
+	count: 2
+	page: 1
+	wait: false
 
 	getMoreSimilar: ()=>
 		l 'SimCollection.getMoreSimilar', arguments
@@ -19,11 +30,12 @@ class @SimCollection extends Backbone.Collection
 			return
 
 		@wait = true
-		@limit += @limitStep
-		_proxy.getSimilar(@artist, @title, @limit)
-			.done((data)=>
-				@wait = false
-				@add(data.slice(@limit - @limitStep))
-			)
 
+		_proxy.getSimilar @artist, @title, @page++, @count, (err, data)=>
+			@wait = false
+
+			if err
+				return l err
+
+			@add(data)
 
