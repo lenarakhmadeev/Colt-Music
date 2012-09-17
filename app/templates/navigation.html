@@ -1,0 +1,40 @@
+<div style="float:left;">Страницы:&emsp;</div>
+
+<% for (var i = 0; i < data.pages.length; i++) { %>
+	<% var curPage = data.pages[i]; %>
+	
+	<% if (curPage.type == 'first') { %>
+		<div class="NavFirst" data-page="<%= curPage.page %>"></div>
+	<% } %>
+
+	<% if (curPage.type == 'prev') { %>
+		<div class="NavPrev" data-page="<%= curPage.page %>"></div>
+	<% } %>
+
+	<% if (curPage.type == 'num') { %>
+		<div class="NavItem" data-page="<%= curPage.page %>" >
+			<%= curPage.page + 1 %>
+		</div>
+	<% } %>
+
+	<% if (curPage.type == 'cur_num') { %>
+		<div class="NavItem Cur" data-page="<%= curPage.page %>" >
+			<%= curPage.page + 1 %>
+		</div>
+	<% } %>
+
+	<% if (curPage.type == 'next') { %>
+		<div class="NavNext" data-page="<%= curPage.page %>"></div>
+	<% } %>
+
+	<% if (curPage.type == 'last') { %>
+		<div class="NavLast" data-page="<%= curPage.page %>"></div>
+	<% } %>
+
+	<% if (curPage.type == 'space') { %>
+		<div class="Space"></div>
+	<% } %>
+<% } %>
+
+
+

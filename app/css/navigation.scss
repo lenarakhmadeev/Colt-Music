@@ -1,0 +1,88 @@
+.Navigation {
+	height      : 27px;
+	margin-left : 68px;
+	margin-top  : -30px;
+	position    : absolute;
+	font        : 11pt Century Gothic;
+	color       : #cccccc;
+	text-shadow : 1px 1px 2px #000000;
+	font-weight : 800;
+	text-align  : center;
+}
+
+	.NavNext {
+		height     : 17px;
+		width      : 17px;
+		background : url(../images/next.png) 0 -35px no-repeat;
+		margin     : 0 4px 0 4px;
+		float      : left;
+		top        : 2px;
+		cursor     : pointer;
+	}
+		.NavNext:hover {
+			background-position : 0 -18px;
+		}
+
+	.NavPrev {
+		height     : 16px;
+		width      : 16px;
+		background : url(../images/prew.png) 0 -35px no-repeat;
+		float      : left;
+		cursor     : pointer;
+	}
+		.NavPrev:hover {
+			background-position : 0 -18px;
+		}
+
+	.NavFirst {
+		height     : 17px;
+		width      : 17px;
+		background : url(../images/first.png) 0 -35px no-repeat;
+		margin     : 0 8px 0 0;
+		float      : left;
+		top        : 2px;
+		cursor     : pointer;
+	}
+		.NavFirst:hover {
+			background-position : 0 -18px;
+		}
+
+	.NavLast {
+		height     : 16px;
+		width      : 16px;
+		background : url(../images/last.png) 0 -35px no-repeat;
+		float      : left;
+		cursor     : pointer;
+	}
+		.NavLast:hover {
+		background-position: 0 -18px;
+	}
+
+	.NavItem {
+		height     : 27px;
+		width      : 24px;
+		margin     : 0 2px 0 1px;
+		float      : left;
+		background : url(../images/number.png);
+		cursor     : pointer;
+	}
+		.NavItem:hover {
+			background-position : 0 -27px;
+		}
+
+	.NavItem.Cur {
+		height     : 27px;
+		width      : 24px;
+		margin     : 0 2px 0 1px;
+		float      : left;
+		background : url(../images/number.png) 0 -27px;
+		cursor     : default;
+	}
+
+	.Space {
+		height     : 27px;
+		width      : 24px;
+		margin     : 0 2px 0 1px;
+		float      : left;
+		background : url(../images/space.png) 0 -0px;
+	}
