@@ -1,12 +1,13 @@
 
 define [
+	'jquery'
 	'views/View'
 	'views/SimilarView'
 	'views/PhraseView'
 	'views/MoreButtonView'
 	'tpl!templates/similars.html'
 
-], (View, SimilarView, PhraseView, MoreButtonView, similarsTemplate)->
+], ( $, View, SimilarView, PhraseView, MoreButtonView, similarsTemplate )->
 
 	# todo Рендер "ещё": ЗАгрузка, можно еще, нельзя еще
 
@@ -20,7 +21,7 @@ define [
 			'click .ItemFooter': 'getMoreSimilars'
 		
 		
-		initialize: (options)->
+		initialize: ( options )->
 			@collection.bind( 'add', @addItem, this )
 
 			@phraseView = new PhraseView( collection: @collection )
@@ -39,18 +40,18 @@ define [
 
 		renderPhrase: ()->
 			@phraseView.render()
-			$('.ItemDelim', @$el).append( @phraseView.el )
+			$( '.ItemDelim', @$el ).append( @phraseView.el )
 
 
 		renderMoreButton: ()->
 			@moreButtonView.render()
-			$('.ItemFooter', @$el).append( @moreButtonView.el )
+			$( '.ItemFooter', @$el ).append( @moreButtonView.el )
 
 
 		addItem: (model)->
 			simView = new SimilarView( model: model )
 			simView.render()
-			$('.ItemSimCont', @$el).append( simView.el )	
+			$( '.ItemSimCont', @$el ).append( simView.el )	
 
 		#------------------------------------------------
 

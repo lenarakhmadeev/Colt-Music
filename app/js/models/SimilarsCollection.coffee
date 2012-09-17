@@ -1,7 +1,7 @@
 
 define [
 	'models/Collection'
-	'proxy'
+	'services/proxy/proxy'
 	'models/SimilarModel'
 	
 ], (Collection, proxy, SimilarModel)->

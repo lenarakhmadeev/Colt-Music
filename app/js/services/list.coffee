@@ -1,6 +1,6 @@
 
 define [
-	'mediator'
+	'services/mediator'
 
 ], (mediator)->
 

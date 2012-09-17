@@ -1,7 +1,7 @@
 
 require.config
 	# app start point
-	deps: ['app']
+	deps: [ 'app' ]
 	baseUrl: 'js'
 	paths:
 		# libs
@@ -28,7 +28,7 @@ require.config
 	# load no AMD modules
 	shim:
 		backbone: 
-			deps: ['jquery', 'underscore', 'json2']
+			deps: [ 'jquery', 'underscore', 'json2' ]
 			exports: 'Backbone'
 
 		underscore:
@@ -38,13 +38,13 @@ require.config
 			exports: 'VK'
 
 		jquery_jplayer:
-			deps: ['jquery']
+			deps: [ 'jquery' ]
 
 		jquery_jscroller:
-			deps: ['jquery']
+			deps: [ 'jquery' ]
 
 	# configs for modules
 	config:
-		proxy:
+		'services/proxy/proxy':
 			'lastFm_key': 'b25b959554ed76058ac220b7b2e0a026'
 			'lastFm_url': 'http://ws.audioscrobbler.com/2.0/'

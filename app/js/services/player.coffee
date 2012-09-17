@@ -1,7 +1,7 @@
 
 define [
 	'jquery'
-	'mediator'
+	'services/mediator'
 	'jquery_jplayer'
 
 ], ($, mediator)->

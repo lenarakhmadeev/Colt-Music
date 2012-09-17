@@ -3,7 +3,7 @@ define [
 	'jquery'
 	'module'
 	'underscore'
-	'lastFm'
+	'services/proxy/lastFm'
 	'vk'
 ], ($, module, _, LastFm, vk)->
 

@@ -2,7 +2,7 @@
 define [
 	'backbone'
 	'models/ItemModel'
-	'proxy'
+	'services/proxy/proxy'
 	
 ], (Backbone, ItemModel, proxy)->
 

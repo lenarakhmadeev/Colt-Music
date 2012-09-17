@@ -3,7 +3,7 @@ define [
 	'underscore'
 	'backbone'
 	
-], (_, Backbone)->
+], ( _, Backbone )->
 
 	class View extends Backbone.View
 

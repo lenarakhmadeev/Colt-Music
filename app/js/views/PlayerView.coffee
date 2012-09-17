@@ -1,7 +1,7 @@
 
 define [
 	'views/View'
-	'mediator'
+	'services/mediator'
 	'views/MarqueeView'
 	'tpl!templates/player.html'
 	

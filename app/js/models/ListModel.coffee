@@ -1,7 +1,7 @@
 
 define [
 	'backbone'
-	'mediator'
+	'services/mediator'
 	'models/ListCollection'
 	
 ], (Backbone, mediator, ListCollection)->

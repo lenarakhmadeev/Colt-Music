@@ -1,9 +1,9 @@
 
 define [
 	'backbone'
-	'mediator'
+	'services/mediator'
 	'models/SimilarsCollection'
-	'proxy'
+	'services/proxy/proxy'
 	
 ], (Backbone, mediator, SimilarsCollection, proxy)->
 	

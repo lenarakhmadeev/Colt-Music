@@ -1,7 +1,7 @@
 
 define [
 	'jquery'
-	'mediator'
+	'services/mediator'
 	'views/View'
 	'tpl!templates/navigation.html'
 	
