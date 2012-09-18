@@ -14,7 +14,7 @@ define [
 			@on( 'reset add', @makeModelsIds, this )
 
 
-		setDesignation: (@artist, @title)->
+		setDesignation: ( @artist, @title )->
 
 
 		count: 2
@@ -28,7 +28,7 @@ define [
 			@wait = true
 			@own.set( 'status', 'loading' )
 
-			proxy.getSimilarTracks( @artist, @title, @offset, @count)
+			proxy.getSimilarTracks( @artist, @title, @offset, @count )
 				.done ( data )=>
 					@offset += @count
 					@wait = false
@@ -58,7 +58,7 @@ define [
 		makeModelsIds: ()->
 			id = 1
 			for model in @models
-				model.id = id
+				model.set( 'id', id )
 				id++
 
 

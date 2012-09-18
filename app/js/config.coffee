@@ -1,31 +1,31 @@
 
 require.config
-	# app start point
+	# Начальная точка приложения
 	deps: [ 'app' ]
 	baseUrl: 'js'
 	paths:
-		# libs
+		# Библиотеки
 		jquery: 'libs/jquery/jquery-1.8.0'
 		underscore: 'libs/underscore'
 		backbone: 'libs/backbone'
 		json2: 'libs/json2'
 
-		# jquery's plugins
+		# Плагины jquery
 		jquery_jplayer: 'libs/jquery/jplayer/jquery.jplayer.min'
 		jquery_jscroller: 'libs/jquery/jquery-scroller-v1.src'
 
-		# requirejs's plugins
+		# Плагины requirejs
 		text: 'libs/requirejs/text'
 		tpl: 'libs/requirejs/tpl'
 
-		# templates path
+		# Путь к шаблонам
 		templates: '../templates'
 
-		# vk.com API lib
+		# Библиотека vk.com API для iframe приложений
 		vk: 'http://vk.com/js/api/xd_connection'
 		
 
-	# load no AMD modules
+	# Загрузка не AMD модулей
 	shim:
 		backbone: 
 			deps: [ 'jquery', 'underscore', 'json2' ]
@@ -43,7 +43,7 @@ require.config
 		jquery_jscroller:
 			deps: [ 'jquery' ]
 
-	# configs for modules
+	# Константы для модулей
 	config:
 		'services/proxy/proxy':
 			'lastFm_key': 'b25b959554ed76058ac220b7b2e0a026'

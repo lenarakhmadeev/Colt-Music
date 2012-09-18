@@ -18,6 +18,11 @@
 
 	Верстка
 		livereload
+
+
+
+
+	привести модели к единому виду, чтобы их можно было проигрываить
 */
 
 define(['views/AppView', 'services/player', 'services/list'], function(AppView, player, list) {

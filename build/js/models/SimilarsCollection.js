@@ -68,7 +68,7 @@ define(['models/Collection', 'services/proxy/proxy', 'models/SimilarModel'], fun
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         model = _ref[_i];
-        model.id = id;
+        model.set('id', id);
         _results.push(id++);
       }
       return _results;

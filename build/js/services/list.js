@@ -1,30 +1,27 @@
 
 define(['services/mediator'], function(mediator) {
+  /*
+  		Логика перехода к следующей/предыдущей записи в списке
+  */
+
   var list;
   return list = {
     init: function() {
       mediator.subscribe('list:next', this.next, this);
       mediator.subscribe('list:prev', this.prev, this);
-      return mediator.subscribe('list:current', this.current, this);
+      return mediator.subscribe('list:current', this.setCurrent, this);
     },
     next: function() {
-      var next, nextId;
-      console.log('next');
-      nextId = this.currentTrack.id + 1;
-      next = this.currentTrack.collection.get(nextId);
-      mediator.publish('player:play', next);
-      return this.current(next);
+      return console.log('next');
     },
-    nextItem: function() {},
-    nextSim: function() {},
     prev: function() {
       return console.log('prev');
     },
-    current: function(model) {
+    setCurrent: function(track) {
       if (this.currentTrack != null) {
         this.currentTrack.select(false);
       }
-      this.currentTrack = model;
+      this.currentTrack = track;
       return this.currentTrack.select(true);
     }
   };

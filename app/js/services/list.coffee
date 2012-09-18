@@ -4,38 +4,32 @@ define [
 
 ], ( mediator )->
 
+	###
+		Логика перехода к следующей/предыдущей записи в списке
+	###
 	list = 
 
+		# Запуск модуля
 		init: ()->
 			mediator.subscribe( 'list:next', @next, this )
 			mediator.subscribe( 'list:prev', @prev, this )
-			mediator.subscribe( 'list:current', @current, this )
+			mediator.subscribe( 'list:current', @setCurrent, this )
 
 
+		# Проигрывание следующей записи
 		next: ()->
 			console.log 'next'
 
-			nextId = @currentTrack.id + 1
-			next = @currentTrack.collection.get( nextId )
 
-			mediator.publish( 'player:play', next )
-			@current( next )
-
-
-		nextItem: ()->
-
-
-		nextSim: ()->
-
-
-
+		# Проигрывание предыдущей записи
 		prev: ()->
 			console.log 'prev'
 
 
-		current: (model)->
+		# Устанавливает текущую запись
+		setCurrent: ( track )->
 			if @currentTrack?
-				@currentTrack.select(false)
+				@currentTrack.select( false )
 
-			@currentTrack = model
-			@currentTrack.select(true)
+			@currentTrack = track
+			@currentTrack.select( true )
