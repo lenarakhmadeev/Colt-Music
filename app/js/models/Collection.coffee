@@ -4,23 +4,24 @@ define [
 
 ], ( Backbone )->
 
+	###
+		Упорядоченная коллекция со своими аттрибутами
+	###
 	class Collection extends Backbone.Collection
 
+		# Переопределяем constructor, а не initialize, чтобы не вызывать super
 		constructor: ()->
 			super( arguments... )
 
+			# Простая модель для хранения аттрибутов модели
 			@own = new Backbone.Model()
-			@own.on( 'all', @_ownEvents, this )
 
-			@on( 'all', @_calcAttr, this )
-
-
-		_ownEvents: ( event, model, collection, options )->
-			arguments[ 0 ] = "own:#{ arguments[ 0 ] }"
-			@trigger.apply( this, arguments )
+			# Пересчитываем порядок при любом изменении коллекции
+			@on( 'reset add remove', @makeModelsOrder, this )
 
 
-		_calcAttr: ()->
-			for attr, fun of @calculated
-				@own.set( attr, @[fun].apply( this ) )
-
+		# Пересчитывает порядок моделей
+		makeModelsOrder: ()->
+			order = 1
+			for model in @models
+				model.set( { 'order': order++ }, { silent: true } )

@@ -16,7 +16,7 @@ define [
 
 		initialize: ( attributes, options )->
 			@similarsCollection = new SimilarsCollection()
-			@similarsCollection.setDesignation( @get( 'artist' ), @get( 'title' ) )
+			@similarsCollection.setParent( this )
 
 
 		getTrackInfo: ()->

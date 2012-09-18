@@ -7,13 +7,13 @@ define [
 
 	class PlayerModel extends Backbone.Model
 
-		initialize: (attributes, options)->
+		initialize: ( attributes, options )->
 			mediator.subscribe( 'player:play', @play, this )
 			mediator.subscribe( 'player:pause', @pause, this )
 			mediator.subscribe( 'player:resume', @resume, this )
 
 
-		play: (model)->
+		play: ( model )->
 			@set( model.toJSON() )
 
 			@set( 'played', true )

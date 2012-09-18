@@ -18,7 +18,7 @@ define(['backbone', 'services/mediator', 'models/SimilarsCollection', 'services/
 
     ItemModel.prototype.initialize = function(attributes, options) {
       this.similarsCollection = new SimilarsCollection();
-      return this.similarsCollection.setDesignation(this.get('artist'), this.get('title'));
+      return this.similarsCollection.setParent(this);
     };
 
     ItemModel.prototype.getTrackInfo = function() {

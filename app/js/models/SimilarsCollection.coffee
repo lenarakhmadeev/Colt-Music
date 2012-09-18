@@ -10,11 +10,9 @@ define [
 
 		model: SimilarModel
 
-		initialize: (models, options)->
-			@on( 'reset add', @makeModelsIds, this )
+		initialize: ( models, options )->
 
-
-		setDesignation: ( @artist, @title )->
+		setParent: ( @parent )->
 
 
 		count: 2
@@ -26,24 +24,37 @@ define [
 			return if @wait
 
 			@wait = true
-			@own.set( 'status', 'loading' )
+			@setStatus( 'loading' )
 
-			proxy.getSimilarTracks( @artist, @title, @offset, @count )
+			proxy.getSimilarTracks( @getArtist(), @getTitle(), @offset, @count )
 				.done ( data )=>
 					@offset += @count
 					@wait = false
 
 					# todo переделать
 					if data.length < @count
-						@own.set( 'status', 'no' )
+						@setStatus( 'no' )
 					else
-						@own.set( 'status', 'yes' )
+						@setStatus( 'yes' )
 
 
 					@add( data )
 
 				.fail ()=>
-					@own.set( 'status', 'no' )
+					@setStatus( 'no' )
+
+
+		getArtist: ()->
+			@parent.get( 'artist' )
+
+
+		getTitle: ()->
+			@parent.get( 'title' )
+
+
+		setStatus: ( status )->
+			@own.set( 'status', status )
+
 
 
 		first_geted: false
@@ -53,12 +64,5 @@ define [
 
 			@first_geted = true
 			@getMoreSimilars()
-
-
-		makeModelsIds: ()->
-			id = 1
-			for model in @models
-				model.set( 'id', id )
-				id++
 
 

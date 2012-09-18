@@ -15,13 +15,10 @@ define(['models/Collection', 'services/proxy/proxy', 'models/SimilarModel'], fun
 
     SimilarsCollection.prototype.model = SimilarModel;
 
-    SimilarsCollection.prototype.initialize = function(models, options) {
-      return this.on('reset add', this.makeModelsIds, this);
-    };
+    SimilarsCollection.prototype.initialize = function(models, options) {};
 
-    SimilarsCollection.prototype.setDesignation = function(artist, title) {
-      this.artist = artist;
-      this.title = title;
+    SimilarsCollection.prototype.setParent = function(parent) {
+      this.parent = parent;
     };
 
     SimilarsCollection.prototype.count = 2;
@@ -36,19 +33,31 @@ define(['models/Collection', 'services/proxy/proxy', 'models/SimilarModel'], fun
         return;
       }
       this.wait = true;
-      this.own.set('status', 'loading');
-      return proxy.getSimilarTracks(this.artist, this.title, this.offset, this.count).done(function(data) {
+      this.setStatus('loading');
+      return proxy.getSimilarTracks(this.getArtist(), this.getTitle(), this.offset, this.count).done(function(data) {
         _this.offset += _this.count;
         _this.wait = false;
         if (data.length < _this.count) {
-          _this.own.set('status', 'no');
+          _this.setStatus('no');
         } else {
-          _this.own.set('status', 'yes');
+          _this.setStatus('yes');
         }
         return _this.add(data);
       }).fail(function() {
-        return _this.own.set('status', 'no');
+        return _this.setStatus('no');
       });
+    };
+
+    SimilarsCollection.prototype.getArtist = function() {
+      return this.parent.get('artist');
+    };
+
+    SimilarsCollection.prototype.getTitle = function() {
+      return this.parent.get('title');
+    };
+
+    SimilarsCollection.prototype.setStatus = function(status) {
+      return this.own.set('status', status);
     };
 
     SimilarsCollection.prototype.first_geted = false;
@@ -59,19 +68,6 @@ define(['models/Collection', 'services/proxy/proxy', 'models/SimilarModel'], fun
       }
       this.first_geted = true;
       return this.getMoreSimilars();
-    };
-
-    SimilarsCollection.prototype.makeModelsIds = function() {
-      var id, model, _i, _len, _ref, _results;
-      id = 1;
-      _ref = this.models;
-      _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        model = _ref[_i];
-        model.set('id', id);
-        _results.push(id++);
-      }
-      return _results;
     };
 
     return SimilarsCollection;
