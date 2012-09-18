@@ -2,7 +2,7 @@
 define [
 	'services/mediator'
 
-], (mediator)->
+], ( mediator )->
 
 	list = 
 

@@ -5,13 +5,13 @@ define [
 	'views/ItemView'
 	'views/NavigationView'
 	
-], (_, View, ItemView, NavigationView)->
+], ( _, View, ItemView, NavigationView )->
 
 	class ListView extends View
 
 		className: 'ListCont'
 
-		initialize: (options)->
+		initialize: ( options )->
 			@model.bind( 'change:content', @render, this )
 
 			@navigationView = new NavigationView( model: @model )
@@ -32,7 +32,7 @@ define [
 			_.each( content, @addItem, this )
 
 
-		addItem: (model)->
+		addItem: ( model )->
 			model.fetch()
 
 			itemView = new ItemView( model: model )

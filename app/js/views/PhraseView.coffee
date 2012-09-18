@@ -2,7 +2,7 @@
 define [
 	'views/View'
 
-], (View)->
+], ( View )->
 
 	# Фразы, если что-то найдено
 	yes_phrases = [
@@ -67,7 +67,7 @@ define [
 
 		className: 'ItemDelimPhrase'
 
-		initialize: (options)->
+		initialize: ( options )->
 			@collection.bind( 'reset add remove', @render, this )
 
 
@@ -75,12 +75,12 @@ define [
 			@renderPhrase( @collection.length )
 
 
-		renderPhrase: (yes_ = true)->
+		renderPhrase: ( yes_ = true )->
 			phrases = if yes_ then yes_phrases else no_phrases
 			phrase = @randomElem( phrases )
 			@$el.html( phrase )
 
 
-		randomElem: (arr)->
-			indx = Math.floor(Math.random() * arr.length)
-			arr[indx]
+		randomElem: ( arr )->
+			indx = Math.floor( Math.random() * arr.length )
+			arr[ indx ]

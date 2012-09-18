@@ -5,7 +5,7 @@ define [
 	'models/SimilarsCollection'
 	'services/proxy/proxy'
 	
-], (Backbone, mediator, SimilarsCollection, proxy)->
+], ( Backbone, mediator, SimilarsCollection, proxy )->
 	
 	class ItemModel extends Backbone.Model
 
@@ -14,7 +14,7 @@ define [
 			has_info: false
 
 
-		initialize: (attributes, options)->
+		initialize: ( attributes, options )->
 			@similarsCollection = new SimilarsCollection()
 			@similarsCollection.setDesignation( @get( 'artist' ), @get( 'title' ) )
 
@@ -34,7 +34,7 @@ define [
 			@similarsCollection.getFirstSimilars()
 
 
-		select: (selected)->
+		select: ( selected )->
 			@trigger( 'select', selected )
 
 

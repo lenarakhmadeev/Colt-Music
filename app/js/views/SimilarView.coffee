@@ -3,7 +3,7 @@ define [
 	'views/View'
 	'tpl!templates/similar.html'
 	
-], (View, similarTemplate)->
+], ( View, similarTemplate )->
 
 	class SimilarView extends View
 
@@ -15,11 +15,11 @@ define [
 			'click .SimPlayB' : 'play'
 
 
-		initialize: (options)->
+		initialize: ( options )->
 			@model.bind( 'select', @renderSelected, this )
 
 
-		renderSelected: (selected)->
+		renderSelected: ( selected )->
 			if selected
 				@$el.addClass( 'selected' )
 			else

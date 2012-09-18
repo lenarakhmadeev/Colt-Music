@@ -4,13 +4,13 @@ define [
 	'models/ItemModel'
 	'services/proxy/proxy'
 	
-], (Backbone, ItemModel, proxy)->
+], ( Backbone, ItemModel, proxy )->
 
 	class ListCollection extends Backbone.Collection
 
 		model: ItemModel
 
-		initialize: (models, options)->
+		initialize: ( models, options )->
 			@on( 'reset add', @makeModelsIds, this )
 
 

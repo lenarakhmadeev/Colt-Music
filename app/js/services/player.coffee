@@ -4,7 +4,7 @@ define [
 	'services/mediator'
 	'jquery_jplayer'
 
-], ($, mediator)->
+], ( $, mediator )->
 
 	player =
 
@@ -14,7 +14,7 @@ define [
 
 
 		initJPlayer: ()->
-			@jp = $('#jp')
+			@jp = $( '#jp' )
 
 			@jp.jPlayer
 				ready: ()=>
@@ -27,7 +27,7 @@ define [
 				solution: 'flash,html'
 
 				ended: ()->
-					mediator.publish( 'list:next')
+					mediator.publish( 'list:next' )
 
 				cssSelectorAncestor: '.player'
 				cssSelector:
@@ -47,7 +47,7 @@ define [
 			mediator.subscribe( 'player:resume', @resume, this )
 
 
-		play: (model)->
+		play: ( model )->
 			console.log 'play', model
 			@jp.jPlayer( 'setMedia', mp3 : model.get( 'url' ) or model.get( 'audio' ).url )
 			@jp.jPlayer( 'play' )

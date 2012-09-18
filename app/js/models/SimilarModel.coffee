@@ -5,7 +5,7 @@ define [
 	'models/SimilarsCollection'
 	'services/proxy/proxy'
 	
-], (Backbone, mediator, SimilarsCollection, proxy)->
+], ( Backbone, mediator, SimilarsCollection, proxy )->
 	
 	class SimilarModel extends Backbone.Model
 
@@ -31,7 +31,7 @@ define [
 
 
 
-		select: (selected)->
+		select: ( selected )->
 			@trigger( 'select', selected )
 
 

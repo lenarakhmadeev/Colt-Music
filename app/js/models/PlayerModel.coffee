@@ -3,7 +3,7 @@ define [
 	'backbone'
 	'services/mediator'
 
-], (Backbone, mediator)->
+], ( Backbone, mediator )->
 
 	class PlayerModel extends Backbone.Model
 

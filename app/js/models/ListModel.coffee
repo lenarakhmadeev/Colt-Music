@@ -4,7 +4,7 @@ define [
 	'services/mediator'
 	'models/ListCollection'
 	
-], (Backbone, mediator, ListCollection)->
+], ( Backbone, mediator, ListCollection )->
 
 	class ListModel extends Backbone.Model
 
@@ -14,7 +14,7 @@ define [
 
 		pageSize: 5
 
-		initialize: (attributes, options)->
+		initialize: ( attributes, options )->
 			@listCollection = new ListCollection()
 			@listCollection.bind( 'reset', @collectionReset, this )
 
@@ -30,16 +30,16 @@ define [
 			@loadPage( @get( 'page' ) )
 
 
-		loadPage: (page)->
+		loadPage: ( page )->
 			@set( 'page', page )
 
 			if @get( 'loaded' )
 				@set( 'content', @getPage( page ) )
 			
 
-		getPage: (page)->
+		getPage: ( page )->
 			start = page * @pageSize
-			end = (page + 1) * @pageSize
+			end = ( page + 1 ) * @pageSize
 			@listCollection[start...end]
 
 

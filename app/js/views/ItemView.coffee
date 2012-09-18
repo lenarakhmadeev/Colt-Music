@@ -4,7 +4,7 @@ define [
 	'views/SimilarsView'
 	'tpl!templates/item.html'
 	
-], (View, SimilarsView, itemTemplate)->
+], ( View, SimilarsView, itemTemplate )->
 	
 	class ItemView extends View
 
@@ -16,7 +16,7 @@ define [
 			'click .BigImg': 'play'
 
 
-		initialize: (options)->
+		initialize: ( options )->
 			@model.bind( 'change', @render, this )
 			@model.bind( 'select', @renderSelected, this )
 
@@ -28,7 +28,7 @@ define [
 			@append( @similarsView )
 
 
-		renderSelected: (selected)->
+		renderSelected: ( selected )->
 			if selected
 				@$el.addClass( 'selected' )
 			else

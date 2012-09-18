@@ -8,11 +8,11 @@ define [
 	'models/ListModel'
 	'views/ListView'
 
-], (View, PlayerModel, PlayerView, ListModel, ListView)->
+], ( View, PlayerModel, PlayerView, ListModel, ListView )->
 
 	class AppView extends View
 
-		initialize: (options)->
+		initialize: ( options )->
 			@initPlayer()
 			@initList()
 

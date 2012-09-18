@@ -33,5 +33,5 @@ define [
 			this
 
 
-		append: (view)->
+		append: ( view )->
 			@$el.append( view.el )

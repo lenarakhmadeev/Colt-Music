@@ -5,15 +5,15 @@ define [
 	'underscore'
 	'services/proxy/lastFm'
 	'vk'
-], ($, module, _, LastFm, vk)->
+], ( $, module, _, LastFm, vk )->
 
-	keypath = (object, keypath, _default = null)->
-		keypath = if _.isNumber(keypath) then '' + keypath else keypath
-		keys = if _.isString(keypath) then keypath.split(".") else keypath
+	keypath = ( object, keypath, _default = null )->
+		keypath = if _.isNumber( keypath ) then '' + keypath else keypath
+		keys = if _.isString( keypath ) then keypath.split( "." ) else keypath
 		result = object
 		for key in keys
-			if _.isObject(result) and key of result
-				result = result[key]
+			if _.isObject( result ) and key of result
+				result = result[ key ]
 			else
 				result = _default
 				break
@@ -26,47 +26,47 @@ define [
 
 
 
-	keyOrPluck = (data, key)->
+	keyOrPluck = ( data, key )->
 		# переделать
 		if data == null
 			return null
 
-		if _.isArray(data)
-			_.pluck(data, key)
+		if _.isArray( data )
+			_.pluck( data, key )
 		else
-			[data[key]]
+			[ data[ key ] ]
 
-	filterTags = (data)->
-		tags = keypath(data, 'track.toptags.tag', {})
-		keyOrPluck(tags, 'name') || null
+	filterTags = ( data )->
+		tags = keypath( data, 'track.toptags.tag', {} )
+		keyOrPluck( tags, 'name' ) || null
 
-	filterSim = (data)->
-		artist: keypath(data, 'artist.name')
-		title: keypath(data, 'name')
-		album_cover: keypath(data, 'image.1.#text')
+	filterSim = ( data )->
+		artist: keypath( data, 'artist.name' )
+		title: keypath( data, 'name' )
+		album_cover: keypath( data, 'image.1.#text' )
 
 
-	infoFilter = (data)->
-		album: keypath(data, 'track.album.title')
-		album_cover: keypath(data, 'track.album.image.1.#text')
-		tags: filterTags(data)
-		wiki: keypath(data, 'track.wiki') # todo посмотреть подробнее
+	infoFilter = ( data )->
+		album: keypath( data, 'track.album.title' )
+		album_cover: keypath( data, 'track.album.image.1.#text' )
+		tags: filterTags( data )
+		wiki: keypath( data, 'track.wiki' ) # todo посмотреть подробнее
 
-	similarFilter = (data)->
-		temp = keypath(data, 'similartracks.track')
-		if _.isString(temp)
+	similarFilter = ( data )->
+		temp = keypath( data, 'similartracks.track' )
+		if _.isString( temp )
 			return []
 
-		tracks = if _.isArray(temp) then temp else [temp]
+		tracks = if _.isArray(temp) then temp else [ temp ]
 
-		_.map(tracks, filterSim)
+		_.map( tracks, filterSim )
 
-	searchAudioFilter = (data)->
-		data.slice(1)
+	searchAudioFilter = ( data )->
+		data.slice( 1 )
 
 
 
-	getAudio = (data)->
+	getAudio = ( data )->
 		l 'dataFilter.getAudio', arguments
 
 		data.response

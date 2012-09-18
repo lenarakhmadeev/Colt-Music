@@ -1,7 +1,7 @@
 
 define [
 	'backbone'
-], (Backbone)->
+], ( Backbone )->
 
 	mediator = 
 		subscribe: Backbone.Events.on

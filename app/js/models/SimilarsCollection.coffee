@@ -4,7 +4,7 @@ define [
 	'services/proxy/proxy'
 	'models/SimilarModel'
 	
-], (Collection, proxy, SimilarModel)->
+], ( Collection, proxy, SimilarModel )->
 
 	class SimilarsCollection extends Collection
 

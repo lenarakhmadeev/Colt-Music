@@ -14,7 +14,7 @@ define [
 		className: 'MoreButton'
 
 
-		initialize: (options)->
+		initialize: ( options )->
 			@collection.bind( 'own:change:status', @render, this )
 
 

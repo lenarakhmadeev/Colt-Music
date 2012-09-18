@@ -2,7 +2,7 @@
 define [
 	'backbone'
 
-], (Backbone)->
+], ( Backbone )->
 
 	class Collection extends Backbone.Collection
 
@@ -15,8 +15,8 @@ define [
 			@on( 'all', @_calcAttr, this )
 
 
-		_ownEvents: (event, model, collection, options)->
-			arguments[0] = "own:#{ arguments[0] }"
+		_ownEvents: ( event, model, collection, options )->
+			arguments[ 0 ] = "own:#{ arguments[ 0 ] }"
 			@trigger.apply( this, arguments )
 
 

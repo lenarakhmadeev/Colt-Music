@@ -5,7 +5,7 @@ define [
 	'views/MarqueeView'
 	'tpl!templates/player.html'
 	
-], (View, mediator, MarqueeView, playerTemplate)->
+], ( View, mediator, MarqueeView, playerTemplate )->
 
 	class PlayerView extends View
 
@@ -21,7 +21,7 @@ define [
 			'click .PlayerAddButton': 'addAudio'
 
 
-		initialize: (options)->
+		initialize: ( options )->
 			@model.on( 'change:played', @renderPlayed, this )
 			@model.on( 'change:type', @renderType, this )
 			@model.on( 'change:album_cover', @renderCover, this )
@@ -35,13 +35,13 @@ define [
 
 		renderMarquee: ()->
 			@marqueeView.render()
-			@$('.trackinfo', @$el).append( @marqueeView.el )
+			@$( '.trackinfo', @$el ).append( @marqueeView.el )
 
 
 		renderPlayed: ()->
 			if @model.get( 'played' )
-				@$('.play').fadeOut('slow')
-				@$('.pause').fadeIn('slow')
+				@$( '.play' ).fadeOut( 'slow' )
+				@$( '.pause' ).fadeIn( 'slow' )
 			else
 				@$( '.play' ).fadeIn( 'slow' )
 				@$( '.pause' ).fadeOut( 'slow' )

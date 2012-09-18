@@ -5,7 +5,7 @@ define [
 	'views/View'
 	'tpl!templates/navigation.html'
 	
-], ($, mediator, View, navigationTemplate)->
+], ( $, mediator, View, navigationTemplate )->
 
 	class NavigationView extends View
 
@@ -17,7 +17,7 @@ define [
 			'click .NavFirst, .NavPrev, .NavItem, .NavNext, .NavLast': 'navigatePage'
 
 
-		initialize: (options)->
+		initialize: ( options )->
 			
 
 		serialize: ()->
@@ -48,12 +48,12 @@ define [
 			data
 
 
-		navigatePage: (event)->
+		navigatePage: ( event )->
 			page = @getTargetPage( event )
 			mediator.publish( 'load:page', page)
 
 
-		getTargetPage: (event)->
+		getTargetPage: ( event )->
 			$(event.target).data('page')
 
 
