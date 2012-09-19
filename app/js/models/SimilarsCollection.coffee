@@ -12,31 +12,23 @@ define [
 
 		initialize: ( models, options )->
 
+
+		# Сохраняем родительский элемент
+		# для навигации по списку и доступа к аттрибутам родителя
 		setParent: ( @parent )->
 
 
 		count: 2
 		offset: 0
-		wait: false
-
 		getMoreSimilars: ()->
-			# todo если ошибка
-			return if @wait
-
-			@wait = true
 			@setStatus( 'loading' )
 
 			proxy.getSimilarTracks( @getArtist(), @getTitle(), @offset, @count )
 				.done ( data )=>
 					@offset += @count
-					@wait = false
 
-					# todo переделать
-					if data.length < @count
-						@setStatus( 'no' )
-					else
-						@setStatus( 'yes' )
-
+					status = if data.length < @count then 'no' else 'yes'
+					@setStatus( status )
 
 					@add( data )
 
@@ -56,9 +48,7 @@ define [
 			@own.set( 'status', status )
 
 
-
 		first_geted: false
-
 		getFirstSimilars: ()->
 			return if @first_geted
 

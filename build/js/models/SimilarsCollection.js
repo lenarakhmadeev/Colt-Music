@@ -23,23 +23,14 @@ define(['models/Collection', 'services/proxy/proxy', 'models/SimilarModel'], fun
 
     SimilarsCollection.prototype.offset = 0;
 
-    SimilarsCollection.prototype.wait = false;
-
     SimilarsCollection.prototype.getMoreSimilars = function() {
       var _this = this;
-      if (this.wait) {
-        return;
-      }
-      this.wait = true;
       this.setStatus('loading');
       return proxy.getSimilarTracks(this.getArtist(), this.getTitle(), this.offset, this.count).done(function(data) {
+        var status;
         _this.offset += _this.count;
-        _this.wait = false;
-        if (data.length < _this.count) {
-          _this.setStatus('no');
-        } else {
-          _this.setStatus('yes');
-        }
+        status = data.length < _this.count ? 'no' : 'yes';
+        _this.setStatus(status);
         return _this.add(data);
       }).fail(function() {
         return _this.setStatus('no');
