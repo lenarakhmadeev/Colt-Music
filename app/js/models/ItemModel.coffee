@@ -26,7 +26,7 @@ define [
 				 url
 				 duration
 
-			 order
+			 id
 			 selected
 		 ###
 

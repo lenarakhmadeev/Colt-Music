@@ -17,11 +17,11 @@ define [
 			@own = new Backbone.Model()
 
 			# Пересчитываем порядок при любом изменении коллекции
-			@on( 'reset add remove', @makeModelsOrder, this )
+			@on( 'reset add remove', @makeModelsId, this )
 
 
 		# Пересчитывает порядок моделей
-		makeModelsOrder: ()->
-			order = 1
+		makeModelsId: ()->
+			id = 1
 			for model in @models
-				model.set( { 'order': order++ }, { silent: true } )
+				model.set( { 'id': id++ } ) #, { silent: true } )

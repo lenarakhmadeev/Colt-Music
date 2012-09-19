@@ -12,7 +12,7 @@ define [
 		className: 'SimItem'
 
 		events:
-			'click .SimPlayB' : 'play'
+			'click .SimPlayB, .SmallImg' : 'play'
 
 
 		initialize: ( options )->

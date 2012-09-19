@@ -20,6 +20,30 @@ define [
 		next: ()->
 			console.log 'next'
 
+			next = if @currentTrack.get( 'type' ) == 'item'
+				@nextForItem()
+			else
+				@nextForSim()
+
+			next.play()
+
+
+		nextForItem: ()->
+			if @currentTrack.similarsCollection.length
+				@currentTrack.similarsCollection.at( 0 )
+			else
+				@nextInCollection( @currentTrack )
+
+		nextForSim: ()->
+			if @currentTrack == @currentTrack.collection.last()
+				@nextInCollection( @currentTrack.collection.parent )
+			else
+				@nextInCollection( @currentTrack )
+
+
+		nextInCollection: ( track )->
+			id = track.id + 1
+			track.collection.get( id )
 
 		# Проигрывание предыдущей записи
 		prev: ()->

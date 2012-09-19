@@ -17,7 +17,6 @@ define [
 
 
 		initialize: ( options )->
-			# todo !!!
 			@model.bind( 'change:info', @render, this )
 			@model.bind( 'change:selected', @renderSelected, this )
 
