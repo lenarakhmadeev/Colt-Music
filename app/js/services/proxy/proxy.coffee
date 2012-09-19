@@ -57,7 +57,7 @@ define [
 
 	infoFilter = ( data )->
 		album: keypath( data, 'track.album.title' )
-		album_cover: keypath( data, 'track.album.image.1.#text' )
+		images: filterImages( keypath( data, 'track.album.image' ) )
 		tags: filterTags( data )
 		wiki: keypath( data, 'track.wiki' ) # todo посмотреть подробнее
 
@@ -74,11 +74,21 @@ define [
 		data.slice( 1 )
 
 
+	audioItemFilter = ( data )->
+		result = _.pick( data, 'artist', 'title' )
+		result.audio = _.pick( data, 'aid', 'owner_id', 'url', 'duration' )
 
-	getAudio = ( data )->
-		l 'dataFilter.getAudio', arguments
+		result
 
-		data.response
+
+	getAudioFilter = ( data )->
+		console.log 'dataFilter.getAudio', arguments
+
+		_.map( data, audioItemFilter )
+
+
+
+
 
 
 
@@ -166,7 +176,8 @@ define [
 
 			@searchAudio( artist, title, 0, 1 )
 				.done ( data )->
-					dfd.resolve( data[0] )
+					audio = _.pick( data[0], 'aid', 'owner_id', 'url', 'duration' )
+					dfd.resolve( audio )
 
 				.fail ()->
 					dfd.reject( arguments... )
@@ -213,7 +224,7 @@ define [
 				if 'error' of data
 					dfd.reject( data.error )
 				else
-					dfd.resolve( data.response )
+					dfd.resolve( getAudioFilter(data.response) )
 
 			dfd.promise()
 

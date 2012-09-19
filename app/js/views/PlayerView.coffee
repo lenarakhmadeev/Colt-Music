@@ -49,7 +49,14 @@ define [
 		renderCurrent: ()->
 			current = @model.get( 'current' )
 			@renderType( current.type )
-			@renderCover( current.images.large )
+
+			# todo переделать!
+			cover = if current.info && current.info.images && current.info.images.large
+				current.info.images.large
+			else
+				'images/big.png'
+
+			@renderCover( cover )
 
 
 		renderType: ( type )->

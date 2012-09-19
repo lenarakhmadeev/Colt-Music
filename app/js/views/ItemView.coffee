@@ -18,7 +18,7 @@ define [
 
 		initialize: ( options )->
 			# todo !!!
-			@model.bind( 'change', @render, this )
+			@model.bind( 'change:info', @render, this )
 			@model.bind( 'change:selected', @renderSelected, this )
 
 			@similarsView = new SimilarsView( collection: @model.similarsCollection )

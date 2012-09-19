@@ -42,10 +42,7 @@ define [
 		_getAudioUrl: ()->
 			proxy.getAudioUrl( @get( 'artist' ), @get( 'title' ) )
 				.done ( data )=>
-					# todo Менять artist title
-					audio = _.pick( data, 'aid', 'owner_id', 'url', 'duration' )
-
-					@set( audio: audio )
+					@set( audio: data )
 
 
 		select: ( selected )->

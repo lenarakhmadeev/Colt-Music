@@ -44,7 +44,7 @@ define [
 		getTrackInfo: ()->
 			proxy.getTrackInfo( @get( 'artist' ), @get( 'title' ) )
 				.done ( data )=>
-					@set( data )
+					@set( info: data )
 					@set( 'has_info', true )
 
 
