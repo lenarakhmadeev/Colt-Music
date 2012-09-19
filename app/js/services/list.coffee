@@ -49,6 +49,34 @@ define [
 		prev: ()->
 			console.log 'prev'
 
+			prev = if @currentTrack.get( 'type' ) == 'item'
+				@prevForItem()
+			else
+				@prevForSim()
+
+			prev.play()
+
+
+		prevForItem: ()->
+			prevItem = @prevInCollection( @currentTrack )
+
+			if prevItem.similarsCollection.length
+				prevItem.similarsCollection.last()
+			else
+				prevItem
+
+
+		prevForSim: ()->
+			if @currentTrack == @currentTrack.collection.first()
+				@currentTrack.collection.parent
+			else
+				@prevInCollection( @currentTrack )
+
+
+		prevInCollection: ( track )->
+			id = track.id - 1
+			track.collection.get( id )
+
 
 		# Устанавливает текущую запись
 		setCurrent: ( track )->
