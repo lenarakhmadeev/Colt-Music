@@ -19,7 +19,7 @@ define [
 			@jp.jPlayer
 				ready: ()=>
 					# todo&&
-					console.log 'ready'
+					# console.log 'ready'
 
 				swfPath: 'js/libs/jquery/jplayer'
 				wmode: 'window'

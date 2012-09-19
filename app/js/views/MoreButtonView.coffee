@@ -15,7 +15,7 @@ define [
 
 
 		initialize: ( options )->
-			@collection.bind( 'own:change:status', @render, this )
+			@collection.own.bind( 'change:status', @render, this )
 
 
 		serialize: ()->

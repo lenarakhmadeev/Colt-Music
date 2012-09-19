@@ -10,9 +10,7 @@ define(['jquery', 'services/mediator', 'jquery_jplayer'], function($, mediator) 
       var _this = this;
       this.jp = $('#jp');
       return this.jp.jPlayer({
-        ready: function() {
-          return console.log('ready');
-        },
+        ready: function() {},
         swfPath: 'js/libs/jquery/jplayer',
         wmode: 'window',
         volume: 1,

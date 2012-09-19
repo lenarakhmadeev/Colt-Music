@@ -19,7 +19,7 @@ define [
 		offset: 0
 		wait: false
 
-		getMoreSimilars: ()=>
+		getMoreSimilars: ()->
 			# todo если ошибка
 			return if @wait
 
