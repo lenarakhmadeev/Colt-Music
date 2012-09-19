@@ -42,6 +42,7 @@ define [
 			@_render.apply(this, arguments) if _.isFunction( @_render )
 
 			# Перепривязываем события DOM, которые определены декларативно
+			@undelegateEvents()
 			@delegateEvents()
 
 			# Так принято в Backbone

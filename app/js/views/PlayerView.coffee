@@ -23,9 +23,8 @@ define [
 
 		initialize: ( options )->
 			@model.on( 'change:played', @renderPlayed, this )
-			@model.on( 'change:type', @renderType, this )
-			@model.on( 'change:album_cover', @renderCover, this )
-			
+			@model.on( 'change:current', @renderCurrent, this )
+
 			@marqueeView = new MarqueeView( model: @model )
 
 
@@ -47,17 +46,21 @@ define [
 				@$( '.pause' ).fadeOut( 'slow' )
 
 
-		renderType: ()->
-			type = @model.get( 'type' )
+		renderCurrent: ()->
+			current = @model.get( 'current' )
+			@renderType( current.type )
+			@renderCover( current.images.large )
 
+
+		renderType: ( type )->
 			if type == 'item'
 				@$( '.PlayerAddButton' ).show( 500 )
 			else
 				@$( '.PlayerAddButton' ).hide( 500 )
 
 
-		renderCover: ()->
-			@$( '.PlayerBigImage' ).attr( 'src', @model.get( 'album_cover' ) )
+		renderCover: ( cover )->
+			@$( '.PlayerBigImage' ).attr( 'src', cover )
 
 
 

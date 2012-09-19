@@ -6,7 +6,10 @@ require.config
 	paths:
 		# Библиотеки
 		jquery: 'libs/jquery/jquery-1.8.0'
-		underscore: 'libs/underscore'
+		# http://lodash.com/
+		# http://underscorejs.org/
+		underscore: 'libs/lodash'
+		# http://backbonejs.ru/
 		backbone: 'libs/backbone'
 		json2: 'libs/json2'
 

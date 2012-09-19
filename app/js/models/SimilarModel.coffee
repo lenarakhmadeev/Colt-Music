@@ -1,49 +1,94 @@
 
 define [
+	'jquery'
+	'underscore'
 	'backbone'
 	'services/mediator'
 	'models/SimilarsCollection'
 	'services/proxy/proxy'
 	
-], ( Backbone, mediator, SimilarsCollection, proxy )->
+], ( $, _, Backbone, mediator, SimilarsCollection, proxy )->
 	
 	class SimilarModel extends Backbone.Model
 
 		defaults:
 			selected: false
 
-		getTrackInfo: ()->
-			return if @has( 'info' )
 
+		getTrackInfo: ()->
+			@_getTrackInfo() if not @has( 'info' )
+
+
+		_getTrackInfo: ()->
 			proxy.getTrackInfo( @get( 'artist' ), @get( 'title' ) )
 				.done ( data )=>
 					@set( info: data )
 
 
 		getAudioUrl: ()->
-			# todo
+			dfd = new $.Deferred()
+
 			if @has( 'audio' )
-				return @trigger( 'change:audio', this, @get( 'audio' ) )
+				dfd.resolve()
 
-			proxy.searchAudio( @get( 'artist' ), @get( 'title' ), 0, 1 )
+			@_getAudioUrl()
+				.done ()->
+					dfd.resolve()
+
+			dfd.promise()
+
+
+		_getAudioUrl: ()->
+			proxy.getAudioUrl( @get( 'artist' ), @get( 'title' ) )
 				.done ( data )=>
-					@set( audio: data[0] )
+					# todo Менять artist title
+					audio = _.pick( data, 'aid', 'owner_id', 'url', 'duration' )
+
+					@set( audio: audio )
 
 
-
+		# todo !!!
 		select: ( selected )->
 			@trigger( 'select', selected )
 
 
 		play: ()->
-			@on( 'change:audio', ()->
-				mediator.publish( 'player:play', this )
-				mediator.publish( 'list:current', this )
-
-			)
-
 			@getAudioUrl()
-			
+				.done ()=>
+					mediator.publish( 'player:play', this )
+					mediator.publish( 'list:current', this )
+
+
+		###
+			artist
+			title
+
+			info:
+				album
+				tags
+				wiki
+
+				images
+
+				loaded:
+
+
+			audio:
+				aid:
+				oid:
+				url
+
+				# artist
+				# title
+
+				duration
+
+			order
+			selected
+
+
+
+		###
 
 
 

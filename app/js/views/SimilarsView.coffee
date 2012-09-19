@@ -9,8 +9,6 @@ define [
 
 ], ( $, View, SimilarView, PhraseView, MoreButtonView, similarsTemplate )->
 
-	# todo Рендер "ещё": ЗАгрузка, можно еще, нельзя еще
-
 	class SimilarsView extends View
 
 		template: similarsTemplate
@@ -19,8 +17,8 @@ define [
 
 		events:
 			'click .ItemFooter': 'getMoreSimilars'
-		
-		
+
+
 		initialize: ( options )->
 			@collection.bind( 'add', @addItem, this )
 

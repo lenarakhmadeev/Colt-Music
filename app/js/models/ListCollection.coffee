@@ -16,7 +16,7 @@ define [
 
 		getAudio: ()->
 			#todo при обновлении не ресет а адд
-			proxy.getAudio()
+			proxy.getAudioList()
 				.done ( data )=>
 					@reset( data )
 

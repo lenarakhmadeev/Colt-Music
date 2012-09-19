@@ -40,10 +40,19 @@ define [
 		tags = keypath( data, 'track.toptags.tag', {} )
 		keyOrPluck( tags, 'name' ) || null
 
+	filterImages = (data)->
+		result = {}
+
+		for image in data
+			result[image.size] = image['#text']
+
+		result
+
+
 	filterSim = ( data )->
 		artist: keypath( data, 'artist.name' )
 		title: keypath( data, 'name' )
-		album_cover: keypath( data, 'image.1.#text' )
+		images: filterImages( keypath( data, 'image' ) )
 
 
 	infoFilter = ( data )->
@@ -98,19 +107,19 @@ define [
 			dfd.promise()
 
 
-		getSimilarTracks: (artist, title, offset, count)=>
+		getSimilarTracks: ( artist, title, offset, count )->
 			dfd = new $.Deferred()
 
-			@lastFm.getSimilarTracks(artist, title, offset + count)
-				.done (data, textStatus, jqXHR)=>
+			@lastFm.getSimilarTracks( artist, title, offset + count )
+				.done ( data, textStatus, jqXHR )->
 					if 'error' of data
-						dfd.reject(data.message)
+						dfd.reject( data.message )
 					else
-						result = similarFilter(data)[offset...]
-						dfd.resolve(result)
+						result = similarFilter( data )[ offset... ]
+						dfd.resolve( result )
 
-				.error (jqXHR, textStatus, message)->
-					dfd.reject(message)
+				.error ( jqXHR, textStatus, message )->
+					dfd.reject( message )
 
 			dfd.promise()
 
@@ -152,6 +161,19 @@ define [
 			dfd.promise()
 
 
+		getAudioUrl: ( artist, title )->
+			dfd = new $.Deferred()
+
+			@searchAudio( artist, title, 0, 1 )
+				.done ( data )->
+					dfd.resolve( data[0] )
+
+				.fail ()->
+					dfd.reject( arguments... )
+
+			dfd.promise()
+
+
 		addToWall: (audio_id, owner_id)=>
 			dfd = new $.Deferred()
 
@@ -184,7 +206,7 @@ define [
 
 
 
-		getAudio: ()->
+		getAudioList: ()->
 			dfd = new $.Deferred()
 
 			@vk.api 'audio.get', {}, (data)->

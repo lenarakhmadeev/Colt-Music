@@ -14,17 +14,20 @@ define [
 
 
 		play: ( model )->
-			@set( model.toJSON() )
+			@set( current: model.toJSON() )
+			@setPlayed( true )
 
-			@set( 'played', true )
-		
 
 		pause: ()->
-			@set( 'played', false )
+			@setPlayed( false )
 
 
 		resume: ()->
-			@set( 'played', true )
+			@setPlayed( true )
+
+
+		setPlayed: ( played )->
+			@set( 'played', played )
 
 
 
