@@ -38,18 +38,20 @@ define [
 
 		renderPhrase: ()->
 			@phraseView.render()
-			$( '.ItemDelim', @$el ).append( @phraseView.el )
+			@append( '.ItemDelim', @phraseView )
 
 
 		renderMoreButton: ()->
 			@moreButtonView.render()
-			$( '.ItemFooter', @$el ).append( @moreButtonView.el )
+			@append( '.ItemFooter', @moreButtonView )
 
 
 		addItem: (model)->
 			simView = new SimilarView( model: model )
 			simView.render()
-			$( '.ItemSimCont', @$el ).append( simView.el )	
+
+			@append( '.ItemSimCont', simView )
+
 
 		#------------------------------------------------
 

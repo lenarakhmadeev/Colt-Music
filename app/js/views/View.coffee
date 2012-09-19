@@ -50,5 +50,14 @@ define [
 
 
 		# Shortcut для добавления подвью в конец
-		append: ( view )->
-			@$el.append( view.el )
+		# view | selector, view
+		append: ()->
+			if arguments.length == 1
+				view = arguments[ 0 ]
+
+				@$el.append( view.el )
+			else
+				selector = arguments[ 0 ]
+				view = arguments[ 1 ]
+
+				@$( selector ).append( view.el )

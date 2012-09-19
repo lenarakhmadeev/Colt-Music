@@ -34,7 +34,7 @@ define [
 
 		renderMarquee: ()->
 			@marqueeView.render()
-			@$( '.trackinfo', @$el ).append( @marqueeView.el )
+			@append( '.trackinfo', @marqueeView )
 
 
 		renderPlayed: ()->
