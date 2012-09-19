@@ -1,10 +1,11 @@
 
 define [
+	'underscore'
 	'models/Collection'
 	'services/proxy/proxy'
 	'models/SimilarModel'
 	
-], ( Collection, proxy, SimilarModel )->
+], ( _, Collection, proxy, SimilarModel )->
 
 	class SimilarsCollection extends Collection
 
@@ -30,10 +31,19 @@ define [
 					status = if data.length < @count then 'no' else 'yes'
 					@setStatus( status )
 
-					@add( data )
+					_.each( data, @addRaw, this )
 
 				.fail ()=>
 					@setStatus( 'no' )
+
+
+		addRaw: ( data )->
+			data.info =
+				images: data.images
+
+			delete data.images
+
+			@add( data )
 
 
 		getArtist: ()->

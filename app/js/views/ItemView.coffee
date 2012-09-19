@@ -30,8 +30,6 @@ define [
 
 
 		renderSelected: ()->
-			console.log 'sell'
-
 			if @model.get( 'selected' )
 				@$el.addClass( 'selected' )
 			else
