@@ -48,8 +48,7 @@ define [
 
 
 		play: ( model )->
-			console.log 'play', model
-			@jp.jPlayer( 'setMedia', mp3 : model.get( 'url' ) or model.get( 'audio' ).url )
+			@jp.jPlayer( 'setMedia', mp3 : model.get( 'audio' ).url )
 			@jp.jPlayer( 'play' )
 
 

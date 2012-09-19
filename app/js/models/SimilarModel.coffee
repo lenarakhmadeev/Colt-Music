@@ -12,6 +12,7 @@ define [
 	class SimilarModel extends Backbone.Model
 
 		defaults:
+			type: 'similar'
 			selected: false
 
 
@@ -47,9 +48,8 @@ define [
 					@set( audio: audio )
 
 
-		# todo !!!
 		select: ( selected )->
-			@trigger( 'select', selected )
+			@set( 'selected', selected )
 
 
 		play: ()->
@@ -59,36 +59,7 @@ define [
 					mediator.publish( 'list:current', this )
 
 
-		###
-			artist
-			title
 
-			info:
-				album
-				tags
-				wiki
-
-				images
-
-				loaded:
-
-
-			audio:
-				aid:
-				oid:
-				url
-
-				# artist
-				# title
-
-				duration
-
-			order
-			selected
-
-
-
-		###
 
 
 

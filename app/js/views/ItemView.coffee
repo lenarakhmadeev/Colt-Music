@@ -17,8 +17,9 @@ define [
 
 
 		initialize: ( options )->
+			# todo !!!
 			@model.bind( 'change', @render, this )
-			@model.bind( 'select', @renderSelected, this )
+			@model.bind( 'change:selected', @renderSelected, this )
 
 			@similarsView = new SimilarsView( collection: @model.similarsCollection )
 
@@ -28,8 +29,10 @@ define [
 			@append( @similarsView )
 
 
-		renderSelected: ( selected )->
-			if selected
+		renderSelected: ()->
+			console.log 'sell'
+
+			if @model.get( 'selected' )
 				@$el.addClass( 'selected' )
 			else
 				@$el.removeClass( 'selected' )

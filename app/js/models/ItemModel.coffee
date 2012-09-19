@@ -9,8 +9,30 @@ define [
 	
 	class ItemModel extends Backbone.Model
 
+		###
+			 artist
+			 title
+
+			 info:
+				 album
+				 tags
+				 wiki
+ 				 images
+ 				 loaded
+
+			 audio:
+				 aid:
+				 oid:
+				 url
+				 duration
+
+			 order
+			 selected
+		 ###
+
 		defaults:
 			type: 'item'
+			selected: false
 			has_info: false
 
 
@@ -35,7 +57,7 @@ define [
 
 
 		select: ( selected )->
-			@trigger( 'select', selected )
+			@set( 'selected', selected )
 
 
 		play: ()->

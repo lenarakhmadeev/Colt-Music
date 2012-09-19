@@ -16,15 +16,15 @@ define [
 
 
 		initialize: ( options )->
-			@model.bind( 'select', @renderSelected, this )
+			@model.bind( 'change:selected', @renderSelected, this )
 
 
-		renderSelected: ( selected )->
-			if selected
+		renderSelected: ()->
+			if @model.get ( 'selected' )
 				@$el.addClass( 'selected' )
 			else
 				@$el.removeClass( 'selected' )
-			
+
 
 		play: ()->
 			@model.play()
