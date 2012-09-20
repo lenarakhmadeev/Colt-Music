@@ -23,8 +23,8 @@ define [
 			
 
 		serialize: ()->
-			page = @model.get( 'page' )
-			pages = @model.pagesCount()
+			page = @collection.own.get( 'page' )
+			pages = @collection.pagesCount()
 
 			data =
 				pages: []
@@ -56,7 +56,7 @@ define [
 
 
 		getTargetPage: ( event )->
-			$(event.target).data('page')
+			$( event.target ).data( 'page' )
 
 
 

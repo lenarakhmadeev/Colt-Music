@@ -5,10 +5,10 @@ define [
 	'models/PlayerModel'
 	'views/PlayerView'
 
-	'models/ListModel'
+	'models/ListCollection'
 	'views/ListView'
 
-], ( View, PlayerModel, PlayerView, ListModel, ListView )->
+], ( View, PlayerModel, PlayerView, ListCollection, ListView )->
 
 	'use strict'
 
@@ -32,8 +32,8 @@ define [
 
 
 		initList: ()->
-			listModel = new ListModel()
-			listModel.getAudio()
+			listCollection = new ListCollection()
+			listCollection.getAudio()
 
-			@listView = new ListView( model: listModel )
+			@listView = new ListView( collection: listCollection )
 			@listView.render()

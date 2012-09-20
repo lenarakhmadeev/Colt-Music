@@ -14,9 +14,9 @@ define [
 		className: 'ListCont'
 
 		initialize: ( options )->
-			@model.bind( 'change:content', @render, this )
+			@collection.own.bind( 'change:content', @render, this )
 
-			@navigationView = new NavigationView( model: @model )
+			@navigationView = new NavigationView( collection: @collection )
 
 
 		_render: ()->
@@ -30,7 +30,7 @@ define [
 
 
 		renderItems: ()->
-			content = @model.get( 'content' )
+			content = @collection.own.get( 'content' )
 			_.each( content, @addItem, this )
 
 

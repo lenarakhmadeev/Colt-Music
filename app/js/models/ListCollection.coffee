@@ -1,19 +1,26 @@
 
 define [
-	'backbone'
+	'models/Collection'
 	'models/ItemModel'
+	'services/mediator'
 	'services/proxy/proxy'
-	
-], ( Backbone, ItemModel, proxy )->
+
+], ( Collection, ItemModel, mediator, proxy )->
 
 	'use strict'
 
-	class ListCollection extends Backbone.Collection
+	class ListCollection extends Collection
 
 		model: ItemModel
 
 		initialize: ( models, options )->
-			@on( 'reset add', @makeModelsIds, this )
+			@own.set
+				page: 0
+				loaded: false
+
+			@bind( 'reset', @collectionReset, this )
+
+			mediator.subscribe( 'load:page', @loadPage, this )
 
 
 		getAudio: ()->
@@ -23,10 +30,32 @@ define [
 					@reset( data )
 
 
-		makeModelsIds: ()->
-			id = 1
-			for model in @models
-				model.set( 'id', id )
-				id++
+		collectionReset: ()->
+			@own.set( 'loaded', true )
+			@loadPage( @own.get( 'page' ) )
+
+
+		loadPage: ( page )->
+			@own.set( 'page', page )
+
+			if @own.get( 'loaded' )
+				@own.set( 'content', @getPage( page ) )
+
+
+		pageSize: 5
+
+
+		getPage: ( page )->
+			start = page * @pageSize
+			end = ( page + 1 ) * @pageSize
+			@[start...end]
+
+
+		pagesCount: ()->
+			Math.ceil( @length / @pageSize )
+
+
+
+
 
 

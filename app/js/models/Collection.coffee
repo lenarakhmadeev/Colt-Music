@@ -11,13 +11,13 @@ define [
 
 		# Переопределяем constructor, а не initialize, чтобы не вызывать super
 		constructor: ()->
-			super( arguments... )
-
 			# Простая модель для хранения аттрибутов модели
 			@own = new Backbone.Model()
 
 			# Пересчитываем порядок при любом изменении коллекции
 			@on( 'reset add remove', @makeModelsId, this )
+
+			super( arguments... )
 
 
 		# Пересчитывает порядок моделей
