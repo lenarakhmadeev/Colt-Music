@@ -20,30 +20,48 @@ define [
 		next: ()->
 			console.log 'next'
 
-			next = if @currentTrack.get( 'type' ) == 'item'
-				@nextForItem()
+			if @currentTrack.get( 'type' ) == 'item'
+				next = @nextForItem()
 			else
-				@nextForSim()
+				next = @nextForSim()
 
 			next.play()
 
 
 		nextForItem: ()->
 			if @currentTrack.similarsCollection.length
-				@currentTrack.similarsCollection.at( 0 )
+				next = @currentTrack.similarsCollection.at( 0 )
 			else
-				@nextInCollection( @currentTrack )
+				next = @nextInCollection( @currentTrack )
+
+				#
+				@checkLast( @currentTrack )
+
+			next
 
 		nextForSim: ()->
 			if @currentTrack == @currentTrack.collection.last()
-				@nextInCollection( @currentTrack.collection.parent )
+				next = @nextInCollection( @currentTrack.collection.parent )
+
+				#
+
+				@checkLast( @currentTrack.collection.parent )
 			else
-				@nextInCollection( @currentTrack )
+				next = @nextInCollection( @currentTrack )
+
+			next
 
 
 		nextInCollection: ( track )->
 			id = track.id + 1
 			track.collection.get( id )
+
+
+
+		checkLast: ( track )->
+			if track.collection.isLastInPage( track )
+				track.collection.nextPage()
+
 
 		# Проигрывание предыдущей записи
 		prev: ()->

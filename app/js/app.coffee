@@ -24,7 +24,7 @@
 
 
 	+привести модели к единому виду, чтобы их можно было проигрываить
-	Наследовать ListCollection от Collection
+	+Наследовать ListCollection от Collection
 	+размер приложения
 	+use strict
 

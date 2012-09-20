@@ -1,11 +1,12 @@
 
 define [
+	'underscore'
 	'models/Collection'
 	'models/ItemModel'
 	'services/mediator'
 	'services/proxy/proxy'
 
-], ( Collection, ItemModel, mediator, proxy )->
+], ( _, Collection, ItemModel, mediator, proxy )->
 
 	'use strict'
 
@@ -55,7 +56,14 @@ define [
 			Math.ceil( @length / @pageSize )
 
 
+		isLastInPage: ( track )->
+			console.log _.last( @own.get( 'content' )), track
+			_.last( @own.get( 'content' ) ) == track
 
 
+		nextPage: ()->
+			@loadPage( @own.get( 'page' ) + 1 )
 
 
+		prevPage: ()->
+			@loadPage( @own.get( 'page' ) - 1 )
