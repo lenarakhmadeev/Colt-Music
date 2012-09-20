@@ -22,6 +22,7 @@ require.config
 		jquery_jscroller: 'libs/jquery/jquery-scroller-v1.src'
 
 		# Плагины Backbone
+		# http://afeld.github.com/backbone-nested/
 		backbone_nested: 'libs/backbone/backbone-nested'
 
 		# Плагины requirejs

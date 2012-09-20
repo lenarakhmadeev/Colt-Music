@@ -3,101 +3,14 @@ define [
 	'jquery'
 	'module'
 	'underscore'
-	'services/proxy/lastFm'
+	'services/proxy/LastFm'
+	'services/proxy/lastFmFilters'
 	'vk'
-], ( $, module, _, LastFm, vk )->
+	'services/proxy/vkFilters'
+
+], ( $, module, _, LastFm, lastFmFilters, vk, vkFilters )->
 
 	'use strict'
-
-	keypath = ( object, keypath, _default = null )->
-		keypath = if _.isNumber( keypath ) then '' + keypath else keypath
-		keys = if _.isString( keypath ) then keypath.split( "." ) else keypath
-		result = object
-		for key in keys
-			if _.isObject( result ) and key of result
-				result = result[ key ]
-			else
-				result = _default
-				break
-
-		result
-
-
-
-
-
-
-
-	keyOrPluck = ( data, key )->
-		# переделать
-		if data == null
-			return null
-
-		if _.isArray( data )
-			_.pluck( data, key )
-		else
-			[ data[ key ] ]
-
-	filterTags = ( data )->
-		tags = keypath( data, 'track.toptags.tag', {} )
-		keyOrPluck( tags, 'name' ) || null
-
-	filterImages = (data)->
-		result = {}
-
-		for image in data
-			result[image.size] = image['#text']
-
-		result
-
-
-	filterSim = ( data )->
-		artist: keypath( data, 'artist.name' )
-		title: keypath( data, 'name' )
-		images: filterImages( keypath( data, 'image' ) )
-
-
-	infoFilter = ( data )->
-		album: keypath( data, 'track.album.title' )
-		images: filterImages( keypath( data, 'track.album.image' ) )
-		tags: filterTags( data )
-		wiki: keypath( data, 'track.wiki' ) # todo посмотреть подробнее
-
-	similarFilter = ( data )->
-		temp = keypath( data, 'similartracks.track' )
-		if _.isString( temp )
-			return []
-
-		tracks = if _.isArray(temp) then temp else [ temp ]
-
-		_.map( tracks, filterSim )
-
-	searchAudioFilter = ( data )->
-		data.slice( 1 )
-
-
-	audioItemFilter = ( data )->
-		result = _.pick( data, 'artist', 'title' )
-		result.audio = _.pick( data, 'aid', 'owner_id', 'url', 'duration' )
-
-		result
-
-
-	getAudioFilter = ( data )->
-		console.log 'dataFilter.getAudio', arguments
-
-		_.map( data, audioItemFilter )
-
-
-
-
-
-
-
-
-
-
-
 
 	class Proxy
 
@@ -106,15 +19,15 @@ define [
 		getTrackInfo: (artist, title)=>
 			dfd = new $.Deferred()
 
-			@lastFm.getTrackInfo(artist, title)
-				.done (data, textStatus, jqXHR)=>
+			@lastFm.getTrackInfo( artist, title )
+				.done ( data, textStatus, jqXHR )->
 					if 'error' of data
-						dfd.reject(data.message)
+						dfd.reject( data.message )
 					else
-						dfd.resolve(infoFilter(data))
+						dfd.resolve( lastFmFilters.info( data ) )
 
-				.error (jqXHR, textStatus, message)->
-					dfd.reject(message)
+				.error ( jqXHR, textStatus, message )->
+					dfd.reject( message )
 
 			dfd.promise()
 
@@ -127,7 +40,7 @@ define [
 					if 'error' of data
 						dfd.reject( data.message )
 					else
-						result = similarFilter( data )[ offset... ]
+						result = lastFmFilters.similar( data )[ offset... ]
 						dfd.resolve( result )
 
 				.error ( jqXHR, textStatus, message )->
@@ -136,19 +49,19 @@ define [
 			dfd.promise()
 
 
-		getArtistTopTracks: (artist, offset, count)=>
+		getArtistTopTracks: (artist, offset, count)->
 			dfd = new $.Deferred()
 
 			@lastfmApi.getArtistTopTracks(artist, 1, offset + count)
-				.done (data, textStatus, jqXHR)=>
+				.done (data, textStatus, jqXHR)->
 					if 'error' of data
-						dfd.reject(data.message)
+						dfd.reject( data.message )
 					else
-						result = topTracksFilter(data)[offset...]
-						dfd.resolve(result)
+						result = lastFmFilters.topTracks( data )[ offset... ]
+						dfd.resolve( result )
 
-				.error (jqXHR, textStatus, message)->
-					dfd.reject(message)
+				.error ( jqXHR, textStatus, message )->
+					dfd.reject( message )
 
 			dfd.promise()
 
@@ -157,17 +70,17 @@ define [
 			dfd = new $.Deferred()
 
 			params =
-				q: "#{artist} - #{title}"
+				q: "#{ artist } - #{ title }"
 				sort: 2
 				auto_complete: 1
 				count: count
 				offset: offset
 
-			@vk.api 'audio.search', params, (data)->
+			@vk.api 'audio.search', params, ( data )->
 				if 'error' of data
 					dfd.reject( data.error )
 				else
-					result = searchAudioFilter( data.response )
+					result = vkFilters.searchAudio( data.response )
 					dfd.resolve( result )
 
 			dfd.promise()
@@ -187,17 +100,17 @@ define [
 			dfd.promise()
 
 
-		addToWall: (audio_id, owner_id)=>
+		addToWall: ( audio_id, owner_id )=>
 			dfd = new $.Deferred()
 
 			params =
-				attachments: "audio#{owner_id}_#{audio_id}"
+				attachments: "audio#{ owner_id }_#{ audio_id }"
 
-			@vk.api 'audio.add', params, (data)->
-				if keypath(data, 'error')?
-					dfd.reject(data.error_msg)
+			@vk.api 'audio.add', params, ( data )->
+				if keypath( data, 'error' )?
+					dfd.reject( data.error_msg )
 				else
-					dfd.resolve(data.response)
+					dfd.resolve( data.response )
 
 			dfd.promise()
 
@@ -226,7 +139,7 @@ define [
 				if 'error' of data
 					dfd.reject( data.error )
 				else
-					dfd.resolve( getAudioFilter(data.response) )
+					dfd.resolve( vkFilters.getAudio( data.response ) )
 
 			dfd.promise()
 

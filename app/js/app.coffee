@@ -30,7 +30,7 @@
 
 	+list грузить след страницу
 
-	undefined в шаблонах
+	+undefined в шаблонах
 
 	proxy jpath
 
