@@ -9,6 +9,8 @@ define [
 
 ], ( $, View, SimilarView, PhraseView, MoreButtonView, similarsTemplate )->
 
+	'use strict'
+
 	class SimilarsView extends View
 
 		template: similarsTemplate

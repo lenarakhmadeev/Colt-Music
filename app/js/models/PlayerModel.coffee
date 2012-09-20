@@ -5,6 +5,8 @@ define [
 
 ], ( Backbone, mediator )->
 
+	'use strict'
+
 	class PlayerModel extends Backbone.Model
 
 		initialize: ( attributes, options )->

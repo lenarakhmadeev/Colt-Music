@@ -3,6 +3,8 @@ define [
 	'jquery'
 ], ( $ )->
 
+	'use strict'
+
 	class LastFm
 
 		constructor: ( @api_key, @api_url )->

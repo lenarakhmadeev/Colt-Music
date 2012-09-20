@@ -7,6 +7,8 @@ define [
 	'vk'
 ], ( $, module, _, LastFm, vk )->
 
+	'use strict'
+
 	keypath = ( object, keypath, _default = null )->
 		keypath = if _.isNumber( keypath ) then '' + keypath else keypath
 		keys = if _.isString( keypath ) then keypath.split( "." ) else keypath

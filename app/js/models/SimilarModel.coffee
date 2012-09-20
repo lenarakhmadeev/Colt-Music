@@ -8,7 +8,9 @@ define [
 	'services/proxy/proxy'
 	
 ], ( $, _, Backbone, mediator, SimilarsCollection, proxy )->
-	
+
+	'use strict'
+
 	class SimilarModel extends Backbone.Model
 
 		defaults:

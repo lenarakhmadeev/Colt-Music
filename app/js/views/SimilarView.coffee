@@ -5,6 +5,8 @@ define [
 	
 ], ( View, similarTemplate )->
 
+	'use strict'
+
 	class SimilarView extends View
 
 		template: similarTemplate

@@ -4,6 +4,8 @@ define [
 
 ], ( View )->
 
+	'use strict'
+
 	# Фразы, если что-то найдено
 	yes_phrases = [
 		'Похожее',

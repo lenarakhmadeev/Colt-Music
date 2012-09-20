@@ -7,6 +7,8 @@ define [
 	
 ], ( _, View, ItemView, NavigationView )->
 
+	'use strict'
+
 	class ListView extends View
 
 		className: 'ListCont'

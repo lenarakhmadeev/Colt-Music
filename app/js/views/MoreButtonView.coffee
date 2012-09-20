@@ -5,6 +5,8 @@ define [
 
 ], (View, moreTemplate)->
 
+	'use strict'
+
 	class MoreButtonView extends View
 
 		template: moreTemplate

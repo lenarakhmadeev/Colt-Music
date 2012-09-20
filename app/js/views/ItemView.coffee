@@ -5,7 +5,9 @@ define [
 	'tpl!templates/item.html'
 	
 ], ( View, SimilarsView, itemTemplate )->
-	
+
+	'use strict'
+
 	class ItemView extends View
 
 		template: itemTemplate

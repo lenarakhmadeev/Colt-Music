@@ -3,7 +3,9 @@ define [
 	'jquery'
 	'views/View'
 
-], ($, View)->
+], ( $, View )->
+
+	'use strict'
 
 	class MarqueeView extends View
 

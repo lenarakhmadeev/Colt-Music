@@ -7,6 +7,8 @@ define [
 	
 ], ( View, mediator, MarqueeView, playerTemplate )->
 
+	'use strict'
+
 	class PlayerView extends View
 
 		template: playerTemplate

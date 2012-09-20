@@ -6,7 +6,9 @@ define [
 	'services/proxy/proxy'
 	
 ], ( Backbone, mediator, SimilarsCollection, proxy )->
-	
+
+	'use strict'
+
 	class ItemModel extends Backbone.Model
 
 		###

@@ -10,6 +10,8 @@ define [
 
 ], ( View, PlayerModel, PlayerView, ListModel, ListView )->
 
+	'use strict'
+
 	class AppView extends View
 
 		initialize: ( options )->

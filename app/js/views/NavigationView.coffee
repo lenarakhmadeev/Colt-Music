@@ -7,6 +7,8 @@ define [
 	
 ], ( $, mediator, View, navigationTemplate )->
 
+	'use strict'
+
 	class NavigationView extends View
 
 		template: navigationTemplate

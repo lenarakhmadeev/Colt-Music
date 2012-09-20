@@ -4,9 +4,9 @@ define [
 
 ], ( Backbone )->
 
-	###
-		Упорядоченная коллекция со своими аттрибутами
-	###
+	'use strict'
+
+	# Упорядоченная коллекция со своими аттрибутами
 	class Collection extends Backbone.Collection
 
 		# Переопределяем constructor, а не initialize, чтобы не вызывать super

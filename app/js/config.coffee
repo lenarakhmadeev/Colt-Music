@@ -1,4 +1,6 @@
 
+'use strict'
+
 require.config
 	# Начальная точка приложения
 	deps: [ 'app' ]

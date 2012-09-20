@@ -6,6 +6,8 @@ define [
 
 ], ( $, mediator )->
 
+	'use strict'
+
 	player =
 
 		init: ()->

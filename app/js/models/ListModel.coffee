@@ -6,6 +6,8 @@ define [
 	
 ], ( Backbone, mediator, ListCollection )->
 
+	'use strict'
+
 	class ListModel extends Backbone.Model
 
 		defaults:

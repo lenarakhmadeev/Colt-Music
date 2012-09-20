@@ -6,6 +6,8 @@ define [
 	
 ], ( Backbone, ItemModel, proxy )->
 
+	'use strict'
+
 	class ListCollection extends Backbone.Collection
 
 		model: ItemModel

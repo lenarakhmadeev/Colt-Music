@@ -7,6 +7,8 @@ define [
 	
 ], ( _, Collection, proxy, SimilarModel )->
 
+	'use strict'
+
 	class SimilarsCollection extends Collection
 
 		model: SimilarModel
