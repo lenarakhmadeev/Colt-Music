@@ -1,17 +1,17 @@
 
 define [
 	'jquery'
-	'underscore'
 	'backbone'
 	'services/mediator'
 	'models/SimilarsCollection'
 	'services/proxy/proxy'
+	'backbone_nested'
 	
-], ( $, _, Backbone, mediator, SimilarsCollection, proxy )->
+], ( $, Backbone, mediator, SimilarsCollection, proxy )->
 
 	'use strict'
 
-	class SimilarModel extends Backbone.Model
+	class SimilarModel extends Backbone.NestedModel
 
 		defaults:
 			type: 'similar'

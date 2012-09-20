@@ -4,12 +4,13 @@ define [
 	'services/mediator'
 	'models/SimilarsCollection'
 	'services/proxy/proxy'
+	'backbone_nested'
 	
 ], ( Backbone, mediator, SimilarsCollection, proxy )->
 
 	'use strict'
 
-	class ItemModel extends Backbone.Model
+	class ItemModel extends Backbone.NestedModel
 
 		###
 			 artist

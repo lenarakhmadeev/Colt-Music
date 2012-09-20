@@ -24,7 +24,7 @@ define [
 		# Рендерит шаблон, который объявлен декларативно
 		renderTemplate: ()->
 			# Все кладем в ключ data, для удобства в шаблонизаторе
-			@template( data: @serialize() ) if @template
+			@template( @serialize() ) if @template
 
 
 		# Выполняет наиболее общий случай рендера

@@ -1,35 +1,28 @@
 
 <div class="ItemHeader">
-
-    <% var info = data.info || {}; %>
-    <% if (info.images) { var cover = data.info.images.large; } %>
-
-	<img class="BigImg" src="<%= cover || 'images/big.png' %>" />
+	<img class="BigImg" src="<%= cover %>" />
 
 	<div class="BigImgShadow"></div>
 
 	<div class="ItemInfoCont">
 			<div class="ItemTitle">
-				<span class="ItemArtist"><%= data.artist %></span>&nbsp;&mdash;&nbsp;<%= data.title %>
+				<span class="ItemArtist"><%= artist %></span>&nbsp;&mdash;&nbsp;<%= title %>
 			</div>
 
 		<div class="ItemButtoms">
 			<div class="ItemPlayB"></div>
 			<div class="ItemAlbumCont">
-				<% if (info.album) { %>
+				<% if (album) { %>
 					<span class="ItemAlbum">
-						<span class="ItemAlbumTitle">Альбом:&nbsp;</span><%= info.album %>
+						<span class="ItemAlbumTitle">Альбом:&nbsp;</span><%= album %>
 					</span>
 				<% } %>
 
-				<% if (info.tags) { %>
+				<% if (tags) { %>
 					<span class="ItemTags">
-						<span class="ItemTagsTitle">Жанры:&nbsp;</span><%= info.tags.join(', ') %>
+						<span class="ItemTagsTitle">Жанры:&nbsp;</span><%= tags %>
 					</span>
 				<% } %>
-
-				<a href="<%= data.audio.url %>">Скачать!</a>
-
 			</div>
 		</div>
 	</div>

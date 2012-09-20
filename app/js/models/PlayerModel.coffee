@@ -16,7 +16,7 @@ define [
 
 
 		play: ( model )->
-			@set( current: model.toJSON() )
+			@set( current: model )
 			@setPlayed( true )
 
 

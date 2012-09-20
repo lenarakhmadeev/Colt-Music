@@ -12,12 +12,17 @@ require.config
 		# http://underscorejs.org/
 		underscore: 'libs/lodash'
 		# http://backbonejs.ru/
-		backbone: 'libs/backbone'
+		backbone: 'libs/backbone/backbone'
 		json2: 'libs/json2'
+		# https://github.com/artjock/jpath
+		jpath: 'libs/jpath'
 
 		# Плагины jquery
 		jquery_jplayer: 'libs/jquery/jplayer/jquery.jplayer.min'
 		jquery_jscroller: 'libs/jquery/jquery-scroller-v1.src'
+
+		# Плагины Backbone
+		backbone_nested: 'libs/backbone/backbone-nested'
 
 		# Плагины requirejs
 		text: 'libs/requirejs/text'
@@ -32,6 +37,9 @@ require.config
 
 	# Загрузка не AMD модулей
 	shim:
+		backbone_nested:
+			deps: [ 'backbone' ]
+
 		backbone: 
 			deps: [ 'jquery', 'underscore', 'json2' ]
 			exports: 'Backbone'
@@ -47,6 +55,9 @@ require.config
 
 		jquery_jscroller:
 			deps: [ 'jquery' ]
+
+		jpath:
+			exports: 'jpath'
 
 	# Константы для модулей
 	config:

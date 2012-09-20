@@ -22,8 +22,8 @@ define [
 
 			return '' if not current?
 
-			time = @convertTime( current.audio.duration )
-			"#{ time } #{ current.artist } - #{ current.title }"
+			time = @convertTime( current.get( 'audio.duration' ) )
+			"#{ time } #{ current.get( 'artist' ) } - #{ current.get( 'title' ) }"
 
 
 		convertTime: ( totalSec, separator = ':' )->

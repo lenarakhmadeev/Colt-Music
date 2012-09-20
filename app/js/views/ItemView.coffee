@@ -25,6 +25,14 @@ define [
 			@similarsView = new SimilarsView( collection: @model.similarsCollection )
 
 
+		serialize: ()->
+			artist: @model.get( 'artist' )
+			title: @model.get( 'title' )
+			cover: @model.get( 'info.images.large' ) or 'images/big.png'
+			album: @model.get( 'info.album' )
+			tags: ( @model.get( 'info.tags' ) or [] ).join(', ')
+
+
 		_render: ()->
 			@similarsView.render()
 			@append( @similarsView )
