@@ -31,20 +31,20 @@ define [
 			minutes = parseInt( totalSec / 60 ) % 60
 			seconds = totalSec % 60
 
-			r = []
+			result = []
 
 			if hours > 0
-				r.push( hours )
-				r.push( @formatTime( minutes ) )
-				r.push( @formatTime( seconds ) )
+				result.push( hours )
+				result.push( @formatTime( minutes ) )
+				result.push( @formatTime( seconds ) )
 			else
 				if minutes > 0
-					r.push( minutes )
-					r.push( @formatTime( seconds ) )
+					result.push( minutes )
+					result.push( @formatTime( seconds ) )
 				else
-					r.push( seconds )
+					result.push( seconds )
 
-			r.join( separator )
+			result.join( separator )
 
 
 		formatTime: ( time )->

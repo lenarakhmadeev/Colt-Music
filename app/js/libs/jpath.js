@@ -37,9 +37,10 @@ var jpath = function(json, path) {
     }
 
     // делаем, чтобы jpath всегда возвращал массив,
-    // если ничего не найдено, то пустой массив
+    // если ничего не найдено, то null
+    // Важно!!!
     if (res === jpath.nf) {
-        return [];
+        return null;
     } else if (!jpath.util.isArray(res)) {
         return [res];
     } else {

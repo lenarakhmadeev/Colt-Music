@@ -12,27 +12,6 @@ define [
 
 	class ItemModel extends Backbone.NestedModel
 
-		###
-			 artist
-			 title
-
-			 info:
-				 album
-				 tags
-				 wiki
- 				 images
- 				 loaded
-
-			 audio:
-				 aid:
-				 oid:
-				 url
-				 duration
-
-			 id
-			 selected
-		 ###
-
 		defaults:
 			type: 'item'
 			selected: false
@@ -66,9 +45,4 @@ define [
 		play: ()->
 			mediator.publish( 'player:play', this )
 			mediator.publish( 'list:current', this )
-
-
-
-
-
 

@@ -14,9 +14,9 @@ define [
 
 	class Proxy
 
-		constructor: (@lastFm, @vk)->
+		constructor: ( @lastFm, @vk )->
 
-		getTrackInfo: (artist, title)=>
+		getTrackInfo: ( artist, title )->
 			dfd = new $.Deferred()
 
 			@lastFm.getTrackInfo( artist, title )
@@ -49,11 +49,11 @@ define [
 			dfd.promise()
 
 
-		getArtistTopTracks: (artist, offset, count)->
+		getArtistTopTracks: ( artist, offset, count )->
 			dfd = new $.Deferred()
 
-			@lastfmApi.getArtistTopTracks(artist, 1, offset + count)
-				.done (data, textStatus, jqXHR)->
+			@lastfmApi.getArtistTopTracks( artist, 1, offset + count )
+				.done ( data, textStatus, jqXHR )->
 					if 'error' of data
 						dfd.reject( data.message )
 					else
@@ -66,7 +66,7 @@ define [
 			dfd.promise()
 
 
-		searchAudio: (artist, title, offset, count)=>
+		searchAudio: ( artist, title, offset, count )->
 			dfd = new $.Deferred()
 
 			params =
@@ -91,7 +91,7 @@ define [
 
 			@searchAudio( artist, title, 0, 1 )
 				.done ( data )->
-					audio = _.pick( data[0], 'aid', 'owner_id', 'url', 'duration' )
+					audio = _.pick( data[ 0 ], 'aid', 'owner_id', 'url', 'duration' )
 					dfd.resolve( audio )
 
 				.fail ()->
@@ -100,7 +100,7 @@ define [
 			dfd.promise()
 
 
-		addToWall: ( audio_id, owner_id )=>
+		addToWall: ( audio_id, owner_id )->
 			dfd = new $.Deferred()
 
 			params =
@@ -115,18 +115,18 @@ define [
 			dfd.promise()
 
 
-		addToAudio: (audio_id, owner_id)=>
+		addToAudio: (audio_id, owner_id)->
 			dfd = new $.Deferred()
 
 			params =
 				aid: audio_id
 				oid: owner_id
 
-			@vk.api 'audio.add', params, (data)->
-				if keypath(data, 'error')?
-					dfd.reject(data.error_msg)
+			@vk.api 'audio.add', params, ( data )->
+				if keypath( data, 'error' )?
+					dfd.reject( data.error_msg )
 				else
-					dfd.resolve(data.response)
+					dfd.resolve( data.response )
 
 			dfd.promise()
 
@@ -148,6 +148,6 @@ define [
 
 	#--------------------------------------------------------
 	config = module.config()
-	lastFm = new LastFm(config.lastFm_key, config.lastFm_url)
+	lastFm = new LastFm( config.lastFm_key, config.lastFm_url )
 
-	proxy = new Proxy(lastFm, vk)
+	proxy = new Proxy( lastFm, vk )
