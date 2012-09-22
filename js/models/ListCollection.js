@@ -1,7 +1,9 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['backbone', 'models/ItemModel', 'proxy'], function(Backbone, ItemModel, proxy) {
+define(['underscore', 'models/Collection', 'models/ItemModel', 'services/mediator', 'services/proxy/proxy'], function(_, Collection, ItemModel, mediator, proxy) {
+  'use strict';
+
   var ListCollection;
   return ListCollection = (function(_super) {
 
@@ -14,30 +16,60 @@ define(['backbone', 'models/ItemModel', 'proxy'], function(Backbone, ItemModel, 
     ListCollection.prototype.model = ItemModel;
 
     ListCollection.prototype.initialize = function(models, options) {
-      return this.on('reset add', this.makeModelsIds, this);
+      this.own.set({
+        page: 0,
+        loaded: false
+      });
+      this.bind('reset', this.collectionReset, this);
+      return mediator.subscribe('load:page', this.loadPage, this);
     };
 
     ListCollection.prototype.getAudio = function() {
       var _this = this;
-      return proxy.getAudio().done(function(data) {
+      return proxy.getAudioList().done(function(data) {
         return _this.reset(data);
       });
     };
 
-    ListCollection.prototype.makeModelsIds = function() {
-      var id, model, _i, _len, _ref, _results;
-      id = 1;
-      _ref = this.models;
-      _results = [];
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        model = _ref[_i];
-        model.set('id', id);
-        _results.push(id++);
+    ListCollection.prototype.collectionReset = function() {
+      this.own.set('loaded', true);
+      return this.loadPage(this.own.get('page'));
+    };
+
+    ListCollection.prototype.loadPage = function(page) {
+      this.own.set('page', page);
+      if (this.own.get('loaded')) {
+        return this.own.set('content', this.getPage(page));
       }
-      return _results;
+    };
+
+    ListCollection.prototype.pageSize = 5;
+
+    ListCollection.prototype.getPage = function(page) {
+      var end, start;
+      start = page * this.pageSize;
+      end = (page + 1) * this.pageSize;
+      return this.slice(start, end);
+    };
+
+    ListCollection.prototype.pagesCount = function() {
+      return Math.ceil(this.length / this.pageSize);
+    };
+
+    ListCollection.prototype.isLastInPage = function(track) {
+      console.log(_.last(this.own.get('content')), track);
+      return _.last(this.own.get('content')) === track;
+    };
+
+    ListCollection.prototype.nextPage = function() {
+      return this.loadPage(this.own.get('page') + 1);
+    };
+
+    ListCollection.prototype.prevPage = function() {
+      return this.loadPage(this.own.get('page') - 1);
     };
 
     return ListCollection;
 
-  })(Backbone.Collection);
+  })(Collection);
 });

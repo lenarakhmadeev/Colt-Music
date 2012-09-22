@@ -1,5 +1,7 @@
 
-define(['jquery', 'mediator', 'jquery_jplayer'], function($, mediator) {
+define(['jquery', 'services/mediator', 'jquery_jplayer'], function($, mediator) {
+  'use strict';
+
   var player;
   return player = {
     init: function() {
@@ -10,9 +12,7 @@ define(['jquery', 'mediator', 'jquery_jplayer'], function($, mediator) {
       var _this = this;
       this.jp = $('#jp');
       return this.jp.jPlayer({
-        ready: function() {
-          return console.log('ready');
-        },
+        ready: function() {},
         swfPath: 'js/libs/jquery/jplayer',
         wmode: 'window',
         volume: 1,
@@ -37,9 +37,8 @@ define(['jquery', 'mediator', 'jquery_jplayer'], function($, mediator) {
       return mediator.subscribe('player:resume', this.resume, this);
     },
     play: function(model) {
-      console.log('play', model);
       this.jp.jPlayer('setMedia', {
-        mp3: model.get('url') || model.get('audio').url
+        mp3: model.get('audio').url
       });
       return this.jp.jPlayer('play');
     },

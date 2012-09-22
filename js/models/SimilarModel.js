@@ -1,7 +1,9 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['backbone', 'mediator', 'models/SimilarsCollection', 'proxy'], function(Backbone, mediator, SimilarsCollection, proxy) {
+define(['jquery', 'backbone', 'services/mediator', 'models/SimilarsCollection', 'services/proxy/proxy', 'backbone_nested'], function($, Backbone, mediator, SimilarsCollection, proxy) {
+  'use strict';
+
   var SimilarModel;
   return SimilarModel = (function(_super) {
 
@@ -12,14 +14,33 @@ define(['backbone', 'mediator', 'models/SimilarsCollection', 'proxy'], function(
     }
 
     SimilarModel.prototype.defaults = {
-      selected: false
+      artist: null,
+      title: null,
+      selected: false,
+      type: 'similar',
+      has_info: false,
+      info: {
+        wiki: null,
+        album: null,
+        images: null,
+        tags: null
+      },
+      audio: {
+        url: null,
+        aid: null,
+        owner_id: null,
+        duration: null
+      }
     };
 
     SimilarModel.prototype.getTrackInfo = function() {
-      var _this = this;
-      if (this.has('info')) {
-        return;
+      if (!this.has('info')) {
+        return this._getTrackInfo();
       }
+    };
+
+    SimilarModel.prototype._getTrackInfo = function() {
+      var _this = this;
       return proxy.getTrackInfo(this.get('artist'), this.get('title')).done(function(data) {
         return _this.set({
           info: data
@@ -28,30 +49,39 @@ define(['backbone', 'mediator', 'models/SimilarsCollection', 'proxy'], function(
     };
 
     SimilarModel.prototype.getAudioUrl = function() {
-      var _this = this;
+      var dfd;
+      dfd = new $.Deferred();
       if (this.has('audio')) {
-        return this.trigger('change:audio', this, this.get('audio'));
+        dfd.resolve();
       }
-      return proxy.searchAudio(this.get('artist'), this.get('title'), 0, 1).done(function(data) {
+      this._getAudioUrl().done(function() {
+        return dfd.resolve();
+      });
+      return dfd.promise();
+    };
+
+    SimilarModel.prototype._getAudioUrl = function() {
+      var _this = this;
+      return proxy.getAudioUrl(this.get('artist'), this.get('title')).done(function(data) {
         return _this.set({
-          audio: data[0]
+          audio: data
         });
       });
     };
 
     SimilarModel.prototype.select = function(selected) {
-      return this.trigger('select', selected);
+      return this.set('selected', selected);
     };
 
     SimilarModel.prototype.play = function() {
-      this.on('change:audio', function() {
-        mediator.publish('player:play', this);
-        return mediator.publish('list:current', this);
+      var _this = this;
+      return this.getAudioUrl().done(function() {
+        mediator.publish('player:play', _this);
+        return mediator.publish('list:current', _this);
       });
-      return this.getAudioUrl();
     };
 
     return SimilarModel;
 
-  })(Backbone.Model);
+  })(Backbone.NestedModel);
 });

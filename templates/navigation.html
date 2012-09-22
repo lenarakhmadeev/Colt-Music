@@ -1,7 +1,7 @@
 <div style="float:left;">Страницы:&emsp;</div>
 
-<% for (var i = 0; i < data.pages.length; i++) { %>
-	<% var curPage = data.pages[i]; %>
+<% for (var i = 0; i < pages.length; i++) { %>
+	<% var curPage = pages[i]; %>
 	
 	<% if (curPage.type == 'first') { %>
 		<div class="NavFirst" data-page="<%= curPage.page %>"></div>

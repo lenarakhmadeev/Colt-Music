@@ -1,7 +1,9 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['jquery', 'mediator', 'views/View', 'tpl!templates/navigation.html'], function($, mediator, View, navigationTemplate) {
+define(['jquery', 'services/mediator', 'views/View', 'tpl!templates/navigation.html'], function($, mediator, View, navigationTemplate) {
+  'use strict';
+
   var NavigationView;
   return NavigationView = (function(_super) {
 
@@ -23,8 +25,8 @@ define(['jquery', 'mediator', 'views/View', 'tpl!templates/navigation.html'], fu
 
     NavigationView.prototype.serialize = function() {
       var data, page, pages;
-      page = this.model.get('page');
-      pages = this.model.pagesCount();
+      page = this.collection.own.get('page');
+      pages = this.collection.pagesCount();
       data = {
         pages: []
       };

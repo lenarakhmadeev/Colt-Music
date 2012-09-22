@@ -1,7 +1,9 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['views/View', 'views/SimilarView', 'views/PhraseView', 'views/MoreButtonView', 'tpl!templates/similars.html'], function(View, SimilarView, PhraseView, MoreButtonView, similarsTemplate) {
+define(['jquery', 'views/View', 'views/SimilarView', 'views/PhraseView', 'views/MoreButtonView', 'tpl!templates/similars.html'], function($, View, SimilarView, PhraseView, MoreButtonView, similarsTemplate) {
+  'use strict';
+
   var SimilarsView;
   return SimilarsView = (function(_super) {
 
@@ -41,12 +43,12 @@ define(['views/View', 'views/SimilarView', 'views/PhraseView', 'views/MoreButton
 
     SimilarsView.prototype.renderPhrase = function() {
       this.phraseView.render();
-      return $('.ItemDelim', this.$el).append(this.phraseView.el);
+      return this.append('.ItemDelim', this.phraseView);
     };
 
     SimilarsView.prototype.renderMoreButton = function() {
       this.moreButtonView.render();
-      return $('.ItemFooter', this.$el).append(this.moreButtonView.el);
+      return this.append('.ItemFooter', this.moreButtonView);
     };
 
     SimilarsView.prototype.addItem = function(model) {
@@ -55,7 +57,7 @@ define(['views/View', 'views/SimilarView', 'views/PhraseView', 'views/MoreButton
         model: model
       });
       simView.render();
-      return $('.ItemSimCont', this.$el).append(simView.el);
+      return this.append('.ItemSimCont', simView);
     };
 
     SimilarsView.prototype.getMoreSimilars = function() {

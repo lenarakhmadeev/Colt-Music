@@ -1,7 +1,9 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['jquery', 'views/View'], function($, View) {
+define(['jquery', 'views/View', 'jquery_marquee'], function($, View) {
+  'use strict';
+
   var MarqueeView;
   return MarqueeView = (function(_super) {
 
@@ -11,20 +13,56 @@ define(['jquery', 'views/View'], function($, View) {
       return MarqueeView.__super__.constructor.apply(this, arguments);
     }
 
-    MarqueeView.prototype.initialize = function() {
-      return this.model.on('change:artist', this.render, this);
+    MarqueeView.prototype.className = 'mariquee';
+
+    MarqueeView.prototype.initialize = function(options) {
+      return this.model.on('change:current', this.render, this);
     };
 
     MarqueeView.prototype._render = function() {
-      return this.$el.html(this.getLine());
+      return this.$el.marquee(this.getLine(), 'low');
     };
 
     MarqueeView.prototype.getLine = function() {
-      var artist, duration, title;
-      artist = this.model.get('artist');
-      title = this.model.get('title');
-      duration = this.model.get('duration');
-      return "" + duration + " " + artist + " - " + title;
+      var current, time;
+      current = this.model.get('current');
+      if (current == null) {
+        return '';
+      }
+      time = this.convertTime(current.get('audio.duration'));
+      return "" + time + " " + (current.get('artist')) + " - " + (current.get('title'));
+    };
+
+    MarqueeView.prototype.convertTime = function(totalSec, separator) {
+      var hours, minutes, result, seconds;
+      if (separator == null) {
+        separator = ':';
+      }
+      hours = parseInt(totalSec / 3600);
+      minutes = parseInt(totalSec / 60) % 60;
+      seconds = totalSec % 60;
+      result = [];
+      if (hours > 0) {
+        result.push(hours);
+        result.push(this.formatTime(minutes));
+        result.push(this.formatTime(seconds));
+      } else {
+        if (minutes > 0) {
+          result.push(minutes);
+          result.push(this.formatTime(seconds));
+        } else {
+          result.push(seconds);
+        }
+      }
+      return result.join(separator);
+    };
+
+    MarqueeView.prototype.formatTime = function(time) {
+      if (time < 10) {
+        return '0' + time;
+      } else {
+        return time;
+      }
     };
 
     return MarqueeView;

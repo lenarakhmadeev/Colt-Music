@@ -1,7 +1,9 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['backbone', 'mediator'], function(Backbone, mediator) {
+define(['backbone', 'services/mediator'], function(Backbone, mediator) {
+  'use strict';
+
   var PlayerModel;
   return PlayerModel = (function(_super) {
 
@@ -18,16 +20,22 @@ define(['backbone', 'mediator'], function(Backbone, mediator) {
     };
 
     PlayerModel.prototype.play = function(model) {
-      this.set(model.toJSON());
-      return this.set('played', true);
+      this.set({
+        current: model
+      });
+      return this.setPlayed(true);
     };
 
     PlayerModel.prototype.pause = function() {
-      return this.set('played', false);
+      return this.setPlayed(false);
     };
 
     PlayerModel.prototype.resume = function() {
-      return this.set('played', true);
+      return this.setPlayed(true);
+    };
+
+    PlayerModel.prototype.setPlayed = function(played) {
+      return this.set('played', played);
     };
 
     return PlayerModel;

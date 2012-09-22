@@ -1,7 +1,9 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['views/View', 'models/PlayerModel', 'views/PlayerView', 'models/ListModel', 'views/ListView'], function(View, PlayerModel, PlayerView, ListModel, ListView) {
+define(['views/View', 'models/PlayerModel', 'views/PlayerView', 'models/ListCollection', 'views/ListView'], function(View, PlayerModel, PlayerView, ListCollection, ListView) {
+  'use strict';
+
   var AppView;
   return AppView = (function(_super) {
 
@@ -31,11 +33,11 @@ define(['views/View', 'models/PlayerModel', 'views/PlayerView', 'models/ListMode
     };
 
     AppView.prototype.initList = function() {
-      var listModel;
-      listModel = new ListModel();
-      listModel.getAudio();
+      var listCollection;
+      listCollection = new ListCollection();
+      listCollection.getAudio();
       this.listView = new ListView({
-        model: listModel
+        collection: listCollection
       });
       return this.listView.render();
     };
