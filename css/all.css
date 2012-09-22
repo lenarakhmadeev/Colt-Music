@@ -83,7 +83,7 @@
 .ListCont {
   width: 807px;
   margin-top: 70px;
-  height: 500px;
+  height: 2000px;
   overflow: auto; }
 
 .item.selected {
@@ -389,17 +389,22 @@
   width: 342px;
   position: absolute; }
 
+.mariquee {
+  width: 342px;
+  position: absolute; }
+
 .trackinfo {
   height: 13px;
   top: 30px;
   padding: 0 0 10px 0;
   overflow: hidden; }
 
-.trackinfo > div {
-  overflow: hidden;
-  width: 32000px;
-  position: absolute; }
-
+/*.trackinfo > div{
+					overflow : hidden;
+					width    : 32000px;
+					position : absolute;
+				}
+				*/
 .trackinfo p {
   float: left;
   margin: 0;
