@@ -16,7 +16,4 @@ define [
 		unsubscribe: Backbone.Events.off
 
 		# Запустить событие
-		publish: ()->
-			console.log 'publish', arguments
-
-			Backbone.Events.trigger.apply( this, arguments )
+		publish: Backbone.Events.trigger

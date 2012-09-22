@@ -2,6 +2,7 @@
 define [
 	'jquery'
 	'views/View'
+	'jquery_marquee'
 
 ], ( $, View )->
 
@@ -9,18 +10,19 @@ define [
 
 	class MarqueeView extends View
 
+		className: 'mariquee'
+
 		initialize: ( options )->
 			@model.on( 'change:current', @render, this )
 
 
 		_render: ()->
-			@$el.html( @getLine() )
+			@$el.marquee( @getLine(), 'low' )
 
 
 		getLine: ()->
 			current = @model.get( 'current' )
-
-			return '' if not current?
+			return '' unless current?
 
 			time = @convertTime( current.get( 'audio.duration' ) )
 			"#{ time } #{ current.get( 'artist' ) } - #{ current.get( 'title' ) }"

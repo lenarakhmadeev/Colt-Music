@@ -136,28 +136,36 @@
 	}
 
 		.playinfo > div {
-		width    : 342px;
-		position : absolute;
-	}
-
-		.trackinfo {
-			height   : 13px;
-			top      : 30px;
-			padding  : 0 0 10px 0;
-			overflow : hidden;
+			width    : 342px;
+			position : absolute;
 		}
-			.trackinfo > div{
+
+		.mariquee {
+			width    : 342px;
+			position : absolute;
+
+		}
+
+			.trackinfo {
+				height   : 13px;
+				top      : 30px;
+				padding  : 0 0 10px 0;
 				overflow : hidden;
-				width    : 32000px;
-				position : absolute;
 			}
-			.trackinfo p {
-				float       : left;
-				margin      : 0;
-				font        : 12pt Century Gothic;
-				color       : #cccccc;
-				text-shadow : 1px 1px 2px #000000;
-			}
+				/*.trackinfo > div{
+					overflow : hidden;
+					width    : 32000px;
+					position : absolute;
+				}
+				*/
+				.trackinfo p {
+					float       : left;
+					margin      : 0;
+					font        : 12pt Century Gothic;
+					color       : #cccccc;
+					text-shadow : 1px 1px 2px #000000;
+				}
+
 
 		.PlayerProgress {
 			cursor     : pointer;

@@ -19,7 +19,7 @@ require.config
 
 		# Плагины jquery
 		jquery_jplayer: 'libs/jquery/jplayer/jquery.jplayer.min'
-		jquery_jscroller: 'libs/jquery/jquery-scroller-v1.src'
+		jquery_marquee: 'libs/jquery/marquee'
 
 		# Плагины Backbone
 		# http://afeld.github.com/backbone-nested/
@@ -54,11 +54,12 @@ require.config
 		jquery_jplayer:
 			deps: [ 'jquery' ]
 
-		jquery_jscroller:
+		jquery_marquee:
 			deps: [ 'jquery' ]
 
 		jpath:
 			exports: 'jpath'
+
 
 	# Константы для модулей
 	config:
