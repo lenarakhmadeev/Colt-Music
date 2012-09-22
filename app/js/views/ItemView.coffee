@@ -2,9 +2,10 @@
 define [
 	'views/View'
 	'views/SimilarsView'
+	'views/InfoView'
 	'tpl!templates/item.html'
 	
-], ( View, SimilarsView, itemTemplate )->
+], ( View, SimilarsView, InfoView, itemTemplate )->
 
 	'use strict'
 
@@ -19,23 +20,31 @@ define [
 
 
 		initialize: ( options )->
-			@model.bind( 'change:info', @render, this )
 			@model.bind( 'change:selected', @renderSelected, this )
+			@model.bind( 'change:info', @renderCover, this )
 
 			@similarsView = new SimilarsView( collection: @model.similarsCollection )
+			@infoView = new InfoView( model: @model )
 
 
 		serialize: ()->
 			artist: @model.get( 'artist' )
 			title: @model.get( 'title' )
-			cover: @model.get( 'info.images.large' ) or 'images/big.png'
-			album: @model.get( 'info.album' )
-			tags: ( @model.get( 'info.tags' ) or [] ).join(', ')
 
 
 		_render: ()->
+			@infoView.render()
+			@append( '.ItemAlbumCont', @infoView )
+
 			@similarsView.render()
 			@append( @similarsView )
+
+			@renderCover()
+
+
+		renderCover: ()->
+			cover = @model.get( 'info.images.large' ) or 'images/big.png'
+			@$( '.BigImg' ).attr( 'src', cover )
 
 
 		renderSelected: ()->

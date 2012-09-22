@@ -31,13 +31,16 @@
 	+proxy jpath
 
 	+лишний рендер Item после загрузки пустой инфы и реком
+
 	прелоад
 		след страница
 		след реком
 
-	Since view.$(selector) is now equivalent to view.$el.find(selector) rather
-	 than $(selector, view.el) it can no longer be used when selector is an HTML string or DOM element.
+	list на первой и последней записи
 
+	Для каждой вьюхи своё место без аппенда просто в конец
+
+	Вью для обложки альбома
 
 ###
 

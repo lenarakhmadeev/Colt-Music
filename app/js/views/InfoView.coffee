@@ -1,0 +1,22 @@
+
+define [
+	'views/View'
+	'tpl!templates/info.html'
+
+], ( View, infoTemplate )->
+
+	'use strict'
+
+	class InfoView extends View
+
+		template: infoTemplate
+
+		#className: '_'
+
+		initialize: ( options )->
+			@model.bind( 'change:info', @render, this )
+
+
+		serialize: ()->
+			album: @model.get( 'info.album' )
+			tags: ( @model.get( 'info.tags' ) or [] ).join(', ')

@@ -14,8 +14,23 @@ define [
 	class SimilarModel extends Backbone.NestedModel
 
 		defaults:
-			type: 'similar'
+			artist: null
+			title: null
 			selected: false
+			type: 'similar'
+			has_info: false
+
+			info:
+				wiki: null
+				album: null
+				images: null
+				tags: null
+
+			audio:
+				url: null
+				aid: null
+				owner_id: null
+				duration: null
 
 
 		getTrackInfo: ()->

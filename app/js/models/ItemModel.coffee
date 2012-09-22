@@ -13,9 +13,23 @@ define [
 	class ItemModel extends Backbone.NestedModel
 
 		defaults:
-			type: 'item'
+			artist: null
+			title: null
 			selected: false
+			type: 'item'
 			has_info: false
+
+			info:
+				wiki: null
+				album: null
+				images: null
+				tags: null
+
+			audio:
+				url: null
+				aid: null
+				owner_id: null
+				duration: null
 
 
 		initialize: ( attributes, options )->
