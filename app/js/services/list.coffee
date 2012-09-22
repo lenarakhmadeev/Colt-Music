@@ -18,11 +18,11 @@ define [
 
 		# Проигрывание следующей записи
 		next: ()->
-			console.log 'next'
-
 			if @currentTrack.get( 'type' ) == 'item'
 				next = @nextForItem()
 			else
+				return if @currentTrack == @currentTrack.collection.last() and
+					@currentTrack.collection.parent == @currentTrack.collection.parent.collection.last()
 				next = @nextForSim()
 
 			next.play()
@@ -33,8 +33,6 @@ define [
 				next = @currentTrack.similarsCollection.at( 0 )
 			else
 				next = @nextInCollection( @currentTrack )
-
-				#
 				@checkLast( @currentTrack )
 
 			next
@@ -42,9 +40,6 @@ define [
 		nextForSim: ()->
 			if @currentTrack == @currentTrack.collection.last()
 				next = @nextInCollection( @currentTrack.collection.parent )
-
-				#
-
 				@checkLast( @currentTrack.collection.parent )
 			else
 				next = @nextInCollection( @currentTrack )
@@ -57,7 +52,6 @@ define [
 			track.collection.get( id )
 
 
-
 		checkLast: ( track )->
 			if track.collection.isLastInPage( track )
 				track.collection.nextPage()
@@ -65,12 +59,11 @@ define [
 
 		# Проигрывание предыдущей записи
 		prev: ()->
-			console.log 'prev'
-
-			prev = if @currentTrack.get( 'type' ) == 'item'
-				@prevForItem()
+			if @currentTrack.get( 'type' ) == 'item'
+				return if @currentTrack == @currentTrack.collection.first()
+				prev = @prevForItem()
 			else
-				@prevForSim()
+				prev = @prevForSim()
 
 			prev.play()
 
