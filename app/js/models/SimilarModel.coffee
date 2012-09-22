@@ -19,6 +19,7 @@ define [
 			selected: false
 			type: 'similar'
 			has_info: false
+			has_audio: false
 
 			info:
 				wiki: null
@@ -34,7 +35,7 @@ define [
 
 
 		getTrackInfo: ()->
-			@_getTrackInfo() if not @has( 'info' )
+			@_getTrackInfo() unless @get( 'has_info' )
 
 
 		_getTrackInfo: ()->
@@ -42,16 +43,22 @@ define [
 				.done ( data )=>
 					@set( info: data )
 
+				.always ()=>
+					@set( 'has_info', true )
+
 
 		getAudioUrl: ()->
 			dfd = new $.Deferred()
 
-			if @has( 'audio' )
+			if @get( 'has_audio' )
 				dfd.resolve()
 
 			@_getAudioUrl()
 				.done ()->
 					dfd.resolve()
+
+				.always ()=>
+					@set( 'has_audio', true )
 
 			dfd.promise()
 
