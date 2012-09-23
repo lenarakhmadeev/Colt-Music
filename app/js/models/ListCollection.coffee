@@ -17,9 +17,8 @@ define [
 		initialize: ( models, options )->
 			@own.set
 				page: 0
-				loaded: false
 
-			@bind( 'reset', @collectionReset, this )
+			@bind( 'reset', @firstLoad, this )
 
 			mediator.subscribe( 'load:page', @loadPage, this )
 
@@ -31,21 +30,36 @@ define [
 					@reset( data )
 
 
-		collectionReset: ()->
-			@own.set( 'loaded', true )
+		firstLoad: ()->
 			@loadPage( @own.get( 'page' ) )
 
 
 		loadPage: ( page )->
-			@own.set( 'page', page )
+			@preloadPage( page )
+			@_loadPage( page )
 
-			if @own.get( 'loaded' )
-				@own.set( 'content', @getPage( page ) )
+			@preloadPage( page + 1 )
+
+
+		_loadPage: ( page )->
+			@own.set( 'page', page )
+			@own.set( 'content', @getPage( page ) )
+
+
+		preloadPage: ( page )->
+			content = @getPage( page )
+			@fetchContent( content )
+
+
+		fetchContent: ( content )->
+			_.each( content, @fetchItem, this )
+
+
+		fetchItem: ( item )->
+			item.fetch()
 
 
 		pageSize: 5
-
-
 		getPage: ( page )->
 			start = page * @pageSize
 			end = ( page + 1 ) * @pageSize
@@ -54,12 +68,6 @@ define [
 
 		pagesCount: ()->
 			Math.ceil( @length / @pageSize )
-
-
-		isLastInPage: ( track )->
-			console.log _.last( @own.get( 'content' )), track
-			_.last( @own.get( 'content' ) ) == track
-
 
 		nextPage: ()->
 			@loadPage( @own.get( 'page' ) + 1 )

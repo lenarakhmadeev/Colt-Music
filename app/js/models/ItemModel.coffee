@@ -45,8 +45,7 @@ define [
 
 
 		fetch: ()->
-			#todo??
-			if not @get( 'has_info' )
+			unless @get( 'has_info' )
 				@getTrackInfo() 
 			
 			@similarsCollection.getFirstSimilars()

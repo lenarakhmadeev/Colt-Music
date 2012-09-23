@@ -35,8 +35,6 @@ define [
 
 
 		addItem: ( model )->
-			model.fetch()
-
 			itemView = new ItemView( model: model )
 			itemView.render()
 

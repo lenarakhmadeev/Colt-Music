@@ -18,14 +18,19 @@ define [
 
 		# Проигрывание следующей записи
 		next: ()->
-			if @currentTrack.get( 'type' ) == 'item'
+			next = @_next( @currentTrack )
+			next.play() if next?
+
+
+		_next: ( track )->
+			if track.get( 'type' ) == 'item'
 				next = @nextForItem()
 			else
-				return if @currentTrack == @currentTrack.collection.last() and
-					@currentTrack.collection.parent == @currentTrack.collection.parent.collection.last()
+				return if track == track.collection.last() and
+				track.collection.parent == track.collection.parent.collection.last()
 				next = @nextForSim()
 
-			next.play()
+			next
 
 
 		nextForItem: ()->
@@ -33,14 +38,14 @@ define [
 				next = @currentTrack.similarsCollection.at( 0 )
 			else
 				next = @nextInCollection( @currentTrack )
-				@checkLast( @currentTrack )
+				@checkLastInPage( @currentTrack )
 
 			next
 
 		nextForSim: ()->
 			if @currentTrack == @currentTrack.collection.last()
 				next = @nextInCollection( @currentTrack.collection.parent )
-				@checkLast( @currentTrack.collection.parent )
+				@checkLastInPage( @currentTrack.collection.parent )
 			else
 				next = @nextInCollection( @currentTrack )
 
@@ -52,20 +57,25 @@ define [
 			track.collection.get( id )
 
 
-		checkLast: ( track )->
-			if track.collection.isLastInPage( track )
+		checkLastInPage: ( track )->
+			if _.last( track.collection.own.get( 'content' ) ) == track
 				track.collection.nextPage()
 
 
 		# Проигрывание предыдущей записи
 		prev: ()->
-			if @currentTrack.get( 'type' ) == 'item'
-				return if @currentTrack == @currentTrack.collection.first()
+			prev = @_prev( @currentTrack )
+			prev.play() if prev?
+
+
+		_prev: ( track )->
+			if track.get( 'type' ) == 'item'
+				return if track == track.collection.first()
 				prev = @prevForItem()
 			else
 				prev = @prevForSim()
 
-			prev.play()
+			prev
 
 
 		prevForItem: ()->
@@ -96,3 +106,11 @@ define [
 
 			@currentTrack = track
 			@currentTrack.select( true )
+
+			@preloadNextSimilar( track )
+
+
+		preloadNextSimilar: ( track )->
+			nextNext = @_next( track )
+			if nextNext? and nextNext.get( 'type' ) == 'similar'
+				nextNext.getAudioUrl()
