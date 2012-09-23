@@ -18,7 +18,8 @@ define(['views/View', 'views/SimilarsView', 'views/InfoView', 'tpl!templates/ite
     ItemView.prototype.className = 'item';
 
     ItemView.prototype.events = {
-      'click .BigImg': 'play'
+      'click .BigImg': 'play',
+      'click .ItemLikeB': 'addToWall'
     };
 
     ItemView.prototype.initialize = function(options) {
@@ -63,6 +64,10 @@ define(['views/View', 'views/SimilarsView', 'views/InfoView', 'tpl!templates/ite
 
     ItemView.prototype.play = function() {
       return this.model.play();
+    };
+
+    ItemView.prototype.addToWall = function() {
+      return this.model.addToWall();
     };
 
     return ItemView;

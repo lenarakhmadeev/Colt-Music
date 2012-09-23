@@ -8,9 +8,9 @@ define(['jpath'], function(jpath) {
       var rawImages;
       rawImages = jpath(data, '.track.album.image');
       return {
-        album: (jpath(data, '.track.album.title') || [null])[0],
+        album: jpath(data, '.track.album.title'),
         images: this.filterImages(rawImages),
-        tags: jpath(data, 'track.toptags.tag.name'),
+        tags: jpath(data, 'track.toptags.tag.name', true),
         wiki: jpath(data, '.track.wiki')
       };
     },

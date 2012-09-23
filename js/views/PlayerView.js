@@ -61,7 +61,7 @@ define(['views/View', 'services/mediator', 'views/MarqueeView', 'tpl!templates/p
     };
 
     PlayerView.prototype.renderType = function(type) {
-      if (type === 'item') {
+      if (type === 'similar') {
         return this.$('.PlayerAddButton').show(500);
       } else {
         return this.$('.PlayerAddButton').hide(500);
@@ -88,7 +88,11 @@ define(['views/View', 'services/mediator', 'views/MarqueeView', 'tpl!templates/p
       return mediator.publish('list:next');
     };
 
-    PlayerView.prototype.addAudio = function() {};
+    PlayerView.prototype.addAudio = function() {
+      var track;
+      track = this.model.get('current');
+      return track.addToAudio();
+    };
 
     return PlayerView;
 

@@ -38,7 +38,7 @@ define(['jquery', 'services/mediator', 'jquery_jplayer'], function($, mediator) 
     },
     play: function(model) {
       this.jp.jPlayer('setMedia', {
-        mp3: model.get('audio').url
+        mp3: model.get('audio.url')
       });
       return this.jp.jPlayer('play');
     },

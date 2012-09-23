@@ -17,10 +17,9 @@ define(['underscore', 'models/Collection', 'models/ItemModel', 'services/mediato
 
     ListCollection.prototype.initialize = function(models, options) {
       this.own.set({
-        page: 0,
-        loaded: false
+        page: 0
       });
-      this.bind('reset', this.collectionReset, this);
+      this.bind('reset', this.firstLoad, this);
       return mediator.subscribe('load:page', this.loadPage, this);
     };
 
@@ -31,16 +30,46 @@ define(['underscore', 'models/Collection', 'models/ItemModel', 'services/mediato
       });
     };
 
-    ListCollection.prototype.collectionReset = function() {
-      this.own.set('loaded', true);
-      return this.loadPage(this.own.get('page'));
+    ListCollection.prototype.firstLoad = function() {
+      this.loadPage(this.own.get('page'));
+      return this.playFirst();
+    };
+
+    ListCollection.prototype.playFirst = function() {
+      var firstPlay;
+      firstPlay = this.getFirstPlay();
+      mediator.publish('list:current', firstPlay);
+      mediator.publish('player:play', firstPlay);
+      return mediator.publish('player:pause');
+    };
+
+    ListCollection.prototype.getFirstPlay = function() {
+      return this.own.get('content')[0];
     };
 
     ListCollection.prototype.loadPage = function(page) {
+      this.preloadPage(page);
+      this._loadPage(page);
+      return this.preloadPage(page + 1);
+    };
+
+    ListCollection.prototype._loadPage = function(page) {
       this.own.set('page', page);
-      if (this.own.get('loaded')) {
-        return this.own.set('content', this.getPage(page));
-      }
+      return this.own.set('content', this.getPage(page));
+    };
+
+    ListCollection.prototype.preloadPage = function(page) {
+      var content;
+      content = this.getPage(page);
+      return this.fetchContent(content);
+    };
+
+    ListCollection.prototype.fetchContent = function(content) {
+      return _.each(content, this.fetchItem, this);
+    };
+
+    ListCollection.prototype.fetchItem = function(item) {
+      return item.fetch();
     };
 
     ListCollection.prototype.pageSize = 5;
@@ -54,11 +83,6 @@ define(['underscore', 'models/Collection', 'models/ItemModel', 'services/mediato
 
     ListCollection.prototype.pagesCount = function() {
       return Math.ceil(this.length / this.pageSize);
-    };
-
-    ListCollection.prototype.isLastInPage = function(track) {
-      console.log(_.last(this.own.get('content')), track);
-      return _.last(this.own.get('content')) === track;
     };
 
     ListCollection.prototype.nextPage = function() {

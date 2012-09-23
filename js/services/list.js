@@ -11,13 +11,22 @@ define(['services/mediator'], function(mediator) {
     },
     next: function() {
       var next;
-      console.log('next');
-      if (this.currentTrack.get('type') === 'item') {
+      next = this._next(this.currentTrack);
+      if (next != null) {
+        return next.play();
+      }
+    },
+    _next: function(track) {
+      var next;
+      if (track.get('type') === 'item') {
         next = this.nextForItem();
       } else {
+        if (track === track.collection.last() && track.collection.parent === track.collection.parent.collection.last()) {
+          return;
+        }
         next = this.nextForSim();
       }
-      return next.play();
+      return next;
     },
     nextForItem: function() {
       var next;
@@ -25,7 +34,7 @@ define(['services/mediator'], function(mediator) {
         next = this.currentTrack.similarsCollection.at(0);
       } else {
         next = this.nextInCollection(this.currentTrack);
-        this.checkLast(this.currentTrack);
+        this.checkLastInPage(this.currentTrack);
       }
       return next;
     },
@@ -33,7 +42,7 @@ define(['services/mediator'], function(mediator) {
       var next;
       if (this.currentTrack === this.currentTrack.collection.last()) {
         next = this.nextInCollection(this.currentTrack.collection.parent);
-        this.checkLast(this.currentTrack.collection.parent);
+        this.checkLastInPage(this.currentTrack.collection.parent);
       } else {
         next = this.nextInCollection(this.currentTrack);
       }
@@ -44,16 +53,29 @@ define(['services/mediator'], function(mediator) {
       id = track.id + 1;
       return track.collection.get(id);
     },
-    checkLast: function(track) {
-      if (track.collection.isLastInPage(track)) {
+    checkLastInPage: function(track) {
+      if (_.last(track.collection.own.get('content')) === track) {
         return track.collection.nextPage();
       }
     },
     prev: function() {
       var prev;
-      console.log('prev');
-      prev = this.currentTrack.get('type') === 'item' ? this.prevForItem() : this.prevForSim();
-      return prev.play();
+      prev = this._prev(this.currentTrack);
+      if (prev != null) {
+        return prev.play();
+      }
+    },
+    _prev: function(track) {
+      var prev;
+      if (track.get('type') === 'item') {
+        if (track === track.collection.first()) {
+          return;
+        }
+        prev = this.prevForItem();
+      } else {
+        prev = this.prevForSim();
+      }
+      return prev;
     },
     prevForItem: function() {
       var prevItem;
@@ -81,7 +103,15 @@ define(['services/mediator'], function(mediator) {
         this.currentTrack.select(false);
       }
       this.currentTrack = track;
-      return this.currentTrack.select(true);
+      this.currentTrack.select(true);
+      return this.preloadNextSimilar(track);
+    },
+    preloadNextSimilar: function(track) {
+      var nextNext;
+      nextNext = this._next(track);
+      if ((nextNext != null) && nextNext.get('type') === 'similar') {
+        return nextNext.getAudioUrl();
+      }
     }
   };
 });

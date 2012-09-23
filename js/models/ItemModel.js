@@ -27,7 +27,7 @@ define(['backbone', 'services/mediator', 'models/SimilarsCollection', 'services/
       },
       audio: {
         url: null,
-        aid: null,
+        audio_id: null,
         owner_id: null,
         duration: null
       }
@@ -62,6 +62,10 @@ define(['backbone', 'services/mediator', 'models/SimilarsCollection', 'services/
     ItemModel.prototype.play = function() {
       mediator.publish('player:play', this);
       return mediator.publish('list:current', this);
+    };
+
+    ItemModel.prototype.addToWall = function() {
+      return proxy.addToWall(this.get('audio.audio_id'), this.get('audio.owner_id'));
     };
 
     return ItemModel;

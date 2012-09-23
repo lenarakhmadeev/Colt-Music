@@ -40,7 +40,6 @@ define(['underscore', 'views/View', 'views/ItemView', 'views/NavigationView'], f
 
     ListView.prototype.addItem = function(model) {
       var itemView;
-      model.fetch();
       itemView = new ItemView({
         model: model
       });

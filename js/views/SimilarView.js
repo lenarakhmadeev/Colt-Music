@@ -1,5 +1,4 @@
-var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
-  __hasProp = {}.hasOwnProperty,
+var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
 define(['underscore', 'views/View', 'tpl!templates/similar.html'], function(_, View, similarTemplate) {
@@ -11,11 +10,6 @@ define(['underscore', 'views/View', 'tpl!templates/similar.html'], function(_, V
     __extends(SimilarView, _super);
 
     function SimilarView() {
-      this.addToWall = __bind(this.addToWall, this);
-
-      this.addToAudio = __bind(this.addToAudio, this);
-
-      this.showWiki = __bind(this.showWiki, this);
       return SimilarView.__super__.constructor.apply(this, arguments);
     }
 
@@ -24,7 +18,9 @@ define(['underscore', 'views/View', 'tpl!templates/similar.html'], function(_, V
     SimilarView.prototype.className = 'SimItem';
 
     SimilarView.prototype.events = {
-      'click .SimPlayB, .SmallImg': 'play'
+      'click .SimPlayB, .SmallImg': 'play',
+      'click .SimAddB': 'addToAudio',
+      'click .SimLikeB': 'addToWall'
     };
 
     SimilarView.prototype.initialize = function(options) {
@@ -53,9 +49,13 @@ define(['underscore', 'views/View', 'tpl!templates/similar.html'], function(_, V
 
     SimilarView.prototype.showWiki = function() {};
 
-    SimilarView.prototype.addToAudio = function() {};
+    SimilarView.prototype.addToAudio = function() {
+      return this.model.addToAudio();
+    };
 
-    SimilarView.prototype.addToWall = function() {};
+    SimilarView.prototype.addToWall = function() {
+      return this.model.addToWall();
+    };
 
     return SimilarView;
 
