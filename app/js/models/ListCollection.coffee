@@ -32,6 +32,18 @@ define [
 
 		firstLoad: ()->
 			@loadPage( @own.get( 'page' ) )
+			@playFirst()
+
+
+		playFirst: ()->
+			firstPlay = @getFirstPlay()
+			mediator.publish( 'list:current', firstPlay )
+			mediator.publish( 'player:play', firstPlay )
+			mediator.publish( 'player:pause')
+
+
+		getFirstPlay: ()->
+			@own.get( 'content' )[ 0 ]
 
 
 		loadPage: ( page )->

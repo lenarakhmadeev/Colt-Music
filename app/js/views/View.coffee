@@ -61,3 +61,7 @@ define [
 				view = arguments[ 1 ]
 
 				@$( selector ).append( view.el )
+
+
+		assign: ( selector, view )->
+			view.setElement( @$( selector ) )
