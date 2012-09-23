@@ -27,7 +27,7 @@ define [
 				next = @nextForItem()
 			else
 				return if track == track.collection.last() and
-				track.collection.parent == track.collection.parent.collection.last()
+					track.collection.parent == track.collection.parent.collection.last()
 				next = @nextForSim()
 
 			next
@@ -59,6 +59,8 @@ define [
 
 		checkLastInPage: ( track )->
 			if _.last( track.collection.own.get( 'content' ) ) == track
+
+				# событие
 				track.collection.nextPage()
 
 
@@ -107,7 +109,7 @@ define [
 			@currentTrack = track
 			@currentTrack.select( true )
 
-			@preloadNextSimilar( track )
+			#@preloadNextSimilar( track )
 
 
 		preloadNextSimilar: ( track )->

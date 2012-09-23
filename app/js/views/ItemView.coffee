@@ -42,6 +42,8 @@ define [
 
 			@renderCover()
 
+			@renderSelected()
+
 
 		renderCover: ()->
 			cover = @model.get( 'info.images.large' ) or 'images/big.png'

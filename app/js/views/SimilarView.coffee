@@ -23,6 +23,9 @@ define [
 		initialize: ( options )->
 			@model.bind( 'change:selected', @renderSelected, this )
 
+		_render: ()->
+			@renderSelected()
+
 
 		serialize: ()->
 			artist: @model.get( 'artist' )
