@@ -106,8 +106,10 @@ define [
 			params =
 				attachments: "audio#{ owner_id }_#{ audio_id }"
 
-			@vk.api 'audio.add', params, ( data )->
-				if keypath( data, 'error' )?
+			@vk.api 'wall.post', params, ( data )->
+				console.log data
+
+				if 'error' of data
 					dfd.reject( data.error_msg )
 				else
 					dfd.resolve( data.response )
@@ -123,7 +125,7 @@ define [
 				oid: owner_id
 
 			@vk.api 'audio.add', params, ( data )->
-				if keypath( data, 'error' )?
+				if 'error' of data
 					dfd.reject( data.error_msg )
 				else
 					dfd.resolve( data.response )

@@ -74,12 +74,30 @@ define [
 
 
 		play: ()->
-			@getAudioUrl()
-				.done ()=>
-					mediator.publish( 'player:play', this )
-					mediator.publish( 'list:current', this )
+			@getAudioUrl().done( @_play )
 
 
+		_play: ()=>
+			mediator.publish( 'player:play', this )
+			mediator.publish( 'list:current', this )
+
+
+		addToAudio: ()->
+			@getAudioUrl().done( @_addToAudio )
+
+
+		_addToAudio: ()=>
+			# todo обновлять список, информировать пользователя
+			proxy.addToAudio( @get( 'audio.aid' ), @get( 'audio.owner_id' ) )
+
+
+		addToWall: ()->
+			@getAudioUrl().done( @_addToWall )
+
+
+		_addToWall: ()=>
+			# todo расшарить друзьям или еще кому
+			proxy.addToWall( @get( 'audio.aid' ), @get( 'audio.owner_id' ) )
 
 
 

@@ -60,3 +60,8 @@ define [
 			mediator.publish( 'player:play', this )
 			mediator.publish( 'list:current', this )
 
+
+		addToWall: ()->
+			proxy.addToWall( @get( 'audio.aid' ), @get( 'audio.owner_id' ) )
+
+

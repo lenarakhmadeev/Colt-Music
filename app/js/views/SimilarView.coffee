@@ -16,6 +16,8 @@ define [
 
 		events:
 			'click .SimPlayB, .SmallImg' : 'play'
+			'click .SimAddB': 'addToAudio'
+			'click .SimLikeB': 'addToWall'
 
 
 		initialize: ( options )->
@@ -38,8 +40,13 @@ define [
 		play: ()->
 			@model.play()
 
-		showWiki: ()=>
 
-		addToAudio: ()=>
+		showWiki: ()->
 
-		addToWall: ()=>
+
+		addToAudio: ()->
+			@model.addToAudio()
+
+
+		addToWall: ()->
+			@model.addToWall()

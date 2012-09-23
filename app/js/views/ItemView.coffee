@@ -17,6 +17,7 @@ define [
 
 		events:
 			'click .BigImg': 'play'
+			'click .ItemLikeB': 'addToWall'
 
 
 		initialize: ( options )->
@@ -56,4 +57,8 @@ define [
 
 		play: ()->
 			@model.play()
+
+
+		addToWall: ()->
+			@model.addToWall()
 
