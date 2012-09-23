@@ -11,9 +11,9 @@ define [
 		info: ( data )->
 			rawImages = jpath( data, '.track.album.image' )
 
-			album: ( jpath( data, '.track.album.title' ) or [null] )[0]
+			album: jpath( data, '.track.album.title' )
 			images: @filterImages( rawImages )
-			tags: jpath( data, 'track.toptags.tag.name' )
+			tags: jpath( data, 'track.toptags.tag.name', true )
 			wiki: jpath( data, '.track.wiki' )
 
 

@@ -50,7 +50,7 @@ define [
 
 
 		play: ( model )->
-			@jp.jPlayer( 'setMedia', mp3 : model.get( 'audio' ).url )
+			@jp.jPlayer( 'setMedia', mp3 : model.get( 'audio.url' ) )
 			@jp.jPlayer( 'play' )
 
 

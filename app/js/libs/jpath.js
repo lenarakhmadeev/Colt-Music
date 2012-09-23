@@ -20,14 +20,14 @@
  * @param {Object} json
  * @param {String} path
  */
-var jpath = function(json, path) {
+var jpath = function(json, path, wrap) {
 
     // проверка типов
     // более подробная проверка есть в exec
     if (json === null || !path || typeof path !== 'string') {
-        return [];
+        return wrap ? [] : null;
     }
-    if (path === '.') { return [ json ]; }
+    if (path === '.') { return wrap ? [json] : json; }
 
     var steps = jpath.split(path);
     var res = jpath.exec(json, steps.slice(0, 2));
@@ -40,9 +40,9 @@ var jpath = function(json, path) {
     // если ничего не найдено, то null
     // Важно!!!
     if (res === jpath.nf) {
-        return null;
+		return wrap ? [] : null;
     } else if (!jpath.util.isArray(res)) {
-        return [res];
+		return wrap ? [res] : res;
     } else {
         return res;
     }

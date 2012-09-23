@@ -27,7 +27,7 @@ define [
 
 			audio:
 				url: null
-				aid: null
+				audio_id: null
 				owner_id: null
 				duration: null
 
@@ -61,6 +61,6 @@ define [
 
 
 		addToWall: ()->
-			proxy.addToWall( @get( 'audio.aid' ), @get( 'audio.owner_id' ) )
+			proxy.addToWall( @get( 'audio.audio_id' ), @get( 'audio.owner_id' ) )
 
 

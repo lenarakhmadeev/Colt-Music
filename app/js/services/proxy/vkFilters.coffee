@@ -6,9 +6,18 @@ define [
 
 	'use strict'
 
+	pickAudioData = ( data )->
+		result = _.pick( data, 'owner_id', 'url', 'duration' )
+
+		# Меняем aid на audio_id
+		result.audio_id = data.aid
+
+		result
+
+
 	audioItemFilter = ( data )->
 		result = _.pick( data, 'artist', 'title' )
-		result.audio = _.pick( data, 'aid', 'owner_id', 'url', 'duration' )
+		result.audio = pickAudioData( data )
 
 		result
 
@@ -20,4 +29,8 @@ define [
 
 
 		searchAudio: ( data )->
-			data[ 1... ]
+			_.map( data[ 1... ], pickAudioData )
+
+
+		audioUrl: ( data )->
+			data[ 0 ]

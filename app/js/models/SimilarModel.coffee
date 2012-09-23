@@ -29,7 +29,7 @@ define [
 
 			audio:
 				url: null
-				aid: null
+				audio_id: null
 				owner_id: null
 				duration: null
 
@@ -52,13 +52,13 @@ define [
 
 			if @get( 'has_audio' )
 				dfd.resolve()
+			else
+				@_getAudioUrl()
+					.done ()->
+						dfd.resolve()
 
-			@_getAudioUrl()
-				.done ()->
-					dfd.resolve()
-
-				.always ()=>
-					@set( 'has_audio', true )
+					.always ()=>
+						@set( 'has_audio', true )
 
 			dfd.promise()
 
@@ -88,7 +88,7 @@ define [
 
 		_addToAudio: ()=>
 			# todo обновлять список, информировать пользователя
-			proxy.addToAudio( @get( 'audio.aid' ), @get( 'audio.owner_id' ) )
+			proxy.addToAudio( @get( 'audio.audio_id' ), @get( 'audio.owner_id' ) )
 
 
 		addToWall: ()->
@@ -97,7 +97,7 @@ define [
 
 		_addToWall: ()=>
 			# todo расшарить друзьям или еще кому
-			proxy.addToWall( @get( 'audio.aid' ), @get( 'audio.owner_id' ) )
+			proxy.addToWall( @get( 'audio.audio_id' ), @get( 'audio.owner_id' ) )
 
 
 
