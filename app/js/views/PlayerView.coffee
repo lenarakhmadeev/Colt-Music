@@ -58,7 +58,7 @@ define [
 
 
 		renderType: ( type )->
-			if type == 'item'
+			if type == 'similar'
 				@$( '.PlayerAddButton' ).show( 500 )
 			else
 				@$( '.PlayerAddButton' ).hide( 500 )
@@ -88,6 +88,8 @@ define [
 
 
 		addAudio: ()->
+			track = @model.get( 'current' )
+			track.addToAudio()
 
 
 
