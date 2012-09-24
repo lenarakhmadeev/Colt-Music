@@ -73,7 +73,7 @@ define [
 
 
 		renderCover: ()->
-			cover = @model.getCurrent().get( 'info.images.large' ) or 'images/big.png'
+			cover = @model.getCurrent().get( 'info.images.medium' ) or 'images/big.png'
 			@$( '.PlayerBigImage' ).attr( 'src', cover )
 
 

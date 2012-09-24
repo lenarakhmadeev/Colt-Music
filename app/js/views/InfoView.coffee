@@ -11,7 +11,7 @@ define [
 
 		template: infoTemplate
 
-		#className: '_'
+		className: 'b-item-info'
 
 		initialize: ( options )->
 			@model.bind( 'change:info', @render, this )

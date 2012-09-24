@@ -15,10 +15,10 @@ define [
 
 		template: similarsTemplate
 
-		className: 'similar-container'
+		className: 'b-similars'
 
 		events:
-			'click .ItemFooter': 'getMoreSimilars'
+			'click .b-similars__more-button': 'getMoreSimilars'
 
 
 		initialize: ( options )->
@@ -40,19 +40,19 @@ define [
 
 		renderPhrase: ()->
 			@phraseView.render()
-			@append( '.ItemDelim', @phraseView )
+			@append( '.b-similars__phrase', @phraseView )
 
 
 		renderMoreButton: ()->
 			@moreButtonView.render()
-			@append( '.ItemFooter', @moreButtonView )
+			@append( '.b-similars__more-button', @moreButtonView )
 
 
 		addItem: (model)->
 			simView = new SimilarView( model: model )
 			simView.render()
 
-			@append( '.ItemSimCont', simView )
+			@append( '.b-similars__similars-container', simView )
 
 
 		#------------------------------------------------

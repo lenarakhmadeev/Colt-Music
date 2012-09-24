@@ -1,0 +1,36 @@
+.b-item-info {
+	position : absolute;
+	left     : 150px;
+	width    : 300px;
+	cursor: pointer;
+
+
+	.b-item-info__album {
+		height : 20px;
+		display : block;
+		overflow : hidden;
+		color       : #cccccc;
+		text-shadow : 1px 1px 2px #000000;
+	}
+
+
+		.b-item-info__album-title {
+			font        : 12pt Century Gothic;
+			font-weight : 800;
+		}
+
+
+	.b-item-info__tags {
+		height : 20px;
+		display : block;
+		overflow : hidden;
+		color       : #cccccc;
+		text-shadow : 1px 1px 2px #000000;
+	}
+
+
+		.b-item-info__tags-title {
+			font        : 12pt Century Gothic;
+			font-weight : 800;
+		}
+}

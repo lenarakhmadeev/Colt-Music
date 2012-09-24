@@ -15,11 +15,11 @@ define [
 		className: 'b-similar'
 
 		events:
-			'click .play-button' : 'play'
-			'click .pause-button': 'pause'
-			'click .album-cover': 'togglePlay'
-			'click .add-button': 'addToAudio'
-			'click .like-button': 'addToWall'
+			'click .b-similar__play-button' : 'play'
+			'click .b-similar__pause-button': 'pause'
+			'click .b-similar__album-cover': 'togglePlay'
+			'click .b-similar__add-button': 'addToAudio'
+			'click .b-similar__like-button': 'addToWall'
 
 
 		initialize: ( options )->
@@ -32,14 +32,14 @@ define [
 		serialize: ()->
 			artist: @model.get( 'artist' )
 			title: @model.get( 'title' )
-			cover: @model.get( 'info.images.medium' ) or 'http://placekitten.com/g/64/64'
+			cover: @model.get( 'info.images.small' ) or 'http://placekitten.com/g/64/64'
 
 
 		renderSelected: ()->
 			if @model.get ( 'selected' )
-				@$el.addClass( 'selected' )
+				@$el.addClass( 'b-similar_selected' )
 			else
-				@$el.removeClass( 'selected' )
+				@$el.removeClass( 'b-similar_selected' )
 
 
 		play: ()->

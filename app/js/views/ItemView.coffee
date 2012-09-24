@@ -13,11 +13,11 @@ define [
 
 		template: itemTemplate
 
-		className: 'item'
+		className: 'b-item'
 
 		events:
-			'click .BigImg': 'play'
-			'click .ItemLikeB': 'addToWall'
+			'click .b-item__album-cover': 'play'
+			'click .b-item__like-button': 'addToWall'
 
 
 		initialize: ( options )->
@@ -34,11 +34,14 @@ define [
 
 
 		_render: ()->
+			console.log @model, @$el
+
+
 			@infoView.render()
-			@append( '.ItemAlbumCont', @infoView )
+			@append( '.b-item__info-place', @infoView )
 
 			@similarsView.render()
-			@append( @similarsView )
+			@append( '.b-item__similars-place', @similarsView )
 
 			@renderCover()
 
@@ -46,15 +49,17 @@ define [
 
 
 		renderCover: ()->
-			cover = @model.get( 'info.images.large' ) or 'images/big.png'
-			@$( '.BigImg' ).attr( 'src', cover )
+			console.log 'renserCover', @$( '.b-item__cover-image' )
+
+			cover = @model.get( 'info.images.medium' ) or 'images/big.png'
+			@$( '.b-item__cover-image' ).attr( 'src', cover )
 
 
 		renderSelected: ()->
 			if @model.get( 'selected' )
-				@$el.addClass( 'selected' )
+				@$el.addClass( 'b-item_selected' )
 			else
-				@$el.removeClass( 'selected' )
+				@$el.removeClass( 'b-item_selected' )
 
 
 		play: ()->

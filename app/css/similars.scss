@@ -1,0 +1,33 @@
+
+.b-similars {
+
+}
+
+
+	.b-similars__phrase {
+		height           : 40px;
+		background-color : rgb(223, 223, 223);
+		border           : 1px solid #F5F5F5;;
+		border-bottom    : 1px solid rgb(185, 185, 185);
+		padding-left     : 180px;
+	}
+
+/*{
+	margin-top: 10px;
+	display : block;
+	font        : 14pt Century Gothic;
+	color : rgb(33, 33, 33);
+}*/
+
+
+	.b-similars__similars-container {
+		background-color : rgb(223, 223, 223);
+		overflow-x       : hidden;
+		border           : 1px solid #F5F5F5;;
+	}
+
+
+	.b-similars__more-button {
+		height       : 30px;
+		padding-left : 310px;
+	}

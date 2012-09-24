@@ -21,24 +21,25 @@
 	);
 }
 
-.b-similar.selected {
-	background-image: linear-gradient(bottom, rgb(184,184,184) 100%, rgb(240,240,240) 65%);
-	background-image: -o-linear-gradient(bottom, rgb(184,184,184) 100%, rgb(240,240,240) 65%);
-	background-image: -moz-linear-gradient(bottom, rgb(184,184,184) 100%, rgb(240,240,240) 65%);
-	background-image: -webkit-linear-gradient(bottom, rgb(184,184,184) 100%, rgb(240,240,240) 65%);
-	background-image: -ms-linear-gradient(bottom, rgb(184,184,184) 100%, rgb(240,240,240) 65%);
 
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(1, rgb(184,184,184)),
-		color-stop(0.65, rgb(240,240,240))
-	);
-}
+.b-similar_selected {
+		background-image: linear-gradient(bottom, rgb(184,184,184) 100%, rgb(240,240,240) 65%);
+		background-image: -o-linear-gradient(bottom, rgb(184,184,184) 100%, rgb(240,240,240) 65%);
+		background-image: -moz-linear-gradient(bottom, rgb(184,184,184) 100%, rgb(240,240,240) 65%);
+		background-image: -webkit-linear-gradient(bottom, rgb(184,184,184) 100%, rgb(240,240,240) 65%);
+		background-image: -ms-linear-gradient(bottom, rgb(184,184,184) 100%, rgb(240,240,240) 65%);
+
+		background-image: -webkit-gradient(
+			linear,
+			left bottom,
+			left top,
+			color-stop(1, rgb(184,184,184)),
+			color-stop(0.65, rgb(240,240,240))
+		);
+	}
 
 
-	.b-similar .album-cover {
+	.b-similar__album-cover {
 		outline : 1px solid #F5F5F5;;
 		width   : 64px;
 		height  : 64px;
@@ -47,24 +48,24 @@
 	}
 
 
-		.b-similar .cover-image {
+		.b-similar__cover-image {
 
 		}
 
 
-	.b-similar .content {
+	.b-similar__content {
 		margin-left : 15px;
 		float       : left;
 	}
 
 
-		.b-similar .track-title {
+		.b-similar__track-title {
 			width  : 220px;
 			height : 30px;
 		}
 
 
-			.b-similar .artist-name {
+			.b-similar__artist-name {
 				height      : 15px;;
 				display     : block;
 				font        : 12pt Century Gothic;
@@ -74,40 +75,40 @@
 			}
 
 
-			.b-similar .track-name {
+			.b-similar__track-name {
 				height  : 15px;;
 				display : block;
 				color   : rgb(33, 33, 33);
 			}
 
 
-		.b-similar .buttons {
+		.b-similar__buttons {
 			margin-top : 10px;
 			cursor: pointer;
 		}
 
 
-			.b-similar .play-button  {
+			.b-similar__play-button  {
 
 			}
 
 
-			.b-similar .pause-button {
+			.b-similar__pause-button {
 				display          : none;
 			}
 
 
-			.b-similar .add-button {
+			.b-similar__add-button {
 
 			}
 
 
-			.b-similar .like-button {
+			.b-similar__like-button {
 
 			}
 
 
-			.b-similar .wiki-button {
+			.b-similar__wiki-button {
 
 
 			}
