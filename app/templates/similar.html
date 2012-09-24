@@ -1,18 +1,21 @@
-<img class="SmallImg" src="<%= cover %>" />
+<div class="album-cover">
+	<img class="cover-image" src="<%= cover %>" />
+</div>
 
-<div class="SimInfoCont">
-	<div class="SimTitle">
-			<span class="SimArtist">
+<div class="content">
+	<div class="track-title">
+			<span class="artist-name">
 				<%= artist %>
 			</span>
-			<span class="SimName">
+			<span class="track-name">
 				<%= title %>
 			</span>
 	</div>
 
-	<div class="SimButtonsCont">
-		<img src="images/sim_play.png" class="SimPlayB" />
-		<img src="images/sim_add_pre.png" class="SimAddB" style="margin-left: 7px;" />
-		<img src="images/like_pre.png" class="SimLikeB" style="margin-left: 7px;" />
+	<div class="buttons">
+		<img src="images/sim_play.png" class="play-button" />
+		<img src="images/sim_play.png" class="pause-button" />
+		<img src="images/sim_add_pre.png" class="add-button" />
+		<img src="images/like_pre.png" class="like-button" />
 	</div>
 </div>

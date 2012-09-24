@@ -82,6 +82,13 @@ define [
 			mediator.publish( 'list:current', this )
 
 
+		pause: ()->
+
+
+		togglePlay: ()->
+
+
+
 		addToAudio: ()->
 			@getAudioUrl().done( @_addToAudio )
 

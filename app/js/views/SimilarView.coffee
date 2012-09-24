@@ -12,12 +12,14 @@ define [
 
 		template: similarTemplate
 
-		className: 'SimItem'
+		className: 'b-similar'
 
 		events:
-			'click .SimPlayB, .SmallImg' : 'play'
-			'click .SimAddB': 'addToAudio'
-			'click .SimLikeB': 'addToWall'
+			'click .play-button' : 'play'
+			'click .pause-button': 'pause'
+			'click .album-cover': 'togglePlay'
+			'click .add-button': 'addToAudio'
+			'click .like-button': 'addToWall'
 
 
 		initialize: ( options )->
@@ -42,6 +44,14 @@ define [
 
 		play: ()->
 			@model.play()
+
+
+		pause: ()->
+			@model.pause()
+
+
+		togglePlay: ()->
+			@model.togglePlay()
 
 
 		showWiki: ()->
