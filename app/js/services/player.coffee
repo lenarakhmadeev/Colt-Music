@@ -60,3 +60,11 @@ define [
 
 		resume: ()->
 			@jp.jPlayer( 'play' )
+
+
+
+		togglePlay: ()->
+			event = if @paused then 'player:resume' else 'player:pause'
+			mediator.publish( event )
+
+

@@ -16,7 +16,10 @@ define [
 		defaults:
 			artist: null
 			title: null
+
 			selected: false
+			played: false
+
 			type: 'similar'
 			has_info: false
 			has_audio: false
@@ -69,8 +72,17 @@ define [
 					@set( audio: data )
 
 
-		select: ( selected )->
+		setCurrent: ( current )->
+			@setSelected( current )
+			@setPlayed( current )
+
+
+		setSelected: ( selected )->
 			@set( 'selected', selected )
+
+
+		setPlayed: ( played )->
+			@set( 'played', played )
 
 
 		play: ()->
@@ -78,15 +90,30 @@ define [
 
 
 		_play: ()=>
+			@setCurrent( true )
+
 			mediator.publish( 'player:play', this )
 			mediator.publish( 'list:current', this )
 
 
 		pause: ()->
+			@setPlayed( false )
+			mediator.publish( 'player:pause' )
+
+
+		resume: ()->
+			@setPlayed( true )
+			mediator.publish( 'player:resume' )
 
 
 		togglePlay: ()->
-
+			if @get( 'played' )
+				@pause()
+			else
+				if @get( 'selected' )
+					@resume()
+				else
+					@play()
 
 
 		addToAudio: ()->

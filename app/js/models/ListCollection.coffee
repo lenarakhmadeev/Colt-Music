@@ -32,7 +32,8 @@ define [
 
 		firstLoad: ()->
 			@loadPage( @own.get( 'page' ) )
-			@playFirst()
+			# todo!!
+			#@playFirst()
 
 
 		playFirst: ()->

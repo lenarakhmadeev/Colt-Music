@@ -103,11 +103,9 @@ define [
 
 		# Устанавливает текущую запись
 		setCurrent: ( track )->
-			if @currentTrack?
-				@currentTrack.select( false )
+			@currentTrack.setCurrent( false ) if @currentTrack?
 
 			@currentTrack = track
-			@currentTrack.select( true )
 
 			#@preloadNextSimilar( track )
 

@@ -16,7 +16,7 @@ define [
 		className: 'player'
 
 		events:
-			'click .play': 'play'
+			'click .play': 'resume'
 			'click .pause': 'pause'
 			'click .rew': 'prev'
 			'click .ff': 'next'
@@ -24,7 +24,6 @@ define [
 
 
 		initialize: ( options )->
-			@model.on( 'change:played', @renderPlayed, this )
 			@model.on( 'change:current', @renderCurrent, this )
 
 			@marqueeView = new MarqueeView( model: @model )
@@ -40,7 +39,9 @@ define [
 
 
 		renderPlayed: ()->
-			if @model.get( 'played' )
+			played = @model.getCurrent().get( 'played' )
+
+			if played
 				@$( '.play' ).fadeOut( 'slow' )
 				@$( '.pause' ).fadeIn( 'slow' )
 			else
@@ -49,34 +50,41 @@ define [
 
 
 		renderCurrent: ()->
-			current = @model.get( 'current' )
+			@subscribePlayed()
 
-			@renderType( current.get( 'type' ) )
+			@renderType()
+			@renderCover()
+			@renderPlayed()
 
-			cover = current.get( 'info.images.large' ) or 'images/big.png'
-			@renderCover( cover )
+
+		subscribePlayed: ()->
+			current = @model.getCurrent()
+			@model.off( 'change:played', null, this )
+			current.on( 'change:played', @renderPlayed, this )
 
 
-		renderType: ( type )->
+		renderType: ()->
+			type = @model.getCurrent().get( 'type' )
+
 			if type == 'similar'
 				@$( '.PlayerAddButton' ).show( 500 )
 			else
 				@$( '.PlayerAddButton' ).hide( 500 )
 
 
-		renderCover: ( cover )->
+		renderCover: ()->
+			cover = @model.getCurrent().get( 'info.images.large' ) or 'images/big.png'
 			@$( '.PlayerBigImage' ).attr( 'src', cover )
-
 
 
 		#-------------------------------------------------------
 
-		play: ()->
-			mediator.publish( 'player:resume' )
+		resume: ()->
+			@model.resume()
 
 
 		pause: ()->
-			mediator.publish( 'player:pause' )
+			@model.pause()
 
 
 		prev: ()->
@@ -88,7 +96,7 @@ define [
 
 
 		addAudio: ()->
-			track = @model.get( 'current' )
+			track = @model.getCurrent()
 			track.addToAudio()
 
 

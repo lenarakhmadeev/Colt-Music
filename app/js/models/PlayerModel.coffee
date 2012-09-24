@@ -2,8 +2,9 @@
 define [
 	'backbone'
 	'services/mediator'
+	'services/player'
 
-], ( Backbone, mediator )->
+], ( Backbone, mediator, player )->
 
 	'use strict'
 
@@ -11,25 +12,22 @@ define [
 
 		initialize: ( attributes, options )->
 			mediator.subscribe( 'player:play', @play, this )
-			mediator.subscribe( 'player:pause', @pause, this )
-			mediator.subscribe( 'player:resume', @resume, this )
 
 
 		play: ( model )->
-			@set( current: model )
-			@setPlayed( true )
+			@set( 'current', model )
 
 
 		pause: ()->
-			@setPlayed( false )
+			@getCurrent().pause()
 
 
 		resume: ()->
-			@setPlayed( true )
+			@getCurrent().resume()
 
 
-		setPlayed: ( played )->
-			@set( 'played', played )
+		getCurrent: ()->
+			@get( 'current' )
 
 
 
