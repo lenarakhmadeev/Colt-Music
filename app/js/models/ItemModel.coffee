@@ -1,23 +1,28 @@
 
 define [
 	'backbone'
+	'models/TrackModel'
 	'services/mediator'
 	'models/SimilarsCollection'
 	'services/proxy/proxy'
 	'backbone_nested'
 	
-], ( Backbone, mediator, SimilarsCollection, proxy )->
+], ( Backbone, TrackModel, mediator, SimilarsCollection, proxy )->
 
 	'use strict'
 
-	class ItemModel extends Backbone.NestedModel
+	class ItemModel extends TrackModel
 
 		defaults:
 			artist: null
 			title: null
+
 			selected: false
+			played: false
+
 			type: 'item'
 			has_info: false
+			has_audio: true
 
 			info:
 				wiki: null
@@ -37,30 +42,8 @@ define [
 			@similarsCollection.setParent( this )
 
 
-		getTrackInfo: ()->
-			proxy.getTrackInfo( @get( 'artist' ), @get( 'title' ) )
-				.done ( data )=>
-					@set( info: data )
-					@set( 'has_info', true )
-
-
 		fetch: ()->
 			unless @get( 'has_info' )
 				@getTrackInfo() 
 			
 			@similarsCollection.getFirstSimilars()
-
-
-		select: ( selected )->
-			@set( 'selected', selected )
-
-
-		play: ()->
-			mediator.publish( 'player:play', this )
-			mediator.publish( 'list:current', this )
-
-
-		addToWall: ()->
-			proxy.addToWall( @get( 'audio.audio_id' ), @get( 'audio.owner_id' ) )
-
-
