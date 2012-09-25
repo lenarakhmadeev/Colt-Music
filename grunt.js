@@ -61,9 +61,8 @@ module.exports = function(grunt) {
             dest: 'build/styles',
             linecomments: true,
             forcecompile: true,
-            images: 'build/images',
-            //outputstyle: 'compressed',
-            relativeassets: true
+			images: 'build/images',
+			relativeassets: true
         }
     },
 

@@ -20,14 +20,17 @@ define [
 			'click .b-similar__album-cover': 'togglePlay'
 			'click .b-similar__add-button': 'addToAudio'
 			'click .b-similar__like-button': 'addToWall'
+			'click .b-similar__wiki-button': 'showWiki'
 
 
 		initialize: ( options )->
-			@model.bind( 'change:selected', @renderSelected, this )
+			@model.on( 'change:selected', @renderSelected, this )
+			@model.on( 'change:played', @renderPlayed, this )
 
 
 		_render: ()->
 			@renderSelected()
+			@renderPlayed()
 
 
 		serialize: ()->
@@ -43,6 +46,15 @@ define [
 				@$el.removeClass( 'b-similar_selected' )
 
 
+		renderPlayed: ()->
+			if @model.get( 'played' )
+				@$( '.b-similar__play-button').hide()
+				@$( '.b-similar__pause-button').show()
+			else
+				@$( '.b-similar__play-button').show()
+				@$( '.b-similar__pause-button').hide()
+
+
 		play: ()->
 			@model.play()
 
@@ -55,12 +67,12 @@ define [
 			@model.togglePlay()
 
 
-		showWiki: ()->
-
-
 		addToAudio: ()->
 			@model.addToAudio()
 
 
 		addToWall: ()->
 			@model.addToWall()
+
+
+		showWiki: ()->

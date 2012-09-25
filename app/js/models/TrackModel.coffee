@@ -85,7 +85,10 @@ define [
 
 
 		play: ()->
-			@getAudioUrl().done( @_play )
+			if @get( 'selected' )
+				@resume()
+			else
+				@getAudioUrl().done( @_play )
 
 
 		_play: ()=>
