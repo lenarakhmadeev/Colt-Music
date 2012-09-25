@@ -1,10 +1,9 @@
 
 define [
-	'underscore'
 	'views/View'
 	'tpl!templates/similar.html'
 	
-], ( _, View, similarTemplate )->
+], ( View, similarTemplate )->
 
 	'use strict'
 

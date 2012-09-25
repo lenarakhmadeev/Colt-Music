@@ -22,7 +22,7 @@ define [
 
 
 		initialize: ( options )->
-			@collection.bind( 'add', @addItem, this )
+			@collection.on( 'add', @addItem, this )
 
 			@phraseView = new PhraseView( collection: @collection )
 			@moreButtonView = new MoreButtonView( collection: @collection )

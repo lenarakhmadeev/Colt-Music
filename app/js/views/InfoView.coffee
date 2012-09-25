@@ -14,7 +14,7 @@ define [
 		className: 'b-item-info'
 
 		initialize: ( options )->
-			@model.bind( 'change:info', @render, this )
+			@model.on( 'change:info', @render, this )
 
 
 		serialize: ()->

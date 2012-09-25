@@ -14,7 +14,7 @@ define [
 		className: 'ListCont'
 
 		initialize: ( options )->
-			@collection.own.bind( 'change:content', @render, this )
+			@collection.own.on( 'change:content', @render, this )
 
 			@navigationView = new NavigationView( collection: @collection )
 

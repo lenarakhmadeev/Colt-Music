@@ -70,7 +70,7 @@ define [
 		className: 'ItemDelimPhrase'
 
 		initialize: ( options )->
-			@collection.bind( 'reset add remove', @render, this )
+			@collection.on( 'reset add remove', @render, this )
 
 
 		_render: ()->

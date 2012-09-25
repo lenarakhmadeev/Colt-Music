@@ -21,8 +21,8 @@ define [
 
 
 		initialize: ( options )->
-			@model.bind( 'change:selected', @renderSelected, this )
-			@model.bind( 'change:info', @renderCover, this )
+			@model.on( 'change:selected', @renderSelected, this )
+			@model.on( 'change:info', @renderCover, this )
 
 			@similarsView = new SimilarsView( collection: @model.similarsCollection )
 			@infoView = new InfoView( model: @model )
