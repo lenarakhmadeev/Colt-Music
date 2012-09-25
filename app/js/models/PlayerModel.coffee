@@ -15,6 +15,8 @@ define [
 
 
 		play: ( model )->
+			console.log 'play', model
+
 			@set( 'current', model )
 
 

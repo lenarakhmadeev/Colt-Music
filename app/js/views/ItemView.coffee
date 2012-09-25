@@ -34,9 +34,6 @@ define [
 
 
 		_render: ()->
-			console.log @model, @$el
-
-
 			@infoView.render()
 			@append( '.b-item__info-place', @infoView )
 
@@ -49,9 +46,7 @@ define [
 
 
 		renderCover: ()->
-			console.log 'renserCover', @$( '.b-item__cover-image' )
-
-			cover = @model.get( 'info.images.medium' ) or 'images/big.png'
+			cover = @model.get( 'info.images.126' ) or 'images/big.png'
 			@$( '.b-item__cover-image' ).attr( 'src', cover )
 
 

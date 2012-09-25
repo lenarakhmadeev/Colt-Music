@@ -19,7 +19,9 @@ module.exports = function(grunt) {
   // Load modules
   grunt.loadNpmTasks('grunt-contrib');
   grunt.loadNpmTasks('grunt-coffee');
-  grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-compass');
+  // grunt.loadNpmTasks('grunt-reload');
+  
 
   // Project configuration.
   grunt.initConfig({
@@ -53,10 +55,22 @@ module.exports = function(grunt) {
       base: 'build'
     },
 
-    sass: {
-      build: {
-        src: 'app/css/**/*.scss',
-        dest: 'build/css/all.css'
+     compass: {
+        build: {
+            src: 'app/styles',
+            dest: 'build/styles',
+            linecomments: true,
+            forcecompile: true,
+            images: 'build/images',
+            //outputstyle: 'compressed',
+            relativeassets: true
+        }
+    },
+
+    concat: {
+      css: {
+        src: 'build/styles/**/*.css',
+        dest: 'build/styles/all.css'
       }
     },
 
@@ -69,7 +83,7 @@ module.exports = function(grunt) {
 
   });
 
-  grunt.registerTask('build', 'clean:build sass:build coffee:build copy:build');
+  grunt.registerTask('build', 'clean:build compass:build coffee:build copy:build concat:css');
   grunt.registerTask('run', 'build server watch');
 
 };

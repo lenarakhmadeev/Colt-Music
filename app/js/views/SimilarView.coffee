@@ -25,6 +25,7 @@ define [
 		initialize: ( options )->
 			@model.bind( 'change:selected', @renderSelected, this )
 
+
 		_render: ()->
 			@renderSelected()
 
@@ -32,7 +33,7 @@ define [
 		serialize: ()->
 			artist: @model.get( 'artist' )
 			title: @model.get( 'title' )
-			cover: @model.get( 'info.images.small' ) or 'http://placekitten.com/g/64/64'
+			cover: @model.get( 'info.images.64' ) or 'http://placekitten.com/g/64/64'
 
 
 		renderSelected: ()->

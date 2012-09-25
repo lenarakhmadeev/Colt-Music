@@ -12,7 +12,7 @@ define [
 			rawImages = jpath( data, '.track.album.image' )
 
 			album: jpath( data, '.track.album.title' )
-			images: @filterImages( rawImages )
+			images: @filterInfoImages( rawImages )
 			tags: jpath( data, 'track.toptags.tag.name', true )
 			wiki: jpath( data, '.track.wiki' )
 
@@ -29,15 +29,35 @@ define [
 		topTracks: ()->
 
 
-		filterImages : ( data )->
+		filterImages : ( data, sizes)->
 			return null unless data?
 
 			result = {}
 
 			for image in data
-				result[ image.size ] = image[ '#text' ]
+				result[ sizes[ image.size ] ] = image[ '#text' ]
 
 			result
+
+
+		infoImageSizes:
+			'small': 64
+			'medium': 126
+			'large': 174
+			'extralarge': 300
+
+		filterInfoImages: ( data )->
+			@filterImages( data, @infoImageSizes )
+
+
+		similarImageSizes:
+			'small': 34
+			'medium': 64
+			'large': 126
+			'extralarge': 300
+
+		filterSimilarImages: ( data )->
+			@filterImages( data, @similarImageSizes )
 
 
 		filterSimilar: ( data )->
@@ -45,6 +65,6 @@ define [
 
 			artist: jpath( data, '.artist.name' )
 			title: jpath( data, '.name' )
-			images: @filterImages( rawImages )
+			images: @filterSimilarImages( rawImages )
 
 
