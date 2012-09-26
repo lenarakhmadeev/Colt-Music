@@ -1,12 +1,16 @@
 
 <% if (status == 'loading') { %>
-	loading
+	<div class="b-more-button__show-loader">
+		Загрузка...
+	</div>
 <% } %>
 
 <% if (status == 'no') { %>
-	no
 <% } %>
 
 <% if (status == 'yes') { %>
-	yes
+	<div class="b-more-button__show-more-button">
+		<div class="b-more-button__show-more-text">Показать ещё</div>
+		<div class="b-more-button__show-more-icon"></div>
+	</div>
 <% } %>

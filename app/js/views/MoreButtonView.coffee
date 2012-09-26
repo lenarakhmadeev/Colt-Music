@@ -11,9 +11,10 @@ define [
 
 		template: moreTemplate
 
-		tagName: 'span'
+		className: 'b-more-button'
 
-		className: 'MoreButton'
+		events:
+			'click .b-more-button__show-more-button': 'getMoreSimilars'
 
 
 		initialize: ( options )->
@@ -23,3 +24,6 @@ define [
 		serialize: ()->
 			status: @collection.own.get( 'status' )
 
+
+		getMoreSimilars: ()->
+			@collection.getMoreSimilars()

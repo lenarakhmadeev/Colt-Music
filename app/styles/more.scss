@@ -1,0 +1,64 @@
+
+@font-face{
+	font-family: Gothic;
+	font-weight: 400;
+	font-style: normal;
+
+	src: url('Century Gothic.eot');
+	src: local('☺'),
+	url('http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf') format("truetype");
+}
+
+
+
+.b-more-button {
+	margin: 5px auto;
+	width: 140px;
+	height: 20px;
+
+
+}
+
+	.b-more-button__show-more-button {
+		cursor: pointer;
+	}
+
+		.b-more-button__show-more-text {
+
+			font-size: 12pt;
+			font-family: Gothic, sans-serif;
+			font-weight: bold;
+
+
+			color       : #cccccc;
+			text-shadow : 1px 1px 2px #000000;
+
+
+			display: block;
+			float: left;
+		}
+
+		.b-more-button__show-more-icon {
+			float: left;
+
+			margin-left: 10px;
+			margin-top: 3px;
+
+			width: 16px;
+			height: 16px;
+			background-image: image-url('good/show_more_icon.png');
+		}
+
+
+	.b-more-button__show-loader {
+		margin-left: 35px;
+
+		font-size: 12pt;
+		font-family: Gothic, sans-serif;
+		font-weight: bold;
+
+
+		color       : #cccccc;
+		text-shadow : 1px 1px 2px #000000;
+
+	}

@@ -67,7 +67,7 @@ define [
 
 		tagName: 'span'
 
-		className: 'ItemDelimPhrase'
+		className: 'b-similars__phrase'
 
 		initialize: ( options )->
 			@collection.on( 'reset add remove', @render, this )

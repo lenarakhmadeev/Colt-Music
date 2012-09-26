@@ -1,12 +1,25 @@
 
 @import "compass/css3/columns";
 
+
+
+@font-face{
+	font-family: Gothic;
+	font-weight: 400;
+	font-style: normal;
+
+	src: url('Century Gothic.eot');
+	src: local('☺'),
+	url('http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf') format("truetype");
+}
+
+
 .b-similars {
 
 }
 
 
-	.b-similars__phrase {
+	.b-similars__phrase-place {
 		height           : 40px;
 		background-color : rgb(223, 223, 223);
 		border           : 1px solid #F5F5F5;;
@@ -14,12 +27,15 @@
 		padding-left     : 180px;
 	}
 
-/*{
-	margin-top: 10px;
-	display : block;
-	font        : 14pt Century Gothic;
-	color : rgb(33, 33, 33);
-}*/
+
+		.b-similars__phrase {
+			margin-top: 10px;
+			display : block;
+
+			font-weight: bold;
+			font-family: Gothic, sans-serif;
+			color : rgb(33, 33, 33);
+		}
 
 
 	.b-similars__similars-container {
@@ -32,7 +48,8 @@
 	}
 
 
-	.b-similars__more-button {
-		height       : 30px;
-		padding-left : 310px;
+	.b-similars__more-button-place {
+
 	}
+
+

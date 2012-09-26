@@ -17,10 +17,6 @@ define [
 
 		className: 'b-similars'
 
-		events:
-			'click .b-similars__more-button': 'getMoreSimilars'
-
-
 		initialize: ( options )->
 			@collection.on( 'add', @addItem, this )
 
@@ -40,12 +36,12 @@ define [
 
 		renderPhrase: ()->
 			@phraseView.render()
-			@append( '.b-similars__phrase', @phraseView )
+			@append( '.b-similars__phrase-place', @phraseView )
 
 
 		renderMoreButton: ()->
 			@moreButtonView.render()
-			@append( '.b-similars__more-button', @moreButtonView )
+			@append( '.b-similars__more-button-place', @moreButtonView )
 
 
 		addItem: (model)->
@@ -53,9 +49,3 @@ define [
 			simView.render()
 
 			@append( '.b-similars__similars-container', simView )
-
-
-		#------------------------------------------------
-
-		getMoreSimilars: ()->
-			@collection.getMoreSimilars()
