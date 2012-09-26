@@ -1,4 +1,16 @@
 
+@font-face{
+	font-family: Gothic;
+	font-weight: 400;
+	font-style: normal;
+
+	src: url('Century Gothic.eot');
+	src: local('☺'),
+	url('http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf') format("truetype");
+}
+
+
+
 .player {
 	width            : 807px;
 	height           : 151px;
@@ -161,7 +173,9 @@
 				.trackinfo p {
 					float       : left;
 					margin      : 0;
-					font        : 12pt Century Gothic;
+
+					font-family: Gothic, sans-serif;
+					font-size: 12pt;
 					color       : #cccccc;
 					text-shadow : 1px 1px 2px #000000;
 				}
