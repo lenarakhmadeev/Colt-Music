@@ -17,10 +17,10 @@ define(['views/View'], function(View) {
 
     PhraseView.prototype.tagName = 'span';
 
-    PhraseView.prototype.className = 'ItemDelimPhrase';
+    PhraseView.prototype.className = 'b-similars__phrase';
 
     PhraseView.prototype.initialize = function(options) {
-      return this.collection.bind('reset add remove', this.render, this);
+      return this.collection.on('reset add remove', this.render, this);
     };
 
     PhraseView.prototype._render = function() {

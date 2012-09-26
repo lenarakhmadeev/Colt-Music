@@ -15,18 +15,24 @@ define(['views/View', 'tpl!templates/more.html'], function(View, moreTemplate) {
 
     MoreButtonView.prototype.template = moreTemplate;
 
-    MoreButtonView.prototype.tagName = 'span';
+    MoreButtonView.prototype.className = 'b-more-button';
 
-    MoreButtonView.prototype.className = 'MoreButton';
+    MoreButtonView.prototype.events = {
+      'click .b-more-button__show-more-button': 'getMoreSimilars'
+    };
 
     MoreButtonView.prototype.initialize = function(options) {
-      return this.collection.own.bind('change:status', this.render, this);
+      return this.collection.own.on('change:status', this.render, this);
     };
 
     MoreButtonView.prototype.serialize = function() {
       return {
         status: this.collection.own.get('status')
       };
+    };
+
+    MoreButtonView.prototype.getMoreSimilars = function() {
+      return this.collection.getMoreSimilars();
     };
 
     return MoreButtonView;

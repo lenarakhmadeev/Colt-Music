@@ -15,16 +15,19 @@ define(['views/View', 'views/SimilarsView', 'views/InfoView', 'tpl!templates/ite
 
     ItemView.prototype.template = itemTemplate;
 
-    ItemView.prototype.className = 'item';
+    ItemView.prototype.className = 'b-item';
 
     ItemView.prototype.events = {
-      'click .BigImg': 'play',
-      'click .ItemLikeB': 'addToWall'
+      'click .b-item__play-button': 'play',
+      'click .b-item__pause-button': 'pause',
+      'click .b-item__album-cover': 'togglePlay',
+      'click .b-item__like-button': 'addToWall'
     };
 
     ItemView.prototype.initialize = function(options) {
-      this.model.bind('change:selected', this.renderSelected, this);
-      this.model.bind('change:info', this.renderCover, this);
+      this.model.on('change:selected', this.renderSelected, this);
+      this.model.on('change:played', this.renderPlayed, this);
+      this.model.on('change:info', this.renderCover, this);
       this.similarsView = new SimilarsView({
         collection: this.model.similarsCollection
       });
@@ -42,28 +45,48 @@ define(['views/View', 'views/SimilarsView', 'views/InfoView', 'tpl!templates/ite
 
     ItemView.prototype._render = function() {
       this.infoView.render();
-      this.append('.ItemAlbumCont', this.infoView);
+      this.append('.b-item__info-place', this.infoView);
       this.similarsView.render();
-      this.append(this.similarsView);
-      return this.renderCover();
+      this.append('.b-item__similars-place', this.similarsView);
+      this.renderCover();
+      this.renderSelected();
+      return this.renderPlayed();
     };
 
     ItemView.prototype.renderCover = function() {
       var cover;
-      cover = this.model.get('info.images.large') || 'images/big.png';
-      return this.$('.BigImg').attr('src', cover);
+      cover = this.model.get('info.images.126') || 'images/big.png';
+      return this.$('.b-item__cover-image').attr('src', cover);
     };
 
     ItemView.prototype.renderSelected = function() {
       if (this.model.get('selected')) {
-        return this.$el.addClass('selected');
+        return this.$el.addClass('b-item_selected');
       } else {
-        return this.$el.removeClass('selected');
+        return this.$el.removeClass('b-item_selected');
+      }
+    };
+
+    ItemView.prototype.renderPlayed = function() {
+      if (this.model.get('played')) {
+        this.$('.b-item__play-button').hide();
+        return this.$('.b-item__pause-button').show();
+      } else {
+        this.$('.b-item__play-button').show();
+        return this.$('.b-item__pause-button').hide();
       }
     };
 
     ItemView.prototype.play = function() {
       return this.model.play();
+    };
+
+    ItemView.prototype.pause = function() {
+      return this.model.pause();
+    };
+
+    ItemView.prototype.togglePlay = function() {
+      return this.model.togglePlay();
     };
 
     ItemView.prototype.addToWall = function() {

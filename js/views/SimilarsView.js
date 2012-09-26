@@ -15,14 +15,10 @@ define(['jquery', 'views/View', 'views/SimilarView', 'views/PhraseView', 'views/
 
     SimilarsView.prototype.template = similarsTemplate;
 
-    SimilarsView.prototype.className = 'similar-container';
-
-    SimilarsView.prototype.events = {
-      'click .ItemFooter': 'getMoreSimilars'
-    };
+    SimilarsView.prototype.className = 'b-similars';
 
     SimilarsView.prototype.initialize = function(options) {
-      this.collection.bind('add', this.addItem, this);
+      this.collection.on('add', this.addItem, this);
       this.phraseView = new PhraseView({
         collection: this.collection
       });
@@ -43,12 +39,12 @@ define(['jquery', 'views/View', 'views/SimilarView', 'views/PhraseView', 'views/
 
     SimilarsView.prototype.renderPhrase = function() {
       this.phraseView.render();
-      return this.append('.ItemDelim', this.phraseView);
+      return this.append('.b-similars__phrase-place', this.phraseView);
     };
 
     SimilarsView.prototype.renderMoreButton = function() {
       this.moreButtonView.render();
-      return this.append('.ItemFooter', this.moreButtonView);
+      return this.append('.b-similars__more-button-place', this.moreButtonView);
     };
 
     SimilarsView.prototype.addItem = function(model) {
@@ -57,11 +53,8 @@ define(['jquery', 'views/View', 'views/SimilarView', 'views/PhraseView', 'views/
         model: model
       });
       simView.render();
-      return this.append('.ItemSimCont', simView);
-    };
-
-    SimilarsView.prototype.getMoreSimilars = function() {
-      return this.collection.getMoreSimilars();
+      this.append('.b-similars__similars-container', simView);
+      return this.$('.b-similars__similars-container').show();
     };
 
     return SimilarsView;

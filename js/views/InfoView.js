@@ -15,8 +15,10 @@ define(['views/View', 'tpl!templates/info.html'], function(View, infoTemplate) {
 
     InfoView.prototype.template = infoTemplate;
 
+    InfoView.prototype.className = 'b-item-info';
+
     InfoView.prototype.initialize = function(options) {
-      return this.model.bind('change:info', this.render, this);
+      return this.model.on('change:info', this.render, this);
     };
 
     InfoView.prototype.serialize = function() {

@@ -17,6 +17,9 @@
 
 	Верстка
 		livereload
+		item
+			wiki
+
 
 	+привести модели к единому виду, чтобы их можно было проигрываить
 	+Наследовать ListCollection от Collection
@@ -61,6 +64,34 @@
 		менять название??
 
 	+При загрузке на паузе первая запись
+
+	переделать list
+		событие для след страницы
+		прелоад
+
+
+	+рендер выделения
+		+item
+		+similar
+
+
+	+вьюхи с плеем слушают события
+		-player:state - play, pause
+		+подумать короче
+
+
+	оставить только тракмодел, остальные килл
+
+	+размеры обложек
+
+	-починить grunt
+		+compass
+		-livereload
+
+
+	цвета отдельно для scss
+
+	колонки css3 тупые
 */
 
 define(['views/AppView', 'services/player', 'services/list'], function(AppView, player, list) {

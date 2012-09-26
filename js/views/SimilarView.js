@@ -1,7 +1,7 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['underscore', 'views/View', 'tpl!templates/similar.html'], function(_, View, similarTemplate) {
+define(['views/View', 'tpl!templates/similar.html'], function(View, similarTemplate) {
   'use strict';
 
   var SimilarView;
@@ -15,31 +15,50 @@ define(['underscore', 'views/View', 'tpl!templates/similar.html'], function(_, V
 
     SimilarView.prototype.template = similarTemplate;
 
-    SimilarView.prototype.className = 'SimItem';
+    SimilarView.prototype.className = 'b-similar';
 
     SimilarView.prototype.events = {
-      'click .SimPlayB, .SmallImg': 'play',
-      'click .SimAddB': 'addToAudio',
-      'click .SimLikeB': 'addToWall'
+      'click .b-similar__play-button': 'play',
+      'click .b-similar__pause-button': 'pause',
+      'click .b-similar__album-cover': 'togglePlay',
+      'click .b-similar__add-button': 'addToAudio',
+      'click .b-similar__like-button': 'addToWall',
+      'click .b-similar__wiki-button': 'showWiki'
     };
 
     SimilarView.prototype.initialize = function(options) {
-      return this.model.bind('change:selected', this.renderSelected, this);
+      this.model.on('change:selected', this.renderSelected, this);
+      return this.model.on('change:played', this.renderPlayed, this);
+    };
+
+    SimilarView.prototype._render = function() {
+      this.renderSelected();
+      return this.renderPlayed();
     };
 
     SimilarView.prototype.serialize = function() {
       return {
         artist: this.model.get('artist'),
         title: this.model.get('title'),
-        cover: this.model.get('info.images.medium') || 'http://placekitten.com/g/64/64'
+        cover: this.model.get('info.images.64') || 'http://placekitten.com/g/64/64'
       };
     };
 
     SimilarView.prototype.renderSelected = function() {
       if (this.model.get('selected')) {
-        return this.$el.addClass('selected');
+        return this.$el.addClass('b-similar_selected');
       } else {
-        return this.$el.removeClass('selected');
+        return this.$el.removeClass('b-similar_selected');
+      }
+    };
+
+    SimilarView.prototype.renderPlayed = function() {
+      if (this.model.get('played')) {
+        this.$('.b-similar__play-button').hide();
+        return this.$('.b-similar__pause-button').show();
+      } else {
+        this.$('.b-similar__play-button').show();
+        return this.$('.b-similar__pause-button').hide();
       }
     };
 
@@ -47,7 +66,13 @@ define(['underscore', 'views/View', 'tpl!templates/similar.html'], function(_, V
       return this.model.play();
     };
 
-    SimilarView.prototype.showWiki = function() {};
+    SimilarView.prototype.pause = function() {
+      return this.model.pause();
+    };
+
+    SimilarView.prototype.togglePlay = function() {
+      return this.model.togglePlay();
+    };
 
     SimilarView.prototype.addToAudio = function() {
       return this.model.addToAudio();
@@ -56,6 +81,8 @@ define(['underscore', 'views/View', 'tpl!templates/similar.html'], function(_, V
     SimilarView.prototype.addToWall = function() {
       return this.model.addToWall();
     };
+
+    SimilarView.prototype.showWiki = function() {};
 
     return SimilarView;
 

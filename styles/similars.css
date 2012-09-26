@@ -1,0 +1,43 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("Century Gothic.eot");
+  src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
+}
+
+/* line 22, ../../app/styles/similars.scss */
+.b-similars__phrase-place {
+  height: 40px;
+  background-color: #dfdfdf;
+  border: 1px solid #F5F5F5;
+  border-bottom: 1px solid #b9b9b9;
+  padding-left: 180px;
+}
+
+/* line 31, ../../app/styles/similars.scss */
+.b-similars__phrase {
+  margin-top: 10px;
+  display: block;
+  font-family: Gothic, sans-serif;
+  color: #212121;
+}
+
+/* line 40, ../../app/styles/similars.scss */
+.b-similars__similars-container {
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  -ms-columns: 2;
+  -o-columns: 2;
+  columns: 2;
+  -webkit-column-gap: 0;
+  -moz-column-gap: 0;
+  -ms-column-gap: 0;
+  -o-column-gap: 0;
+  column-gap: 0;
+  background-color: #dfdfdf;
+  overflow-x: hidden;
+  border: 1px solid #F5F5F5;
+  display: none;
+}

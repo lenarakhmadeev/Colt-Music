@@ -47,6 +47,11 @@ define(['jquery', 'services/mediator', 'jquery_jplayer'], function($, mediator) 
     },
     resume: function() {
       return this.jp.jPlayer('play');
+    },
+    togglePlay: function() {
+      var event;
+      event = this.paused ? 'player:resume' : 'player:pause';
+      return mediator.publish(event);
     }
   };
 });

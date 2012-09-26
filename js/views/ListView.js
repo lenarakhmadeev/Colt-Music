@@ -16,7 +16,7 @@ define(['underscore', 'views/View', 'views/ItemView', 'views/NavigationView'], f
     ListView.prototype.className = 'ListCont';
 
     ListView.prototype.initialize = function(options) {
-      this.collection.own.bind('change:content', this.render, this);
+      this.collection.own.on('change:content', this.render, this);
       return this.navigationView = new NavigationView({
         collection: this.collection
       });

@@ -18,7 +18,7 @@ define(['views/View', 'services/mediator', 'views/MarqueeView', 'tpl!templates/p
     PlayerView.prototype.className = 'player';
 
     PlayerView.prototype.events = {
-      'click .play': 'play',
+      'click .play': 'resume',
       'click .pause': 'pause',
       'click .rew': 'prev',
       'click .ff': 'next',
@@ -26,7 +26,6 @@ define(['views/View', 'services/mediator', 'views/MarqueeView', 'tpl!templates/p
     };
 
     PlayerView.prototype.initialize = function(options) {
-      this.model.on('change:played', this.renderPlayed, this);
       this.model.on('change:current', this.renderCurrent, this);
       return this.marqueeView = new MarqueeView({
         model: this.model
@@ -43,7 +42,9 @@ define(['views/View', 'services/mediator', 'views/MarqueeView', 'tpl!templates/p
     };
 
     PlayerView.prototype.renderPlayed = function() {
-      if (this.model.get('played')) {
+      var played;
+      played = this.model.getCurrent().get('played');
+      if (played) {
         this.$('.play').fadeOut('slow');
         return this.$('.pause').fadeIn('slow');
       } else {
@@ -53,14 +54,22 @@ define(['views/View', 'services/mediator', 'views/MarqueeView', 'tpl!templates/p
     };
 
     PlayerView.prototype.renderCurrent = function() {
-      var cover, current;
-      current = this.model.get('current');
-      this.renderType(current.get('type'));
-      cover = current.get('info.images.large') || 'images/big.png';
-      return this.renderCover(cover);
+      this.subscribePlayed();
+      this.renderType();
+      this.renderCover();
+      return this.renderPlayed();
     };
 
-    PlayerView.prototype.renderType = function(type) {
+    PlayerView.prototype.subscribePlayed = function() {
+      var current;
+      current = this.model.getCurrent();
+      this.model.off('change:played', null, this);
+      return current.on('change:played', this.renderPlayed, this);
+    };
+
+    PlayerView.prototype.renderType = function() {
+      var type;
+      type = this.model.getCurrent().get('type');
       if (type === 'similar') {
         return this.$('.PlayerAddButton').show(500);
       } else {
@@ -68,16 +77,18 @@ define(['views/View', 'services/mediator', 'views/MarqueeView', 'tpl!templates/p
       }
     };
 
-    PlayerView.prototype.renderCover = function(cover) {
+    PlayerView.prototype.renderCover = function() {
+      var cover;
+      cover = this.model.getCurrent().get('info.images.126') || 'images/big.png';
       return this.$('.PlayerBigImage').attr('src', cover);
     };
 
-    PlayerView.prototype.play = function() {
-      return mediator.publish('player:resume');
+    PlayerView.prototype.resume = function() {
+      return this.model.resume();
     };
 
     PlayerView.prototype.pause = function() {
-      return mediator.publish('player:pause');
+      return this.model.pause();
     };
 
     PlayerView.prototype.prev = function() {
@@ -90,7 +101,7 @@ define(['views/View', 'services/mediator', 'views/MarqueeView', 'tpl!templates/p
 
     PlayerView.prototype.addAudio = function() {
       var track;
-      track = this.model.get('current');
+      track = this.model.getCurrent();
       return track.addToAudio();
     };
 

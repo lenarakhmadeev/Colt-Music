@@ -1,0 +1,177 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("Century Gothic.eot");
+  src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
+}
+
+/* line 13, ../../app/styles/item.scss */
+.b-item {
+  border: 1px solid black;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  -moz-box-shadow: 0 5px 3px 0 #aaaaaa;
+  -webkit-box-shadow: 0 5px 3px 0 #aaaaaa;
+  box-shadow: 0 5px 3px 0 #aaaaaa;
+  background-image: url("../images/patt1.png");
+  margin: 35px 68px;
+  margin-right: 58px;
+  padding: 0 1px;
+}
+
+/* line 32, ../../app/styles/item.scss */
+.b-item_selected {
+  background-image: url("../images/1/patt4.png");
+}
+
+/* line 37, ../../app/styles/item.scss */
+.b-item__header {
+  height: 120px;
+  border-bottom: 1px solid black;
+  position: relative;
+}
+
+/* line 44, ../../app/styles/item.scss */
+.b-item__album-cover {
+  width: 126px;
+  height: 126px;
+  outline: 1px solid #b9b9b9;
+  background-color: #dfdfdf;
+  position: relative;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+/* line 57, ../../app/styles/item.scss */
+.b-item__cover-image {
+  width: 126px;
+  height: 126px;
+  position: relative;
+  z-index: 1000;
+}
+
+/* line 66, ../../app/styles/item.scss */
+.b-item__cover-shadow {
+  position: absolute;
+  top: 116px;
+  height: 10px;
+  width: 126px;
+  -moz-box-shadow: 0 0 30px 0 #000, 0 0 30px 0 #000, 0 0 30px 0 #000;
+  -webkit-box-shadow: 0 0 30px 0 #000, 0 0 30px 0 #000, 0 0 30px 0 #000;
+  box-shadow: 0 0 30px 0 #000, 0 0 30px 0 #000, 0 0 30px 0 #000;
+}
+
+/* line 78, ../../app/styles/item.scss */
+.b-item__content {
+  position: absolute;
+  left: 180px;
+  top: 30px;
+  height: 70px;
+  width: 520px;
+}
+
+/* line 87, ../../app/styles/item.scss */
+.b-item__track-title {
+  display: block;
+  overflow: hidden;
+  font-family: Gothic, sans-serif;
+  font-size: 12pt;
+  color: #cccccc;
+  text-shadow: 1px 1px 2px #000000;
+  width: 470px;
+  height: 20px;
+}
+
+/* line 102, ../../app/styles/item.scss */
+.b-item__artist-name {
+  font-family: Gothic, sans-serif;
+  font-size: 12pt;
+  font-weight: 800;
+}
+
+/* line 114, ../../app/styles/item.scss */
+.b-item__state-buttons {
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+}
+
+/* line 122, ../../app/styles/item.scss */
+.b-item__play-button {
+  background-image: url('../images/good/item_play_button.png');
+  height: 32px;
+  width: 93px;
+}
+
+/* line 130, ../../app/styles/item.scss */
+.b-item__play-button:hover {
+  background-image: url('../images/good/item_play_button_over.png');
+}
+
+/* line 135, ../../app/styles/item.scss */
+.b-item__pause-button {
+  display: none;
+  background-image: url('../images/good/item_pause_button.png');
+  height: 32px;
+  width: 93px;
+}
+
+/* line 144, ../../app/styles/item.scss */
+.b-item__pause-button:hover {
+  background-image: url('../images/good/item_pause_button_over.png');
+}
+
+/* line 154, ../../app/styles/item.scss */
+.b-item__control-buttons {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  height: 90px;
+}
+
+/* line 162, ../../app/styles/item.scss */
+.b-item__wiki-button {
+  float: left;
+  width: 13px;
+  height: 13px;
+  background-image: url('../images/good/wiki_icon.png');
+}
+
+/* line 171, ../../app/styles/item.scss */
+.b-item__wiki-button:hover {
+  background-image: url('../images/good/wiki_icon_over.png');
+}
+
+/* line 176, ../../app/styles/item.scss */
+.b-item__like-button {
+  float: left;
+  margin-left: 7px;
+  width: 13px;
+  height: 13px;
+  background-image: url('../images/good/like_icon.png');
+}
+
+/* line 186, ../../app/styles/item.scss */
+.b-item__like-button:hover {
+  background-image: url('../images/good/like_icon_over.png');
+}
+
+/* line 191, ../../app/styles/item.scss */
+.b-item__delete-button {
+  float: left;
+  margin-left: 14px;
+  width: 13px;
+  height: 13px;
+  background-image: url('../images/good/delete_icon.png');
+}
+
+/* line 201, ../../app/styles/item.scss */
+.b-item__delete-button:hover {
+  background-image: url('../images/good/delete_icon_over.png');
+}

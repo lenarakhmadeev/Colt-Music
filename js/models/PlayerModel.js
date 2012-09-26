@@ -1,7 +1,7 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['backbone', 'services/mediator'], function(Backbone, mediator) {
+define(['backbone', 'services/mediator', 'services/player'], function(Backbone, mediator, player) {
   'use strict';
 
   var PlayerModel;
@@ -14,28 +14,24 @@ define(['backbone', 'services/mediator'], function(Backbone, mediator) {
     }
 
     PlayerModel.prototype.initialize = function(attributes, options) {
-      mediator.subscribe('player:play', this.play, this);
-      mediator.subscribe('player:pause', this.pause, this);
-      return mediator.subscribe('player:resume', this.resume, this);
+      return mediator.subscribe('player:play', this.play, this);
     };
 
     PlayerModel.prototype.play = function(model) {
-      this.set({
-        current: model
-      });
-      return this.setPlayed(true);
+      console.log('play', model);
+      return this.set('current', model);
     };
 
     PlayerModel.prototype.pause = function() {
-      return this.setPlayed(false);
+      return this.getCurrent().pause();
     };
 
     PlayerModel.prototype.resume = function() {
-      return this.setPlayed(true);
+      return this.getCurrent().resume();
     };
 
-    PlayerModel.prototype.setPlayed = function(played) {
-      return this.set('played', played);
+    PlayerModel.prototype.getCurrent = function() {
+      return this.get('current');
     };
 
     return PlayerModel;

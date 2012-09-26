@@ -1,0 +1,51 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("Century Gothic.eot");
+  src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
+}
+
+/* line 14, ../../app/styles/more.scss */
+.b-more-button {
+  margin: 5px auto;
+  width: 140px;
+  height: 20px;
+}
+
+/* line 22, ../../app/styles/more.scss */
+.b-more-button__show-more-button {
+  cursor: pointer;
+}
+
+/* line 26, ../../app/styles/more.scss */
+.b-more-button__show-more-text {
+  font-size: 12pt;
+  font-family: Gothic, sans-serif;
+  font-weight: bold;
+  color: #cccccc;
+  text-shadow: 1px 1px 2px #000000;
+  display: block;
+  float: left;
+}
+
+/* line 41, ../../app/styles/more.scss */
+.b-more-button__show-more-icon {
+  float: left;
+  margin-left: 10px;
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  background-image: url('../images/good/show_more_icon.png');
+}
+
+/* line 53, ../../app/styles/more.scss */
+.b-more-button__show-loader {
+  margin-left: 35px;
+  font-size: 12pt;
+  font-family: Gothic, sans-serif;
+  font-weight: bold;
+  color: #cccccc;
+  text-shadow: 1px 1px 2px #000000;
+}

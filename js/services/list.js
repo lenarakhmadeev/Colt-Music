@@ -100,11 +100,9 @@ define(['services/mediator'], function(mediator) {
     },
     setCurrent: function(track) {
       if (this.currentTrack != null) {
-        this.currentTrack.select(false);
+        this.currentTrack.setCurrent(false);
       }
-      this.currentTrack = track;
-      this.currentTrack.select(true);
-      return this.preloadNextSimilar(track);
+      return this.currentTrack = track;
     },
     preloadNextSimilar: function(track) {
       var nextNext;

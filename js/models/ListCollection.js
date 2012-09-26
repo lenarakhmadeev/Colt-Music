@@ -31,8 +31,7 @@ define(['underscore', 'models/Collection', 'models/ItemModel', 'services/mediato
     };
 
     ListCollection.prototype.firstLoad = function() {
-      this.loadPage(this.own.get('page'));
-      return this.playFirst();
+      return this.loadPage(this.own.get('page'));
     };
 
     ListCollection.prototype.playFirst = function() {
