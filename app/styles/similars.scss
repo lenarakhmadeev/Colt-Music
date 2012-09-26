@@ -1,4 +1,6 @@
 
+@import "compass/css3/columns";
+
 .b-similars {
 
 }
@@ -21,9 +23,12 @@
 
 
 	.b-similars__similars-container {
+		@include columns(2);
+		@include column-gap(0);
+
 		background-color : rgb(223, 223, 223);
 		overflow-x       : hidden;
-		border           : 1px solid #F5F5F5;;
+		border           : 1px solid #F5F5F5;
 	}
 
 

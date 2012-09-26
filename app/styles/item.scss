@@ -32,7 +32,7 @@
 			height           : 126px;
 			outline          : 1px solid rgb(185, 185, 185);
 			background-color : rgb(223, 223, 223);
-			position         : absolute;
+			position         : relative;
 			top              : 20px;
 			left             : 20px;
 			z-index          : 100;
@@ -41,14 +41,17 @@
 
 
 			.b-item__cover-image {
+				width: 126px;
+				height: 126px;
 
+				position: relative;
+				z-index: 1000;
 			}
 
 
 			.b-item__cover-shadow {
 				position : absolute;
-				top      : 125px;
-				left     : 20px;
+				top      : 116px;
 				height   : 10px;
 				width    : 126px;
 

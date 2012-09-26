@@ -1,66 +1,99 @@
 
 @import "compass/css3/images";
 
-.b-similar {
-	height       : 72px;
-	padding-left : 20px;
-	padding-top  : 8px;
-	outline      : 1px solid #F5F5F5;;
+$gray: rgb(223, 223, 223);
+$dark_gray: rgb(190, 190, 190);
+$white: rgb(245, 245, 245);
+$title_color: rgb(33, 33, 33);
 
-	@include background-image( linear-gradient( bottom, rgba( 186, 185, 185, 1 ), rgba( 223, 223, 223, 0.5 ) ) );
+@font-face{
+	font-family: Gothic;
+	font-weight: 400;
+	font-style: normal;
+
+	src: url('Century Gothic.eot');
+	src: local('☺'),
+		url('http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf') format("truetype");
+}
+
+
+
+.b-similar {
+	margin-top: 1px;
+	margin-left: 1px;
+
+	height: 64px;
+
+	padding-left: 20px;
+	padding-right: 10px;
+	padding-top: 8px;
+	padding-bottom: 7px;
+
+	outline: 1px solid $white;
+
+	@include background-image(
+		linear-gradient( top, $gray, $dark_gray ) );
 }
 
 
 .b-similar_selected {
-	@include background-image( linear-gradient( bottom, rgba( 240, 240, 240, 0.6 ), rgba( 184, 184, 184, 1 ) ) );
+	@include background-image(
+		linear-gradient( top, $dark_gray, $gray ) );
 }
 
 
 	.b-similar__album-cover {
-		outline : 1px solid #F5F5F5;
-		width   : 64px;
-		height  : 64px;
-		float   : left;
+		outline: 1px solid $white;
+		width: 64px;
+		height: 64px;
+		float: left;
 		cursor: pointer;
 	}
 
 
 		.b-similar__cover-image {
-
+			width: 64px;
+			height: 64px;
 		}
 
 
 	.b-similar__content {
-		margin-left : 15px;
-		float       : left;
+		margin-left: 15px;
+		float: left;
 	}
 
 
 		.b-similar__track-title {
-			width  : 220px;
-			height : 30px;
+
 		}
 
 
 			.b-similar__artist-name {
-				height      : 15px;;
-				display     : block;
-				font        : 12pt Century Gothic;
-				font-weight : 800;
-				color       : rgb(33, 33, 33);
-				overflow    : hidden;
+				font-family: Gothic, sans-serif;
+				font-size: 10pt;
+
+				color: $title_color;
+				font-weight: bold;
+
+				height: 17px;
+				display: block;
+				overflow: hidden;
 			}
 
 
 			.b-similar__track-name {
-				height  : 15px;;
-				display : block;
-				color   : rgb(33, 33, 33);
+				font-family: Gothic, sans-serif;
+				font-size: 10pt;
+				color: $title_color;
+
+				height: 17px;
+				display: block;
+				overflow: hidden;
 			}
 
 
 		.b-similar__buttons {
-			margin-top : 10px;
+			margin-top: 7px;
 			cursor: pointer;
 		}
 
@@ -80,7 +113,7 @@
 
 
 			.b-similar__pause-button {
-				display          : none;
+				display: none;
 				float: left;
 
 				width: 13px;
