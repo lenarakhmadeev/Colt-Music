@@ -32,7 +32,6 @@
 			margin-top: 10px;
 			display : block;
 
-			font-weight: bold;
 			font-family: Gothic, sans-serif;
 			color : rgb(33, 33, 33);
 		}
@@ -45,6 +44,8 @@
 		background-color : rgb(223, 223, 223);
 		overflow-x       : hidden;
 		border           : 1px solid #F5F5F5;
+
+		display: none;
 	}
 
 

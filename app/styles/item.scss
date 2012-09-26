@@ -96,21 +96,35 @@
 				height   : 40px;
 				position : absolute;
 				bottom   : 0;
+				cursor: pointer;
 			}
 
 
 				.b-item__play-button {
-					background-image : url('../images/track_play_pre.png');
+					background-image : image-url('good/item_play_button.png');
 					height           : 28px;
 					width            : 91px;
-					float            : left;
-					cursor: pointer;
+
 				}
+
+
+					.b-item__play-button:hover {
+						background-image : image-url('good/item_play_button_over.png');
+					}
 
 
 				.b-item__pause-button {
+					display: none;
 
+					background-image : image-url('good/item_pause_button.png');
+					height           : 28px;
+					width            : 91px;
 				}
+
+
+					.b-item__pause-button:hover {
+
+					}
 
 
 			.b-item__info-place {

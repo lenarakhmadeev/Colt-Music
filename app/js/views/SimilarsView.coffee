@@ -48,4 +48,8 @@ define [
 			simView = new SimilarView( model: model )
 			simView.render()
 
+			# Добавляем на страницу
 			@append( '.b-similars__similars-container', simView )
+
+			# По умолчанию display: none
+			@$( '.b-similars__similars-container' ).show()

@@ -16,12 +16,15 @@ define [
 		className: 'b-item'
 
 		events:
-			'click .b-item__album-cover': 'play'
+			'click .b-item__play-button': 'play'
+			'click .b-item__pause-button': 'pause'
+			'click .b-item__album-cover': 'togglePlay'
 			'click .b-item__like-button': 'addToWall'
 
 
 		initialize: ( options )->
 			@model.on( 'change:selected', @renderSelected, this )
+			@model.on( 'change:played', @renderPlayed, this )
 			@model.on( 'change:info', @renderCover, this )
 
 			@similarsView = new SimilarsView( collection: @model.similarsCollection )
@@ -43,6 +46,7 @@ define [
 			@renderCover()
 
 			@renderSelected()
+			@renderPlayed()
 
 
 		renderCover: ()->
@@ -57,8 +61,25 @@ define [
 				@$el.removeClass( 'b-item_selected' )
 
 
+		renderPlayed: ()->
+			if @model.get( 'played' )
+				@$( '.b-item__play-button').hide()
+				@$( '.b-item__pause-button').show()
+			else
+				@$( '.b-item__play-button').show()
+				@$( '.b-item__pause-button').hide()
+
+
 		play: ()->
 			@model.play()
+
+
+		pause: ()->
+			@model.pause()
+
+
+		togglePlay: ()->
+			@model.togglePlay()
 
 
 		addToWall: ()->
