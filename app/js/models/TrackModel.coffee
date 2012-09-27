@@ -45,6 +45,9 @@ define [
 				.done ( data )=>
 					@set( info: data )
 
+				.fail ( errorMessage )->
+					mediator.publish( 'logger:error', "getTrackInfo fail: #{ errorMessage }" )
+
 				.always ()=>
 					@set( 'has_info', true )
 
@@ -69,6 +72,10 @@ define [
 			proxy.getAudioUrl( @get( 'artist' ), @get( 'title' ) )
 				.done ( data )=>
 					@set( audio: data )
+
+				.fail ( errorMessage )->
+					mediator.publish( 'logger:info', 'Запись не найдена' )
+					mediator.publish( 'logger:error', "getAudioUrl fail: #{ errorMessage }" )
 
 
 		setCurrent: ( current )->
@@ -123,7 +130,6 @@ define [
 
 
 		_addToWall: ()=>
-			# todo расшарить друзьям или еще кому
 			proxy.addToWall( @get( 'audio.audio_id' ), @get( 'audio.owner_id' ) )
 
 
@@ -132,7 +138,12 @@ define [
 
 
 		_addToAudio: ()=>
-			# todo обновлять список, информировать пользователя
 			proxy.addToAudio( @get( 'audio.audio_id' ), @get( 'audio.owner_id' ) )
+				.done ( audio_id )=>
+					mediator.publish( 'logger:info', 'Запись успешно добавлена' )
+
+				.fail ( errorMessage )->
+					mediator.publish( 'logger:info', 'Запись не может быть добавлена' )
+					mediator.publish( 'logger:error', "addToAudio fail: #{ errorMessage }" )
 
 

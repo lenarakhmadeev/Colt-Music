@@ -3,7 +3,7 @@ define [
 	'backbone'
 	'models/TrackModel'
 	'services/mediator'
-	'models/SimilarsCollection'
+	'collections/SimilarsCollection'
 	'services/proxy/proxy'
 	'backbone_nested'
 	

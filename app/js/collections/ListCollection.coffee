@@ -1,7 +1,7 @@
 
 define [
 	'underscore'
-	'models/Collection'
+	'collections/Collection'
 	'models/ItemModel'
 	'services/mediator'
 	'services/proxy/proxy'

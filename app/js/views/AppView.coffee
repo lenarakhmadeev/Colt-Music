@@ -5,7 +5,7 @@ define [
 	'models/PlayerModel'
 	'views/PlayerView'
 
-	'models/ListCollection'
+	'collections/ListCollection'
 	'views/ListView'
 
 ], ( View, PlayerModel, PlayerView, ListCollection, ListView )->
