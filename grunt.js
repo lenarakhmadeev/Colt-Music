@@ -41,12 +41,12 @@ module.exports = function(grunt) {
     coffee: {
       build: {
         options: {
-          base_path: 'app/js',
+          base_path: 'app/scripts',
           preserve_dirs: true
         },
 
-        src: 'app/js/**/*.coffee',
-        dest: 'build/js'
+        src: 'app/scripts/**/*.coffee',
+        dest: 'build/scripts'
       }
     },
 

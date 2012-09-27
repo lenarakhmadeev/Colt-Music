@@ -3,8 +3,8 @@
 
 require.config
 	# Начальная точка приложения
-	deps: [ 'app' ]
-	baseUrl: 'js'
+	deps: [ 'main' ]
+	baseUrl: 'scripts'
 	paths:
 		# Библиотеки
 		jquery: 'libs/jquery/jquery-1.8.0'
@@ -63,6 +63,11 @@ require.config
 
 	# Константы для модулей
 	config:
+		# Ключ для доступа к Last.fm API
 		'services/proxy/lastFmProxy':
-			'lastFm_key': 'b25b959554ed76058ac220b7b2e0a026'
-			'lastFm_url': 'http://ws.audioscrobbler.com/2.0/'
+			lastFm_key: 'b25b959554ed76058ac220b7b2e0a026'
+			lastFm_url: 'http://ws.audioscrobbler.com/2.0/'
+
+		# Путь до swf плеера jPlayer
+		'services/player':
+			swf_path: 'scripts/libs/jquery/jplayer'

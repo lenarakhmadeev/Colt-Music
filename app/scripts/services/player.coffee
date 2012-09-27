@@ -1,10 +1,11 @@
 
 define [
 	'jquery'
+	'module'
 	'services/mediator'
 	'jquery_jplayer'
 
-], ( $, mediator )->
+], ( $, module, mediator )->
 
 	'use strict'
 
@@ -21,7 +22,7 @@ define [
 				ready: ()=>
 					@initEvents()
 
-				swfPath: 'js/libs/jquery/jplayer'
+				swfPath: module.config().swf_path
 				wmode: 'window'
 				volume: 1
 				solution: 'flash,html'
