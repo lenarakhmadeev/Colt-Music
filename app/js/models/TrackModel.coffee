@@ -102,7 +102,7 @@ define [
 			@setCurrent( true )
 
 			mediator.publish( 'player:play', this )
-			mediator.publish( 'list:current', this )
+			mediator.publish( 'flow:current', this )
 
 
 		pause: ()->

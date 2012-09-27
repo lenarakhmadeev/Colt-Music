@@ -20,7 +20,8 @@ define [
 
 			@bind( 'reset', @firstLoad, this )
 
-			mediator.subscribe( 'load:page', @loadPage, this )
+			mediator.subscribe( 'list:load_page', @loadPage, this )
+			mediator.subscribe( 'list:play_first', @playFirst, this )
 
 
 		getAudio: ()->
@@ -32,18 +33,13 @@ define [
 
 		firstLoad: ()->
 			@loadPage( @own.get( 'page' ) )
-			# todo!!
-			#@playFirst()
 
 
 		playFirst: ()->
-			firstPlay = @getFirstPlay()
-			mediator.publish( 'list:current', firstPlay )
-			mediator.publish( 'player:play', firstPlay )
-			mediator.publish( 'player:pause')
+			@getFirstTrack().play()
 
 
-		getFirstPlay: ()->
+		getFirstTrack: ()->
 			@own.get( 'content' )[ 0 ]
 
 

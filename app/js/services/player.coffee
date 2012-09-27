@@ -12,7 +12,6 @@ define [
 
 		init: ()->
 			@initJPlayer()
-			@initEvents()
 
 
 		initJPlayer: ()->
@@ -20,8 +19,7 @@ define [
 
 			@jp.jPlayer
 				ready: ()=>
-					# todo&&
-					# console.log 'ready'
+					@initEvents()
 
 				swfPath: 'js/libs/jquery/jplayer'
 				wmode: 'window'
@@ -29,7 +27,7 @@ define [
 				solution: 'flash,html'
 
 				ended: ()->
-					mediator.publish( 'list:next' )
+					mediator.publish( 'flow:next' )
 
 				cssSelectorAncestor: '.player'
 				cssSelector:
@@ -60,7 +58,6 @@ define [
 
 		resume: ()->
 			@jp.jPlayer( 'play' )
-
 
 
 		togglePlay: ()->

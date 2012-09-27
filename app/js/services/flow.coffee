@@ -6,14 +6,14 @@ define [
 
 	'use strict'
 
-	# Логика перехода к следующей/предыдущей записи в списке
-	list =
+	# Логика установки текущей записи, перехода к следующей/предыдущей в списке
+	flow =
 
 		# Запуск модуля
 		init: ()->
-			mediator.subscribe( 'list:next', @next, this )
-			mediator.subscribe( 'list:prev', @prev, this )
-			mediator.subscribe( 'list:current', @setCurrent, this )
+			mediator.subscribe( 'flow:next', @next, this )
+			mediator.subscribe( 'flow:prev', @prev, this )
+			mediator.subscribe( 'flow:current', @setCurrent, this )
 
 
 		# Проигрывание следующей записи

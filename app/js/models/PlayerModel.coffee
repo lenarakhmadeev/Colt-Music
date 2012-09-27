@@ -15,8 +15,6 @@ define [
 
 
 		play: ( model )->
-			console.log 'play', model
-
 			@set( 'current', model )
 
 
@@ -25,7 +23,13 @@ define [
 
 
 		resume: ()->
-			@getCurrent().resume()
+			current = @getCurrent()
+
+			# Проверка первого нажатия
+			if current?
+				current.resume()
+			else
+				mediator.publish( 'list:play_first' )
 
 
 		getCurrent: ()->

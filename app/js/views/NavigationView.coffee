@@ -52,7 +52,7 @@ define [
 
 		navigatePage: ( event )->
 			page = @getTargetPage( event )
-			mediator.publish( 'load:page', page)
+			mediator.publish( 'list:load_page', page)
 
 
 		getTargetPage: ( event )->

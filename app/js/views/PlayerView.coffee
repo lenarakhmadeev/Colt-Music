@@ -86,11 +86,11 @@ define [
 
 
 		prev: ()->
-			mediator.publish( 'list:prev' )
+			mediator.publish( 'flow:prev' )
 
 
 		next: ()->
-			mediator.publish( 'list:next' )
+			mediator.publish( 'flow:next' )
 
 
 		addAudio: ()->
