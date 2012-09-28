@@ -7,45 +7,45 @@
   src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
 }
 
-/* line 14, ../../app/styles/more.scss */
+/* line 5, ../../app/styles/more.scss */
 .b-more-button {
   margin: 5px auto;
   width: 140px;
   height: 20px;
 }
 
-/* line 22, ../../app/styles/more.scss */
+/* line 11, ../../app/styles/more.scss */
 .b-more-button__show-more-button {
   cursor: pointer;
 }
 
-/* line 26, ../../app/styles/more.scss */
+/* line 15, ../../app/styles/more.scss */
 .b-more-button__show-more-text {
-  font-size: 12pt;
   font-family: Gothic, sans-serif;
+  font-size: 12pt;
   font-weight: bold;
-  color: #cccccc;
-  text-shadow: 1px 1px 2px #000000;
+  color: #cdcdcd;
+  text-shadow: 1px 1px 2px black;
   display: block;
   float: left;
 }
 
-/* line 41, ../../app/styles/more.scss */
+/* line 22, ../../app/styles/more.scss */
 .b-more-button__show-more-icon {
   float: left;
   margin-left: 10px;
   margin-top: 3px;
   width: 16px;
   height: 16px;
-  background-image: url('../images/good/show_more_icon.png');
+  background-image: url('../images/good/show_more_icon.png?1348862269');
 }
 
-/* line 53, ../../app/styles/more.scss */
+/* line 34, ../../app/styles/more.scss */
 .b-more-button__show-loader {
   margin-left: 35px;
-  font-size: 12pt;
   font-family: Gothic, sans-serif;
+  font-size: 12pt;
   font-weight: bold;
-  color: #cccccc;
-  text-shadow: 1px 1px 2px #000000;
+  color: #cdcdcd;
+  text-shadow: 1px 1px 2px black;
 }

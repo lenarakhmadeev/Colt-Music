@@ -1,257 +1,108 @@
-@charset "UTF-8";
-@font-face {
-  font-family: Gothic;
-  font-weight: 400;
-  font-style: normal;
-  src: url("Century Gothic.eot");
-  src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
+/* line 2, ../../app/styles/navigation.scss */
+.Navigation {
+  height: 27px;
+  margin-left: 68px;
+  margin-top: -30px;
+  position: absolute;
+  font: 11pt Century Gothic;
+  color: #cccccc;
+  text-shadow: 1px 1px 2px #000000;
+  font-weight: 800;
+  text-align: center;
 }
 
-/* line 22, ../../app/styles/similars.scss */
-.b-similars__phrase-place {
-  height: 40px;
-  background-color: #dfdfdf;
-  border: 1px solid #F5F5F5;
-  border-bottom: 1px solid #b9b9b9;
-  padding-left: 180px;
-}
-
-/* line 31, ../../app/styles/similars.scss */
-.b-similars__phrase {
-  margin-top: 10px;
-  display: block;
-  font-family: Gothic, sans-serif;
-  color: #212121;
-}
-
-/* line 40, ../../app/styles/similars.scss */
-.b-similars__similars-container {
-  -webkit-columns: 2;
-  -moz-columns: 2;
-  -ms-columns: 2;
-  -o-columns: 2;
-  columns: 2;
-  -webkit-column-gap: 0;
-  -moz-column-gap: 0;
-  -ms-column-gap: 0;
-  -o-column-gap: 0;
-  column-gap: 0;
-  background-color: #dfdfdf;
-  overflow-x: hidden;
-  border: 1px solid #F5F5F5;
-  display: none;
-}
-
-@charset "UTF-8";
-@font-face {
-  font-family: Gothic;
-  font-weight: 400;
-  font-style: normal;
-  src: url("Century Gothic.eot");
-  src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
-}
-
-/* line 13, ../../app/styles/item.scss */
-.b-item {
-  border: 1px solid black;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
-  -moz-box-shadow: 0 5px 3px 0 #aaaaaa;
-  -webkit-box-shadow: 0 5px 3px 0 #aaaaaa;
-  box-shadow: 0 5px 3px 0 #aaaaaa;
-  background-image: url("../images/patt1.png");
-  margin: 35px 68px;
-  margin-right: 58px;
-  padding: 0 1px;
-}
-
-/* line 32, ../../app/styles/item.scss */
-.b-item_selected {
-  background-image: url("../images/1/patt4.png");
-}
-
-/* line 37, ../../app/styles/item.scss */
-.b-item__header {
-  height: 120px;
-  border-bottom: 1px solid black;
-  position: relative;
-}
-
-/* line 44, ../../app/styles/item.scss */
-.b-item__album-cover {
-  width: 126px;
-  height: 126px;
-  outline: 1px solid #b9b9b9;
-  background-color: #dfdfdf;
-  position: relative;
-  top: 20px;
-  left: 20px;
-  z-index: 100;
+/* line 14, ../../app/styles/navigation.scss */
+.NavNext {
+  height: 17px;
+  width: 17px;
+  background: url(../images/next.png) 0 -35px no-repeat;
+  margin: 0 4px 0 4px;
+  float: left;
+  top: 2px;
   cursor: pointer;
 }
 
-/* line 57, ../../app/styles/item.scss */
-.b-item__cover-image {
-  width: 126px;
-  height: 126px;
-  position: relative;
-  z-index: 1000;
+/* line 23, ../../app/styles/navigation.scss */
+.NavNext:hover {
+  background-position: 0 -18px;
 }
 
-/* line 66, ../../app/styles/item.scss */
-.b-item__cover-shadow {
-  position: absolute;
-  top: 116px;
-  height: 10px;
-  width: 126px;
-  -moz-box-shadow: 0 0 30px 0 #000, 0 0 30px 0 #000, 0 0 30px 0 #000;
-  -webkit-box-shadow: 0 0 30px 0 #000, 0 0 30px 0 #000, 0 0 30px 0 #000;
-  box-shadow: 0 0 30px 0 #000, 0 0 30px 0 #000, 0 0 30px 0 #000;
-}
-
-/* line 78, ../../app/styles/item.scss */
-.b-item__content {
-  position: absolute;
-  left: 180px;
-  top: 30px;
-  height: 70px;
-  width: 520px;
-}
-
-/* line 87, ../../app/styles/item.scss */
-.b-item__track-title {
-  display: block;
-  overflow: hidden;
-  font-family: Gothic, sans-serif;
-  font-size: 12pt;
-  color: #cccccc;
-  text-shadow: 1px 1px 2px #000000;
-  width: 470px;
-  height: 20px;
-}
-
-/* line 102, ../../app/styles/item.scss */
-.b-item__artist-name {
-  font-family: Gothic, sans-serif;
-  font-size: 12pt;
-  font-weight: 800;
-}
-
-/* line 114, ../../app/styles/item.scss */
-.b-item__state-buttons {
-  height: 40px;
-  position: absolute;
-  bottom: 0;
+/* line 27, ../../app/styles/navigation.scss */
+.NavPrev {
+  height: 16px;
+  width: 16px;
+  background: url(../images/prew.png) 0 -35px no-repeat;
+  float: left;
   cursor: pointer;
 }
 
-/* line 122, ../../app/styles/item.scss */
-.b-item__play-button {
-  background-image: url('../images/good/item_play_button.png');
-  height: 32px;
-  width: 93px;
+/* line 34, ../../app/styles/navigation.scss */
+.NavPrev:hover {
+  background-position: 0 -18px;
 }
 
-/* line 130, ../../app/styles/item.scss */
-.b-item__play-button:hover {
-  background-image: url('../images/good/item_play_button_over.png');
-}
-
-/* line 135, ../../app/styles/item.scss */
-.b-item__pause-button {
-  display: none;
-  background-image: url('../images/good/item_pause_button.png');
-  height: 32px;
-  width: 93px;
-}
-
-/* line 144, ../../app/styles/item.scss */
-.b-item__pause-button:hover {
-  background-image: url('../images/good/item_pause_button_over.png');
-}
-
-/* line 154, ../../app/styles/item.scss */
-.b-item__control-buttons {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  height: 90px;
-}
-
-/* line 162, ../../app/styles/item.scss */
-.b-item__wiki-button {
+/* line 38, ../../app/styles/navigation.scss */
+.NavFirst {
+  height: 17px;
+  width: 17px;
+  background: url(../images/first.png) 0 -35px no-repeat;
+  margin: 0 8px 0 0;
   float: left;
-  width: 13px;
-  height: 13px;
-  background-image: url('../images/good/wiki_icon.png');
-}
-
-/* line 171, ../../app/styles/item.scss */
-.b-item__wiki-button:hover {
-  background-image: url('../images/good/wiki_icon_over.png');
-}
-
-/* line 176, ../../app/styles/item.scss */
-.b-item__like-button {
-  float: left;
-  margin-left: 7px;
-  width: 13px;
-  height: 13px;
-  background-image: url('../images/good/like_icon.png');
-}
-
-/* line 186, ../../app/styles/item.scss */
-.b-item__like-button:hover {
-  background-image: url('../images/good/like_icon_over.png');
-}
-
-/* line 191, ../../app/styles/item.scss */
-.b-item__delete-button {
-  float: left;
-  margin-left: 14px;
-  width: 13px;
-  height: 13px;
-  background-image: url('../images/good/delete_icon.png');
-}
-
-/* line 201, ../../app/styles/item.scss */
-.b-item__delete-button:hover {
-  background-image: url('../images/good/delete_icon_over.png');
-}
-
-/* line 1, ../../app/styles/info.scss */
-.b-item-info {
-  position: absolute;
-  left: 150px;
-  width: 300px;
+  top: 2px;
   cursor: pointer;
 }
-/* line 8, ../../app/styles/info.scss */
-.b-item-info .b-item-info__album {
-  height: 20px;
-  display: block;
-  overflow: hidden;
-  color: #cccccc;
-  text-shadow: 1px 1px 2px #000000;
+
+/* line 47, ../../app/styles/navigation.scss */
+.NavFirst:hover {
+  background-position: 0 -18px;
 }
-/* line 17, ../../app/styles/info.scss */
-.b-item-info .b-item-info__album-title {
-  font: 12pt Century Gothic;
-  font-weight: 800;
+
+/* line 51, ../../app/styles/navigation.scss */
+.NavLast {
+  height: 16px;
+  width: 16px;
+  background: url(../images/last.png) 0 -35px no-repeat;
+  float: left;
+  cursor: pointer;
 }
-/* line 23, ../../app/styles/info.scss */
-.b-item-info .b-item-info__tags {
-  height: 20px;
-  display: block;
-  overflow: hidden;
-  color: #cccccc;
-  text-shadow: 1px 1px 2px #000000;
+
+/* line 58, ../../app/styles/navigation.scss */
+.NavLast:hover {
+  background-position: 0 -18px;
 }
-/* line 32, ../../app/styles/info.scss */
-.b-item-info .b-item-info__tags-title {
-  font: 12pt Century Gothic;
-  font-weight: 800;
+
+/* line 62, ../../app/styles/navigation.scss */
+.NavItem {
+  height: 27px;
+  width: 24px;
+  margin: 0 2px 0 1px;
+  float: left;
+  background: url(../images/number.png);
+  cursor: pointer;
+}
+
+/* line 70, ../../app/styles/navigation.scss */
+.NavItem:hover {
+  background-position: 0 -27px;
+}
+
+/* line 74, ../../app/styles/navigation.scss */
+.NavItem.Cur {
+  height: 27px;
+  width: 24px;
+  margin: 0 2px 0 1px;
+  float: left;
+  background: url(../images/number.png) 0 -27px;
+  cursor: default;
+}
+
+/* line 83, ../../app/styles/navigation.scss */
+.Space {
+  height: 27px;
+  width: 24px;
+  margin: 0 2px 0 1px;
+  float: left;
+  background: url(../images/space.png) 0 0px;
 }
 
 @charset "UTF-8";
@@ -710,6 +561,20 @@
   width: 126px;
 }
 
+/* line 1, ../../app/styles/app.scss */
+body {
+  background-image: url('../images/patterns/patt2.png?1348862269');
+  margin: 0;
+}
+
+/* line 6, ../../app/styles/app.scss */
+.b-list {
+  width: 827px;
+  margin-top: 70px;
+  height: 2000px;
+  overflow: auto;
+}
+
 @charset "UTF-8";
 @font-face {
   font-family: Gothic;
@@ -719,7 +584,318 @@
   src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
 }
 
-/* line 21, ../../app/styles/similar.scss */
+/* line 8, ../../app/styles/item.scss */
+.b-item {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 5px 3px 0 #aaaaaa;
+  -moz-box-shadow: 0 5px 3px 0 #aaaaaa;
+  box-shadow: 0 5px 3px 0 #aaaaaa;
+  border: 1px solid black;
+  background-image: url('../images/patterns/patt1.png?1348862269');
+  margin: 35px 70px;
+  padding: 0 1px;
+}
+
+/* line 20, ../../app/styles/item.scss */
+.b-item_selected {
+  background-image: url("patterns/patt4.png");
+}
+
+/* line 25, ../../app/styles/item.scss */
+.b-item__header {
+  height: 120px;
+  border-bottom: 1px solid black;
+  position: relative;
+}
+
+/* line 32, ../../app/styles/item.scss */
+.b-item__album-cover {
+  width: 126px;
+  height: 126px;
+  outline: 1px solid #bebebe;
+  background-color: #dfdfdf;
+  position: relative;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+/* line 45, ../../app/styles/item.scss */
+.b-item__cover-image {
+  width: 126px;
+  height: 126px;
+  position: relative;
+  z-index: 1000;
+}
+
+/* line 54, ../../app/styles/item.scss */
+.b-item__cover-shadow {
+  position: absolute;
+  top: 116px;
+  height: 10px;
+  width: 126px;
+  -webkit-box-shadow: 0 0 30px 0 black, 0 0 30px 0 black, 0 0 30px 0 black;
+  -moz-box-shadow: 0 0 30px 0 black, 0 0 30px 0 black, 0 0 30px 0 black;
+  box-shadow: 0 0 30px 0 black, 0 0 30px 0 black, 0 0 30px 0 black;
+}
+
+/* line 65, ../../app/styles/item.scss */
+.b-item__content {
+  position: absolute;
+  left: 180px;
+  top: 30px;
+  height: 70px;
+  width: 470px;
+}
+
+/* line 75, ../../app/styles/item.scss */
+.b-item__track-title {
+  font-family: Gothic, sans-serif;
+  font-size: 12pt;
+  font-weight: normal;
+  color: #cdcdcd;
+  text-shadow: 1px 1px 2px black;
+  height: 22px;
+  overflow: hidden;
+}
+
+/* line 84, ../../app/styles/item.scss */
+.b-item__artist-name {
+  font-weight: bold;
+}
+
+/* line 94, ../../app/styles/item.scss */
+.b-item__state-buttons {
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  cursor: pointer;
+}
+
+/* line 102, ../../app/styles/item.scss */
+.b-item__play-button {
+  width: 93px;
+  height: 32px;
+  background-image: url('../images/good/item_play_button.png?1348862269');
+}
+/* line 10, ../../app/styles/_common.scss */
+.b-item__play-button:hover {
+  background-image: url('../images/good/item_play_button_over.png?1348862269');
+}
+
+/* line 111, ../../app/styles/item.scss */
+.b-item__pause-button {
+  display: none;
+  width: 93px;
+  height: 32px;
+  background-image: url('../images/good/item_pause_button.png?1348862269');
+}
+/* line 10, ../../app/styles/_common.scss */
+.b-item__pause-button:hover {
+  background-image: url('../images/good/item_pause_button_over.png?1348862269');
+}
+
+/* line 126, ../../app/styles/item.scss */
+.b-item__control-buttons {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  height: 90px;
+}
+
+/* line 134, ../../app/styles/item.scss */
+.b-item__wiki-button {
+  float: left;
+  width: 13px;
+  height: 13px;
+  background-image: url('../images/good/wiki_icon.png?1348862269');
+}
+/* line 10, ../../app/styles/_common.scss */
+.b-item__wiki-button:hover {
+  background-image: url('../images/good/wiki_icon_over.png?1348862269');
+}
+
+/* line 141, ../../app/styles/item.scss */
+.b-item__like-button {
+  float: left;
+  margin-left: 7px;
+  width: 13px;
+  height: 13px;
+  background-image: url('../images/good/like_icon.png?1348862269');
+}
+/* line 10, ../../app/styles/_common.scss */
+.b-item__like-button:hover {
+  background-image: url('../images/good/like_icon_over.png?1348862269');
+}
+
+/* line 149, ../../app/styles/item.scss */
+.b-item__delete-button {
+  float: left;
+  margin-left: 14px;
+  width: 13px;
+  height: 13px;
+  background-image: url('../images/good/delete_icon.png?1348862269');
+}
+/* line 10, ../../app/styles/_common.scss */
+.b-item__delete-button:hover {
+  background-image: url('../images/good/delete_icon_over.png?1348862269');
+}
+
+@charset "UTF-8";
+@font-face {
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("Century Gothic.eot");
+  src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
+}
+
+/* line 12, ../../app/styles/similars.scss */
+.b-similars__phrase-place {
+  height: 40px;
+  background-color: #dfdfdf;
+  border: 1px solid whitesmoke;
+  border-bottom: 1px solid #bebebe;
+  padding-left: 180px;
+}
+
+/* line 21, ../../app/styles/similars.scss */
+.b-similars__phrase {
+  margin-top: 10px;
+  display: block;
+  font-family: Gothic, sans-serif;
+  font-size: 12pt;
+  font-weight: normal;
+  color: #212121;
+}
+
+/* line 29, ../../app/styles/similars.scss */
+.b-similars__similars-container {
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  -ms-columns: 2;
+  -o-columns: 2;
+  columns: 2;
+  -webkit-column-gap: 0;
+  -moz-column-gap: 0;
+  -ms-column-gap: 0;
+  -o-column-gap: 0;
+  column-gap: 0;
+  background-color: #dfdfdf;
+  border: 1px solid whitesmoke;
+  display: none;
+}
+
+@charset "UTF-8";
+@font-face {
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("Century Gothic.eot");
+  src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
+}
+
+/* line 4, ../../app/styles/info.scss */
+.b-item-info {
+  font-family: Gothic, sans-serif;
+  font-size: 12pt;
+  font-weight: normal;
+  color: #cdcdcd;
+  text-shadow: 1px 1px 2px black;
+  position: absolute;
+  left: 157px;
+  overflow: hidden;
+}
+
+/* line 12, ../../app/styles/info.scss */
+.b-item-info__album {
+  height: 22px;
+  display: block;
+}
+
+/* line 18, ../../app/styles/info.scss */
+.b-item-info__album-title {
+  font-weight: bold;
+}
+
+/* line 23, ../../app/styles/info.scss */
+.b-item-info__tags {
+  height: 22px;
+  display: block;
+}
+
+/* line 29, ../../app/styles/info.scss */
+.b-item-info__tags-title {
+  font-weight: bold;
+}
+
+@charset "UTF-8";
+@font-face {
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("Century Gothic.eot");
+  src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
+}
+
+/* line 5, ../../app/styles/more.scss */
+.b-more-button {
+  margin: 5px auto;
+  width: 140px;
+  height: 20px;
+}
+
+/* line 11, ../../app/styles/more.scss */
+.b-more-button__show-more-button {
+  cursor: pointer;
+}
+
+/* line 15, ../../app/styles/more.scss */
+.b-more-button__show-more-text {
+  font-family: Gothic, sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  color: #cdcdcd;
+  text-shadow: 1px 1px 2px black;
+  display: block;
+  float: left;
+}
+
+/* line 22, ../../app/styles/more.scss */
+.b-more-button__show-more-icon {
+  float: left;
+  margin-left: 10px;
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  background-image: url('../images/good/show_more_icon.png?1348862269');
+}
+
+/* line 34, ../../app/styles/more.scss */
+.b-more-button__show-loader {
+  margin-left: 35px;
+  font-family: Gothic, sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+  color: #cdcdcd;
+  text-shadow: 1px 1px 2px black;
+}
+
+@charset "UTF-8";
+@font-face {
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("Century Gothic.eot");
+  src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
+}
+
+/* line 8, ../../app/styles/similar.scss */
 .b-similar {
   margin-top: 1px;
   margin-left: 1px;
@@ -736,7 +912,7 @@
   background-image: linear-gradient(top, #dfdfdf, #bebebe);
 }
 
-/* line 39, ../../app/styles/similar.scss */
+/* line 26, ../../app/styles/similar.scss */
 .b-similar_selected {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bebebe), color-stop(100%, #dfdfdf));
   background-image: -webkit-linear-gradient(top, #bebebe, #dfdfdf);
@@ -745,7 +921,7 @@
   background-image: linear-gradient(top, #bebebe, #dfdfdf);
 }
 
-/* line 45, ../../app/styles/similar.scss */
+/* line 32, ../../app/styles/similar.scss */
 .b-similar__album-cover {
   outline: 1px solid whitesmoke;
   width: 64px;
@@ -754,508 +930,109 @@
   cursor: pointer;
 }
 
-/* line 54, ../../app/styles/similar.scss */
+/* line 41, ../../app/styles/similar.scss */
 .b-similar__cover-image {
   width: 64px;
   height: 64px;
 }
 
-/* line 60, ../../app/styles/similar.scss */
+/* line 47, ../../app/styles/similar.scss */
 .b-similar__content {
   margin-left: 15px;
   float: left;
 }
 
-/* line 71, ../../app/styles/similar.scss */
-.b-similar__artist-name {
+/* line 53, ../../app/styles/similar.scss */
+.b-similar__track-title {
   font-family: Gothic, sans-serif;
   font-size: 10pt;
+  font-weight: normal;
   color: #212121;
+  width: 210px;
+  cursor: pointer;
+}
+
+/* line 60, ../../app/styles/similar.scss */
+.b-similar__artist-name {
   font-weight: bold;
   height: 17px;
   display: block;
   overflow: hidden;
 }
 
-/* line 84, ../../app/styles/similar.scss */
+/* line 69, ../../app/styles/similar.scss */
 .b-similar__track-name {
-  font-family: Gothic, sans-serif;
-  font-size: 10pt;
-  color: #212121;
   height: 17px;
   display: block;
   overflow: hidden;
 }
 
-/* line 95, ../../app/styles/similar.scss */
+/* line 76, ../../app/styles/similar.scss */
 .b-similar__buttons {
   margin-top: 7px;
   cursor: pointer;
 }
 
-/* line 101, ../../app/styles/similar.scss */
+/* line 82, ../../app/styles/similar.scss */
 .b-similar__play-button {
   float: left;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/play_icon.png');
+  background-image: url('../images/good/play_icon.png?1348862269');
 }
-
-/* line 110, ../../app/styles/similar.scss */
+/* line 10, ../../app/styles/_common.scss */
 .b-similar__play-button:hover {
-  background-image: url('../images/good/play_icon_over.png');
+  background-image: url('../images/good/play_icon_over.png?1348862269');
 }
 
-/* line 115, ../../app/styles/similar.scss */
+/* line 89, ../../app/styles/similar.scss */
 .b-similar__pause-button {
   display: none;
   float: left;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/pause_icon.png');
+  background-image: url('../images/good/pause_icon.png?1348862269');
 }
-
-/* line 125, ../../app/styles/similar.scss */
+/* line 10, ../../app/styles/_common.scss */
 .b-similar__pause-button:hover {
-  background-image: url('../images/good/pause_icon_over.png');
+  background-image: url('../images/good/pause_icon_over.png?1348862269');
 }
 
-/* line 130, ../../app/styles/similar.scss */
+/* line 97, ../../app/styles/similar.scss */
 .b-similar__add-button {
   float: left;
   margin-left: 7px;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/add_icon.png');
+  background-image: url('../images/good/add_icon.png?1348862269');
 }
-
-/* line 140, ../../app/styles/similar.scss */
+/* line 10, ../../app/styles/_common.scss */
 .b-similar__add-button:hover {
-  background-image: url('../images/good/add_icon_over.png');
+  background-image: url('../images/good/add_icon_over.png?1348862269');
 }
 
-/* line 145, ../../app/styles/similar.scss */
+/* line 105, ../../app/styles/similar.scss */
 .b-similar__like-button {
   float: left;
   margin-left: 7px;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/like_icon.png');
+  background-image: url('../images/good/like_icon.png?1348862269');
 }
-
-/* line 155, ../../app/styles/similar.scss */
+/* line 10, ../../app/styles/_common.scss */
 .b-similar__like-button:hover {
-  background-image: url('../images/good/like_icon_over.png');
+  background-image: url('../images/good/like_icon_over.png?1348862269');
 }
 
-/* line 160, ../../app/styles/similar.scss */
+/* line 113, ../../app/styles/similar.scss */
 .b-similar__wiki-button {
   float: left;
   margin-left: 7px;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/wiki_icon.png');
+  background-image: url('../images/good/wiki_icon.png?1348862269');
 }
-
-/* line 170, ../../app/styles/similar.scss */
+/* line 10, ../../app/styles/_common.scss */
 .b-similar__wiki-button:hover {
-  background-image: url('../images/good/wiki_icon_over.png');
-}
-
-/* line 1, ../../app/styles/navigation.scss */
-.Navigation {
-  height: 27px;
-  margin-left: 68px;
-  margin-top: -30px;
-  position: absolute;
-  font: 11pt Century Gothic;
-  color: #cccccc;
-  text-shadow: 1px 1px 2px #000000;
-  font-weight: 800;
-  text-align: center;
-}
-
-/* line 13, ../../app/styles/navigation.scss */
-.NavNext {
-  height: 17px;
-  width: 17px;
-  background: url(../images/next.png) 0 -35px no-repeat;
-  margin: 0 4px 0 4px;
-  float: left;
-  top: 2px;
-  cursor: pointer;
-}
-
-/* line 22, ../../app/styles/navigation.scss */
-.NavNext:hover {
-  background-position: 0 -18px;
-}
-
-/* line 26, ../../app/styles/navigation.scss */
-.NavPrev {
-  height: 16px;
-  width: 16px;
-  background: url(../images/prew.png) 0 -35px no-repeat;
-  float: left;
-  cursor: pointer;
-}
-
-/* line 33, ../../app/styles/navigation.scss */
-.NavPrev:hover {
-  background-position: 0 -18px;
-}
-
-/* line 37, ../../app/styles/navigation.scss */
-.NavFirst {
-  height: 17px;
-  width: 17px;
-  background: url(../images/first.png) 0 -35px no-repeat;
-  margin: 0 8px 0 0;
-  float: left;
-  top: 2px;
-  cursor: pointer;
-}
-
-/* line 46, ../../app/styles/navigation.scss */
-.NavFirst:hover {
-  background-position: 0 -18px;
-}
-
-/* line 50, ../../app/styles/navigation.scss */
-.NavLast {
-  height: 16px;
-  width: 16px;
-  background: url(../images/last.png) 0 -35px no-repeat;
-  float: left;
-  cursor: pointer;
-}
-
-/* line 57, ../../app/styles/navigation.scss */
-.NavLast:hover {
-  background-position: 0 -18px;
-}
-
-/* line 61, ../../app/styles/navigation.scss */
-.NavItem {
-  height: 27px;
-  width: 24px;
-  margin: 0 2px 0 1px;
-  float: left;
-  background: url(../images/number.png);
-  cursor: pointer;
-}
-
-/* line 69, ../../app/styles/navigation.scss */
-.NavItem:hover {
-  background-position: 0 -27px;
-}
-
-/* line 73, ../../app/styles/navigation.scss */
-.NavItem.Cur {
-  height: 27px;
-  width: 24px;
-  margin: 0 2px 0 1px;
-  float: left;
-  background: url(../images/number.png) 0 -27px;
-  cursor: default;
-}
-
-/* line 82, ../../app/styles/navigation.scss */
-.Space {
-  height: 27px;
-  width: 24px;
-  margin: 0 2px 0 1px;
-  float: left;
-  background: url(../images/space.png) 0 0px;
-}
-
-@charset "UTF-8";
-/* Контейнер для списка */
-/* line 2, ../../app/styles/list.scss */
-.ListCont {
-  width: 807px;
-  margin-top: 70px;
-  height: 2000px;
-  overflow: auto;
-}
-
-/* line 9, ../../app/styles/list.scss */
-.item.selected {
-  background-image: url("../images/1/patt4.png");
-}
-
-/* line 13, ../../app/styles/list.scss */
-.item {
-  border: 1px solid black;
-  -moz-border-radius: 8px;
-  -webkit-border-radius: 8px;
-  border-radius: 8px;
-  -moz-box-shadow: 0 5px 3px 0 #aaaaaa;
-  -webkit-box-shadow: 0 5px 3px 0 #aaaaaa;
-  box-shadow: 0 5px 3px 0 #aaaaaa;
-  background-image: url("../images/patt1.png");
-  margin: 35px 68px;
-  margin-right: 58px;
-}
-
-/* line 28, ../../app/styles/list.scss */
-.ItemHeader {
-  height: 120px;
-  border-bottom: 1px solid black;
-  position: relative;
-}
-
-/* line 34, ../../app/styles/list.scss */
-.BigImg {
-  width: 126px;
-  height: 126px;
-  outline: 1px solid #b9b9b9;
-  background-color: #dfdfdf;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 100;
-  cursor: pointer;
-}
-
-/* line 46, ../../app/styles/list.scss */
-.BigImgShadow {
-  position: absolute;
-  top: 125px;
-  left: 20px;
-  height: 10px;
-  width: 126px;
-  -moz-box-shadow: 0 0 30px 0 #000, 0 0 30px 0 #000, 0 0 30px 0 #000;
-  -webkit-box-shadow: 0 0 30px 0 #000, 0 0 30px 0 #000, 0 0 30px 0 #000;
-  box-shadow: 0 0 30px 0 #000, 0 0 30px 0 #000, 0 0 30px 0 #000;
-}
-
-/* line 58, ../../app/styles/list.scss */
-.ItemInfoCont {
-  position: absolute;
-  left: 180px;
-  top: 30px;
-  height: 70px;
-  width: 520px;
-}
-
-/* line 66, ../../app/styles/list.scss */
-.ItemTitle {
-  display: block;
-  overflow: hidden;
-  font: 12pt Century Gothic;
-  color: #cccccc;
-  text-shadow: 1px 1px 2px #000000;
-  width: 470px;
-  height: 20px;
-}
-
-/* line 76, ../../app/styles/list.scss */
-.ItemArtist {
-  font: 12pt Century Gothic;
-  font-weight: 800;
-}
-
-/* line 81, ../../app/styles/list.scss */
-.ItemButtoms {
-  height: 40px;
-  position: absolute;
-  bottom: 0;
-}
-
-/* line 87, ../../app/styles/list.scss */
-.ItemPlayB {
-  background-image: url("../images/track_play_pre.png");
-  height: 28px;
-  width: 91px;
-  float: left;
-  cursor: pointer;
-}
-
-/* line 96, ../../app/styles/list.scss */
-.ItemAlbumCont {
-  position: absolute;
-  left: 150px;
-  width: 300px;
-  cursor: pointer;
-}
-
-/* line 104, ../../app/styles/list.scss */
-.ItemAlbum, .ItemTags {
-  height: 20px;
-  display: block;
-  overflow: hidden;
-  color: #cccccc;
-  text-shadow: 1px 1px 2px #000000;
-}
-
-/* line 112, ../../app/styles/list.scss */
-.ItemAlbumTitle, .ItemTagsTitle {
-  font: 12pt Century Gothic;
-  font-weight: 800;
-}
-
-/* line 117, ../../app/styles/list.scss */
-.ItemButtonsCont {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  height: 90px;
-}
-
-/* line 129, ../../app/styles/list.scss */
-.ItemDelim {
-  height: 40px;
-  background-color: #dfdfdf;
-  border: 1px solid #F5F5F5;
-  border-bottom: 1px solid #b9b9b9;
-  padding-left: 180px;
-}
-
-/* line 137, ../../app/styles/list.scss */
-.ItemDelimPhrase {
-  margin-top: 10px;
-  display: block;
-  font: 14pt Century Gothic;
-  color: #212121;
-}
-
-/* line 144, ../../app/styles/list.scss */
-.ItemSimCont {
-  background-color: #dfdfdf;
-  overflow-x: hidden;
-  border: 1px solid #F5F5F5;
-}
-
-/* line 150, ../../app/styles/list.scss */
-.SimLeftCol, .SimRightCol {
-  outline: 1px solid #F5F5F5;
-  width: 50%;
-  float: left;
-}
-
-/* line 156, ../../app/styles/list.scss */
-.SimItem.selected {
-  background-image: linear-gradient(bottom, #b8b8b8 100%, #f0f0f0 65%);
-  background-image: -o-linear-gradient(bottom, #b8b8b8 100%, #f0f0f0 65%);
-  background-image: -moz-linear-gradient(bottom, #b8b8b8 100%, #f0f0f0 65%);
-  background-image: -webkit-linear-gradient(bottom, #b8b8b8 100%, #f0f0f0 65%);
-  background-image: -ms-linear-gradient(bottom, #b8b8b8 100%, #f0f0f0 65%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(1, #b8b8b8), color-stop(0.65, #f0f0f0));
-}
-
-/* line 172, ../../app/styles/list.scss */
-.SimItem {
-  height: 72px;
-  padding-left: 20px;
-  padding-top: 8px;
-  outline: 1px solid #F5F5F5;
-  background-image: linear-gradient(bottom, #bab9b9 0%, #dfdfdf 50%);
-  background-image: -o-linear-gradient(bottom, #bab9b9 0%, #dfdfdf 50%);
-  background-image: -moz-linear-gradient(bottom, #bab9b9 0%, #dfdfdf 50%);
-  background-image: -webkit-linear-gradient(bottom, #bab9b9 0%, #dfdfdf 50%);
-  background-image: -ms-linear-gradient(bottom, #bab9b9 0%, #dfdfdf 50%);
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #bab9b9), color-stop(0.5, #dfdfdf));
-}
-
-/* line 194, ../../app/styles/list.scss */
-.SmallImg {
-  outline: 1px solid #F5F5F5;
-  width: 64px;
-  height: 64px;
-  float: left;
-  cursor: pointer;
-}
-
-/* line 202, ../../app/styles/list.scss */
-.SimInfoCont {
-  margin-left: 15px;
-  float: left;
-}
-
-/* line 207, ../../app/styles/list.scss */
-.SimTitle {
-  width: 220px;
-  height: 30px;
-}
-
-/* line 212, ../../app/styles/list.scss */
-.SimArtist {
-  height: 15px;
-  display: block;
-  font: 12pt Century Gothic;
-  font-weight: 800;
-  color: #212121;
-  overflow: hidden;
-}
-
-/* line 221, ../../app/styles/list.scss */
-.SimName {
-  height: 15px;
-  display: block;
-  color: #212121;
-}
-
-/* line 227, ../../app/styles/list.scss */
-.SimButtonsCont {
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-/* line 232, ../../app/styles/list.scss */
-.ItemFooter {
-  height: 30px;
-  padding-left: 310px;
-}
-
-@charset "UTF-8";
-@font-face {
-  font-family: Gothic;
-  font-weight: 400;
-  font-style: normal;
-  src: url("Century Gothic.eot");
-  src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
-}
-
-/* line 14, ../../app/styles/more.scss */
-.b-more-button {
-  margin: 5px auto;
-  width: 140px;
-  height: 20px;
-}
-
-/* line 22, ../../app/styles/more.scss */
-.b-more-button__show-more-button {
-  cursor: pointer;
-}
-
-/* line 26, ../../app/styles/more.scss */
-.b-more-button__show-more-text {
-  font-size: 12pt;
-  font-family: Gothic, sans-serif;
-  font-weight: bold;
-  color: #cccccc;
-  text-shadow: 1px 1px 2px #000000;
-  display: block;
-  float: left;
-}
-
-/* line 41, ../../app/styles/more.scss */
-.b-more-button__show-more-icon {
-  float: left;
-  margin-left: 10px;
-  margin-top: 3px;
-  width: 16px;
-  height: 16px;
-  background-image: url('../images/good/show_more_icon.png');
-}
-
-/* line 53, ../../app/styles/more.scss */
-.b-more-button__show-loader {
-  margin-left: 35px;
-  font-size: 12pt;
-  font-family: Gothic, sans-serif;
-  font-weight: bold;
-  color: #cccccc;
-  text-shadow: 1px 1px 2px #000000;
+  background-image: url('../images/good/wiki_icon_over.png?1348862269');
 }

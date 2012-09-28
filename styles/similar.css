@@ -7,7 +7,7 @@
   src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
 }
 
-/* line 21, ../../app/styles/similar.scss */
+/* line 8, ../../app/styles/similar.scss */
 .b-similar {
   margin-top: 1px;
   margin-left: 1px;
@@ -24,7 +24,7 @@
   background-image: linear-gradient(top, #dfdfdf, #bebebe);
 }
 
-/* line 39, ../../app/styles/similar.scss */
+/* line 26, ../../app/styles/similar.scss */
 .b-similar_selected {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bebebe), color-stop(100%, #dfdfdf));
   background-image: -webkit-linear-gradient(top, #bebebe, #dfdfdf);
@@ -33,7 +33,7 @@
   background-image: linear-gradient(top, #bebebe, #dfdfdf);
 }
 
-/* line 45, ../../app/styles/similar.scss */
+/* line 32, ../../app/styles/similar.scss */
 .b-similar__album-cover {
   outline: 1px solid whitesmoke;
   width: 64px;
@@ -42,110 +42,109 @@
   cursor: pointer;
 }
 
-/* line 54, ../../app/styles/similar.scss */
+/* line 41, ../../app/styles/similar.scss */
 .b-similar__cover-image {
   width: 64px;
   height: 64px;
 }
 
-/* line 60, ../../app/styles/similar.scss */
+/* line 47, ../../app/styles/similar.scss */
 .b-similar__content {
   margin-left: 15px;
   float: left;
 }
 
-/* line 71, ../../app/styles/similar.scss */
-.b-similar__artist-name {
+/* line 53, ../../app/styles/similar.scss */
+.b-similar__track-title {
   font-family: Gothic, sans-serif;
   font-size: 10pt;
+  font-weight: normal;
   color: #212121;
+  width: 210px;
+  cursor: pointer;
+}
+
+/* line 60, ../../app/styles/similar.scss */
+.b-similar__artist-name {
   font-weight: bold;
   height: 17px;
   display: block;
   overflow: hidden;
 }
 
-/* line 84, ../../app/styles/similar.scss */
+/* line 69, ../../app/styles/similar.scss */
 .b-similar__track-name {
-  font-family: Gothic, sans-serif;
-  font-size: 10pt;
-  color: #212121;
   height: 17px;
   display: block;
   overflow: hidden;
 }
 
-/* line 95, ../../app/styles/similar.scss */
+/* line 76, ../../app/styles/similar.scss */
 .b-similar__buttons {
   margin-top: 7px;
   cursor: pointer;
 }
 
-/* line 101, ../../app/styles/similar.scss */
+/* line 82, ../../app/styles/similar.scss */
 .b-similar__play-button {
   float: left;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/play_icon.png');
+  background-image: url('../images/good/play_icon.png?1348862269');
 }
-
-/* line 110, ../../app/styles/similar.scss */
+/* line 10, ../../app/styles/_common.scss */
 .b-similar__play-button:hover {
-  background-image: url('../images/good/play_icon_over.png');
+  background-image: url('../images/good/play_icon_over.png?1348862269');
 }
 
-/* line 115, ../../app/styles/similar.scss */
+/* line 89, ../../app/styles/similar.scss */
 .b-similar__pause-button {
   display: none;
   float: left;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/pause_icon.png');
+  background-image: url('../images/good/pause_icon.png?1348862269');
 }
-
-/* line 125, ../../app/styles/similar.scss */
+/* line 10, ../../app/styles/_common.scss */
 .b-similar__pause-button:hover {
-  background-image: url('../images/good/pause_icon_over.png');
+  background-image: url('../images/good/pause_icon_over.png?1348862269');
 }
 
-/* line 130, ../../app/styles/similar.scss */
+/* line 97, ../../app/styles/similar.scss */
 .b-similar__add-button {
   float: left;
   margin-left: 7px;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/add_icon.png');
+  background-image: url('../images/good/add_icon.png?1348862269');
 }
-
-/* line 140, ../../app/styles/similar.scss */
+/* line 10, ../../app/styles/_common.scss */
 .b-similar__add-button:hover {
-  background-image: url('../images/good/add_icon_over.png');
+  background-image: url('../images/good/add_icon_over.png?1348862269');
 }
 
-/* line 145, ../../app/styles/similar.scss */
+/* line 105, ../../app/styles/similar.scss */
 .b-similar__like-button {
   float: left;
   margin-left: 7px;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/like_icon.png');
+  background-image: url('../images/good/like_icon.png?1348862269');
 }
-
-/* line 155, ../../app/styles/similar.scss */
+/* line 10, ../../app/styles/_common.scss */
 .b-similar__like-button:hover {
-  background-image: url('../images/good/like_icon_over.png');
+  background-image: url('../images/good/like_icon_over.png?1348862269');
 }
 
-/* line 160, ../../app/styles/similar.scss */
+/* line 113, ../../app/styles/similar.scss */
 .b-similar__wiki-button {
   float: left;
   margin-left: 7px;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/wiki_icon.png');
+  background-image: url('../images/good/wiki_icon.png?1348862269');
 }
-
-/* line 170, ../../app/styles/similar.scss */
+/* line 10, ../../app/styles/_common.scss */
 .b-similar__wiki-button:hover {
-  background-image: url('../images/good/wiki_icon_over.png');
+  background-image: url('../images/good/wiki_icon_over.png?1348862269');
 }

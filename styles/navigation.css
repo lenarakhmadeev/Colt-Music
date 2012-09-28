@@ -1,4 +1,4 @@
-/* line 1, ../../app/styles/navigation.scss */
+/* line 2, ../../app/styles/navigation.scss */
 .Navigation {
   height: 27px;
   margin-left: 68px;
@@ -11,7 +11,7 @@
   text-align: center;
 }
 
-/* line 13, ../../app/styles/navigation.scss */
+/* line 14, ../../app/styles/navigation.scss */
 .NavNext {
   height: 17px;
   width: 17px;
@@ -22,12 +22,12 @@
   cursor: pointer;
 }
 
-/* line 22, ../../app/styles/navigation.scss */
+/* line 23, ../../app/styles/navigation.scss */
 .NavNext:hover {
   background-position: 0 -18px;
 }
 
-/* line 26, ../../app/styles/navigation.scss */
+/* line 27, ../../app/styles/navigation.scss */
 .NavPrev {
   height: 16px;
   width: 16px;
@@ -36,12 +36,12 @@
   cursor: pointer;
 }
 
-/* line 33, ../../app/styles/navigation.scss */
+/* line 34, ../../app/styles/navigation.scss */
 .NavPrev:hover {
   background-position: 0 -18px;
 }
 
-/* line 37, ../../app/styles/navigation.scss */
+/* line 38, ../../app/styles/navigation.scss */
 .NavFirst {
   height: 17px;
   width: 17px;
@@ -52,12 +52,12 @@
   cursor: pointer;
 }
 
-/* line 46, ../../app/styles/navigation.scss */
+/* line 47, ../../app/styles/navigation.scss */
 .NavFirst:hover {
   background-position: 0 -18px;
 }
 
-/* line 50, ../../app/styles/navigation.scss */
+/* line 51, ../../app/styles/navigation.scss */
 .NavLast {
   height: 16px;
   width: 16px;
@@ -66,12 +66,12 @@
   cursor: pointer;
 }
 
-/* line 57, ../../app/styles/navigation.scss */
+/* line 58, ../../app/styles/navigation.scss */
 .NavLast:hover {
   background-position: 0 -18px;
 }
 
-/* line 61, ../../app/styles/navigation.scss */
+/* line 62, ../../app/styles/navigation.scss */
 .NavItem {
   height: 27px;
   width: 24px;
@@ -81,12 +81,12 @@
   cursor: pointer;
 }
 
-/* line 69, ../../app/styles/navigation.scss */
+/* line 70, ../../app/styles/navigation.scss */
 .NavItem:hover {
   background-position: 0 -27px;
 }
 
-/* line 73, ../../app/styles/navigation.scss */
+/* line 74, ../../app/styles/navigation.scss */
 .NavItem.Cur {
   height: 27px;
   width: 24px;
@@ -96,7 +96,7 @@
   cursor: default;
 }
 
-/* line 82, ../../app/styles/navigation.scss */
+/* line 83, ../../app/styles/navigation.scss */
 .Space {
   height: 27px;
   width: 24px;

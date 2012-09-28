@@ -1,0 +1,13 @@
+/* line 1, ../../app/styles/app.scss */
+body {
+  background-image: url('../images/patterns/patt2.png?1348862269');
+  margin: 0;
+}
+
+/* line 6, ../../app/styles/app.scss */
+.b-list {
+  width: 827px;
+  margin-top: 70px;
+  height: 2000px;
+  overflow: auto;
+}

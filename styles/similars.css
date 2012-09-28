@@ -7,24 +7,26 @@
   src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
 }
 
-/* line 22, ../../app/styles/similars.scss */
+/* line 12, ../../app/styles/similars.scss */
 .b-similars__phrase-place {
   height: 40px;
   background-color: #dfdfdf;
-  border: 1px solid #F5F5F5;
-  border-bottom: 1px solid #b9b9b9;
+  border: 1px solid whitesmoke;
+  border-bottom: 1px solid #bebebe;
   padding-left: 180px;
 }
 
-/* line 31, ../../app/styles/similars.scss */
+/* line 21, ../../app/styles/similars.scss */
 .b-similars__phrase {
   margin-top: 10px;
   display: block;
   font-family: Gothic, sans-serif;
+  font-size: 12pt;
+  font-weight: normal;
   color: #212121;
 }
 
-/* line 40, ../../app/styles/similars.scss */
+/* line 29, ../../app/styles/similars.scss */
 .b-similars__similars-container {
   -webkit-columns: 2;
   -moz-columns: 2;
@@ -37,7 +39,6 @@
   -o-column-gap: 0;
   column-gap: 0;
   background-color: #dfdfdf;
-  overflow-x: hidden;
-  border: 1px solid #F5F5F5;
+  border: 1px solid whitesmoke;
   display: none;
 }
