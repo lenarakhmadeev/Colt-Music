@@ -11,7 +11,7 @@ define [
 
 	class ListView extends View
 
-		className: 'ListCont'
+		className: 'b-list'
 
 		initialize: ( options )->
 			@collection.own.on( 'change:content', @render, this )

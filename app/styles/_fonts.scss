@@ -1,0 +1,36 @@
+
+@import "_colors.scss";
+
+
+@font-face{
+	font-family: Gothic;
+	font-weight: 400;
+	font-style: normal;
+
+	src: url('Century Gothic.eot');
+	src: local('☺'),
+	url('http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf') format("truetype");
+}
+
+
+@mixin gothic-font( $font-size: 10pt, $font-weight: normal ) {
+	font-family: Gothic, sans-serif;
+	font-size: $font-size;
+	font-weight: $font-weight
+}
+
+
+@mixin white-gothic-font( $font-size: 10pt, $font-weight: normal ) {
+	@include gothic-font( $font-size, $font-weight );
+	color: $white-font;
+	text-shadow : 1px 1px 2px black;
+}
+
+
+@mixin black-gothic-font( $font-size: 10pt, $font-weight: normal ) {
+	@include gothic-font( $font-size, $font-weight );
+	color: $black-font;
+}
+
+
+

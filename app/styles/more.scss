@@ -1,22 +1,11 @@
 
-@font-face{
-	font-family: Gothic;
-	font-weight: 400;
-	font-style: normal;
-
-	src: url('Century Gothic.eot');
-	src: local('☺'),
-	url('http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf') format("truetype");
-}
-
+@import "_fonts.scss";
 
 
 .b-more-button {
 	margin: 5px auto;
 	width: 140px;
 	height: 20px;
-
-
 }
 
 	.b-more-button__show-more-button {
@@ -24,15 +13,7 @@
 	}
 
 		.b-more-button__show-more-text {
-
-			font-size: 12pt;
-			font-family: Gothic, sans-serif;
-			font-weight: bold;
-
-
-			color       : #cccccc;
-			text-shadow : 1px 1px 2px #000000;
-
+			@include white-gothic-font(12pt, bold);
 
 			display: block;
 			float: left;
@@ -53,12 +34,5 @@
 	.b-more-button__show-loader {
 		margin-left: 35px;
 
-		font-size: 12pt;
-		font-family: Gothic, sans-serif;
-		font-weight: bold;
-
-
-		color       : #cccccc;
-		text-shadow : 1px 1px 2px #000000;
-
+		@include white-gothic-font(12pt, bold);
 	}

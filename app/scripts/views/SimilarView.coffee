@@ -17,6 +17,7 @@ define [
 			'click .b-similar__play-button' : 'play'
 			'click .b-similar__pause-button': 'pause'
 			'click .b-similar__album-cover': 'togglePlay'
+			'click .b-similar__track-title': 'togglePlay'
 			'click .b-similar__add-button': 'addToAudio'
 			'click .b-similar__like-button': 'addToWall'
 			'click .b-similar__wiki-button': 'showWiki'

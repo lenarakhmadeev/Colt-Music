@@ -1,21 +1,8 @@
 
 @import "compass/css3/images";
-
-$gray: rgb(223, 223, 223);
-$dark_gray: rgb(190, 190, 190);
-$white: rgb(245, 245, 245);
-$title_color: rgb(33, 33, 33);
-
-@font-face{
-	font-family: Gothic;
-	font-weight: 400;
-	font-style: normal;
-
-	src: url('Century Gothic.eot');
-	src: local('☺'),
-		url('http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf') format("truetype");
-}
-
+@import "_common.scss";
+@import "_fonts.scss";
+@import "_colors.scss";
 
 
 .b-similar {
@@ -29,21 +16,21 @@ $title_color: rgb(33, 33, 33);
 	padding-top: 8px;
 	padding-bottom: 7px;
 
-	outline: 1px solid $white;
+	outline: 1px solid $white-border;
 
 	@include background-image(
-		linear-gradient( top, $gray, $dark_gray ) );
+		linear-gradient( top, $light_gray, $dark_gray ) );
 }
 
 
 .b-similar_selected {
 	@include background-image(
-		linear-gradient( top, $dark_gray, $gray ) );
+		linear-gradient( top, $dark_gray, $light_gray) );
 }
 
 
 	.b-similar__album-cover {
-		outline: 1px solid $white;
+		outline: 1px solid $white-border;
 		width: 64px;
 		height: 64px;
 		float: left;
@@ -64,15 +51,13 @@ $title_color: rgb(33, 33, 33);
 
 
 		.b-similar__track-title {
-
+			@include black-gothic-font( 10pt );
+			width: 210px;
+			cursor: pointer;
 		}
 
 
 			.b-similar__artist-name {
-				font-family: Gothic, sans-serif;
-				font-size: 10pt;
-
-				color: $title_color;
 				font-weight: bold;
 
 				height: 17px;
@@ -82,10 +67,6 @@ $title_color: rgb(33, 33, 33);
 
 
 			.b-similar__track-name {
-				font-family: Gothic, sans-serif;
-				font-size: 10pt;
-				color: $title_color;
-
 				height: 17px;
 				display: block;
 				overflow: hidden;
@@ -101,72 +82,37 @@ $title_color: rgb(33, 33, 33);
 			.b-similar__play-button  {
 				float: left;
 
-				width: 13px;
-				height: 13px;
-				background-image: image-url('good/play_icon.png');
+				@include icon-constructor( 'play' );
 			}
-
-
-				.b-similar__play-button:hover  {
-					background-image: image-url('good/play_icon_over.png');
-				}
 
 
 			.b-similar__pause-button {
 				display: none;
 				float: left;
 
-				width: 13px;
-				height: 13px;
-				background-image: image-url('good/pause_icon.png');
+				@include icon-constructor( 'pause' );
 			}
-
-
-				.b-similar__pause-button:hover {
-					background-image: image-url('good/pause_icon_over.png');
-				}
 
 
 			.b-similar__add-button {
 				float: left;
 				margin-left: 7px;
 
-				width: 13px;
-				height: 13px;
-				background-image: image-url('good/add_icon.png');
+				@include icon-constructor( 'add' );
 			}
-
-
-				.b-similar__add-button:hover {
-					background-image: image-url('good/add_icon_over.png');
-				}
 
 
 			.b-similar__like-button {
 				float: left;
 				margin-left: 7px;
 
-				width: 13px;
-				height: 13px;
-				background-image: image-url('good/like_icon.png');
+				@include icon-constructor( 'like' );
 			}
-
-
-				.b-similar__like-button:hover {
-					background-image: image-url('good/like_icon_over.png');
-				}
 
 
 			.b-similar__wiki-button {
 				float: left;
 				margin-left: 7px;
 
-				width: 13px;
-				height: 13px;
-				background-image: image-url('good/wiki_icon.png');
+				@include icon-constructor( 'wiki' );
 			}
-
-
-				.b-similar__wiki-button:hover {
-					background-image: image-url('good/wiki_icon_over.png');
-				}

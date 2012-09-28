@@ -1,0 +1,26 @@
+
+
+// Стиль для кнопок из картинок
+@mixin button-constuctor( $width, $height, $normal-img, $over-img ) {
+
+	width: $width;
+	height: $height;
+	background-image: image-url( $normal-img );
+
+	&:hover {
+		background-image: image-url( $over-img );
+	}
+}
+
+// Маленькие иконки действий
+@mixin icon-constructor( $name ) {
+
+	$size: 13px;
+	$normal-img: 'good/#{$name}_icon.png';
+	$over-img: 'good/#{$name}_icon_over.png';
+
+	@include button-constuctor( $size, $size, $normal-img, $over-img );
+}
+
+
+

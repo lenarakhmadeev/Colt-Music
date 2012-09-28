@@ -19,6 +19,7 @@ define [
 			'click .b-item__play-button': 'play'
 			'click .b-item__pause-button': 'pause'
 			'click .b-item__album-cover': 'togglePlay'
+			'click .b-item__track-title': 'togglePlay'
 			'click .b-item__like-button': 'addToWall'
 
 
