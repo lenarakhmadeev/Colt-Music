@@ -1,33 +1,31 @@
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
 
 @import "_fonts.scss";
 @import "_common.scss";
 
 
 .b-item {
-	border : 1px solid black;
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
-	border-radius: 8px;
+	@include border-radius( 8px );
+	@include box-shadow( 0 5px 3px 0 #aaaaaa );
 
-	-moz-box-shadow: 0 5px 3px 0 #aaaaaa;
-	-webkit-box-shadow: 0 5px 3px 0 #aaaaaa;
-	box-shadow:  0 5px 3px 0 #aaaaaa;
+	border: 1px solid black;
 
-	background-image : url('../images/patt1.png');
-	margin       : 35px 70px;
+	background-image: image-url('patterns/patt1.png');
+	margin: 35px 70px;
 	padding: 0 1px;
 }
 
 
 .b-item_selected {
-	background-image: url('../images/1/patt4.png');
+	background-image: url('patterns/patt4.png');
 }
 
 
 	.b-item__header {
-		height        : 120px;
-		border-bottom : 1px solid black;
-		position      : relative;
+		height: 120px;
+		border-bottom: 1px solid black;
+		position: relative;
 	}
 
 
@@ -59,9 +57,8 @@
 				height: 10px;
 				width: 126px;
 
-				-moz-box-shadow: 0 0 30px 0 #000, 0 0 30px 0 #000, 0 0 30px 0 #000;
-				-webkit-box-shadow: 0 0 30px 0 #000, 0 0 30px 0 #000, 0 0 30px 0 #000;
-				box-shadow: 0 0 30px 0 #000, 0 0 30px 0 #000, 0 0 30px 0 #000;
+				$shadow_settings: 0 0 30px 0 #000;
+				@include box-shadow( $shadow_settings, $shadow_settings, $shadow_settings );
 			}
 
 
