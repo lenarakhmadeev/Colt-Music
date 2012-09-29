@@ -51,8 +51,10 @@ define [
 				attachments: "audio#{ owner_id }_#{ audio_id }"
 
 			vk.api 'wall.post', params, ( data )->
+				console.log 'post', data
+
 				if 'error' of data
-					dfd.reject( data.error_msg )
+					dfd.reject( data.error )
 				else
 					dfd.resolve( data.response )
 
@@ -68,7 +70,7 @@ define [
 
 			vk.api 'audio.add', params, ( data )->
 				if 'error' of data
-					dfd.reject( data.error_msg )
+					dfd.reject( data.error )
 				else
 					dfd.resolve( data.response )
 

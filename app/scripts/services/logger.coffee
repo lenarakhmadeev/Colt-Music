@@ -1,49 +1,43 @@
 
 define [
-	'jquery'
-	'vk'
+	'services/noty'
 	'services/mediator'
-	'humane'
 
-], ( $, vk, mediator, humane )->
+], ( noty, mediator )->
 
 	'use strict'
 
 	logger =
 
 		init: ()->
-			vk.callMethod( 'scrollSubscribe', fireEvent: true )
-			vk.addCallback( 'onScroll', @onScroll )
+			noty.init()
 
-			mediator.subscribe( 'logger:error', @errorMessage, this )
-			mediator.subscribe( 'logger:info', @infoMessage, this )
-			mediator.subscribe( 'logger:debug', @debugMessage, this )
+			# Выводятся пользователю
+			mediator.subscribe( 'logger:user:success', @userSuccess, this )
+			mediator.subscribe( 'logger:user:error', @userError, this )
+			mediator.subscribe( 'logger:user:info', @userInfo, this )
 
-
-		errorMessage: ( message )->
-			console.log 'error', message
-			@_showMessage( message )
-
-
-		infoMessage: ( message )->
-			console.log 'info', message
-			@_showMessage( message )
+			# Для дебага
+			mediator.subscribe( 'logger:log', @log, this )
+			mediator.subscribe( 'logger:error', @log, this )
 
 
-		debugMessage: ( message	)->
-			console.log 'debug', message
-			@_showMessage( message )
+		userSuccess: ( message )->
+			noty.success( message )
 
 
-		_showMessage: ( message, type )->
-			humane.log( message, { timeout: 1500, clickToClose: true } )
-			$( '.humane' ).offset( top: @_getPosition() )
+		userError: ( message )->
+			noty.error( message )
 
 
-		_getPosition: ()->
-			@topPosition
+		userInfo: ( message )->
+			noty.info( message )
 
 
-		onScroll: ( scrollTop, windowHeight )->
-			console.log 'onscroll', this, scrollTop
-			logger.topPosition = scrollTop
+		log: ( message )->
+			console.log 'logger.log', message
+
+
+		error: ( message )->
+			console.log 'logger.error', message
+

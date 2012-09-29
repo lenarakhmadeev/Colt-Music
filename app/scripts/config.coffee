@@ -16,7 +16,7 @@ require.config
 		json2: 'libs/json2'
 		# https://github.com/artjock/jpath
 		jpath: 'libs/jpath'
-		#
+		# http://wavded.github.com/humane-js/
 		humane: 'libs/humane'
 
 		# Плагины jquery

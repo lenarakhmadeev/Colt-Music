@@ -44,7 +44,7 @@ define [
 			@append( '.b-similars__more-button-place', @moreButtonView )
 
 
-		addItem: (model)->
+		addItem: ( model )->
 			simView = new SimilarView( model: model )
 			simView.render()
 

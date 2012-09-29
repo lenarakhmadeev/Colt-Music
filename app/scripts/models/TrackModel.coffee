@@ -45,8 +45,8 @@ define [
 				.done ( data )=>
 					@set( info: data )
 
-				.fail ( errorMessage )->
-					mediator.publish( 'logger:error', "getTrackInfo fail: #{ errorMessage }" )
+				.fail ( error )->
+					mediator.publish( 'logger:error', "getTrackInfo fail: #{ error.error_msg }" )
 
 				.always ()=>
 					@set( 'has_info', true )
@@ -73,9 +73,9 @@ define [
 				.done ( data )=>
 					@set( audio: data )
 
-				.fail ( errorMessage )->
-					mediator.publish( 'logger:info', 'Запись не найдена' )
-					mediator.publish( 'logger:error', "getAudioUrl fail: #{ errorMessage }" )
+				.fail ( error )->
+					mediator.publish( 'logger:user:error', 'Запись не найдена' )
+					mediator.publish( 'logger:error', "getAudioUrl fail: #{ error.error_msg }" )
 
 
 		setCurrent: ( current )->
@@ -132,10 +132,11 @@ define [
 		_addToWall: ()=>
 			proxy.addToWall( @get( 'audio.audio_id' ), @get( 'audio.owner_id' ) )
 				.done ()->
-					mediator.publish( 'logger:info', 'Запись размещена на стене' )
+					mediator.publish( 'logger:user:success', 'Запись размещена на стене' )
 
-				.fail ()->
-					mediator.publish( 'logger:info', 'Запись не может быть размещена на стене' )
+				.fail ( error )->
+					errorMessage = error.error_msg
+					mediator.publish( 'logger:user:error', 'Запись не может быть размещена на стене: ' + errorMessage )
 					mediator.publish( 'logger:error', "addToWall fail: #{ errorMessage }" )
 
 
@@ -146,10 +147,11 @@ define [
 		_addToAudio: ()=>
 			proxy.addToAudio( @get( 'audio.audio_id' ), @get( 'audio.owner_id' ) )
 				.done ( audio_id )=>
-					mediator.publish( 'logger:info', 'Запись успешно добавлена' )
+					mediator.publish( 'logger:user:success', 'Запись успешно добавлена' )
 
-				.fail ( errorMessage )->
-					mediator.publish( 'logger:info', 'Запись не может быть добавлена' )
+				.fail ( error )->
+					errorMessage = error.error_msg
+					mediator.publish( 'logger:user:error', 'Запись не может быть добавлена: ' + errorMessage )
 					mediator.publish( 'logger:error', "addToAudio fail: #{ errorMessage }" )
 
 
