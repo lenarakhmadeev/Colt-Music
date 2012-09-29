@@ -142,7 +142,12 @@ define(['jquery', 'backbone', 'services/mediator', 'services/proxy/proxy', 'back
     };
 
     TrackModel.prototype._addToWall = function() {
-      return proxy.addToWall(this.get('audio.audio_id'), this.get('audio.owner_id'));
+      return proxy.addToWall(this.get('audio.audio_id'), this.get('audio.owner_id')).done(function() {
+        return mediator.publish('logger:info', 'Запись размещена на стене');
+      }).fail(function() {
+        mediator.publish('logger:info', 'Запись не может быть размещена на стене');
+        return mediator.publish('logger:error', "addToWall fail: " + errorMessage);
+      });
     };
 
     TrackModel.prototype.addToAudio = function() {

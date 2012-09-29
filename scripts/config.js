@@ -9,6 +9,7 @@ require.config({
     backbone: 'libs/backbone/backbone',
     json2: 'libs/json2',
     jpath: 'libs/jpath',
+    humane: 'libs/humane',
     jquery_jplayer: 'libs/jquery/jplayer/jquery.jplayer.min',
     jquery_marquee: 'libs/jquery/marquee',
     backbone_nested: 'libs/backbone/backbone-nested',
