@@ -133,6 +133,7 @@
 
 			.b-item__wiki-button {
 				float: left;
+				display: none;
 
 				@include icon-constructor( 'wiki' );
 			}
@@ -149,6 +150,7 @@
 			.b-item__delete-button {
 				float: left;
 				margin-left: 14px;
+				display: none;
 
 				@include icon-constructor( 'delete' );
 			}

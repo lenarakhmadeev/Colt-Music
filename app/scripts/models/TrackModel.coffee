@@ -131,6 +131,12 @@ define [
 
 		_addToWall: ()=>
 			proxy.addToWall( @get( 'audio.audio_id' ), @get( 'audio.owner_id' ) )
+				.done ()->
+					mediator.publish( 'logger:info', 'Запись размещена на стене' )
+
+				.fail ()->
+					mediator.publish( 'logger:info', 'Запись не может быть размещена на стене' )
+					mediator.publish( 'logger:error', "addToWall fail: #{ errorMessage }" )
 
 
 		addToAudio: ()->

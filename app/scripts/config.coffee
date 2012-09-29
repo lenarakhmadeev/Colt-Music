@@ -16,6 +16,8 @@ require.config
 		json2: 'libs/json2'
 		# https://github.com/artjock/jpath
 		jpath: 'libs/jpath'
+		#
+		humane: 'libs/humane'
 
 		# Плагины jquery
 		jquery_jplayer: 'libs/jquery/jplayer/jquery.jplayer.min'
