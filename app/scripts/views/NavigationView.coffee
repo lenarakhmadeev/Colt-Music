@@ -13,10 +13,14 @@ define [
 
 		template: navigationTemplate
 
-		className: 'Navigation'
+		className: 'b-navigation'
 
 		events:
-			'click .NavFirst, .NavPrev, .NavItem, .NavNext, .NavLast': 'navigatePage'
+			'click .b-navigation__first': 'navigatePage'
+			'click .b-navigation__prev': 'navigatePage'
+			'click .b-navigation__item': 'navigatePage'
+			'click .b-navigation__next': 'navigatePage'
+			'click .b-navigation__last': 'navigatePage'
 
 
 		initialize: ( options )->
@@ -35,11 +39,13 @@ define [
 			data.pages.push( type: 'num', page: page - 10 ) if page - 10 > -1
 			data.pages.push( type: 'space') if page - 10 > -1
 
+			data.pages.push( type: 'num', page: page - 3 ) if page - 3 > -1
 			data.pages.push( type: 'num', page: page - 2 ) if page - 2 > -1
 			data.pages.push( type: 'num', page: page - 1 ) if page - 1 > -1 
 			data.pages.push( type: 'cur_num', page: page)
 			data.pages.push( type: 'num', page: page + 1 ) if page + 1 < pages
 			data.pages.push( type: 'num', page: page + 2 ) if page + 2 < pages
+			data.pages.push( type: 'num', page: page + 3 ) if page + 3 < pages
 
 			data.pages.push( type: 'space') if page + 10 < pages
 			data.pages.push( type: 'num', page: page + 10 ) if page + 10 < pages

@@ -1,5 +1,5 @@
 
-.Navigation {
+.b-navigation {
 	height      : 27px;
 	margin-left : 68px;
 	margin-top  : -30px;
@@ -11,7 +11,8 @@
 	text-align  : center;
 }
 
-	.NavNext {
+
+	.b-navigation__next {
 		height     : 17px;
 		width      : 17px;
 		background : url(../images/next.png) 0 -35px no-repeat;
@@ -20,22 +21,29 @@
 		top        : 2px;
 		cursor     : pointer;
 	}
-		.NavNext:hover {
+
+
+		.b-navigation__next:hover {
 			background-position : 0 -18px;
 		}
 
-	.NavPrev {
+
+	.b-navigation__prev {
 		height     : 16px;
 		width      : 16px;
 		background : url(../images/prew.png) 0 -35px no-repeat;
 		float      : left;
 		cursor     : pointer;
 	}
-		.NavPrev:hover {
+
+
+		.b-navigation__prev:hover {
 			background-position : 0 -18px;
 		}
 
-	.NavFirst {
+
+
+	.b-navigation__first {
 		height     : 17px;
 		width      : 17px;
 		background : url(../images/first.png) 0 -35px no-repeat;
@@ -44,22 +52,28 @@
 		top        : 2px;
 		cursor     : pointer;
 	}
-		.NavFirst:hover {
+
+
+		.b-navigation__first:hover {
 			background-position : 0 -18px;
 		}
 
-	.NavLast {
+
+	.b-navigation__last {
 		height     : 16px;
 		width      : 16px;
 		background : url(../images/last.png) 0 -35px no-repeat;
 		float      : left;
 		cursor     : pointer;
 	}
-		.NavLast:hover {
+
+
+		.b-navigation__last:hover {
 		background-position: 0 -18px;
 	}
 
-	.NavItem {
+
+	.b-navigation__item {
 		height     : 27px;
 		width      : 24px;
 		margin     : 0 2px 0 1px;
@@ -67,11 +81,14 @@
 		background : url(../images/number.png);
 		cursor     : pointer;
 	}
-		.NavItem:hover {
+
+
+		.b-navigation__item:hover {
 			background-position : 0 -27px;
 		}
 
-	.NavItem.Cur {
+
+	.b-navigation__item_current {
 		height     : 27px;
 		width      : 24px;
 		margin     : 0 2px 0 1px;
@@ -80,7 +97,8 @@
 		cursor     : default;
 	}
 
-	.Space {
+
+	.b-navigation__space {
 		height     : 27px;
 		width      : 24px;
 		margin     : 0 2px 0 1px;
