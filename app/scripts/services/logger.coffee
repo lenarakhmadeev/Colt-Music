@@ -7,8 +7,11 @@ define [
 
 	'use strict'
 
+	# Логгер. Часть логов выводится пользователю
+	# Возможно, стоит разделить или как-то переосмыслить
 	logger =
 
+		# Инициализация модуля
 		init: ()->
 			noty.init()
 
@@ -19,19 +22,17 @@ define [
 
 			# Для дебага
 			mediator.subscribe( 'logger:log', @log, this )
-			mediator.subscribe( 'logger:error', @log, this )
+			mediator.subscribe( 'logger:error', @error, this )
 
 
-		userSuccess: ( message )->
-			noty.success( message )
+		# Успешное выполнение
+		userSuccess: noty.success
 
+		# Ошибка
+		userError: noty.error
 
-		userError: ( message )->
-			noty.error( message )
-
-
-		userInfo: ( message )->
-			noty.info( message )
+		# Оповещение
+		userInfo: noty.info
 
 
 		log: ( message )->

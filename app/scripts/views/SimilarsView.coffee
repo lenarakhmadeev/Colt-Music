@@ -45,8 +45,6 @@ define [
 
 
 		addItem: ( model )->
-			console.log model.get( 'id' )
-
 			simView = new SimilarView( model: model )
 			simView.render()
 

@@ -15,13 +15,17 @@ define [
 			@own = new Backbone.Model()
 
 			# Пересчитываем порядок при любом изменении коллекции
-			@on( 'reset add remove', @makeModelsId, this )
+			@on( 'reset add remove', @recalculateIds, this )
 
+			# Вызываем "родной" конструктор
 			super( arguments... )
 
 
 		# Пересчитывает порядок моделей
-		makeModelsId: ()->
+		recalculateIds: ()->
 			id = 1
 			for model in @models
-				model.set( { 'id': id++ } ) #, { silent: true } )
+				model.set( { 'id': id++ }, { silent: true } )
+
+			# Вызываем соответствующее событие
+			@trigger( 'recalculated' )

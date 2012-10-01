@@ -1,107 +1,104 @@
+@import "_colors.scss";
+@import "_fonts.scss";
 
 .b-navigation {
-	height      : 27px;
-	margin-left : 68px;
-	margin-top  : -30px;
-	position    : absolute;
-	font        : 11pt Century Gothic;
-	color       : #cccccc;
-	text-shadow : 1px 1px 2px #000000;
-	font-weight : 800;
-	text-align  : center;
+	@include white-gothic-font(11pt, bold);
+
+	height: 27px;
+	margin-left: 68px;
+	margin-top: -30px;
+	position: absolute;
+
+	text-align: center;
+	cursor: pointer;
 }
 
 
 	.b-navigation__next {
-		height     : 17px;
-		width      : 17px;
-		background : url(../images/next.png) 0 -35px no-repeat;
-		margin     : 0 4px 0 4px;
-		float      : left;
-		top        : 2px;
-		cursor     : pointer;
+		height: 17px;
+		width: 17px;
+		background: image-url("next.png") 0 -35px no-repeat;
+		margin: 0 4px 0 4px;
+		float: left;
+		top: 2px;
 	}
 
 
-		.b-navigation__next:hover {
-			background-position : 0 -18px;
-		}
+	.b-navigation__next:hover {
+		background-position: 0 -18px;
+	}
 
 
 	.b-navigation__prev {
-		height     : 16px;
-		width      : 16px;
-		background : url(../images/prew.png) 0 -35px no-repeat;
-		float      : left;
-		cursor     : pointer;
+		height: 16px;
+		width: 16px;
+		background: image-url("prew.png") 0 -35px no-repeat;
+		float: left;
 	}
 
 
-		.b-navigation__prev:hover {
-			background-position : 0 -18px;
-		}
-
+	.b-navigation__prev:hover {
+		background-position: 0 -18px;
+	}
 
 
 	.b-navigation__first {
-		height     : 17px;
-		width      : 17px;
-		background : url(../images/first.png) 0 -35px no-repeat;
-		margin     : 0 8px 0 0;
-		float      : left;
-		top        : 2px;
-		cursor     : pointer;
+		height: 17px;
+		width: 17px;
+		background: image-url("first.png") 0 -35px no-repeat;
+		margin: 0 8px 0 0;
+		float: left;
+		top: 2px;
 	}
 
 
-		.b-navigation__first:hover {
-			background-position : 0 -18px;
-		}
+	.b-navigation__first:hover {
+		background-position: 0 -18px;
+	}
 
 
 	.b-navigation__last {
-		height     : 16px;
-		width      : 16px;
-		background : url(../images/last.png) 0 -35px no-repeat;
-		float      : left;
-		cursor     : pointer;
+		height: 16px;
+		width: 16px;
+		background: image-url("last.png") 0 -35px no-repeat;
+		float: left;
 	}
 
 
-		.b-navigation__last:hover {
+	.b-navigation__last:hover {
 		background-position: 0 -18px;
 	}
 
 
 	.b-navigation__item {
-		height     : 27px;
-		width      : 24px;
-		margin     : 0 2px 0 1px;
-		float      : left;
-		background : url(../images/number.png);
-		cursor     : pointer;
+		height: 27px;
+		width: 24px;
+		margin: 0 2px 0 1px;
+		float: left;
+		background: image-url("number.png");
 	}
 
 
-		.b-navigation__item:hover {
-			background-position : 0 -27px;
-		}
+	.b-navigation__item:hover {
+		background-position: 0 -27px;
+	}
 
 
 	.b-navigation__item_current {
-		height     : 27px;
-		width      : 24px;
-		margin     : 0 2px 0 1px;
-		float      : left;
-		background : url(../images/number.png) 0 -27px;
-		cursor     : default;
+		height: 27px;
+		width: 24px;
+		margin: 0 2px 0 1px;
+		float: left;
+		background: image-url("number.png") 0 -27px;
+		cursor: default;
 	}
 
 
 	.b-navigation__space {
-		height     : 27px;
-		width      : 24px;
-		margin     : 0 2px 0 1px;
-		float      : left;
-		background : url(../images/space.png) 0 -0px;
-	}
+		height: 27px;
+		width: 24px;
+		margin: 0 2px 0 1px;
+		float: left;
+		background: image-url("space.png") 0 -0px;
+		cursor: default;
+}
