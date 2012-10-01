@@ -1,391 +1,337 @@
+@import "compass/css3/user-interface";
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
 
-@font-face{
-	font-family: Gothic;
-	font-weight: 400;
-	font-style: normal;
-
-	src: url('Century Gothic.eot');
-	src: local('☺'),
-	url('http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf') format("truetype");
-}
-
+@import "_fonts.scss";
 
 
 .player {
-	width            : 807px;
-	height           : 151px;
-	padding          : 0;
-	background-image : url(../images/player_background.png);
+	width: 807px;
+	height: 151px;
+	padding: 0;
+	background-image: url(../images/player_background.png);
 
-	-moz-shadow: 0 8px 30px #222;
-	-webkit-box-shadow: 0 8px 30px #222;
-	box-shadow: 0 8px 30px #222;
-
-	user-select        : none;
-	-moz-user-select   : none;
-	-khtml-user-select : none;
+	@include box-shadow(0 8px 30px #222);
+	@include user-select(none);
 }
+
 
 .player div {
 	float : left;
-	user-select        : none;
-	-moz-user-select   : none;
-	-khtml-user-select : none;
+	@include user-select(none);
 }
 
+
 	.buttons {
-		float       : left;
-		margin-left : 70px;
-		margin-top  : 43px;
+		float: left;
+		margin-left: 70px;
+		margin-top: 43px;
 	}
+
 
 		.play {
-			width            : 56px;
-			height           : 62px;
-			background-image : url(../images/play_over.png);
-			position         : absolute;
-			cursor           : pointer;
+			width: 56px;
+			height: 62px;
+			background-image: url(../images/play_pre.png);
+			position: absolute;
+			cursor: pointer;
 		}
-			.play > .back {
-				width      : 56px;
-				height     : 62px;
-				background : url(../images/play_pre.png);
 
-				-moz-transition    : opacity 0.5s ease;
-				-o-transition      : opacity 0.5s ease;
-				-webkit-transition : opacity 0.5s ease;
-				-ms-transition     : opacity 0.5s ease;
-				transition         : opacity 0.5s ease;
+
+			.play:hover {
+				background-image: url(../images/play_over.png);
 			}
-			.play > .back:hover {
-				opacity : 0;
-			}
+
+
 			.play:active {
-				background-image : url(../images/play_down.png);
+				background-image: url(../images/play_down.png);
 			}
+
 
 		.pause {
-			width            : 46px;
-			height           : 62px;
-			background-image : url(../images/pause_over.png);
-			display          : none;
-			position         : absolute;
-			cursor           : pointer;
+			width: 46px;
+			height: 62px;
+			background-image: url(../images/pause_pre.png);
+			display: none;
+			position: absolute;
+			cursor: pointer;
+			display: none;
 		}
-			.pause > .back {
-				width      : 46px;
-				height     : 62px;
-				background : url(../images/pause_pre.png);
-				-moz-transition    : opacity 0.5s ease;
-				-o-transition      : opacity 0.5s ease;
-				-webkit-transition : opacity 0.5s ease;
-				-ms-transition     : opacity 0.5s ease;
-				transition         : opacity 0.5s ease;
+
+
+			.pause:hover {
+				background-image: url(../images/pause_over.png);
 			}
-			.pause > .back:hover {
-				opacity : 0;
-			}
+
+
 			.pause:active {
-				background-image : url(../images/pause_down.png);
+				background-image: url(../images/pause_down.png);
 			}
+
 
 		.rew {
-			width            : 34px;
-			height           : 29px;
-			background-image : url(../images/prev_over.png);
-			margin-left      : 83px;
-			margin-top       : 15px;
-			cursor           : pointer;
+			width: 34px;
+			height: 29px;
+			background-image: url(../images/prev_pre.png);
+			margin-left: 83px;
+			margin-top: 15px;
+			cursor: pointer;
 
 		}
-			.rew > .back {
-				width:				34px;
-				height:				29px;
-				background-image:	url(../images/prev_pre.png);
-				-moz-transition    : opacity 0.5s ease;
-				-o-transition      : opacity 0.5s ease;
-				-webkit-transition : opacity 0.5s ease;
-				-ms-transition     : opacity 0.5s ease;
-				transition         : opacity 0.5s ease;
+
+
+			.rew:hover {
+				background-image: url(../images/prev_over.png);
 			}
-			.rew > .back:hover {
-				opacity : 0;
-			}
+
+
 			.rew:active {
-				background-image : url(../images/prev_down.png);
+				background-image: url(../images/prev_down.png);
 			}
+
 
 		.ff {
-			width:				34px;
-			height:				29px;
-			background-image:	url(../images/next_over.png);
-			margin-left:		4px;
-			margin-top:			15px;
-			cursor:				pointer;
+			width: 34px;
+			height: 29px;
+			background-image: url(../images/next_pre.png);
+			margin-left: 4px;
+			margin-top: 15px;
+			cursor: pointer;
 		}
-			.ff > .back {
-				width:				34px;
-				height:				29px;
-				background-image:	url(../images/next_pre.png);
-				-moz-transition    : opacity 0.5s ease;
-				-o-transition      : opacity 0.5s ease;
-				-webkit-transition : opacity 0.5s ease;
-				-ms-transition     : opacity 0.5s ease;
-				transition         : opacity 0.5s ease;
+
+
+			.ff:hover {
+				background-image: url(../images/next_over.png);
 			}
-			.ff > .back:hover {
-				opacity : 0;
-			}
+
+
 			.ff:active {
-				background-image : url(../images/next_down.png);
+				background-image: url(../images/next_down.png);
 			}
+
+
+	// Бегущая строка
 
 	.playinfo {
-		margin-left : 10px;
-		height      : 151px;
-		width       : 342px;
-		font        : 12pt Century Gothic;
+		margin-left: 10px;
+		height: 151px;
+		width: 342px;
 	}
 
+
 		.playinfo > div {
-			width    : 342px;
-			position : absolute;
+			width: 342px;
+			position: absolute;
 		}
+
 
 		.mariquee {
-			width    : 342px;
-			position : absolute;
+			width: 342px;
+			position: absolute;
 
 		}
 
-			.trackinfo {
-				height   : 13px;
-				top      : 30px;
-				padding  : 0 0 10px 0;
-				overflow : hidden;
-			}
-				/*.trackinfo > div{
-					overflow : hidden;
-					width    : 32000px;
-					position : absolute;
-				}
-				*/
-				.trackinfo p {
-					float       : left;
-					margin      : 0;
 
-					font-family: Gothic, sans-serif;
-					font-size: 12pt;
-					color       : #cccccc;
-					text-shadow : 1px 1px 2px #000000;
+			.trackinfo {
+				height: 13px;
+				top: 30px;
+				padding: 0 0 10px 0;
+				overflow: hidden;
+			}
+
+
+				.trackinfo p {
+					float: left;
+					margin: 0;
+
+					@include white-gothic-font(12pt);
 				}
+
+
+
 
 
 		.PlayerProgress {
-			cursor     : pointer;
-			height     : 8px;
-			top        : 70px;
-			background : #38393d;
+			cursor: pointer;
+			height: 8px;
+			top: 70px;
+			background: #38393d;
 
 		}
 
+
 			.PlayerProgress div {
-				height   : 7px;
-				top      : 0;
-				width    : 0;
-				position : absolute;
+				height: 7px;
+				top: 0;
+				width: 0;
+				position: absolute;
 			}
 
+
 				.PlayerLoadProgress {
-					top        : 1px;
-					background : url(../images/load_pattern.png) repeat-x;
-					-moz-border-radius: 4px;
-					-webkit-border-radius: 4px;
-					border-radius: 4px;
+					top: 1px;
+					background: image-url("load_pattern.png") repeat-x;
+
+					@include border-radius(4px);
 
 					overflow: visible;
 				}
 
+
 				.PlayerPlayProgress {
-					background : url(../images/play_pattern.png) repeat-x;
-					-moz-border-radius: 3px;
-					-webkit-border-radius: 3px;
-					border-radius: 3px;
+					background: url(../images/play_pattern.png) repeat-x;
+					@include border-radius(3px);
 				}
 
+
 					.PlayerProgress .PlayerPlayHead {
-						top        : -9px;
-						width      : 8px;
-						height     : 24px;
-						z-index    : 1000;
-						background : url(../images/pick_on.png);
-						right      : -4px;
+						top: -9px;
+						width: 8px;
+						height: 24px;
+						z-index: 1000;
+						background: url(../images/pick_on.png);
+						right: -4px;
 					}
 						.PlayerProgress .PlayerPlayHead > .back {
-							width      : 8px;
-							height     : 24px;
-							background : url(../images/pick_pre.png);
-							z-index    : 1001;
-
-							-moz-transition: opacity 0.1s ease;
-							-o-transition: opacity 0.1s ease;
-							-webkit-transition: opacity 0.1s ease;
-							-ms-transition: opacity 0.1s ease;
-							transition: opacity 0.1s ease;
-
+							width: 8px;
+							height: 24px;
+							background: url(../images/pick_pre.png);
+							z-index: 1001;
 						}
 						.PlayerProgress .PlayerPlayHead > .back:hover {
 							opacity : 0;
 						}
 
+
 				.PlayerProgress .PlayerProgressMask {
-					width      : 342px;
-					height     : 11px;
-					background : url(../images/progress_mask.png);
-					top        : -1px;
+					width: 342px;
+					height: 11px;
+					background: url(../images/progress_mask.png);
+					top: -1px;
 				}
+
 
 		.under {
 			top: 110px;
 		}
 
+
 			.under div{
-				position : absolute;
+				position: absolute;
 			}
+
 
 			.PlayerAddButton
 			{
-				width            : 116px;
-				height           : 17px;
-				background-image : url(../images/add_over.png);
-				cursor           : pointer;
-				display          : none;
+				width: 116px;
+				height: 17px;
+				background-image: url(../images/add_pre.png);
+				cursor: pointer;
+				display: none;
 			}
-				.PlayerAddButton > .back {
-					width            : 116px;
-					height           : 17px;
-					background-image : url(../images/add_pre.png);
-					-moz-transition: opacity 0.5s ease;
-					-o-transition: opacity 0.5s ease;
-					-webkit-transition: opacity 0.5s ease;
-					-ms-transition: opacity 0.5s ease;
-					transition: opacity 0.5s ease;
+
+
+				.PlayerAddButton:hover {
+					background-image: url(../images/add_over.png);
 				}
-				.PlayerAddButton > .back:hover {
-					opacity: 0;
-				}
+
+
 				.PlayerAddButton:active {
 					background-image: url(../images/add_down.png);
 				}
 
+
 			.MutePre {
-				left             : 180px;
-				top              : -5px;
-				width            : 23px;
-				height           : 18px;
-				background-image : url(../images/vol_b_over.png);
-				cursor           : pointer;
+				left: 180px;
+				top: -5px;
+				width: 23px;
+				height: 18px;
+				background-image: url(../images/vol_b_pre.png);
+				cursor: pointer;
 			}
-				.MutePre > .back {
-					width            : 23px;
-					height           : 18px;
-					background-image : url(../images/vol_b_pre.png);
-					-moz-transition: opacity 0.5s ease;
-					-o-transition: opacity 0.5s ease;
-					-webkit-transition: opacity 0.5s ease;
-					-ms-transition: opacity 0.5s ease;
-					transition: opacity 0.5s ease;
+
+
+				.MutePre:hover {
+					background-image: url(../images/vol_b_over.png);
 				}
-				.MutePre > .back:hover {
-					opacity : 0;
-				}
+
+
 				.MutePre:active {
-					background-image : url(../images/vol_b_down.png);
+					background-image: url(../images/vol_b_down.png);
 				}
+
 
 			.MuteAft {
-				left             : 180px;
-				top              : -5px;
-				width            : 23px;
-				height           : 18px;
-				background-image : url(../images/mute_b_over.png);
-				display          : none;
-				cursor           : pointer;
+				left: 180px;
+				top: -5px;
+				width: 23px;
+				height: 18px;
+				background-image: url(../images/mute_b_pre.png);
+				display: none;
+				cursor: pointer;
 			}
-				.MuteAft > .back {
-					width            : 23px;
-					height           : 18px;
-					background-image : url(../images/mute_b_pre.png);
-					-moz-transition: opacity 0.5s ease;
-					-o-transition: opacity 0.5s ease;
-					-webkit-transition: opacity 0.5s ease;
-					-ms-transition: opacity 0.5s ease;
-					transition: opacity 0.5s ease;
+
+
+				.MuteAft:hover {
+					background-image: url(../images/mute_b_over.png);
 				}
-				.MuteAft > .back:hover {
-					opacity : 0;
-				}
+
+
 				.MuteAft:active {
-					background-image : url(../images/mute_b_down.png);
+					background-image: url(../images/mute_b_down.png);
 				}
+
 
 			.PlayerVolBack {
-				left             : 210px;
-				width            : 132px;
-				height           : 9px;
-				background-color : .444;
-				cursor           : pointer;
+				left: 210px;
+				width: 132px;
+				height: 9px;
+				background-color: .444;
+				cursor: pointer;
 			}
 
+
 				.PlayerVolBar {
-					width      : 132px;
-					height     : 9px;
-					background : url(../images/volume_pattern.png) repeat-x;
-					-moz-border-radius: 5px;
-					-webkit-border-radius: 5px;
-					border-radius: 5px;
+					width: 132px;
+					height: 9px;
+					background: url(../images/volume_pattern.png) repeat-x;
+					@include border-radius(5px);
 				}
+
 
 					.PlayerVolumeControl {
-						top        : -9px;
-						width      : 8px;
-						height     : 24px;
-						z-index    : 1000;
-						background : url(../images/pick_on.png);
-						/* TODO: Другая картинка, выравнивание */
-						right      : -4px;
+						top: -9px;
+						width: 8px;
+						height: 24px;
+						z-index: 1000;
+						background: url(../images/pick_pre.png);
+						right: -4px;
 					}
-						.PlayerVolumeControl > .back {
-							width      : 8px;
-							height     : 24px;
-							background : url(../images/pick_pre.png);
-							z-index    : 1001;
-							-moz-transition    : opacity 0.5s ease;
-							-o-transition      : opacity 0.5s ease;
-							-webkit-transition : opacity 0.5s ease;
-							-ms-transition     : opacity 0.5s ease;
-							transition         : opacity 0.5s ease;
+
+
+						.PlayerVolumeControl:hover {
+							background: url(../images/pick_on.png);
 						}
-						.PlayerVolumeControl > .back:hover {
-							opacity: 0;
-						}
+
 
 				.PlayerVolMask {
-					width            : 132px;
-					height           : 9px;
-					background-image : url(../images/volume_mask.png);
+					width: 132px;
+					height: 9px;
+					background-image: url(../images/volume_mask.png);
 				}
 
+
 	.PlayerImgCont {
-		padding-left     : 26px;
-		padding-top      : 9px;
-		margin-left      : 5px;
-		height           : 142px;
-		width            : 149px;
-		background-image : url(../images/album.png);
+		padding-left: 26px;
+		padding-top: 9px;
+		margin-left: 5px;
+		height: 142px;
+		width: 149px;
+		background-image: url(../images/album.png);
 	}
 
+
 		.PlayerBigImage {
-			height : 126px;
-			width  : 126px;
+			height: 126px;
+			width: 126px;
 		}

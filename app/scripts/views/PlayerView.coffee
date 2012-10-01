@@ -42,11 +42,11 @@ define [
 			played = @model.getCurrent().get( 'played' )
 
 			if played
-				@$( '.play' ).fadeOut( 'slow' )
-				@$( '.pause' ).fadeIn( 'slow' )
+				@$( '.play' ).hide()
+				@$( '.pause' ).show()
 			else
-				@$( '.play' ).fadeIn( 'slow' )
-				@$( '.pause' ).fadeOut( 'slow' )
+				@$( '.play' ).show()
+				@$( '.pause' ).hide()
 
 
 		renderCurrent: ()->
