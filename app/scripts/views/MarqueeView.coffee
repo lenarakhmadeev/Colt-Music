@@ -10,7 +10,7 @@ define [
 
 	class MarqueeView extends View
 
-		className: 'mariquee'
+		className: 'b-marquee'
 
 		initialize: ( options )->
 			@model.on( 'change:current', @render, this )

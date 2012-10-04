@@ -33,13 +33,13 @@ define [
 				ended: ()->
 					mediator.publish( 'flow:next' )
 
-				cssSelectorAncestor: '.player'
+				cssSelectorAncestor: '.b-player'
 				cssSelector:
-					volumeBarValue: '.PlayerVolBar'
-					volumeBar: '.PlayerVolBack'
+					volumeBarValue: '.b-player__volume-bar'
+					volumeBar: '.b-player__volume'
 
-					mute: '.MutePre'
-					unmute: '.MuteAft'
+					mute: '.b-player__mute-button'
+					unmute: '.b-player__unmute-button'
 
 					seekBar: '.PlayerLoadProgress'
 					playBar: '.PlayerPlayProgress'

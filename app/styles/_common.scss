@@ -1,15 +1,28 @@
 
 
 // Стиль для кнопок из картинок
-@mixin button-constuctor( $width, $height, $normal-img, $over-img ) {
+@mixin button-constuctor( $width, $height, $normal-img: false, $over-img: false, $active-img: false ) {
 
 	width: $width;
 	height: $height;
-	background-image: image-url( $normal-img );
+	cursor: pointer;
 
-	&:hover {
-		background-image: image-url( $over-img );
+	@if $normal-img != false {
+		background-image: image-url( $normal-img );
 	}
+
+	@if $over-img != false {
+		&:hover {
+			background-image: image-url( $over-img );
+		}
+	}
+
+	@if $active-img != false {
+		&:active {
+			background-image: image-url( $active-img );
+		}
+	}
+
 }
 
 // Маленькие иконки действий

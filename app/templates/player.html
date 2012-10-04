@@ -1,20 +1,19 @@
 
-<div class="buttons">
-	<div class="play"></div>
-
-	<div class="pause"></div>
-
-	<div class="rew"></div>
-
-	<div class="ff"></div>
-</div>
-
-<div class="playinfo">
-	<div class="trackinfo">
-		<!-- <div><p></p></div> -->
+<div class="b-player__control-buttons">
+	<div class="b-player__state-buttons">
+		<div class="b-player__play-button"></div>
+		<div class="b-player__pause-button"></div>
 	</div>
 
-	<div class="PlayerProgress">
+	<div class="b-player__prev-button"></div>
+	<div class="b-player__next-button"></div>
+</div>
+
+<div class="b-player__content">
+	<div class="b-player__marquee-place">
+	</div>
+
+	<div class="b-player__progress-bar">
 		<div class="PlayerLoadProgress">
 			<img src="images/progress_mask.png" style="float: left; margin-top: -1px;"/>
 
@@ -24,22 +23,60 @@
 		</div>
 	</div>
 
-	<div class="under">
-		<div class="PlayerAddButton"></div>
+	<div class="b-player__under">
+		<div class="b-player__status-button">
+			<div class="b-player__add-button"></div>
+		</div>
 
-
-		<div class="MutePre"></div>
-		<div class="MuteAft"></div>
-
-		<div class="PlayerVolBack">
-			<div class="PlayerVolBar">
-				<div class="PlayerVolumeControl"></div>
+		<div class="b-player__volume-controls">
+			<div class="b-player__mute-controls">
+				<div class="b-player__mute-button"></div>
+				<div class="b-player__unmute-button"></div>
 			</div>
-			<div class="PlayerVolMask"></div>
+
+			<div class="b-player__volume">
+				<div class="b-player__volume-bar">
+					<div class="b-player__volume-pick"></div>
+				</div>
+
+				<div class="b-player__volume-mask"></div>
+			</div>
 		</div>
 	</div>
 </div>
 
-<div class="PlayerImgCont">
-	<img class="PlayerBigImage" />
+<div class="b-player__cover-place">
+	<img class="b-player__cover-image" />
 </div>
+
+
+
+<!--
+
+b-player
+	control-buttons
+		state-buttons
+			play-button
+			pause-button
+
+		prev-button
+		next-button
+
+	content
+		b-marquee
+
+		progress-bar
+
+		under
+			status-button
+
+			volume-controls
+				mute-buttons
+					mute-button
+					unmute-button
+
+				volume-bar
+
+
+
+-->

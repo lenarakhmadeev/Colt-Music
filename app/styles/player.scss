@@ -3,335 +3,181 @@
 @import "compass/css3/box-shadow";
 
 @import "_fonts.scss";
+@import "_common.scss";
 
 
-.player {
-	width: 807px;
+.b-player {
 	height: 151px;
-	padding: 0;
-	background-image: url(../images/player_background.png);
+	background-image: image-url("player_background.png");
 
 	@include box-shadow(0 8px 30px #222);
 	@include user-select(none);
 }
 
 
-.player div {
-	float : left;
-	@include user-select(none);
-}
-
-
-	.buttons {
+	.b-player__control-buttons {
 		float: left;
 		margin-left: 70px;
 		margin-top: 43px;
+
+		width: 155px;
+		height: 62px;
 	}
 
 
-		.play {
+		.b-player__state-buttons {
 			width: 56px;
-			height: 62px;
-			background-image: url(../images/play_pre.png);
-			position: absolute;
-			cursor: pointer;
+			float: left;
 		}
 
 
-			.play:hover {
-				background-image: url(../images/play_over.png);
+			.b-player__play-button {
+				@include button-constuctor( 56px, 62px, "play_pre.png", "play_over.png", "play_down.png" );
 			}
 
 
-			.play:active {
-				background-image: url(../images/play_down.png);
+			.b-player__pause-button {
+				@include button-constuctor( 46px, 62px, "pause_pre.png", "pause_over.png", "pause_down.png" );
+				display: none;
 			}
 
 
-		.pause {
-			width: 46px;
-			height: 62px;
-			background-image: url(../images/pause_pre.png);
-			display: none;
-			position: absolute;
-			cursor: pointer;
-			display: none;
-		}
-
-
-			.pause:hover {
-				background-image: url(../images/pause_over.png);
-			}
-
-
-			.pause:active {
-				background-image: url(../images/pause_down.png);
-			}
-
-
-		.rew {
-			width: 34px;
-			height: 29px;
-			background-image: url(../images/prev_pre.png);
-			margin-left: 83px;
+		.b-player__prev-button {
+			@include button-constuctor( 34px, 29px, "prev_pre.png", "prev_over.png", "prev_down.png" );
+			margin-left: 23px;
 			margin-top: 15px;
-			cursor: pointer;
-
+			float: left;
 		}
 
 
-			.rew:hover {
-				background-image: url(../images/prev_over.png);
-			}
-
-
-			.rew:active {
-				background-image: url(../images/prev_down.png);
-			}
-
-
-		.ff {
-			width: 34px;
-			height: 29px;
-			background-image: url(../images/next_pre.png);
+		.b-player__next-button {
+			@include button-constuctor( 34px, 29px, "next_pre.png", "next_over.png", "next_down.png" );
 			margin-left: 4px;
 			margin-top: 15px;
-			cursor: pointer;
+			float: left;
 		}
 
 
-			.ff:hover {
-				background-image: url(../images/next_over.png);
-			}
-
-
-			.ff:active {
-				background-image: url(../images/next_down.png);
-			}
-
-
-	// Бегущая строка
-
-	.playinfo {
-		margin-left: 10px;
-		height: 151px;
+	.b-player__content {
 		width: 342px;
+		margin-left: 10px;
+		float: left;
 	}
 
 
-		.playinfo > div {
+		.b-player__marquee-place {
+			margin-top: 30px;
+			height: 20px;
 			width: 342px;
-			position: absolute;
 		}
 
 
-		.mariquee {
-			width: 342px;
-			position: absolute;
-
-		}
-
-
-			.trackinfo {
-				height: 13px;
-				top: 30px;
-				padding: 0 0 10px 0;
-				overflow: hidden;
-			}
-
-
-				.trackinfo p {
-					float: left;
-					margin: 0;
-
-					@include white-gothic-font(12pt);
-				}
-
-
-
-
-
-		.PlayerProgress {
+		.b-player__progress-bar {
 			cursor: pointer;
 			height: 8px;
-			top: 70px;
+			margin-top: 20px;
 			background: #38393d;
-
 		}
 
 
-			.PlayerProgress div {
-				height: 7px;
-				top: 0;
-				width: 0;
-				position: absolute;
-			}
-
-
-				.PlayerLoadProgress {
-					top: 1px;
-					background: image-url("load_pattern.png") repeat-x;
-
-					@include border-radius(4px);
-
-					overflow: visible;
-				}
-
-
-				.PlayerPlayProgress {
-					background: url(../images/play_pattern.png) repeat-x;
-					@include border-radius(3px);
-				}
-
-
-					.PlayerProgress .PlayerPlayHead {
-						top: -9px;
-						width: 8px;
-						height: 24px;
-						z-index: 1000;
-						background: url(../images/pick_on.png);
-						right: -4px;
-					}
-						.PlayerProgress .PlayerPlayHead > .back {
-							width: 8px;
-							height: 24px;
-							background: url(../images/pick_pre.png);
-							z-index: 1001;
-						}
-						.PlayerProgress .PlayerPlayHead > .back:hover {
-							opacity : 0;
-						}
-
-
-				.PlayerProgress .PlayerProgressMask {
-					width: 342px;
-					height: 11px;
-					background: url(../images/progress_mask.png);
-					top: -1px;
-				}
-
-
-		.under {
-			top: 110px;
+		.b-player__under {
+			margin-top: 20px;
+			height: 50px;
 		}
 
 
-			.under div{
-				position: absolute;
-			}
-
-
-			.PlayerAddButton
-			{
+			.b-player__status-button {
+				float: left;
 				width: 116px;
 				height: 17px;
-				background-image: url(../images/add_pre.png);
-				cursor: pointer;
-				display: none;
 			}
 
 
-				.PlayerAddButton:hover {
-					background-image: url(../images/add_over.png);
+				.b-player__add-button {
+					@include button-constuctor( 116px, 17px, "add_pre.png", "add_over.png", "add_down.png" );
+					display: none;
 				}
 
 
-				.PlayerAddButton:active {
-					background-image: url(../images/add_down.png);
-				}
-
-
-			.MutePre {
-				left: 180px;
-				top: -5px;
-				width: 23px;
-				height: 18px;
-				background-image: url(../images/vol_b_pre.png);
-				cursor: pointer;
+			.b-player__volume-controls {
+				margin-left: 180px;
+				margin-top: 5px;
 			}
 
 
-				.MutePre:hover {
-					background-image: url(../images/vol_b_over.png);
+				.b-player__mute-controls {
+					width: 23px;
+					height: 18px;
+					float: left;
 				}
 
 
-				.MutePre:active {
-					background-image: url(../images/vol_b_down.png);
-				}
-
-
-			.MuteAft {
-				left: 180px;
-				top: -5px;
-				width: 23px;
-				height: 18px;
-				background-image: url(../images/mute_b_pre.png);
-				display: none;
-				cursor: pointer;
-			}
-
-
-				.MuteAft:hover {
-					background-image: url(../images/mute_b_over.png);
-				}
-
-
-				.MuteAft:active {
-					background-image: url(../images/mute_b_down.png);
-				}
-
-
-			.PlayerVolBack {
-				left: 210px;
-				width: 132px;
-				height: 9px;
-				background-color: .444;
-				cursor: pointer;
-			}
-
-
-				.PlayerVolBar {
-					width: 132px;
-					height: 9px;
-					background: url(../images/volume_pattern.png) repeat-x;
-					@include border-radius(5px);
-				}
-
-
-					.PlayerVolumeControl {
-						top: -9px;
-						width: 8px;
-						height: 24px;
-						z-index: 1000;
-						background: url(../images/pick_pre.png);
-						right: -4px;
+					.b-player__mute-button {
+						@include button-constuctor( 23px, 18px, "vol_b_pre.png", "vol_b_over.png", "vol_b_down.png" );
 					}
 
 
-						.PlayerVolumeControl:hover {
-							background: url(../images/pick_on.png);
-						}
+					.b-player__unmute-button {
+						@include button-constuctor( 23px, 18px, "mute_b_pre.png", "mute_b_over.png", "mute_b_down.png" );
+						display: none;
+					}
 
 
-				.PlayerVolMask {
+				.b-player__volume {
+					position: relative;
 					width: 132px;
 					height: 9px;
-					background-image: url(../images/volume_mask.png);
+					background-color: #444;
+					cursor: pointer;
+
+					float: left;
+					margin-left: 5px;
+					margin-top: 5px;
 				}
 
 
-	.PlayerImgCont {
+					.b-player__volume-bar {
+						position: relative;
+						height: 9px;
+						background: image-url("volume_pattern.png") repeat-x;
+						@include border-radius(5px);
+
+					}
+
+
+						.b-player__volume-pick {
+							top: -9px;
+							position: absolute;
+							right: -4px;
+							z-index: 1000;
+							@include button-constuctor( 8px, 24px, "pick_pre.png", "pick_on.png" );
+						}
+
+
+					.b-player__volume-mask {
+						top: -1px;
+						position: absolute;
+						width: 132px;
+						height: 9px;
+						background-image: image-url("volume_mask.png");
+
+					}
+
+
+	.b-player__cover-place {
 		padding-left: 26px;
 		padding-top: 9px;
-		margin-left: 5px;
+
 		height: 142px;
 		width: 149px;
-		background-image: url(../images/album.png);
+		background-image: image-url("album.png");
+
+		float: right;
+		margin-right: 48px;
 	}
 
 
-		.PlayerBigImage {
+		.b-player__cover-image {
 			height: 126px;
 			width: 126px;
 		}

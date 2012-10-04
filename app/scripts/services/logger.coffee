@@ -26,13 +26,16 @@ define [
 
 
 		# Успешное выполнение
-		userSuccess: noty.success
+		userSuccess: ( message )->
+			noty.success( message )
 
 		# Ошибка
-		userError: noty.error
+		userError: ( message )->
+			noty.error( message )
 
 		# Оповещение
-		userInfo: noty.info
+		userInfo: ( message )->
+			noty.info( message )
 
 
 		log: ( message )->

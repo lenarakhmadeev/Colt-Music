@@ -50,6 +50,7 @@ define [
 
 		# Общий метод вывода сообщений
 		_notify: ( type, message )->
+			console.log 'message', message, this
 			humane[ type ]( message )
 
 			# Хак! Чтобы сообщение было видно пользователю
@@ -63,4 +64,4 @@ define [
 
 
 		# Запоминаем положение скролла
-		_onScroll: ( @scrollTop )->
+		_onScroll: ( @topPosition )->

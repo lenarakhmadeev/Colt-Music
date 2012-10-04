@@ -1,0 +1,14 @@
+
+@import "_fonts.scss";
+
+
+.b-marquee {
+	height: 20px;
+	width: 342px;
+	overflow: hidden;
+	position: absolute
+}
+
+	.j-marquee-text {
+		@include white-gothic-font(12pt);
+	}

@@ -13,14 +13,14 @@ define [
 
 		template: playerTemplate
 
-		className: 'player'
+		className: 'b-player'
 
 		events:
-			'click .play': 'resume'
-			'click .pause': 'pause'
-			'click .rew': 'prev'
-			'click .ff': 'next'
-			'click .PlayerAddButton': 'addAudio'
+			'click .b-player__play-button': 'resume'
+			'click .b-player__pause-button': 'pause'
+			'click .b-player__prev-button': 'prev'
+			'click .b-player__next-button': 'next'
+			'click .b-player__add-button': 'addAudio'
 
 
 		initialize: ( options )->
@@ -35,18 +35,18 @@ define [
 
 		renderMarquee: ()->
 			@marqueeView.render()
-			@append( '.trackinfo', @marqueeView )
+			@append( '.b-player__marquee-place', @marqueeView )
 
 
 		renderPlayed: ()->
 			played = @model.getCurrent().get( 'played' )
 
 			if played
-				@$( '.play' ).hide()
-				@$( '.pause' ).show()
+				@$( '.b-player__play-button' ).hide()
+				@$( '.b-player__pause-button' ).show()
 			else
-				@$( '.play' ).show()
-				@$( '.pause' ).hide()
+				@$( '.b-player__play-button' ).show()
+				@$( '.b-player__pause-button' ).hide()
 
 
 		renderCurrent: ()->
@@ -67,14 +67,14 @@ define [
 			type = @model.getCurrent().get( 'type' )
 
 			if type == 'similar'
-				@$( '.PlayerAddButton' ).show( 500 )
+				@$( '.b-player__add-button' ).show( 500 )
 			else
-				@$( '.PlayerAddButton' ).hide( 500 )
+				@$( '.b-player__add-button' ).hide( 500 )
 
 
 		renderCover: ()->
 			cover = @model.getCurrent().get( 'info.images.126' ) or 'images/big.png'
-			@$( '.PlayerBigImage' ).attr( 'src', cover )
+			@$( '.b-player__cover-image' ).attr( 'src', cover )
 
 
 		resume: ()->

@@ -13,13 +13,20 @@
 		};
 
 		// Создаем бегущую строку
-		var marquee = $('<div class="j-marquee"><p class="j-marquee-text">' + text + '</p></div>')
+		var marquee_text = $('<p class="j-marquee-text">' + text + '</p>')
+			.css({
+				float: 'left',
+				margin: 0
+			});
+
+		var marquee = $('<div class="j-marquee"></div>')
 			.css({
 				'overflow': 'hidden',
 				'width': '32000px',
 				'position': 'absolute',
 				'left': '0'
 			})
+			.append(marquee_text)
 			.appendTo(that);
 
 		// Останавливаем анимацию
