@@ -67,11 +67,10 @@ define [
 
 
 		_render: ()->
-			@playerView.render()
 			@append( '.b-app__player-place', @playerView )
-
-			@navigationView.render()
 			@append( '.b-app__navigation-place', @navigationView )
-
-			@listView.render()
 			@append( '.b-app__list-place', @listView )
+
+			@playerView.render()
+			@listView.render()
+			@navigationView.render()

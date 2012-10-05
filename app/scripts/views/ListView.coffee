@@ -1,12 +1,13 @@
 
 define [
 	'underscore'
+	'vk'
 	'services/mediator'
 	'views/View'
 	'views/ItemView'
 	'views/NavigationView'
 	
-], ( _, mediator, View, ItemView, NavigationView )->
+], ( _, vk, mediator, View, ItemView, NavigationView )->
 
 	'use strict'
 
@@ -19,6 +20,8 @@ define [
 
 
 		_render: ()->
+			vk.callMethod( 'scrollWindow', 0, 0 )
+
 			content = @collection.own.get( 'content' )
 			_.each( content, @addItem, this )
 
