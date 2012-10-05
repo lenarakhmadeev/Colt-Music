@@ -1,7 +1,7 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['services/mediator', 'views/View', 'models/PlayerModel', 'views/PlayerView', 'collections/ListCollection', 'views/NavigationView', 'views/ListView', 'tpl!templates/app.html'], function(mediator, View, PlayerModel, PlayerView, ListCollection, NavigationView, ListView, AppTemplate) {
+define(['services/mediator', 'vk', 'views/View', 'models/PlayerModel', 'views/PlayerView', 'collections/ListCollection', 'views/NavigationView', 'views/ListView', 'tpl!templates/app.html'], function(mediator, vk, View, PlayerModel, PlayerView, ListCollection, NavigationView, ListView, AppTemplate) {
   'use strict';
 
   var AppView;
@@ -22,15 +22,26 @@ define(['services/mediator', 'views/View', 'models/PlayerModel', 'views/PlayerVi
       this.initListCollection();
       this.initNavigation();
       this.initList();
-      return mediator.subscribe('scroll', this._onScroll, this);
+      mediator.subscribe('scroll', this.scroll, this);
+      return mediator.subscribe('app:resize', this.resizeWindow, this);
     };
 
-    AppView.prototype._onScroll = function(scrollTop) {
+    AppView.prototype.scroll = function(scrollTop) {
       var pos;
       pos = Math.max(scrollTop - 75, 0);
       return this.$('.b-app__slider').offset({
         top: pos
       });
+    };
+
+    AppView.prototype.resizeWindow = function() {
+      var height;
+      height = this.$el.height();
+      if (this.height === height) {
+        return;
+      }
+      this.height = height;
+      return vk.callMethod('resizeWindow', null, height + 200);
     };
 
     AppView.prototype.initPlayer = function() {
@@ -59,12 +70,12 @@ define(['services/mediator', 'views/View', 'models/PlayerModel', 'views/PlayerVi
     };
 
     AppView.prototype._render = function() {
-      this.playerView.render();
       this.append('.b-app__player-place', this.playerView);
-      this.navigationView.render();
       this.append('.b-app__navigation-place', this.navigationView);
+      this.append('.b-app__list-place', this.listView);
+      this.playerView.render();
       this.listView.render();
-      return this.append('.b-app__list-place', this.listView);
+      return this.navigationView.render();
     };
 
     return AppView;

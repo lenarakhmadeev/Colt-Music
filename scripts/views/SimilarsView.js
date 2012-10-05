@@ -1,7 +1,7 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['jquery', 'views/View', 'views/SimilarView', 'views/PhraseView', 'views/MoreButtonView', 'tpl!templates/similars.html'], function($, View, SimilarView, PhraseView, MoreButtonView, similarsTemplate) {
+define(['jquery', 'services/mediator', 'views/View', 'views/SimilarView', 'views/PhraseView', 'views/MoreButtonView', 'tpl!templates/similars.html'], function($, mediator, View, SimilarView, PhraseView, MoreButtonView, similarsTemplate) {
   'use strict';
 
   var SimilarsView;
@@ -54,7 +54,8 @@ define(['jquery', 'views/View', 'views/SimilarView', 'views/PhraseView', 'views/
       });
       simView.render();
       this.append('.b-similars__similars-container', simView);
-      return this.$('.b-similars__similars-container').show();
+      this.$('.b-similars__similars-container').show();
+      return mediator.publish('app:resize');
     };
 
     return SimilarsView;
