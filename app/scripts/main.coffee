@@ -92,7 +92,9 @@
 
 	Деплой
 
-	noty сломался
+	+noty сломался
+
+	ресайз контейнера
 
 	ver 1.5
 
@@ -145,8 +147,9 @@ define [
 	'services/player'
 	'services/flow'
 	'services/logger'
+	'services/scroll'
 
-], ( AppView, player, flow, logger )->
+], ( AppView, player, flow, logger, scroll )->
 
 	'use strict'
 
@@ -161,4 +164,5 @@ define [
 	player.init()
 	flow.init()
 	logger.init()
+	scroll.init()
 

@@ -1,7 +1,44 @@
+@import "compass/css3/transition";
+@import "compass/css3/box-shadow";
+
+
 body {
 	background-image: image-url('patterns/patt2.png');
 	margin: 0;
 }
+
+.b-app {
+
+}
+
+
+	.b-app__slider {
+		width: 100%;
+		@include transition-property(top);
+		@include transition-duration(0.3s);
+		@include box-shadow(0 8px 30px #222);
+
+		height: 200px;
+		position: absolute;
+		z-index: 500;
+		background-image: image-url('patterns/patt2.png');
+	}
+
+		.b-app__player-place {
+			height: 151px;
+		}
+
+
+		.b-app__navigation-place {
+			height: 20px;
+			margin-top: 15px;
+		}
+
+
+	.b-app__list-place {
+
+	}
+
 
 .b-list {
 	width: 827px;

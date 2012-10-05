@@ -2,10 +2,10 @@
 define [
 	'underscore'
 	'jquery'
-	'vk'
+	'services/mediator'
 	'humane'
 
-], ( _, $, vk, humane )->
+], ( _, $, mediator, humane )->
 
 	# Оповещения пользователю
 	noty =
@@ -15,9 +15,7 @@ define [
 
 		# Инициализация модуля
 		init: ()->
-			# Слушаем событие скролла VK, чтобы позиционировать оповещение
-			vk.callMethod( 'scrollSubscribe', fireEvent: true )
-			vk.addCallback( 'onScroll', _.bind( @_onScroll, this ) )
+			mediator.subscribe( 'scroll', @_onScroll, this )
 
 			@_extendHumane()
 

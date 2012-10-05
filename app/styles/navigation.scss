@@ -3,11 +3,8 @@
 
 .b-navigation {
 	@include white-gothic-font(11pt, bold);
-
 	height: 27px;
 	margin-left: 68px;
-	margin-top: -30px;
-	position: absolute;
 
 	text-align: center;
 	cursor: pointer;

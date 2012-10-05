@@ -24,7 +24,8 @@ define [
 
 
 		initialize: ( options )->
-			
+			@collection.own.on( 'change:content', @render, this )
+
 
 		serialize: ()->
 			page = @collection.own.get( 'page' )
