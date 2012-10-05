@@ -91,7 +91,9 @@
 
 	Деплой
 
-	noty сломался
+	+noty сломался
+
+	ресайз контейнера
 
 	ver 1.5
 
@@ -137,7 +139,7 @@
 		записи друзей
 */
 
-define(['views/AppView', 'services/player', 'services/flow', 'services/logger'], function(AppView, player, flow, logger) {
+define(['views/AppView', 'services/player', 'services/flow', 'services/logger', 'services/scroll'], function(AppView, player, flow, logger, scroll) {
   'use strict';
 
   var appView;
@@ -146,5 +148,6 @@ define(['views/AppView', 'services/player', 'services/flow', 'services/logger'],
   $('body').append(appView.el);
   player.init();
   flow.init();
-  return logger.init();
+  logger.init();
+  return scroll.init();
 });

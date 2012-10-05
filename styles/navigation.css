@@ -16,98 +16,96 @@
   text-shadow: 1px 1px 2px black;
   height: 27px;
   margin-left: 68px;
-  margin-top: -30px;
-  position: absolute;
   text-align: center;
   cursor: pointer;
 }
 
-/* line 17, ../../app/styles/navigation.scss */
+/* line 14, ../../app/styles/navigation.scss */
 .b-navigation__next {
   height: 17px;
   width: 17px;
-  background: url('../images/next.png?1349446339') 0 -35px no-repeat;
+  background: url('../images/next.png?1349458814') 0 -35px no-repeat;
   margin: 0 4px 0 4px;
   float: left;
   top: 2px;
 }
 
-/* line 27, ../../app/styles/navigation.scss */
+/* line 24, ../../app/styles/navigation.scss */
 .b-navigation__next:hover {
   background-position: 0 -18px;
 }
 
-/* line 32, ../../app/styles/navigation.scss */
+/* line 29, ../../app/styles/navigation.scss */
 .b-navigation__prev {
   height: 16px;
   width: 16px;
-  background: url('../images/prew.png?1349446339') 0 -35px no-repeat;
+  background: url('../images/prew.png?1349458814') 0 -35px no-repeat;
   float: left;
 }
 
-/* line 40, ../../app/styles/navigation.scss */
+/* line 37, ../../app/styles/navigation.scss */
 .b-navigation__prev:hover {
   background-position: 0 -18px;
 }
 
-/* line 45, ../../app/styles/navigation.scss */
+/* line 42, ../../app/styles/navigation.scss */
 .b-navigation__first {
   height: 17px;
   width: 17px;
-  background: url('../images/first.png?1349446340') 0 -35px no-repeat;
+  background: url('../images/first.png?1349458814') 0 -35px no-repeat;
   margin: 0 8px 0 0;
   float: left;
   top: 2px;
 }
 
-/* line 55, ../../app/styles/navigation.scss */
+/* line 52, ../../app/styles/navigation.scss */
 .b-navigation__first:hover {
   background-position: 0 -18px;
 }
 
-/* line 60, ../../app/styles/navigation.scss */
+/* line 57, ../../app/styles/navigation.scss */
 .b-navigation__last {
   height: 16px;
   width: 16px;
-  background: url('../images/last.png?1349446339') 0 -35px no-repeat;
+  background: url('../images/last.png?1349458814') 0 -35px no-repeat;
   float: left;
 }
 
-/* line 68, ../../app/styles/navigation.scss */
+/* line 65, ../../app/styles/navigation.scss */
 .b-navigation__last:hover {
   background-position: 0 -18px;
 }
 
-/* line 73, ../../app/styles/navigation.scss */
+/* line 70, ../../app/styles/navigation.scss */
 .b-navigation__item {
   height: 27px;
   width: 24px;
   margin: 0 2px 0 1px;
   float: left;
-  background: url('../images/number.png?1349446339');
+  background: url('../images/number.png?1349458814');
 }
 
-/* line 82, ../../app/styles/navigation.scss */
+/* line 79, ../../app/styles/navigation.scss */
 .b-navigation__item:hover {
   background-position: 0 -27px;
 }
 
-/* line 87, ../../app/styles/navigation.scss */
+/* line 84, ../../app/styles/navigation.scss */
 .b-navigation__item_current {
   height: 27px;
   width: 24px;
   margin: 0 2px 0 1px;
   float: left;
-  background: url('../images/number.png?1349446339') 0 -27px;
+  background: url('../images/number.png?1349458814') 0 -27px;
   cursor: default;
 }
 
-/* line 97, ../../app/styles/navigation.scss */
+/* line 94, ../../app/styles/navigation.scss */
 .b-navigation__space {
   height: 27px;
   width: 24px;
   margin: 0 2px 0 1px;
   float: left;
-  background: url('../images/space.png?1349446340') 0 0px;
+  background: url('../images/space.png?1349458814') 0 0px;
   cursor: default;
 }

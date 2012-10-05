@@ -16,23 +16,10 @@ define(['underscore', 'views/View', 'views/ItemView', 'views/NavigationView'], f
     ListView.prototype.className = 'b-list';
 
     ListView.prototype.initialize = function(options) {
-      this.collection.own.on('change:content', this.render, this);
-      return this.navigationView = new NavigationView({
-        collection: this.collection
-      });
+      return this.collection.own.on('change:content', this.render, this);
     };
 
     ListView.prototype._render = function() {
-      this.renderNavigation();
-      return this.renderItems();
-    };
-
-    ListView.prototype.renderNavigation = function() {
-      this.navigationView.render();
-      return this.append(this.navigationView);
-    };
-
-    ListView.prototype.renderItems = function() {
       var content;
       content = this.collection.own.get('content');
       return _.each(content, this.addItem, this);

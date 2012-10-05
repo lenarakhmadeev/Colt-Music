@@ -1,13 +1,10 @@
 
-define(['underscore', 'jquery', 'vk', 'humane'], function(_, $, vk, humane) {
+define(['underscore', 'jquery', 'services/mediator', 'humane'], function(_, $, mediator, humane) {
   var noty;
   return noty = {
     timeout: 1500,
     init: function() {
-      vk.callMethod('scrollSubscribe', {
-        fireEvent: true
-      });
-      vk.addCallback('onScroll', _.bind(this._onScroll, this));
+      mediator.subscribe('scroll', this._onScroll, this);
       return this._extendHumane();
     },
     _extendHumane: function() {

@@ -25,7 +25,9 @@ define(['jquery', 'services/mediator', 'views/View', 'tpl!templates/navigation.h
       'click .b-navigation__last': 'navigatePage'
     };
 
-    NavigationView.prototype.initialize = function(options) {};
+    NavigationView.prototype.initialize = function(options) {
+      return this.collection.own.on('change:content', this.render, this);
+    };
 
     NavigationView.prototype.serialize = function() {
       var data, page, pages;

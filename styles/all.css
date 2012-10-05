@@ -12,7 +12,7 @@
   width: 827px;
   height: 151px;
   padding: 0;
-  background-image: url('../images/player_background.png?1349446339');
+  background-image: url('../images/player_background.png?1349458814');
   -webkit-box-shadow: 0 8px 30px #222222;
   -moz-box-shadow: 0 8px 30px #222222;
   box-shadow: 0 8px 30px #222222;
@@ -42,16 +42,16 @@
   width: 56px;
   height: 62px;
   cursor: pointer;
-  background-image: url('../images/play_pre.png?1349446339');
+  background-image: url('../images/play_pre.png?1349458814');
   position: absolute;
 }
 /* line 15, ../../app/styles/_common.scss */
 .play:hover {
-  background-image: url('../images/play_over.png?1349446339');
+  background-image: url('../images/play_over.png?1349458814');
 }
 /* line 21, ../../app/styles/_common.scss */
 .play:active {
-  background-image: url('../images/play_down.png?1349446339');
+  background-image: url('../images/play_down.png?1349458814');
 }
 
 /* line 42, ../../app/styles/player1.scss */
@@ -59,17 +59,17 @@
   width: 46px;
   height: 62px;
   cursor: pointer;
-  background-image: url('../images/pause_pre.png?1349446339');
+  background-image: url('../images/pause_pre.png?1349458814');
   display: none;
   position: absolute;
 }
 /* line 15, ../../app/styles/_common.scss */
 .pause:hover {
-  background-image: url('../images/pause_over.png?1349446339');
+  background-image: url('../images/pause_over.png?1349458814');
 }
 /* line 21, ../../app/styles/_common.scss */
 .pause:active {
-  background-image: url('../images/pause_down.png?1349446339');
+  background-image: url('../images/pause_down.png?1349458814');
 }
 
 /* line 49, ../../app/styles/player1.scss */
@@ -77,17 +77,17 @@
   width: 34px;
   height: 29px;
   cursor: pointer;
-  background-image: url('../images/prev_pre.png?1349446339');
+  background-image: url('../images/prev_pre.png?1349458814');
   margin-left: 83px;
   margin-top: 15px;
 }
 /* line 15, ../../app/styles/_common.scss */
 .rew:hover {
-  background-image: url('../images/prev_over.png?1349446339');
+  background-image: url('../images/prev_over.png?1349458814');
 }
 /* line 21, ../../app/styles/_common.scss */
 .rew:active {
-  background-image: url('../images/prev_down.png?1349446339');
+  background-image: url('../images/prev_down.png?1349458814');
 }
 
 /* line 56, ../../app/styles/player1.scss */
@@ -95,17 +95,17 @@
   width: 34px;
   height: 29px;
   cursor: pointer;
-  background-image: url('../images/next_pre.png?1349446340');
+  background-image: url('../images/next_pre.png?1349458814');
   margin-left: 4px;
   margin-top: 15px;
 }
 /* line 15, ../../app/styles/_common.scss */
 .ff:hover {
-  background-image: url('../images/next_over.png?1349446339');
+  background-image: url('../images/next_over.png?1349458814');
 }
 /* line 21, ../../app/styles/_common.scss */
 .ff:active {
-  background-image: url('../images/next_down.png?1349446339');
+  background-image: url('../images/next_down.png?1349458814');
 }
 
 /* line 63, ../../app/styles/player1.scss */
@@ -127,7 +127,7 @@
 /* line 80, ../../app/styles/player1.scss */
 .PlayerLoadProgress {
   top: 1px;
-  background: url('../images/load_pattern.png?1349446339') repeat-x;
+  background: url('../images/load_pattern.png?1349458814') repeat-x;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -138,7 +138,7 @@
 
 /* line 90, ../../app/styles/player1.scss */
 .PlayerPlayProgress {
-  background: url('../images/play_pattern.png?1349446339') repeat-x;
+  background: url('../images/play_pattern.png?1349458814') repeat-x;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -152,7 +152,7 @@
   width: 8px;
   height: 24px;
   z-index: 1000;
-  background: url('../images/pick_on.png?1349446339');
+  background: url('../images/pick_on.png?1349458814');
   right: -4px;
 }
 
@@ -160,7 +160,7 @@
 .PlayerProgress .PlayerPlayHead > .back {
   width: 8px;
   height: 24px;
-  background: url('../images/pick_pre.png?1349446339');
+  background: url('../images/pick_pre.png?1349458814');
   z-index: 1001;
 }
 
@@ -173,7 +173,7 @@
 .PlayerProgress .PlayerProgressMask {
   width: 342px;
   height: 11px;
-  background: url('../images/progress_mask.png?1349446340');
+  background: url('../images/progress_mask.png?1349458814');
   top: -1px;
 }
 
@@ -192,16 +192,16 @@
   width: 116px;
   height: 17px;
   cursor: pointer;
-  background-image: url('../images/add_pre.png?1349446339');
+  background-image: url('../images/add_pre.png?1349458814');
   display: none;
 }
 /* line 15, ../../app/styles/_common.scss */
 .PlayerAddButton:hover {
-  background-image: url('../images/add_over.png?1349446339');
+  background-image: url('../images/add_over.png?1349458814');
 }
 /* line 21, ../../app/styles/_common.scss */
 .PlayerAddButton:active {
-  background-image: url('../images/add_down.png?1349446339');
+  background-image: url('../images/add_down.png?1349458814');
 }
 
 /* line 140, ../../app/styles/player1.scss */
@@ -209,17 +209,17 @@
   width: 23px;
   height: 18px;
   cursor: pointer;
-  background-image: url('../images/vol_b_pre.png?1349446340');
+  background-image: url('../images/vol_b_pre.png?1349458814');
   left: 180px;
   top: -5px;
 }
 /* line 15, ../../app/styles/_common.scss */
 .MutePre:hover {
-  background-image: url('../images/vol_b_over.png?1349446339');
+  background-image: url('../images/vol_b_over.png?1349458814');
 }
 /* line 21, ../../app/styles/_common.scss */
 .MutePre:active {
-  background-image: url('../images/vol_b_down.png?1349446339');
+  background-image: url('../images/vol_b_down.png?1349458814');
 }
 
 /* line 147, ../../app/styles/player1.scss */
@@ -254,7 +254,7 @@
 .PlayerVolBar {
   width: 132px;
   height: 9px;
-  background: url('../images/volume_pattern.png?1349446339') repeat-x;
+  background: url('../images/volume_pattern.png?1349458814') repeat-x;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -268,20 +268,20 @@
   width: 8px;
   height: 24px;
   z-index: 1000;
-  background: url('../images/pick_pre.png?1349446339');
+  background: url('../images/pick_pre.png?1349458814');
   right: -4px;
 }
 
 /* line 182, ../../app/styles/player1.scss */
 .PlayerVolumeControl:hover {
-  background: url('../images/pick_on.png?1349446339');
+  background: url('../images/pick_on.png?1349458814');
 }
 
 /* line 187, ../../app/styles/player1.scss */
 .PlayerVolMask {
   width: 132px;
   height: 9px;
-  background-image: url('../images/volume_mask.png?1349446340');
+  background-image: url('../images/volume_mask.png?1349458814');
 }
 
 /* line 194, ../../app/styles/player1.scss */
@@ -291,7 +291,7 @@
   margin-left: 5px;
   height: 142px;
   width: 149px;
-  background-image: url('../images/album.png?1349446340');
+  background-image: url('../images/album.png?1349458814');
 }
 
 /* line 204, ../../app/styles/player1.scss */
@@ -318,99 +318,97 @@
   text-shadow: 1px 1px 2px black;
   height: 27px;
   margin-left: 68px;
-  margin-top: -30px;
-  position: absolute;
   text-align: center;
   cursor: pointer;
 }
 
-/* line 17, ../../app/styles/navigation.scss */
+/* line 14, ../../app/styles/navigation.scss */
 .b-navigation__next {
   height: 17px;
   width: 17px;
-  background: url('../images/next.png?1349446339') 0 -35px no-repeat;
+  background: url('../images/next.png?1349458814') 0 -35px no-repeat;
   margin: 0 4px 0 4px;
   float: left;
   top: 2px;
 }
 
-/* line 27, ../../app/styles/navigation.scss */
+/* line 24, ../../app/styles/navigation.scss */
 .b-navigation__next:hover {
   background-position: 0 -18px;
 }
 
-/* line 32, ../../app/styles/navigation.scss */
+/* line 29, ../../app/styles/navigation.scss */
 .b-navigation__prev {
   height: 16px;
   width: 16px;
-  background: url('../images/prew.png?1349446339') 0 -35px no-repeat;
+  background: url('../images/prew.png?1349458814') 0 -35px no-repeat;
   float: left;
 }
 
-/* line 40, ../../app/styles/navigation.scss */
+/* line 37, ../../app/styles/navigation.scss */
 .b-navigation__prev:hover {
   background-position: 0 -18px;
 }
 
-/* line 45, ../../app/styles/navigation.scss */
+/* line 42, ../../app/styles/navigation.scss */
 .b-navigation__first {
   height: 17px;
   width: 17px;
-  background: url('../images/first.png?1349446340') 0 -35px no-repeat;
+  background: url('../images/first.png?1349458814') 0 -35px no-repeat;
   margin: 0 8px 0 0;
   float: left;
   top: 2px;
 }
 
-/* line 55, ../../app/styles/navigation.scss */
+/* line 52, ../../app/styles/navigation.scss */
 .b-navigation__first:hover {
   background-position: 0 -18px;
 }
 
-/* line 60, ../../app/styles/navigation.scss */
+/* line 57, ../../app/styles/navigation.scss */
 .b-navigation__last {
   height: 16px;
   width: 16px;
-  background: url('../images/last.png?1349446339') 0 -35px no-repeat;
+  background: url('../images/last.png?1349458814') 0 -35px no-repeat;
   float: left;
 }
 
-/* line 68, ../../app/styles/navigation.scss */
+/* line 65, ../../app/styles/navigation.scss */
 .b-navigation__last:hover {
   background-position: 0 -18px;
 }
 
-/* line 73, ../../app/styles/navigation.scss */
+/* line 70, ../../app/styles/navigation.scss */
 .b-navigation__item {
   height: 27px;
   width: 24px;
   margin: 0 2px 0 1px;
   float: left;
-  background: url('../images/number.png?1349446339');
+  background: url('../images/number.png?1349458814');
 }
 
-/* line 82, ../../app/styles/navigation.scss */
+/* line 79, ../../app/styles/navigation.scss */
 .b-navigation__item:hover {
   background-position: 0 -27px;
 }
 
-/* line 87, ../../app/styles/navigation.scss */
+/* line 84, ../../app/styles/navigation.scss */
 .b-navigation__item_current {
   height: 27px;
   width: 24px;
   margin: 0 2px 0 1px;
   float: left;
-  background: url('../images/number.png?1349446339') 0 -27px;
+  background: url('../images/number.png?1349458814') 0 -27px;
   cursor: default;
 }
 
-/* line 97, ../../app/styles/navigation.scss */
+/* line 94, ../../app/styles/navigation.scss */
 .b-navigation__space {
   height: 27px;
   width: 24px;
   margin: 0 2px 0 1px;
   float: left;
-  background: url('../images/space.png?1349446340') 0 0px;
+  background: url('../images/space.png?1349458814') 0 0px;
   cursor: default;
 }
 
@@ -426,7 +424,7 @@
 /* line 9, ../../app/styles/player.scss */
 .b-player {
   height: 151px;
-  background-image: url('../images/player_background.png?1349446339');
+  background-image: url('../images/player_background.png?1349458814');
   -webkit-box-shadow: 0 8px 30px #222222;
   -moz-box-shadow: 0 8px 30px #222222;
   box-shadow: 0 8px 30px #222222;
@@ -455,15 +453,15 @@
   width: 56px;
   height: 62px;
   cursor: pointer;
-  background-image: url('../images/play_pre.png?1349446339');
+  background-image: url('../images/play_pre.png?1349458814');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__play-button:hover {
-  background-image: url('../images/play_over.png?1349446339');
+  background-image: url('../images/play_over.png?1349458814');
 }
 /* line 21, ../../app/styles/_common.scss */
 .b-player__play-button:active {
-  background-image: url('../images/play_down.png?1349446339');
+  background-image: url('../images/play_down.png?1349458814');
 }
 
 /* line 39, ../../app/styles/player.scss */
@@ -471,16 +469,16 @@
   width: 46px;
   height: 62px;
   cursor: pointer;
-  background-image: url('../images/pause_pre.png?1349446339');
+  background-image: url('../images/pause_pre.png?1349458814');
   display: none;
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__pause-button:hover {
-  background-image: url('../images/pause_over.png?1349446339');
+  background-image: url('../images/pause_over.png?1349458814');
 }
 /* line 21, ../../app/styles/_common.scss */
 .b-player__pause-button:active {
-  background-image: url('../images/pause_down.png?1349446339');
+  background-image: url('../images/pause_down.png?1349458814');
 }
 
 /* line 45, ../../app/styles/player.scss */
@@ -488,18 +486,18 @@
   width: 34px;
   height: 29px;
   cursor: pointer;
-  background-image: url('../images/prev_pre.png?1349446339');
+  background-image: url('../images/prev_pre.png?1349458814');
   margin-left: 23px;
   margin-top: 15px;
   float: left;
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__prev-button:hover {
-  background-image: url('../images/prev_over.png?1349446339');
+  background-image: url('../images/prev_over.png?1349458814');
 }
 /* line 21, ../../app/styles/_common.scss */
 .b-player__prev-button:active {
-  background-image: url('../images/prev_down.png?1349446339');
+  background-image: url('../images/prev_down.png?1349458814');
 }
 
 /* line 53, ../../app/styles/player.scss */
@@ -507,18 +505,18 @@
   width: 34px;
   height: 29px;
   cursor: pointer;
-  background-image: url('../images/next_pre.png?1349446340');
+  background-image: url('../images/next_pre.png?1349458814');
   margin-left: 4px;
   margin-top: 15px;
   float: left;
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__next-button:hover {
-  background-image: url('../images/next_over.png?1349446339');
+  background-image: url('../images/next_over.png?1349458814');
 }
 /* line 21, ../../app/styles/_common.scss */
 .b-player__next-button:active {
-  background-image: url('../images/next_down.png?1349446339');
+  background-image: url('../images/next_down.png?1349458814');
 }
 
 /* line 61, ../../app/styles/player.scss */
@@ -549,7 +547,7 @@
 .b-player__load-bar {
   height: 7px;
   position: absolute;
-  background: url('../images/load_pattern.png?1349446339') repeat-x;
+  background: url('../images/load_pattern.png?1349458814') repeat-x;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -562,7 +560,7 @@
 .b-player__progress-bar {
   height: 7px;
   position: absolute;
-  background: url('../images/play_pattern.png?1349446339') repeat-x;
+  background: url('../images/play_pattern.png?1349458814') repeat-x;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -578,12 +576,12 @@
   width: 8px;
   height: 24px;
   cursor: pointer;
-  background-image: url('../images/pick_pre.png?1349446339');
+  background-image: url('../images/pick_pre.png?1349458814');
   z-index: 1001;
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__progress-pick:hover {
-  background-image: url('../images/pick_on.png?1349446339');
+  background-image: url('../images/pick_on.png?1349458814');
 }
 
 /* line 113, ../../app/styles/player.scss */
@@ -592,7 +590,7 @@
   top: -1px;
   width: 342px;
   height: 11px;
-  background: url('../images/progress_mask.png?1349446340');
+  background: url('../images/progress_mask.png?1349458814');
   z-index: 1000;
 }
 
@@ -614,16 +612,16 @@
   width: 116px;
   height: 17px;
   cursor: pointer;
-  background-image: url('../images/add_pre.png?1349446339');
+  background-image: url('../images/add_pre.png?1349458814');
   display: none;
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__add-button:hover {
-  background-image: url('../images/add_over.png?1349446339');
+  background-image: url('../images/add_over.png?1349458814');
 }
 /* line 21, ../../app/styles/_common.scss */
 .b-player__add-button:active {
-  background-image: url('../images/add_down.png?1349446339');
+  background-image: url('../images/add_down.png?1349458814');
 }
 
 /* line 144, ../../app/styles/player.scss */
@@ -644,15 +642,15 @@
   width: 23px;
   height: 18px;
   cursor: pointer;
-  background-image: url('../images/vol_b_pre.png?1349446340');
+  background-image: url('../images/vol_b_pre.png?1349458814');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__mute-button:hover {
-  background-image: url('../images/vol_b_over.png?1349446339');
+  background-image: url('../images/vol_b_over.png?1349458814');
 }
 /* line 21, ../../app/styles/_common.scss */
 .b-player__mute-button:active {
-  background-image: url('../images/vol_b_down.png?1349446339');
+  background-image: url('../images/vol_b_down.png?1349458814');
 }
 
 /* line 162, ../../app/styles/player.scss */
@@ -660,16 +658,16 @@
   width: 23px;
   height: 18px;
   cursor: pointer;
-  background-image: url('../images/mute_b_pre.png?1349446339');
+  background-image: url('../images/mute_b_pre.png?1349458814');
   display: none;
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__unmute-button:hover {
-  background-image: url('../images/mute_b_over.png?1349446339');
+  background-image: url('../images/mute_b_over.png?1349458814');
 }
 /* line 21, ../../app/styles/_common.scss */
 .b-player__unmute-button:active {
-  background-image: url('../images/mute_b_down.png?1349446339');
+  background-image: url('../images/mute_b_down.png?1349458814');
 }
 
 /* line 168, ../../app/styles/player.scss */
@@ -688,7 +686,7 @@
 .b-player__volume-bar {
   position: relative;
   height: 9px;
-  background: url('../images/volume_pattern.png?1349446339') repeat-x;
+  background: url('../images/volume_pattern.png?1349458814') repeat-x;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -705,11 +703,11 @@
   width: 8px;
   height: 24px;
   cursor: pointer;
-  background-image: url('../images/pick_pre.png?1349446339');
+  background-image: url('../images/pick_pre.png?1349458814');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__volume-pick:hover {
-  background-image: url('../images/pick_on.png?1349446339');
+  background-image: url('../images/pick_on.png?1349458814');
 }
 
 /* line 199, ../../app/styles/player.scss */
@@ -718,7 +716,7 @@
   position: absolute;
   width: 132px;
   height: 9px;
-  background-image: url('../images/volume_mask.png?1349446340');
+  background-image: url('../images/volume_mask.png?1349458814');
 }
 
 /* line 209, ../../app/styles/player.scss */
@@ -727,7 +725,7 @@
   padding-top: 9px;
   height: 142px;
   width: 149px;
-  background-image: url('../images/album.png?1349446340');
+  background-image: url('../images/album.png?1349458814');
   float: right;
   margin-right: 48px;
 }
@@ -738,13 +736,49 @@
   width: 126px;
 }
 
-/* line 1, ../../app/styles/app.scss */
+/* line 5, ../../app/styles/app.scss */
 body {
-  background-image: url('../images/patterns/patt2.png?1349446339');
+  background-image: url('../images/patterns/patt2.png?1349458814');
   margin: 0;
 }
 
-/* line 6, ../../app/styles/app.scss */
+/* line 15, ../../app/styles/app.scss */
+.b-app__slider {
+  width: 100%;
+  -webkit-transition-property: top;
+  -moz-transition-property: top;
+  -o-transition-property: top;
+  transition-property: top;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-box-shadow: 0 8px 30px #222222;
+  -moz-box-shadow: 0 8px 30px #222222;
+  box-shadow: 0 8px 30px #222222;
+  height: 200px;
+  position: absolute;
+  z-index: 500;
+  background-image: url('../images/patterns/patt2.png?1349458814');
+}
+
+/* line 27, ../../app/styles/app.scss */
+.b-app__player-place {
+  height: 151px;
+}
+
+/* line 32, ../../app/styles/app.scss */
+.b-app__navigation-place {
+  height: 20px;
+  margin-top: 15px;
+}
+
+/* line 38, ../../app/styles/app.scss */
+.b-app__list-place {
+  margin-top: 200px;
+}
+
+/* line 44, ../../app/styles/app.scss */
 .b-list {
   width: 827px;
   margin-top: 70px;
@@ -798,14 +832,14 @@ body {
   -moz-box-shadow: 0 5px 3px 0 #aaaaaa;
   box-shadow: 0 5px 3px 0 #aaaaaa;
   border: 1px solid black;
-  background-image: url('../images/patterns/patt1.png?1349446339');
+  background-image: url('../images/patterns/patt1.png?1349458814');
   margin: 35px 70px;
   padding: 0 1px;
 }
 
 /* line 20, ../../app/styles/item.scss */
 .b-item_selected {
-  background-image: url('../images/patterns/patt4.png?1349446339');
+  background-image: url('../images/patterns/patt4.png?1349458814');
 }
 
 /* line 25, ../../app/styles/item.scss */
@@ -865,6 +899,7 @@ body {
   text-shadow: 1px 1px 2px black;
   height: 22px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 /* line 84, ../../app/styles/item.scss */
@@ -877,35 +912,34 @@ body {
   height: 40px;
   position: absolute;
   bottom: 0;
-  cursor: pointer;
 }
 
-/* line 102, ../../app/styles/item.scss */
+/* line 101, ../../app/styles/item.scss */
 .b-item__play-button {
   width: 93px;
   height: 32px;
   cursor: pointer;
-  background-image: url('../images/good/item_play_button.png?1349446339');
+  background-image: url('../images/good/item_play_button.png?1349458814');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-item__play-button:hover {
-  background-image: url('../images/good/item_play_button_over.png?1349446339');
+  background-image: url('../images/good/item_play_button_over.png?1349458814');
 }
 
-/* line 111, ../../app/styles/item.scss */
+/* line 110, ../../app/styles/item.scss */
 .b-item__pause-button {
   display: none;
   width: 93px;
   height: 32px;
   cursor: pointer;
-  background-image: url('../images/good/item_pause_button.png?1349446339');
+  background-image: url('../images/good/item_pause_button.png?1349458814');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-item__pause-button:hover {
-  background-image: url('../images/good/item_pause_button_over.png?1349446339');
+  background-image: url('../images/good/item_pause_button_over.png?1349458814');
 }
 
-/* line 126, ../../app/styles/item.scss */
+/* line 125, ../../app/styles/item.scss */
 .b-item__control-buttons {
   position: absolute;
   right: 10px;
@@ -913,35 +947,35 @@ body {
   height: 90px;
 }
 
-/* line 134, ../../app/styles/item.scss */
+/* line 133, ../../app/styles/item.scss */
 .b-item__wiki-button {
   float: left;
   display: none;
   width: 13px;
   height: 13px;
   cursor: pointer;
-  background-image: url('../images/good/wiki_icon.png?1349446339');
+  background-image: url('../images/good/wiki_icon.png?1349458814');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-item__wiki-button:hover {
-  background-image: url('../images/good/wiki_icon_over.png?1349446339');
+  background-image: url('../images/good/wiki_icon_over.png?1349458814');
 }
 
-/* line 142, ../../app/styles/item.scss */
+/* line 141, ../../app/styles/item.scss */
 .b-item__like-button {
   float: left;
   margin-left: 7px;
   width: 13px;
   height: 13px;
   cursor: pointer;
-  background-image: url('../images/good/like_icon.png?1349446339');
+  background-image: url('../images/good/like_icon.png?1349458814');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-item__like-button:hover {
-  background-image: url('../images/good/like_icon_over.png?1349446339');
+  background-image: url('../images/good/like_icon_over.png?1349458814');
 }
 
-/* line 150, ../../app/styles/item.scss */
+/* line 149, ../../app/styles/item.scss */
 .b-item__delete-button {
   float: left;
   margin-left: 14px;
@@ -949,11 +983,11 @@ body {
   width: 13px;
   height: 13px;
   cursor: pointer;
-  background-image: url('../images/good/delete_icon.png?1349446339');
+  background-image: url('../images/good/delete_icon.png?1349458814');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-item__delete-button:hover {
-  background-image: url('../images/good/delete_icon_over.png?1349446339');
+  background-image: url('../images/good/delete_icon_over.png?1349458814');
 }
 
 @charset "UTF-8";
@@ -1085,7 +1119,7 @@ body {
   margin-top: 3px;
   width: 16px;
   height: 16px;
-  background-image: url('../images/good/show_more_icon.png?1349446339');
+  background-image: url('../images/good/show_more_icon.png?1349458814');
 }
 
 /* line 34, ../../app/styles/more.scss */
@@ -1264,11 +1298,11 @@ body {
   width: 13px;
   height: 13px;
   cursor: pointer;
-  background-image: url('../images/good/play_icon.png?1349446339');
+  background-image: url('../images/good/play_icon.png?1349458814');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-similar__play-button:hover {
-  background-image: url('../images/good/play_icon_over.png?1349446339');
+  background-image: url('../images/good/play_icon_over.png?1349458814');
 }
 
 /* line 89, ../../app/styles/similar.scss */
@@ -1278,11 +1312,11 @@ body {
   width: 13px;
   height: 13px;
   cursor: pointer;
-  background-image: url('../images/good/pause_icon.png?1349446339');
+  background-image: url('../images/good/pause_icon.png?1349458814');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-similar__pause-button:hover {
-  background-image: url('../images/good/pause_icon_over.png?1349446339');
+  background-image: url('../images/good/pause_icon_over.png?1349458814');
 }
 
 /* line 97, ../../app/styles/similar.scss */
@@ -1292,11 +1326,11 @@ body {
   width: 13px;
   height: 13px;
   cursor: pointer;
-  background-image: url('../images/good/add_icon.png?1349446339');
+  background-image: url('../images/good/add_icon.png?1349458814');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-similar__add-button:hover {
-  background-image: url('../images/good/add_icon_over.png?1349446339');
+  background-image: url('../images/good/add_icon_over.png?1349458814');
 }
 
 /* line 105, ../../app/styles/similar.scss */
@@ -1306,11 +1340,11 @@ body {
   width: 13px;
   height: 13px;
   cursor: pointer;
-  background-image: url('../images/good/like_icon.png?1349446339');
+  background-image: url('../images/good/like_icon.png?1349458814');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-similar__like-button:hover {
-  background-image: url('../images/good/like_icon_over.png?1349446339');
+  background-image: url('../images/good/like_icon_over.png?1349458814');
 }
 
 /* line 113, ../../app/styles/similar.scss */
@@ -1321,9 +1355,9 @@ body {
   width: 13px;
   height: 13px;
   cursor: pointer;
-  background-image: url('../images/good/wiki_icon.png?1349446339');
+  background-image: url('../images/good/wiki_icon.png?1349458814');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-similar__wiki-button:hover {
-  background-image: url('../images/good/wiki_icon_over.png?1349446339');
+  background-image: url('../images/good/wiki_icon_over.png?1349458814');
 }
