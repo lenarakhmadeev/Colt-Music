@@ -1,0 +1,25 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("Century Gothic.eot");
+  src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
+}
+
+/* line 5, ../../app/styles/marquee.scss */
+.b-marquee {
+  height: 20px;
+  width: 342px;
+  overflow: hidden;
+  position: absolute;
+}
+
+/* line 12, ../../app/styles/marquee.scss */
+.j-marquee-text {
+  font-family: Gothic, sans-serif;
+  font-size: 12pt;
+  font-weight: normal;
+  color: #cdcdcd;
+  text-shadow: 1px 1px 2px black;
+}

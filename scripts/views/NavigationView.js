@@ -15,10 +15,14 @@ define(['jquery', 'services/mediator', 'views/View', 'tpl!templates/navigation.h
 
     NavigationView.prototype.template = navigationTemplate;
 
-    NavigationView.prototype.className = 'Navigation';
+    NavigationView.prototype.className = 'b-navigation';
 
     NavigationView.prototype.events = {
-      'click .NavFirst, .NavPrev, .NavItem, .NavNext, .NavLast': 'navigatePage'
+      'click .b-navigation__first': 'navigatePage',
+      'click .b-navigation__prev': 'navigatePage',
+      'click .b-navigation__item': 'navigatePage',
+      'click .b-navigation__next': 'navigatePage',
+      'click .b-navigation__last': 'navigatePage'
     };
 
     NavigationView.prototype.initialize = function(options) {};
@@ -53,6 +57,12 @@ define(['jquery', 'services/mediator', 'views/View', 'tpl!templates/navigation.h
           type: 'space'
         });
       }
+      if (page - 3 > -1) {
+        data.pages.push({
+          type: 'num',
+          page: page - 3
+        });
+      }
       if (page - 2 > -1) {
         data.pages.push({
           type: 'num',
@@ -79,6 +89,12 @@ define(['jquery', 'services/mediator', 'views/View', 'tpl!templates/navigation.h
         data.pages.push({
           type: 'num',
           page: page + 2
+        });
+      }
+      if (page + 3 < pages) {
+        data.pages.push({
+          type: 'num',
+          page: page + 3
         });
       }
       if (page + 10 < pages) {

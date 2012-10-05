@@ -19,7 +19,7 @@ define(['underscore', 'collections/Collection', 'models/ItemModel', 'services/me
       this.own.set({
         page: 0
       });
-      this.bind('reset', this.firstLoad, this);
+      this.on('reset', this.firstLoad, this);
       mediator.subscribe('list:load_page', this.loadPage, this);
       return mediator.subscribe('list:play_first', this.playFirst, this);
     };
@@ -64,8 +64,8 @@ define(['underscore', 'collections/Collection', 'models/ItemModel', 'services/me
       return _.each(content, this.fetchItem, this);
     };
 
-    ListCollection.prototype.fetchItem = function(item) {
-      return item.fetch();
+    ListCollection.prototype.fetchItem = function(model) {
+      return model.fetch();
     };
 
     ListCollection.prototype.pageSize = 5;

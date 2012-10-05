@@ -13,7 +13,7 @@ define(['jquery', 'views/View', 'jquery_marquee'], function($, View) {
       return MarqueeView.__super__.constructor.apply(this, arguments);
     }
 
-    MarqueeView.prototype.className = 'mariquee';
+    MarqueeView.prototype.className = 'b-marquee';
 
     MarqueeView.prototype.initialize = function(options) {
       return this.model.on('change:current', this.render, this);

@@ -11,22 +11,23 @@ define(['backbone'], function(Backbone) {
 
     function Collection() {
       this.own = new Backbone.Model();
-      this.on('reset add remove', this.makeModelsId, this);
+      this.on('reset add remove', this.recalculateIds, this);
       Collection.__super__.constructor.apply(this, arguments);
     }
 
-    Collection.prototype.makeModelsId = function() {
-      var id, model, _i, _len, _ref, _results;
+    Collection.prototype.recalculateIds = function() {
+      var id, model, _i, _len, _ref;
       id = 1;
       _ref = this.models;
-      _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         model = _ref[_i];
-        _results.push(model.set({
+        model.set({
           'id': id++
-        }));
+        }, {
+          silent: true
+        });
       }
-      return _results;
+      return this.trigger('recalculated');
     };
 
     return Collection;

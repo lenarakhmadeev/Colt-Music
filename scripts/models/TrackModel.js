@@ -53,8 +53,8 @@ define(['jquery', 'backbone', 'services/mediator', 'services/proxy/proxy', 'back
         return _this.set({
           info: data
         });
-      }).fail(function(errorMessage) {
-        return mediator.publish('logger:error', "getTrackInfo fail: " + errorMessage);
+      }).fail(function(error) {
+        return mediator.publish('logger:error', "getTrackInfo fail: " + error.error_msg);
       }).always(function() {
         return _this.set('has_info', true);
       });
@@ -82,9 +82,9 @@ define(['jquery', 'backbone', 'services/mediator', 'services/proxy/proxy', 'back
         return _this.set({
           audio: data
         });
-      }).fail(function(errorMessage) {
-        mediator.publish('logger:info', 'Запись не найдена');
-        return mediator.publish('logger:error', "getAudioUrl fail: " + errorMessage);
+      }).fail(function(error) {
+        mediator.publish('logger:user:error', 'Запись не найдена');
+        return mediator.publish('logger:error', "getAudioUrl fail: " + error.error_msg);
       });
     };
 
@@ -143,9 +143,11 @@ define(['jquery', 'backbone', 'services/mediator', 'services/proxy/proxy', 'back
 
     TrackModel.prototype._addToWall = function() {
       return proxy.addToWall(this.get('audio.audio_id'), this.get('audio.owner_id')).done(function() {
-        return mediator.publish('logger:info', 'Запись размещена на стене');
-      }).fail(function() {
-        mediator.publish('logger:info', 'Запись не может быть размещена на стене');
+        return mediator.publish('logger:user:success', 'Запись размещена на стене');
+      }).fail(function(error) {
+        var errorMessage;
+        errorMessage = error.error_msg;
+        mediator.publish('logger:user:error', 'Запись не может быть размещена на стене: ' + errorMessage);
         return mediator.publish('logger:error', "addToWall fail: " + errorMessage);
       });
     };
@@ -157,9 +159,11 @@ define(['jquery', 'backbone', 'services/mediator', 'services/proxy/proxy', 'back
     TrackModel.prototype._addToAudio = function() {
       var _this = this;
       return proxy.addToAudio(this.get('audio.audio_id'), this.get('audio.owner_id')).done(function(audio_id) {
-        return mediator.publish('logger:info', 'Запись успешно добавлена');
-      }).fail(function(errorMessage) {
-        mediator.publish('logger:info', 'Запись не может быть добавлена');
+        return mediator.publish('logger:user:success', 'Запись успешно добавлена');
+      }).fail(function(error) {
+        var errorMessage;
+        errorMessage = error.error_msg;
+        mediator.publish('logger:user:error', 'Запись не может быть добавлена: ' + errorMessage);
         return mediator.publish('logger:error', "addToAudio fail: " + errorMessage);
       });
     };

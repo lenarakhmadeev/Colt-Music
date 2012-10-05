@@ -44,8 +44,9 @@ define(['jquery', 'vk', 'services/proxy/vkFilters'], function($, vk, vkFilters) 
         attachments: "audio" + owner_id + "_" + audio_id
       };
       vk.api('wall.post', params, function(data) {
+        console.log('post', data);
         if ('error' in data) {
-          return dfd.reject(data.error_msg);
+          return dfd.reject(data.error);
         } else {
           return dfd.resolve(data.response);
         }
@@ -61,7 +62,7 @@ define(['jquery', 'vk', 'services/proxy/vkFilters'], function($, vk, vkFilters) 
       };
       vk.api('audio.add', params, function(data) {
         if ('error' in data) {
-          return dfd.reject(data.error_msg);
+          return dfd.reject(data.error);
         } else {
           return dfd.resolve(data.response);
         }

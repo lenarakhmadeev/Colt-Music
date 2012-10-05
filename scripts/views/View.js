@@ -57,10 +57,6 @@ define(['underscore', 'backbone'], function(_, Backbone) {
       }
     };
 
-    View.prototype.assign = function(selector, view) {
-      return view.setElement(this.$(selector));
-    };
-
     return View;
 
   })(Backbone.View);

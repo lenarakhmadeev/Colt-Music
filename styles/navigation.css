@@ -1,106 +1,113 @@
-/* line 2, ../../app/styles/navigation.scss */
-.Navigation {
+@charset "UTF-8";
+@font-face {
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("Century Gothic.eot");
+  src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
+}
+
+/* line 4, ../../app/styles/navigation.scss */
+.b-navigation {
+  font-family: Gothic, sans-serif;
+  font-size: 11pt;
+  font-weight: bold;
+  color: #cdcdcd;
+  text-shadow: 1px 1px 2px black;
   height: 27px;
   margin-left: 68px;
   margin-top: -30px;
   position: absolute;
-  font: 11pt Century Gothic;
-  color: #cccccc;
-  text-shadow: 1px 1px 2px #000000;
-  font-weight: 800;
   text-align: center;
+  cursor: pointer;
 }
 
-/* line 14, ../../app/styles/navigation.scss */
-.NavNext {
+/* line 17, ../../app/styles/navigation.scss */
+.b-navigation__next {
   height: 17px;
   width: 17px;
-  background: url(../images/next.png) 0 -35px no-repeat;
+  background: url('../images/next.png?1349446339') 0 -35px no-repeat;
   margin: 0 4px 0 4px;
   float: left;
   top: 2px;
-  cursor: pointer;
-}
-
-/* line 23, ../../app/styles/navigation.scss */
-.NavNext:hover {
-  background-position: 0 -18px;
 }
 
 /* line 27, ../../app/styles/navigation.scss */
-.NavPrev {
-  height: 16px;
-  width: 16px;
-  background: url(../images/prew.png) 0 -35px no-repeat;
-  float: left;
-  cursor: pointer;
-}
-
-/* line 34, ../../app/styles/navigation.scss */
-.NavPrev:hover {
+.b-navigation__next:hover {
   background-position: 0 -18px;
 }
 
-/* line 38, ../../app/styles/navigation.scss */
-.NavFirst {
+/* line 32, ../../app/styles/navigation.scss */
+.b-navigation__prev {
+  height: 16px;
+  width: 16px;
+  background: url('../images/prew.png?1349446339') 0 -35px no-repeat;
+  float: left;
+}
+
+/* line 40, ../../app/styles/navigation.scss */
+.b-navigation__prev:hover {
+  background-position: 0 -18px;
+}
+
+/* line 45, ../../app/styles/navigation.scss */
+.b-navigation__first {
   height: 17px;
   width: 17px;
-  background: url(../images/first.png) 0 -35px no-repeat;
+  background: url('../images/first.png?1349446340') 0 -35px no-repeat;
   margin: 0 8px 0 0;
   float: left;
   top: 2px;
-  cursor: pointer;
 }
 
-/* line 47, ../../app/styles/navigation.scss */
-.NavFirst:hover {
+/* line 55, ../../app/styles/navigation.scss */
+.b-navigation__first:hover {
   background-position: 0 -18px;
 }
 
-/* line 51, ../../app/styles/navigation.scss */
-.NavLast {
+/* line 60, ../../app/styles/navigation.scss */
+.b-navigation__last {
   height: 16px;
   width: 16px;
-  background: url(../images/last.png) 0 -35px no-repeat;
+  background: url('../images/last.png?1349446339') 0 -35px no-repeat;
   float: left;
-  cursor: pointer;
 }
 
-/* line 58, ../../app/styles/navigation.scss */
-.NavLast:hover {
+/* line 68, ../../app/styles/navigation.scss */
+.b-navigation__last:hover {
   background-position: 0 -18px;
 }
 
-/* line 62, ../../app/styles/navigation.scss */
-.NavItem {
+/* line 73, ../../app/styles/navigation.scss */
+.b-navigation__item {
   height: 27px;
   width: 24px;
   margin: 0 2px 0 1px;
   float: left;
-  background: url(../images/number.png);
-  cursor: pointer;
+  background: url('../images/number.png?1349446339');
 }
 
-/* line 70, ../../app/styles/navigation.scss */
-.NavItem:hover {
+/* line 82, ../../app/styles/navigation.scss */
+.b-navigation__item:hover {
   background-position: 0 -27px;
 }
 
-/* line 74, ../../app/styles/navigation.scss */
-.NavItem.Cur {
+/* line 87, ../../app/styles/navigation.scss */
+.b-navigation__item_current {
   height: 27px;
   width: 24px;
   margin: 0 2px 0 1px;
   float: left;
-  background: url(../images/number.png) 0 -27px;
+  background: url('../images/number.png?1349446339') 0 -27px;
   cursor: default;
 }
 
-/* line 83, ../../app/styles/navigation.scss */
-.Space {
+/* line 97, ../../app/styles/navigation.scss */
+.b-navigation__space {
   height: 27px;
   width: 24px;
   margin: 0 2px 0 1px;
   float: left;
-  background: url(../images/space.png) 0 0px;
+  background: url('../images/space.png?1349446340') 0 0px;
+  cursor: default;
 }

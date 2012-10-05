@@ -90,11 +90,12 @@
   float: left;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/play_icon.png?1348910323');
+  cursor: pointer;
+  background-image: url('../images/good/play_icon.png?1349446339');
 }
-/* line 10, ../../app/styles/_common.scss */
+/* line 15, ../../app/styles/_common.scss */
 .b-similar__play-button:hover {
-  background-image: url('../images/good/play_icon_over.png?1348910323');
+  background-image: url('../images/good/play_icon_over.png?1349446339');
 }
 
 /* line 89, ../../app/styles/similar.scss */
@@ -103,11 +104,12 @@
   float: left;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/pause_icon.png?1348910323');
+  cursor: pointer;
+  background-image: url('../images/good/pause_icon.png?1349446339');
 }
-/* line 10, ../../app/styles/_common.scss */
+/* line 15, ../../app/styles/_common.scss */
 .b-similar__pause-button:hover {
-  background-image: url('../images/good/pause_icon_over.png?1348910323');
+  background-image: url('../images/good/pause_icon_over.png?1349446339');
 }
 
 /* line 97, ../../app/styles/similar.scss */
@@ -116,11 +118,12 @@
   margin-left: 7px;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/add_icon.png?1348910323');
+  cursor: pointer;
+  background-image: url('../images/good/add_icon.png?1349446339');
 }
-/* line 10, ../../app/styles/_common.scss */
+/* line 15, ../../app/styles/_common.scss */
 .b-similar__add-button:hover {
-  background-image: url('../images/good/add_icon_over.png?1348910323');
+  background-image: url('../images/good/add_icon_over.png?1349446339');
 }
 
 /* line 105, ../../app/styles/similar.scss */
@@ -129,11 +132,12 @@
   margin-left: 7px;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/like_icon.png?1348910323');
+  cursor: pointer;
+  background-image: url('../images/good/like_icon.png?1349446339');
 }
-/* line 10, ../../app/styles/_common.scss */
+/* line 15, ../../app/styles/_common.scss */
 .b-similar__like-button:hover {
-  background-image: url('../images/good/like_icon_over.png?1348910323');
+  background-image: url('../images/good/like_icon_over.png?1349446339');
 }
 
 /* line 113, ../../app/styles/similar.scss */
@@ -143,9 +147,10 @@
   display: none;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/wiki_icon.png?1348910323');
+  cursor: pointer;
+  background-image: url('../images/good/wiki_icon.png?1349446339');
 }
-/* line 10, ../../app/styles/_common.scss */
+/* line 15, ../../app/styles/_common.scss */
 .b-similar__wiki-button:hover {
-  background-image: url('../images/good/wiki_icon_over.png?1348910323');
+  background-image: url('../images/good/wiki_icon_over.png?1349446339');
 }

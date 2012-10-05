@@ -18,14 +18,14 @@
   -moz-box-shadow: 0 5px 3px 0 #aaaaaa;
   box-shadow: 0 5px 3px 0 #aaaaaa;
   border: 1px solid black;
-  background-image: url('../images/patterns/patt1.png?1348910323');
+  background-image: url('../images/patterns/patt1.png?1349446339');
   margin: 35px 70px;
   padding: 0 1px;
 }
 
 /* line 20, ../../app/styles/item.scss */
 .b-item_selected {
-  background-image: url('../images/patterns/patt4.png?1348910323');
+  background-image: url('../images/patterns/patt4.png?1349446339');
 }
 
 /* line 25, ../../app/styles/item.scss */
@@ -104,11 +104,12 @@
 .b-item__play-button {
   width: 93px;
   height: 32px;
-  background-image: url('../images/good/item_play_button.png?1348910323');
+  cursor: pointer;
+  background-image: url('../images/good/item_play_button.png?1349446339');
 }
-/* line 10, ../../app/styles/_common.scss */
+/* line 15, ../../app/styles/_common.scss */
 .b-item__play-button:hover {
-  background-image: url('../images/good/item_play_button_over.png?1348910323');
+  background-image: url('../images/good/item_play_button_over.png?1349446339');
 }
 
 /* line 111, ../../app/styles/item.scss */
@@ -116,11 +117,12 @@
   display: none;
   width: 93px;
   height: 32px;
-  background-image: url('../images/good/item_pause_button.png?1348910323');
+  cursor: pointer;
+  background-image: url('../images/good/item_pause_button.png?1349446339');
 }
-/* line 10, ../../app/styles/_common.scss */
+/* line 15, ../../app/styles/_common.scss */
 .b-item__pause-button:hover {
-  background-image: url('../images/good/item_pause_button_over.png?1348910323');
+  background-image: url('../images/good/item_pause_button_over.png?1349446339');
 }
 
 /* line 126, ../../app/styles/item.scss */
@@ -137,11 +139,12 @@
   display: none;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/wiki_icon.png?1348910323');
+  cursor: pointer;
+  background-image: url('../images/good/wiki_icon.png?1349446339');
 }
-/* line 10, ../../app/styles/_common.scss */
+/* line 15, ../../app/styles/_common.scss */
 .b-item__wiki-button:hover {
-  background-image: url('../images/good/wiki_icon_over.png?1348910323');
+  background-image: url('../images/good/wiki_icon_over.png?1349446339');
 }
 
 /* line 142, ../../app/styles/item.scss */
@@ -150,11 +153,12 @@
   margin-left: 7px;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/like_icon.png?1348910323');
+  cursor: pointer;
+  background-image: url('../images/good/like_icon.png?1349446339');
 }
-/* line 10, ../../app/styles/_common.scss */
+/* line 15, ../../app/styles/_common.scss */
 .b-item__like-button:hover {
-  background-image: url('../images/good/like_icon_over.png?1348910323');
+  background-image: url('../images/good/like_icon_over.png?1349446339');
 }
 
 /* line 150, ../../app/styles/item.scss */
@@ -164,9 +168,10 @@
   display: none;
   width: 13px;
   height: 13px;
-  background-image: url('../images/good/delete_icon.png?1348910323');
+  cursor: pointer;
+  background-image: url('../images/good/delete_icon.png?1349446339');
 }
-/* line 10, ../../app/styles/_common.scss */
+/* line 15, ../../app/styles/_common.scss */
 .b-item__delete-button:hover {
-  background-image: url('../images/good/delete_icon_over.png?1348910323');
+  background-image: url('../images/good/delete_icon_over.png?1349446339');
 }

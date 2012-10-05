@@ -21,14 +21,14 @@ define(['jquery', 'module', 'services/mediator', 'jquery_jplayer'], function($, 
         ended: function() {
           return mediator.publish('flow:next');
         },
-        cssSelectorAncestor: '.player',
+        cssSelectorAncestor: '.b-player',
         cssSelector: {
-          volumeBarValue: '.PlayerVolBar',
-          volumeBar: '.PlayerVolBack',
-          mute: '.MutePre',
-          unmute: '.MuteAft',
-          seekBar: '.PlayerLoadProgress',
-          playBar: '.PlayerPlayProgress'
+          volumeBarValue: '.b-player__volume-bar',
+          volumeBar: '.b-player__volume',
+          mute: '.b-player__mute-button',
+          unmute: '.b-player__unmute-button',
+          seekBar: '.b-player__load-bar',
+          playBar: '.b-player__progress-bar'
         }
       });
     },

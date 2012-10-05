@@ -15,14 +15,14 @@ define(['views/View', 'services/mediator', 'views/MarqueeView', 'tpl!templates/p
 
     PlayerView.prototype.template = playerTemplate;
 
-    PlayerView.prototype.className = 'player';
+    PlayerView.prototype.className = 'b-player';
 
     PlayerView.prototype.events = {
-      'click .play': 'resume',
-      'click .pause': 'pause',
-      'click .rew': 'prev',
-      'click .ff': 'next',
-      'click .PlayerAddButton': 'addAudio'
+      'click .b-player__play-button': 'resume',
+      'click .b-player__pause-button': 'pause',
+      'click .b-player__prev-button': 'prev',
+      'click .b-player__next-button': 'next',
+      'click .b-player__add-button': 'addAudio'
     };
 
     PlayerView.prototype.initialize = function(options) {
@@ -38,18 +38,18 @@ define(['views/View', 'services/mediator', 'views/MarqueeView', 'tpl!templates/p
 
     PlayerView.prototype.renderMarquee = function() {
       this.marqueeView.render();
-      return this.append('.trackinfo', this.marqueeView);
+      return this.append('.b-player__marquee-place', this.marqueeView);
     };
 
     PlayerView.prototype.renderPlayed = function() {
       var played;
       played = this.model.getCurrent().get('played');
       if (played) {
-        this.$('.play').fadeOut('slow');
-        return this.$('.pause').fadeIn('slow');
+        this.$('.b-player__play-button').hide();
+        return this.$('.b-player__pause-button').show();
       } else {
-        this.$('.play').fadeIn('slow');
-        return this.$('.pause').fadeOut('slow');
+        this.$('.b-player__play-button').show();
+        return this.$('.b-player__pause-button').hide();
       }
     };
 
@@ -71,16 +71,16 @@ define(['views/View', 'services/mediator', 'views/MarqueeView', 'tpl!templates/p
       var type;
       type = this.model.getCurrent().get('type');
       if (type === 'similar') {
-        return this.$('.PlayerAddButton').show(500);
+        return this.$('.b-player__add-button').show(500);
       } else {
-        return this.$('.PlayerAddButton').hide(500);
+        return this.$('.b-player__add-button').hide(500);
       }
     };
 
     PlayerView.prototype.renderCover = function() {
       var cover;
       cover = this.model.getCurrent().get('info.images.126') || 'images/big.png';
-      return this.$('.PlayerBigImage').attr('src', cover);
+      return this.$('.b-player__cover-image').attr('src', cover);
     };
 
     PlayerView.prototype.resume = function() {

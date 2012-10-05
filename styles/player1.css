@@ -7,9 +7,11 @@
   src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
 }
 
-/* line 9, ../../app/styles/player.scss */
-.b-player {
+/* line 10, ../../app/styles/player1.scss */
+.player {
+  width: 827px;
   height: 151px;
+  padding: 0;
   background-image: url('../images/player_background.png?1349446339');
   -webkit-box-shadow: 0 8px 30px #222222;
   -moz-box-shadow: 0 8px 30px #222222;
@@ -19,120 +21,112 @@
   user-select: none;
 }
 
-/* line 18, ../../app/styles/player.scss */
-.b-player__control-buttons {
+/* line 21, ../../app/styles/player1.scss */
+.player div {
+  float: left;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/* line 27, ../../app/styles/player1.scss */
+.buttons {
   float: left;
   margin-left: 70px;
   margin-top: 43px;
-  width: 155px;
-  height: 62px;
+  width: 175px;
 }
 
-/* line 28, ../../app/styles/player.scss */
-.b-player__state-buttons {
-  width: 56px;
-  float: left;
-}
-
-/* line 34, ../../app/styles/player.scss */
-.b-player__play-button {
+/* line 36, ../../app/styles/player1.scss */
+.play {
   width: 56px;
   height: 62px;
   cursor: pointer;
   background-image: url('../images/play_pre.png?1349446339');
+  position: absolute;
 }
 /* line 15, ../../app/styles/_common.scss */
-.b-player__play-button:hover {
+.play:hover {
   background-image: url('../images/play_over.png?1349446339');
 }
 /* line 21, ../../app/styles/_common.scss */
-.b-player__play-button:active {
+.play:active {
   background-image: url('../images/play_down.png?1349446339');
 }
 
-/* line 39, ../../app/styles/player.scss */
-.b-player__pause-button {
+/* line 42, ../../app/styles/player1.scss */
+.pause {
   width: 46px;
   height: 62px;
   cursor: pointer;
   background-image: url('../images/pause_pre.png?1349446339');
   display: none;
+  position: absolute;
 }
 /* line 15, ../../app/styles/_common.scss */
-.b-player__pause-button:hover {
+.pause:hover {
   background-image: url('../images/pause_over.png?1349446339');
 }
 /* line 21, ../../app/styles/_common.scss */
-.b-player__pause-button:active {
+.pause:active {
   background-image: url('../images/pause_down.png?1349446339');
 }
 
-/* line 45, ../../app/styles/player.scss */
-.b-player__prev-button {
+/* line 49, ../../app/styles/player1.scss */
+.rew {
   width: 34px;
   height: 29px;
   cursor: pointer;
   background-image: url('../images/prev_pre.png?1349446339');
-  margin-left: 23px;
+  margin-left: 83px;
   margin-top: 15px;
-  float: left;
 }
 /* line 15, ../../app/styles/_common.scss */
-.b-player__prev-button:hover {
+.rew:hover {
   background-image: url('../images/prev_over.png?1349446339');
 }
 /* line 21, ../../app/styles/_common.scss */
-.b-player__prev-button:active {
+.rew:active {
   background-image: url('../images/prev_down.png?1349446339');
 }
 
-/* line 53, ../../app/styles/player.scss */
-.b-player__next-button {
+/* line 56, ../../app/styles/player1.scss */
+.ff {
   width: 34px;
   height: 29px;
   cursor: pointer;
   background-image: url('../images/next_pre.png?1349446340');
   margin-left: 4px;
   margin-top: 15px;
-  float: left;
 }
 /* line 15, ../../app/styles/_common.scss */
-.b-player__next-button:hover {
+.ff:hover {
   background-image: url('../images/next_over.png?1349446339');
 }
 /* line 21, ../../app/styles/_common.scss */
-.b-player__next-button:active {
+.ff:active {
   background-image: url('../images/next_down.png?1349446339');
 }
 
-/* line 61, ../../app/styles/player.scss */
-.b-player__content {
-  width: 342px;
-  margin-left: 10px;
-  float: left;
-}
-
-/* line 68, ../../app/styles/player.scss */
-.b-player__marquee-place {
-  margin-top: 30px;
-  height: 20px;
-  width: 342px;
-}
-
-/* line 75, ../../app/styles/player.scss */
-.b-player__progress {
+/* line 63, ../../app/styles/player1.scss */
+.PlayerProgress {
   cursor: pointer;
   height: 8px;
-  margin-top: 20px;
-  background-color: #38393d;
-  width: 342px;
-  position: relative;
+  top: 70px;
+  background: #38393d;
 }
 
-/* line 85, ../../app/styles/player.scss */
-.b-player__load-bar {
+/* line 72, ../../app/styles/player1.scss */
+.PlayerProgress div {
   height: 7px;
+  top: 0;
+  width: 0;
   position: absolute;
+}
+
+/* line 80, ../../app/styles/player1.scss */
+.PlayerLoadProgress {
+  top: 1px;
   background: url('../images/load_pattern.png?1349446339') repeat-x;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -142,10 +136,8 @@
   overflow: visible;
 }
 
-/* line 95, ../../app/styles/player.scss */
-.b-player__progress-bar {
-  height: 7px;
-  position: absolute;
+/* line 90, ../../app/styles/player1.scss */
+.PlayerPlayProgress {
   background: url('../images/play_pattern.png?1349446339') repeat-x;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -154,47 +146,49 @@
   border-radius: 3px;
 }
 
-/* line 103, ../../app/styles/player.scss */
-.b-player__progress-pick {
+/* line 96, ../../app/styles/player1.scss */
+.PlayerProgress .PlayerPlayHead {
   top: -9px;
-  position: absolute;
-  right: -4px;
   width: 8px;
   height: 24px;
-  cursor: pointer;
-  background-image: url('../images/pick_pre.png?1349446339');
-  z-index: 1001;
-}
-/* line 15, ../../app/styles/_common.scss */
-.b-player__progress-pick:hover {
-  background-image: url('../images/pick_on.png?1349446339');
+  z-index: 1000;
+  background: url('../images/pick_on.png?1349446339');
+  right: -4px;
 }
 
-/* line 113, ../../app/styles/player.scss */
-.b-player__progress-mask {
-  position: absolute;
-  top: -1px;
+/* line 104, ../../app/styles/player1.scss */
+.PlayerProgress .PlayerPlayHead > .back {
+  width: 8px;
+  height: 24px;
+  background: url('../images/pick_pre.png?1349446339');
+  z-index: 1001;
+}
+
+/* line 110, ../../app/styles/player1.scss */
+.PlayerProgress .PlayerPlayHead > .back:hover {
+  opacity: 0;
+}
+
+/* line 115, ../../app/styles/player1.scss */
+.PlayerProgress .PlayerProgressMask {
   width: 342px;
   height: 11px;
   background: url('../images/progress_mask.png?1349446340');
-  z-index: 1000;
+  top: -1px;
 }
 
-/* line 125, ../../app/styles/player.scss */
-.b-player__under {
-  margin-top: 20px;
-  height: 50px;
+/* line 123, ../../app/styles/player1.scss */
+.under {
+  top: 110px;
 }
 
-/* line 131, ../../app/styles/player.scss */
-.b-player__status-button {
-  float: left;
-  width: 116px;
-  height: 17px;
+/* line 128, ../../app/styles/player1.scss */
+.under div {
+  position: absolute;
 }
 
-/* line 138, ../../app/styles/player.scss */
-.b-player__add-button {
+/* line 134, ../../app/styles/player1.scss */
+.PlayerAddButton {
   width: 116px;
   height: 17px;
   cursor: pointer;
@@ -202,75 +196,63 @@
   display: none;
 }
 /* line 15, ../../app/styles/_common.scss */
-.b-player__add-button:hover {
+.PlayerAddButton:hover {
   background-image: url('../images/add_over.png?1349446339');
 }
 /* line 21, ../../app/styles/_common.scss */
-.b-player__add-button:active {
+.PlayerAddButton:active {
   background-image: url('../images/add_down.png?1349446339');
 }
 
-/* line 144, ../../app/styles/player.scss */
-.b-player__volume-controls {
-  margin-left: 180px;
-  margin-top: 5px;
-}
-
-/* line 150, ../../app/styles/player.scss */
-.b-player__mute-controls {
-  width: 23px;
-  height: 18px;
-  float: left;
-}
-
-/* line 157, ../../app/styles/player.scss */
-.b-player__mute-button {
+/* line 140, ../../app/styles/player1.scss */
+.MutePre {
   width: 23px;
   height: 18px;
   cursor: pointer;
   background-image: url('../images/vol_b_pre.png?1349446340');
+  left: 180px;
+  top: -5px;
 }
 /* line 15, ../../app/styles/_common.scss */
-.b-player__mute-button:hover {
+.MutePre:hover {
   background-image: url('../images/vol_b_over.png?1349446339');
 }
 /* line 21, ../../app/styles/_common.scss */
-.b-player__mute-button:active {
+.MutePre:active {
   background-image: url('../images/vol_b_down.png?1349446339');
 }
 
-/* line 162, ../../app/styles/player.scss */
-.b-player__unmute-button {
+/* line 147, ../../app/styles/player1.scss */
+.MuteAft {
   width: 23px;
   height: 18px;
   cursor: pointer;
-  background-image: url('../images/mute_b_pre.png?1349446339');
+  background-image: url('../images/mute_pre.png');
+  left: 180px;
+  top: -5px;
   display: none;
 }
 /* line 15, ../../app/styles/_common.scss */
-.b-player__unmute-button:hover {
-  background-image: url('../images/mute_b_over.png?1349446339');
+.MuteAft:hover {
+  background-image: url('../images/mute_over.png');
 }
 /* line 21, ../../app/styles/_common.scss */
-.b-player__unmute-button:active {
-  background-image: url('../images/mute_b_down.png?1349446339');
+.MuteAft:active {
+  background-image: url('../images/mute_down.png');
 }
 
-/* line 168, ../../app/styles/player.scss */
-.b-player__volume {
-  position: relative;
+/* line 155, ../../app/styles/player1.scss */
+.PlayerVolBack {
+  left: 210px;
   width: 132px;
   height: 9px;
-  background-color: #38393d;
+  background-color: .444;
   cursor: pointer;
-  float: left;
-  margin-left: 5px;
-  margin-top: 5px;
 }
 
-/* line 181, ../../app/styles/player.scss */
-.b-player__volume-bar {
-  position: relative;
+/* line 164, ../../app/styles/player1.scss */
+.PlayerVolBar {
+  width: 132px;
   height: 9px;
   background: url('../images/volume_pattern.png?1349446339') repeat-x;
   -webkit-border-radius: 5px;
@@ -280,44 +262,40 @@
   border-radius: 5px;
 }
 
-/* line 190, ../../app/styles/player.scss */
-.b-player__volume-pick {
+/* line 172, ../../app/styles/player1.scss */
+.PlayerVolumeControl {
   top: -9px;
-  position: absolute;
-  right: -4px;
-  z-index: 1000;
   width: 8px;
   height: 24px;
-  cursor: pointer;
-  background-image: url('../images/pick_pre.png?1349446339');
-}
-/* line 15, ../../app/styles/_common.scss */
-.b-player__volume-pick:hover {
-  background-image: url('../images/pick_on.png?1349446339');
+  z-index: 1000;
+  background: url('../images/pick_pre.png?1349446339');
+  right: -4px;
 }
 
-/* line 199, ../../app/styles/player.scss */
-.b-player__volume-mask {
-  top: -1px;
-  position: absolute;
+/* line 182, ../../app/styles/player1.scss */
+.PlayerVolumeControl:hover {
+  background: url('../images/pick_on.png?1349446339');
+}
+
+/* line 187, ../../app/styles/player1.scss */
+.PlayerVolMask {
   width: 132px;
   height: 9px;
   background-image: url('../images/volume_mask.png?1349446340');
 }
 
-/* line 209, ../../app/styles/player.scss */
-.b-player__cover-place {
+/* line 194, ../../app/styles/player1.scss */
+.PlayerImgCont {
   padding-left: 26px;
   padding-top: 9px;
+  margin-left: 5px;
   height: 142px;
   width: 149px;
   background-image: url('../images/album.png?1349446340');
-  float: right;
-  margin-right: 48px;
 }
 
-/* line 222, ../../app/styles/player.scss */
-.b-player__cover-image {
+/* line 204, ../../app/styles/player1.scss */
+.PlayerBigImage {
   height: 126px;
   width: 126px;
 }

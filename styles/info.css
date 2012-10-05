@@ -23,20 +23,22 @@
 .b-item-info__album {
   height: 22px;
   display: block;
+  overflow: hidden;
 }
 
-/* line 18, ../../app/styles/info.scss */
+/* line 19, ../../app/styles/info.scss */
 .b-item-info__album-title {
   font-weight: bold;
 }
 
-/* line 23, ../../app/styles/info.scss */
+/* line 24, ../../app/styles/info.scss */
 .b-item-info__tags {
   height: 22px;
   display: block;
+  overflow: hidden;
 }
 
-/* line 29, ../../app/styles/info.scss */
+/* line 31, ../../app/styles/info.scss */
 .b-item-info__tags-title {
   font-weight: bold;
 }
