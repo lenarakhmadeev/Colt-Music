@@ -41,8 +41,8 @@ define [
 					mute: '.b-player__mute-button'
 					unmute: '.b-player__unmute-button'
 
-					seekBar: '.PlayerLoadProgress'
-					playBar: '.PlayerPlayProgress'
+					seekBar: '.b-player__load-bar'
+					playBar: '.b-player__progress-bar'
 
 
 		# Инициализация слушателей событий

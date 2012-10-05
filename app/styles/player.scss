@@ -72,12 +72,54 @@
 		}
 
 
-		.b-player__progress-bar {
+		.b-player__progress {
 			cursor: pointer;
 			height: 8px;
 			margin-top: 20px;
-			background: #38393d;
+			background-color: #38393d;
+			width: 342px;
+			position: relative;
 		}
+
+
+			.b-player__load-bar {
+				height: 7px;
+				position: absolute;
+				background: image-url("load_pattern.png") repeat-x;
+				@include border-radius(4px);
+
+				overflow: visible;
+			}
+
+
+				.b-player__progress-bar {
+					height: 7px;
+					position: absolute;
+					background: image-url("play_pattern.png") repeat-x;
+					@include border-radius(3px);
+				}
+
+
+					.b-player__progress-pick {
+
+						top: -9px;
+						position: absolute;
+						right: -4px;
+						@include button-constuctor( 8px, 24px, "pick_pre.png", "pick_on.png" );
+						z-index: 1001;
+					}
+
+
+			.b-player__progress-mask {
+				position: absolute;
+				top: -1px;
+				width: 342px;
+				height: 11px;
+				background: image-url("progress_mask.png");
+				z-index: 1000;
+			}
+
+
 
 
 		.b-player__under {
@@ -127,7 +169,7 @@
 					position: relative;
 					width: 132px;
 					height: 9px;
-					background-color: #444;
+					background-color: #38393d;
 					cursor: pointer;
 
 					float: left;
