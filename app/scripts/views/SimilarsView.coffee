@@ -1,13 +1,14 @@
 
 define [
 	'jquery'
+	'services/mediator'
 	'views/View'
 	'views/SimilarView'
 	'views/PhraseView'
 	'views/MoreButtonView'
 	'tpl!templates/similars.html'
 
-], ( $, View, SimilarView, PhraseView, MoreButtonView, similarsTemplate )->
+], ( $, mediator, View, SimilarView, PhraseView, MoreButtonView, similarsTemplate )->
 
 	'use strict'
 
@@ -53,3 +54,5 @@ define [
 
 			# По умолчанию display: none
 			@$( '.b-similars__similars-container' ).show()
+
+			mediator.publish( 'app:resize' )

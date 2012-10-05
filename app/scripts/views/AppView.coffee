@@ -1,6 +1,7 @@
 
 define [
 	'services/mediator'
+	'vk'
 
 	'views/View'
 	
@@ -13,7 +14,7 @@ define [
 
 	'tpl!templates/app.html'
 
-], ( mediator, View, PlayerModel, PlayerView, ListCollection, NavigationView, ListView, AppTemplate )->
+], ( mediator, vk,  View, PlayerModel, PlayerView, ListCollection, NavigationView, ListView, AppTemplate )->
 
 	'use strict'
 
@@ -29,12 +30,22 @@ define [
 			@initNavigation()
 			@initList()
 
-			mediator.subscribe( 'scroll', @_onScroll, this )
+			mediator.subscribe( 'scroll', @scroll, this )
+			mediator.subscribe( 'app:resize', @resizeWindow, this )
 
 
-		_onScroll: ( scrollTop )->
+		scroll: ( scrollTop )->
 			pos = Math.max( scrollTop - 75, 0 )
 			@$( '.b-app__slider' ).offset( top: pos );
+
+
+		resizeWindow: ()->
+			height = @$el.height()
+			return if @height == height
+
+			@height = height
+
+			vk.callMethod('resizeWindow', null, height + 200)
 
 
 		initPlayer: ()->

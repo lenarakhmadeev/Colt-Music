@@ -1,11 +1,12 @@
 
 define [
 	'underscore'
+	'services/mediator'
 	'views/View'
 	'views/ItemView'
 	'views/NavigationView'
 	
-], ( _, View, ItemView, NavigationView )->
+], ( _, mediator, View, ItemView, NavigationView )->
 
 	'use strict'
 
@@ -20,6 +21,8 @@ define [
 		_render: ()->
 			content = @collection.own.get( 'content' )
 			_.each( content, @addItem, this )
+
+			mediator.publish( 'app:resize' )
 
 
 		addItem: ( model )->
