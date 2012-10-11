@@ -97,7 +97,7 @@ body {
 .b-navigation__next {
   height: 17px;
   width: 17px;
-  background: url('../images/next.png?1349465200') 0 -35px no-repeat;
+  background: url('../images/next.png?1349983454') 0 -35px no-repeat;
   margin: 0 4px 0 4px;
   float: left;
   top: 2px;
@@ -112,7 +112,7 @@ body {
 .b-navigation__prev {
   height: 16px;
   width: 16px;
-  background: url('../images/prew.png?1349465200') 0 -35px no-repeat;
+  background: url('../images/prew.png?1349983454') 0 -35px no-repeat;
   float: left;
 }
 
@@ -125,7 +125,7 @@ body {
 .b-navigation__first {
   height: 17px;
   width: 17px;
-  background: url('../images/first.png?1349465200') 0 -35px no-repeat;
+  background: url('../images/first.png?1349983454') 0 -35px no-repeat;
   margin: 0 8px 0 0;
   float: left;
   top: 2px;
@@ -140,7 +140,7 @@ body {
 .b-navigation__last {
   height: 16px;
   width: 16px;
-  background: url('../images/last.png?1349465200') 0 -35px no-repeat;
+  background: url('../images/last.png?1349983454') 0 -35px no-repeat;
   float: left;
 }
 
@@ -155,7 +155,7 @@ body {
   width: 24px;
   margin: 0 2px 0 1px;
   float: left;
-  background: url('../images/number.png?1349465200');
+  background: url('../images/number.png?1349983454');
 }
 
 /* line 79, ../../app/styles/navigation.scss */
@@ -169,7 +169,7 @@ body {
   width: 24px;
   margin: 0 2px 0 1px;
   float: left;
-  background: url('../images/number.png?1349465200') 0 -27px;
+  background: url('../images/number.png?1349983454') 0 -27px;
   cursor: default;
 }
 
@@ -179,7 +179,7 @@ body {
   width: 24px;
   margin: 0 2px 0 1px;
   float: left;
-  background: url('../images/space.png?1349465200') 0 0px;
+  background: url('../images/space.png?1349983454') 0 0px;
   cursor: default;
 }
 
@@ -195,7 +195,7 @@ body {
 /* line 9, ../../app/styles/player.scss */
 .b-player {
   height: 151px;
-  background-image: url('../images/player_background.png?1349465200');
+  background-image: url('../images/player_background.png?1349983454');
   -webkit-box-shadow: 0 8px 30px #222222;
   -moz-box-shadow: 0 8px 30px #222222;
   box-shadow: 0 8px 30px #222222;
@@ -224,15 +224,15 @@ body {
   width: 56px;
   height: 62px;
   cursor: pointer;
-  background-image: url('../images/play_pre.png?1349465200');
+  background-image: url('../images/play_pre.png?1349983454');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__play-button:hover {
-  background-image: url('../images/play_over.png?1349465200');
+  background-image: url('../images/play_over.png?1349983454');
 }
 /* line 21, ../../app/styles/_common.scss */
 .b-player__play-button:active {
-  background-image: url('../images/play_down.png?1349465200');
+  background-image: url('../images/play_down.png?1349983454');
 }
 
 /* line 39, ../../app/styles/player.scss */
@@ -240,16 +240,16 @@ body {
   width: 46px;
   height: 62px;
   cursor: pointer;
-  background-image: url('../images/pause_pre.png?1349465200');
+  background-image: url('../images/pause_pre.png?1349983454');
   display: none;
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__pause-button:hover {
-  background-image: url('../images/pause_over.png?1349465200');
+  background-image: url('../images/pause_over.png?1349983454');
 }
 /* line 21, ../../app/styles/_common.scss */
 .b-player__pause-button:active {
-  background-image: url('../images/pause_down.png?1349465200');
+  background-image: url('../images/pause_down.png?1349983454');
 }
 
 /* line 45, ../../app/styles/player.scss */
@@ -257,18 +257,18 @@ body {
   width: 34px;
   height: 29px;
   cursor: pointer;
-  background-image: url('../images/prev_pre.png?1349465200');
+  background-image: url('../images/prev_pre.png?1349983454');
   margin-left: 23px;
   margin-top: 15px;
   float: left;
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__prev-button:hover {
-  background-image: url('../images/prev_over.png?1349465200');
+  background-image: url('../images/prev_over.png?1349983454');
 }
 /* line 21, ../../app/styles/_common.scss */
 .b-player__prev-button:active {
-  background-image: url('../images/prev_down.png?1349465200');
+  background-image: url('../images/prev_down.png?1349983454');
 }
 
 /* line 53, ../../app/styles/player.scss */
@@ -276,18 +276,18 @@ body {
   width: 34px;
   height: 29px;
   cursor: pointer;
-  background-image: url('../images/next_pre.png?1349465200');
+  background-image: url('../images/next_pre.png?1349983454');
   margin-left: 4px;
   margin-top: 15px;
   float: left;
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__next-button:hover {
-  background-image: url('../images/next_over.png?1349465200');
+  background-image: url('../images/next_over.png?1349983454');
 }
 /* line 21, ../../app/styles/_common.scss */
 .b-player__next-button:active {
-  background-image: url('../images/next_down.png?1349465200');
+  background-image: url('../images/next_down.png?1349983454');
 }
 
 /* line 61, ../../app/styles/player.scss */
@@ -318,7 +318,7 @@ body {
 .b-player__load-bar {
   height: 7px;
   position: absolute;
-  background: url('../images/load_pattern.png?1349465200') repeat-x;
+  background: url('../images/load_pattern.png?1349983454') repeat-x;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -331,7 +331,7 @@ body {
 .b-player__progress-bar {
   height: 7px;
   position: absolute;
-  background: url('../images/play_pattern.png?1349465200') repeat-x;
+  background: url('../images/play_pattern.png?1349983454') repeat-x;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
@@ -347,12 +347,12 @@ body {
   width: 8px;
   height: 24px;
   cursor: pointer;
-  background-image: url('../images/pick_pre.png?1349465200');
+  background-image: url('../images/pick_pre.png?1349983454');
   z-index: 1001;
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__progress-pick:hover {
-  background-image: url('../images/pick_on.png?1349465200');
+  background-image: url('../images/pick_on.png?1349983454');
 }
 
 /* line 113, ../../app/styles/player.scss */
@@ -361,7 +361,7 @@ body {
   top: -1px;
   width: 342px;
   height: 11px;
-  background: url('../images/progress_mask.png?1349465200');
+  background: url('../images/progress_mask.png?1349983454');
   z-index: 1000;
 }
 
@@ -383,16 +383,16 @@ body {
   width: 116px;
   height: 17px;
   cursor: pointer;
-  background-image: url('../images/add_pre.png?1349465200');
+  background-image: url('../images/add_pre.png?1349983454');
   display: none;
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__add-button:hover {
-  background-image: url('../images/add_over.png?1349465200');
+  background-image: url('../images/add_over.png?1349983454');
 }
 /* line 21, ../../app/styles/_common.scss */
 .b-player__add-button:active {
-  background-image: url('../images/add_down.png?1349465200');
+  background-image: url('../images/add_down.png?1349983454');
 }
 
 /* line 144, ../../app/styles/player.scss */
@@ -413,15 +413,15 @@ body {
   width: 23px;
   height: 18px;
   cursor: pointer;
-  background-image: url('../images/vol_b_pre.png?1349465200');
+  background-image: url('../images/vol_b_pre.png?1349983454');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__mute-button:hover {
-  background-image: url('../images/vol_b_over.png?1349465200');
+  background-image: url('../images/vol_b_over.png?1349983454');
 }
 /* line 21, ../../app/styles/_common.scss */
 .b-player__mute-button:active {
-  background-image: url('../images/vol_b_down.png?1349465200');
+  background-image: url('../images/vol_b_down.png?1349983454');
 }
 
 /* line 162, ../../app/styles/player.scss */
@@ -429,16 +429,16 @@ body {
   width: 23px;
   height: 18px;
   cursor: pointer;
-  background-image: url('../images/mute_b_pre.png?1349465200');
+  background-image: url('../images/mute_b_pre.png?1349983454');
   display: none;
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__unmute-button:hover {
-  background-image: url('../images/mute_b_over.png?1349465200');
+  background-image: url('../images/mute_b_over.png?1349983454');
 }
 /* line 21, ../../app/styles/_common.scss */
 .b-player__unmute-button:active {
-  background-image: url('../images/mute_b_down.png?1349465200');
+  background-image: url('../images/mute_b_down.png?1349983454');
 }
 
 /* line 168, ../../app/styles/player.scss */
@@ -457,7 +457,7 @@ body {
 .b-player__volume-bar {
   position: relative;
   height: 9px;
-  background: url('../images/volume_pattern.png?1349465200') repeat-x;
+  background: url('../images/volume_pattern.png?1349983454') repeat-x;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -474,11 +474,11 @@ body {
   width: 8px;
   height: 24px;
   cursor: pointer;
-  background-image: url('../images/pick_pre.png?1349465200');
+  background-image: url('../images/pick_pre.png?1349983454');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-player__volume-pick:hover {
-  background-image: url('../images/pick_on.png?1349465200');
+  background-image: url('../images/pick_on.png?1349983454');
 }
 
 /* line 199, ../../app/styles/player.scss */
@@ -487,7 +487,7 @@ body {
   position: absolute;
   width: 132px;
   height: 9px;
-  background-image: url('../images/volume_mask.png?1349465200');
+  background-image: url('../images/volume_mask.png?1349983454');
 }
 
 /* line 209, ../../app/styles/player.scss */
@@ -496,7 +496,7 @@ body {
   padding-top: 9px;
   height: 142px;
   width: 149px;
-  background-image: url('../images/album.png?1349465200');
+  background-image: url('../images/album.png?1349983454');
   float: right;
   margin-right: 48px;
 }
@@ -509,7 +509,7 @@ body {
 
 /* line 7, ../../app/styles/app.scss */
 body {
-  background-image: url('../images/patterns/patt2.png?1349465200');
+  background-image: url('../images/patterns/patt2.png?1349983454');
   margin: 0;
 }
 
@@ -603,14 +603,14 @@ body {
   -moz-box-shadow: 0 5px 3px 0 #aaaaaa;
   box-shadow: 0 5px 3px 0 #aaaaaa;
   border: 1px solid black;
-  background-image: url('../images/patterns/patt1.png?1349465200');
+  background-image: url('../images/patterns/patt1.png?1349983454');
   margin: 35px 70px;
   padding: 0 1px;
 }
 
 /* line 20, ../../app/styles/item.scss */
 .b-item_selected {
-  background-image: url('../images/patterns/patt4.png?1349465200');
+  background-image: url('../images/patterns/patt4.png?1349983454');
 }
 
 /* line 25, ../../app/styles/item.scss */
@@ -690,11 +690,11 @@ body {
   width: 93px;
   height: 32px;
   cursor: pointer;
-  background-image: url('../images/good/item_play_button.png?1349465200');
+  background-image: url('../images/good/item_play_button.png?1349983454');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-item__play-button:hover {
-  background-image: url('../images/good/item_play_button_over.png?1349465200');
+  background-image: url('../images/good/item_play_button_over.png?1349983454');
 }
 
 /* line 110, ../../app/styles/item.scss */
@@ -703,11 +703,11 @@ body {
   width: 93px;
   height: 32px;
   cursor: pointer;
-  background-image: url('../images/good/item_pause_button.png?1349465200');
+  background-image: url('../images/good/item_pause_button.png?1349983454');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-item__pause-button:hover {
-  background-image: url('../images/good/item_pause_button_over.png?1349465200');
+  background-image: url('../images/good/item_pause_button_over.png?1349983454');
 }
 
 /* line 125, ../../app/styles/item.scss */
@@ -725,11 +725,11 @@ body {
   width: 13px;
   height: 13px;
   cursor: pointer;
-  background-image: url('../images/good/wiki_icon.png?1349465200');
+  background-image: url('../images/good/wiki_icon.png?1349983454');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-item__wiki-button:hover {
-  background-image: url('../images/good/wiki_icon_over.png?1349465200');
+  background-image: url('../images/good/wiki_icon_over.png?1349983454');
 }
 
 /* line 141, ../../app/styles/item.scss */
@@ -739,11 +739,11 @@ body {
   width: 13px;
   height: 13px;
   cursor: pointer;
-  background-image: url('../images/good/like_icon.png?1349465200');
+  background-image: url('../images/good/like_icon.png?1349983454');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-item__like-button:hover {
-  background-image: url('../images/good/like_icon_over.png?1349465200');
+  background-image: url('../images/good/like_icon_over.png?1349983454');
 }
 
 /* line 149, ../../app/styles/item.scss */
@@ -754,11 +754,11 @@ body {
   width: 13px;
   height: 13px;
   cursor: pointer;
-  background-image: url('../images/good/delete_icon.png?1349465200');
+  background-image: url('../images/good/delete_icon.png?1349983454');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-item__delete-button:hover {
-  background-image: url('../images/good/delete_icon_over.png?1349465200');
+  background-image: url('../images/good/delete_icon_over.png?1349983454');
 }
 
 @charset "UTF-8";
@@ -890,7 +890,7 @@ body {
   margin-top: 3px;
   width: 16px;
   height: 16px;
-  background-image: url('../images/good/show_more_icon.png?1349465200');
+  background-image: url('../images/good/show_more_icon.png?1349983454');
 }
 
 /* line 34, ../../app/styles/more.scss */
@@ -996,11 +996,11 @@ body {
   width: 13px;
   height: 13px;
   cursor: pointer;
-  background-image: url('../images/good/play_icon.png?1349465200');
+  background-image: url('../images/good/play_icon.png?1349983454');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-similar__play-button:hover {
-  background-image: url('../images/good/play_icon_over.png?1349465200');
+  background-image: url('../images/good/play_icon_over.png?1349983454');
 }
 
 /* line 89, ../../app/styles/similar.scss */
@@ -1010,11 +1010,11 @@ body {
   width: 13px;
   height: 13px;
   cursor: pointer;
-  background-image: url('../images/good/pause_icon.png?1349465200');
+  background-image: url('../images/good/pause_icon.png?1349983454');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-similar__pause-button:hover {
-  background-image: url('../images/good/pause_icon_over.png?1349465200');
+  background-image: url('../images/good/pause_icon_over.png?1349983454');
 }
 
 /* line 97, ../../app/styles/similar.scss */
@@ -1024,11 +1024,11 @@ body {
   width: 13px;
   height: 13px;
   cursor: pointer;
-  background-image: url('../images/good/add_icon.png?1349465200');
+  background-image: url('../images/good/add_icon.png?1349983454');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-similar__add-button:hover {
-  background-image: url('../images/good/add_icon_over.png?1349465200');
+  background-image: url('../images/good/add_icon_over.png?1349983454');
 }
 
 /* line 105, ../../app/styles/similar.scss */
@@ -1038,11 +1038,11 @@ body {
   width: 13px;
   height: 13px;
   cursor: pointer;
-  background-image: url('../images/good/like_icon.png?1349465200');
+  background-image: url('../images/good/like_icon.png?1349983454');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-similar__like-button:hover {
-  background-image: url('../images/good/like_icon_over.png?1349465200');
+  background-image: url('../images/good/like_icon_over.png?1349983454');
 }
 
 /* line 113, ../../app/styles/similar.scss */
@@ -1053,9 +1053,9 @@ body {
   width: 13px;
   height: 13px;
   cursor: pointer;
-  background-image: url('../images/good/wiki_icon.png?1349465200');
+  background-image: url('../images/good/wiki_icon.png?1349983454');
 }
 /* line 15, ../../app/styles/_common.scss */
 .b-similar__wiki-button:hover {
-  background-image: url('../images/good/wiki_icon_over.png?1349465200');
+  background-image: url('../images/good/wiki_icon_over.png?1349983454');
 }
