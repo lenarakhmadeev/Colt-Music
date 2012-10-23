@@ -1,14 +1,12 @@
 
-define [
-	'jquery'
-	'services/mediator'
-	'views/View'
-	'views/SimilarView'
-	'views/PhraseView'
-	'views/MoreButtonView'
-	'tpl!templates/similars.html'
-
-], ( $, mediator, View, SimilarView, PhraseView, MoreButtonView, similarsTemplate )->
+define ( require )->
+	$ = require( 'jquery' )
+	mediator = require( 'services/mediator' )
+	View = require( 'views/View' )
+	SimilarView = require( 'views/SimilarView' )
+	PhraseView = require( 'views/PhraseView' )
+	MoreButtonView = require( 'views/MoreButtonView' )
+	similarsTemplate = require( 'tpl!templates/similars.html' )
 
 	'use strict'
 

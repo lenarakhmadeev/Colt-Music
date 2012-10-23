@@ -1,11 +1,9 @@
 
-define [
-	'views/View'
-	'views/SimilarsView'
-	'views/InfoView'
-	'tpl!templates/item.html'
-	
-], ( View, SimilarsView, InfoView, itemTemplate )->
+define ( require )->
+	View = require( 'views/View' )
+	SimilarsView = require( 'views/SimilarsView' )
+	InfoView = require( 'views/InfoView' )
+	itemTemplate = require( 'tpl!templates/item.html' )
 
 	'use strict'
 

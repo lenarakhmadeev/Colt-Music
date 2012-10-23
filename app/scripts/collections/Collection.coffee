@@ -1,8 +1,6 @@
 
-define [
-	'backbone'
-
-], ( Backbone )->
+define (require)->
+	Backbone = require( 'backbone' )
 
 	'use strict'
 
@@ -25,7 +23,7 @@ define [
 		recalculateIds: ()->
 			id = 1
 			for model in @models
-				model.set( { 'id': id++ }, { silent: true } )
+				model.set( { 'id': id++ } ) #, { silent: true } )
 
 			# Вызываем соответствующее событие
 			@trigger( 'recalculated' )

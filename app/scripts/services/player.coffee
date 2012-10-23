@@ -1,11 +1,8 @@
 
-define [
-	'jquery'
-	'module'
-	'services/mediator'
-	'jquery_jplayer'
-
-], ( $, module, mediator )->
+define ( require, exports, module )->
+	$ = require( 'jquery' )
+	mediator = require( 'services/mediator' )
+	require( 'jquery_jplayer' )
 
 	'use strict'
 

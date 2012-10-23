@@ -1,9 +1,7 @@
 
-define [
-	'services/noty'
-	'services/mediator'
-
-], ( noty, mediator )->
+define ( require )->
+	noty = require( 'services/noty' )
+	mediator = require( 'services/mediator' )
 
 	'use strict'
 

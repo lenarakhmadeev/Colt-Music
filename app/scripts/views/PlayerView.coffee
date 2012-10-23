@@ -1,11 +1,9 @@
 
-define [
-	'views/View'
-	'services/mediator'
-	'views/MarqueeView'
-	'tpl!templates/player.html'
-	
-], ( View, mediator, MarqueeView, playerTemplate )->
+define ( require )->
+	View = require( 'views/View' )
+	mediator = require( 'services/mediator' )
+	MarqueeView = require( 'views/MarqueeView' )
+	playerTemplate = require( 'tpl!templates/player.html' )
 
 	'use strict'
 

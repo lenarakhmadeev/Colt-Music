@@ -1,7 +1,6 @@
 
-define [
-	'jquery'
-], ( $ )->
+define ( require )->
+	$ = require( 'jquery' )
 
 	'use strict'
 

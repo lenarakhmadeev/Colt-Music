@@ -1,8 +1,6 @@
 
-define [
-	'jpath'
-
-], ( jpath )->
+define ( require )->
+	jpath = require( 'jpath' )
 
 	'use strict'
 

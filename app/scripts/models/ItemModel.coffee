@@ -1,13 +1,11 @@
 
-define [
-	'backbone'
-	'models/TrackModel'
-	'services/mediator'
-	'collections/SimilarsCollection'
-	'services/proxy/proxy'
-	'backbone_nested'
-	
-], ( Backbone, TrackModel, mediator, SimilarsCollection, proxy )->
+define ( require )->
+	Backbone = require( 'backbone' )
+	TrackModel = require( 'models/TrackModel' )
+	mediator = require( 'services/mediator' )
+	SimilarsCollection = require( 'collections/SimilarsCollection' )
+	proxy = require( 'services/proxy/proxy' )
+	require( 'backbone_nested' )
 
 	'use strict'
 

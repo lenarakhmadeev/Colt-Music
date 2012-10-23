@@ -1,10 +1,8 @@
 
-define [
-	'jquery'
-	'views/View'
-	'jquery_marquee'
-
-], ( $, View )->
+define ( require )->
+	$ = require( 'jquery' )
+	View = require( 'views/View' )
+	require( 'jquery_marquee' )
 
 	'use strict'
 

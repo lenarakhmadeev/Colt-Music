@@ -1,12 +1,10 @@
 
-define [
-	'underscore'
-	'collections/Collection'
-	'models/ItemModel'
-	'services/mediator'
-	'services/proxy/proxy'
-
-], ( _, Collection, ItemModel, mediator, proxy )->
+define ( require )->
+	_ = require( 'underscore' )
+	Collection = require( 'collections/Collection' )
+	ItemModel = require( 'models/ItemModel' )
+	mediator = require( 'services/mediator' )
+	proxy = require( 'services/proxy/proxy' )
 
 	'use strict'
 

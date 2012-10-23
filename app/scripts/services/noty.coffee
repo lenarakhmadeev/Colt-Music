@@ -1,11 +1,11 @@
 
-define [
-	'underscore'
-	'jquery'
-	'services/mediator'
-	'humane'
+define ( require )->
+	_ = require( 'underscore' )
+	$ = require( 'jquery' )
+	mediator = require( 'services/mediator' )
+	humane = require( 'humane' )
 
-], ( _, $, mediator, humane )->
+	'use strict'
 
 	# Оповещения пользователю
 	noty =

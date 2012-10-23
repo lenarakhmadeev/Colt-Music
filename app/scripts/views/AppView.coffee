@@ -1,20 +1,18 @@
 
-define [
-	'services/mediator'
-	'vk'
+define ( require )->
+	mediator = require( 'services/mediator' )
+	vk = require( 'vk' )
 
-	'views/View'
-	
-	'models/PlayerModel'
-	'views/PlayerView'
+	View = require( 'views/View' )
 
-	'collections/ListCollection'
-	'views/NavigationView'
-	'views/ListView'
+	PlayerModel = require( 'models/PlayerModel' )
+	PlayerView = require( 'views/PlayerView' )
 
-	'tpl!templates/app.html'
+	ListCollection = require( 'collections/ListCollection' )
+	NavigationView = require( 'views/NavigationView' )
+	ListView = require( 'views/ListView' )
 
-], ( mediator, vk,  View, PlayerModel, PlayerView, ListCollection, NavigationView, ListView, AppTemplate )->
+	AppTemplate = require( 'tpl!templates/app.html' )
 
 	'use strict'
 

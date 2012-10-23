@@ -1,8 +1,6 @@
 
-define [
-	'models/TrackModel'
-
-], ( TrackModel)->
+define ( require )->
+	TrackModel = require( 'models/TrackModel' )
 
 	'use strict'
 

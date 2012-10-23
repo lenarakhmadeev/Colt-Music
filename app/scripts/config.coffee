@@ -1,7 +1,7 @@
 
 'use strict'
 
-require.config
+requirejs.config
 	# Начальная точка приложения
 	deps: [ 'main' ]
 	baseUrl: 'scripts'

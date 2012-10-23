@@ -1,11 +1,8 @@
 
-define [
-	'jquery'
-	'module'
-	'services/proxy/LastFm'
-	'services/proxy/lastFmFilters'
-
-], ( $, module, LastFm, lastFmFilters )->
+define ( require, exports, module )->
+	$ = require( 'jquery' )
+	LastFm = require( 'services/proxy/LastFm' )
+	lastFmFilters = require( 'services/proxy/lastFmFilters' )
 
 	'use strict'
 

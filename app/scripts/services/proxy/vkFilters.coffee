@@ -1,8 +1,6 @@
 
-define [
-	'underscore'
-
-], ( _ )->
+define ( require )->
+	_ = require( 'underscore' )
 
 	'use strict'
 

@@ -1,10 +1,8 @@
 
-define [
-	'underscore'
-	'services/proxy/lastFmProxy'
-	'services/proxy/vkProxy'
-
-], ( _, lastFmProxy, vkProxy )->
+define ( require )->
+	_ = require( 'underscore' )
+	lastFmProxy = require( 'services/proxy/lastFmProxy' )
+	vkProxy = require( 'services/proxy/vkProxy' )
 
 	'use strict'
 

@@ -1,12 +1,10 @@
 
-define [
-	'jquery'
-	'backbone'
-	'services/mediator'
-	'services/proxy/proxy'
-	'backbone_nested'
-
-], ( $, Backbone, mediator, proxy )->
+define ( require )->
+	$ = require( 'jquery' )
+	Backbone = require( 'backbone' )
+	mediator = require( 'services/mediator' )
+	proxy= require( 'services/proxy/proxy' )
+	require( 'backbone_nested' )
 
 	'use strict'
 

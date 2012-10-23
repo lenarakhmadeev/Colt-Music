@@ -1,10 +1,8 @@
 
-define [
-	'backbone'
-	'services/mediator'
-	'services/player'
-
-], ( Backbone, mediator, player )->
+define ( require )->
+	Backbone = require( 'backbone' )
+	mediator = require( 'services/mediator' )
+	player = require( 'services/player' )
 
 	'use strict'
 

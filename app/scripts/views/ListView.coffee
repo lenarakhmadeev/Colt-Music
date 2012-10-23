@@ -1,13 +1,11 @@
 
-define [
-	'underscore'
-	'vk'
-	'services/mediator'
-	'views/View'
-	'views/ItemView'
-	'views/NavigationView'
-	
-], ( _, vk, mediator, View, ItemView, NavigationView )->
+define ( require )->
+	_ = require( 'underscore' )
+	vk = require( 'vk' )
+	mediator = require( 'services/mediator' )
+	View = require( 'views/View' )
+	ItemView = require( 'views/ItemView' )
+	NavigationView = require( 'views/NavigationView' )
 
 	'use strict'
 

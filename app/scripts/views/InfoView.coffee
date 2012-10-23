@@ -1,9 +1,7 @@
 
-define [
-	'views/View'
-	'tpl!templates/info.html'
-
-], ( View, infoTemplate )->
+define ( require )->
+	View = require( 'views/View' )
+	infoTemplate = require( 'tpl!templates/info.html' )
 
 	'use strict'
 

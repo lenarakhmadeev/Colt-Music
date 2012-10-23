@@ -1,11 +1,9 @@
 
-define [
-	'jquery'
-	'services/mediator'
-	'views/View'
-	'tpl!templates/navigation.html'
-	
-], ( $, mediator, View, navigationTemplate )->
+define ( require )->
+	$ = require( 'jquery' )
+	mediator = require( 'services/mediator' )
+	View = require( 'views/View' )
+	navigationTemplate = require( 'tpl!templates/navigation.html' )
 
 	'use strict'
 

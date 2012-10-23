@@ -1,10 +1,8 @@
 
-define [
-	'jquery'
-	'vk'
-	'services/proxy/vkFilters'
-
-], ( $, vk, vkFilters )->
+define ( require )->
+	$ = require( 'jquery' )
+	vk = require( 'vk' )
+	vkFilters = require( 'services/proxy/vkFilters' )
 
 	'use strict'
 

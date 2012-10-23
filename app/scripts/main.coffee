@@ -161,14 +161,12 @@ ___________________________________
 ###
 
 
-define [
-	'views/AppView'
-	'services/player'
-	'services/flow'
-	'services/logger'
-	'services/scroll'
-
-], ( AppView, player, flow, logger, scroll )->
+define ( require )->
+	AppView = require( 'views/AppView' )
+	player = require( 'services/player' )
+	flow = require( 'services/flow' )
+	logger = require( 'services/logger' )
+	scroll = require( 'services/scroll' )
 
 	'use strict'
 

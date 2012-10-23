@@ -1,11 +1,9 @@
 
-define [
-	'underscore'
-	'collections/Collection'
-	'services/proxy/proxy'
-	'models/SimilarModel'
-	
-], ( _, Collection, proxy, SimilarModel )->
+define ( require )->
+	_ = require( 'underscore' )
+	Collection = require( 'collections/Collection' )
+	proxy = require( 'services/proxy/proxy' )
+	SimilarModel = require( 'models/SimilarModel' )
 
 	'use strict'
 

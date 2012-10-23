@@ -1,9 +1,7 @@
 
-define [
-	'underscore'
-	'backbone'
-	
-], ( _, Backbone )->
+define ( require )->
+	_ = require( 'underscore' )
+	Backbone = require( 'backbone' )
 
 	'use strict'
 

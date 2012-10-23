@@ -1,8 +1,6 @@
 
-define [
-	'views/View'
-
-], ( View )->
+define ( require )->
+	View = require( 'views/View' )
 
 	'use strict'
 

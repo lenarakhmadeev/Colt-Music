@@ -1,8 +1,6 @@
 
-define [
-	'services/mediator'
-
-], ( mediator )->
+define ( require )->
+	mediator = require( 'services/mediator' )
 
 	'use strict'
 
