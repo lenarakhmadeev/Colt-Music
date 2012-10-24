@@ -4,7 +4,9 @@
 requirejs.config
 	# Начальная точка приложения
 	deps: [ 'main' ]
+
 	baseUrl: 'scripts'
+
 	paths:
 		# Библиотеки
 		jquery: 'libs/jquery/jquery-1.8.0'
@@ -36,14 +38,14 @@ requirejs.config
 
 		# Библиотека vk.com API для iframe приложений
 		vk: 'http://vk.com/js/api/xd_connection'
-		
+
 
 	# Загрузка не AMD модулей
 	shim:
 		backbone_nested:
 			deps: [ 'backbone' ]
 
-		backbone: 
+		backbone:
 			deps: [ 'jquery', 'underscore', 'json2' ]
 			exports: 'Backbone'
 
@@ -73,3 +75,9 @@ requirejs.config
 		# Путь до swf плеера jPlayer
 		'services/player':
 			swf_path: 'scripts/libs/jquery/jplayer'
+
+
+requirejs.onError = ( errObject )->
+	requireType = errObject.requireType
+	requireModules = errObject.requireModules
+	console.log( requireType, requireModules )
