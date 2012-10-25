@@ -1,6 +1,6 @@
 'use strict';
 
-require.config({
+requirejs.config({
   deps: ['main'],
   baseUrl: 'scripts',
   paths: {
@@ -52,3 +52,10 @@ require.config({
     }
   }
 });
+
+requirejs.onError = function(errObject) {
+  var requireModules, requireType;
+  requireType = errObject.requireType;
+  requireModules = errObject.requireModules;
+  return console.log(requireType, requireModules);
+};

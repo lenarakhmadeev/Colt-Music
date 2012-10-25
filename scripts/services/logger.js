@@ -1,8 +1,10 @@
 
-define(['services/noty', 'services/mediator'], function(noty, mediator) {
+define(function(require) {
+  var logger, mediator, noty;
+  noty = require('services/noty');
+  mediator = require('services/mediator');
   'use strict';
 
-  var logger;
   return logger = {
     init: function() {
       noty.init();

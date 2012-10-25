@@ -1,8 +1,9 @@
 
-define(['jpath'], function(jpath) {
+define(function(require) {
+  var jpath, lastFmFilters;
+  jpath = require('jpath');
   'use strict';
 
-  var lastFmFilters;
   return lastFmFilters = {
     info: function(data) {
       var rawImages;

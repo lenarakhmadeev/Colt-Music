@@ -1,8 +1,9 @@
 
-define(['jquery'], function($) {
+define(function(require) {
+  var $, LastFm;
+  $ = require('jquery');
   'use strict';
 
-  var LastFm;
   return LastFm = (function() {
 
     function LastFm(api_key, api_url) {

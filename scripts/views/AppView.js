@@ -1,10 +1,19 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['services/mediator', 'vk', 'views/View', 'models/PlayerModel', 'views/PlayerView', 'collections/ListCollection', 'views/NavigationView', 'views/ListView', 'tpl!templates/app.html'], function(mediator, vk, View, PlayerModel, PlayerView, ListCollection, NavigationView, ListView, AppTemplate) {
+define(function(require) {
+  var AppTemplate, AppView, ListCollection, ListView, NavigationView, PlayerModel, PlayerView, View, mediator, vk;
+  mediator = require('services/mediator');
+  vk = require('vk');
+  View = require('views/View');
+  PlayerModel = require('models/PlayerModel');
+  PlayerView = require('views/PlayerView');
+  ListCollection = require('collections/ListCollection');
+  NavigationView = require('views/NavigationView');
+  ListView = require('views/ListView');
+  AppTemplate = require('tpl!templates/app.html');
   'use strict';
 
-  var AppView;
   return AppView = (function(_super) {
 
     __extends(AppView, _super);

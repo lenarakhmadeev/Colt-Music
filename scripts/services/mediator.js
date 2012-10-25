@@ -1,8 +1,9 @@
 
-define(['backbone'], function(Backbone) {
+define(function(require) {
+  var Backbone, mediator;
+  Backbone = require('backbone');
   'use strict';
 
-  var mediator;
   return mediator = {
     subscribe: Backbone.Events.on,
     unsubscribe: Backbone.Events.off,

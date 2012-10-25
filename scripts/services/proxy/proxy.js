@@ -1,7 +1,10 @@
 
-define(['underscore', 'services/proxy/lastFmProxy', 'services/proxy/vkProxy'], function(_, lastFmProxy, vkProxy) {
+define(function(require) {
+  var lastFmProxy, proxy, vkProxy, _;
+  _ = require('underscore');
+  lastFmProxy = require('services/proxy/lastFmProxy');
+  vkProxy = require('services/proxy/vkProxy');
   'use strict';
 
-  var proxy;
   return proxy = _.extend({}, lastFmProxy, vkProxy);
 });

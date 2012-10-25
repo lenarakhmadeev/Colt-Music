@@ -1,10 +1,14 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['jquery', 'services/mediator', 'views/View', 'tpl!templates/navigation.html'], function($, mediator, View, navigationTemplate) {
+define(function(require) {
+  var $, NavigationView, View, mediator, navigationTemplate;
+  $ = require('jquery');
+  mediator = require('services/mediator');
+  View = require('views/View');
+  navigationTemplate = require('tpl!templates/navigation.html');
   'use strict';
 
-  var NavigationView;
   return NavigationView = (function(_super) {
 
     __extends(NavigationView, _super);

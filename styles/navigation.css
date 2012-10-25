@@ -24,7 +24,7 @@
 .b-navigation__next {
   height: 17px;
   width: 17px;
-  background: url('../images/next.png?1349983454') 0 -35px no-repeat;
+  background: url('../images/next.png?1351160033') 0 -35px no-repeat;
   margin: 0 4px 0 4px;
   float: left;
   top: 2px;
@@ -39,7 +39,7 @@
 .b-navigation__prev {
   height: 16px;
   width: 16px;
-  background: url('../images/prew.png?1349983454') 0 -35px no-repeat;
+  background: url('../images/prew.png?1351160032') 0 -35px no-repeat;
   float: left;
 }
 
@@ -52,7 +52,7 @@
 .b-navigation__first {
   height: 17px;
   width: 17px;
-  background: url('../images/first.png?1349983454') 0 -35px no-repeat;
+  background: url('../images/first.png?1351160033') 0 -35px no-repeat;
   margin: 0 8px 0 0;
   float: left;
   top: 2px;
@@ -67,7 +67,7 @@
 .b-navigation__last {
   height: 16px;
   width: 16px;
-  background: url('../images/last.png?1349983454') 0 -35px no-repeat;
+  background: url('../images/last.png?1351160033') 0 -35px no-repeat;
   float: left;
 }
 
@@ -82,7 +82,7 @@
   width: 24px;
   margin: 0 2px 0 1px;
   float: left;
-  background: url('../images/number.png?1349983454');
+  background: url('../images/number.png?1351160033');
 }
 
 /* line 79, ../../app/styles/navigation.scss */
@@ -96,7 +96,7 @@
   width: 24px;
   margin: 0 2px 0 1px;
   float: left;
-  background: url('../images/number.png?1349983454') 0 -27px;
+  background: url('../images/number.png?1351160033') 0 -27px;
   cursor: default;
 }
 
@@ -106,6 +106,6 @@
   width: 24px;
   margin: 0 2px 0 1px;
   float: left;
-  background: url('../images/space.png?1349983454') 0 0px;
+  background: url('../images/space.png?1351160033') 0 0px;
   cursor: default;
 }

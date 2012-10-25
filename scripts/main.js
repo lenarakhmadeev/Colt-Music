@@ -99,6 +99,8 @@
 
 	оптимизировать загрузку
 
+	картинки
+
 	Почистить
 		стили
 		код
@@ -158,10 +160,15 @@ ___________________________________
 		записи друзей
 */
 
-define(['views/AppView', 'services/player', 'services/flow', 'services/logger', 'services/scroll'], function(AppView, player, flow, logger, scroll) {
+define(function(require) {
+  var AppView, appView, flow, logger, player, scroll;
+  AppView = require('views/AppView');
+  player = require('services/player');
+  flow = require('services/flow');
+  logger = require('services/logger');
+  scroll = require('services/scroll');
   'use strict';
 
-  var appView;
   appView = new AppView();
   appView.render();
   $('body').append(appView.el);

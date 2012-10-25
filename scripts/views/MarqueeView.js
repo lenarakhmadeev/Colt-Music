@@ -1,10 +1,13 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['jquery', 'views/View', 'jquery_marquee'], function($, View) {
+define(function(require) {
+  var $, MarqueeView, View;
+  $ = require('jquery');
+  View = require('views/View');
+  require('jquery_marquee');
   'use strict';
 
-  var MarqueeView;
   return MarqueeView = (function(_super) {
 
     __extends(MarqueeView, _super);

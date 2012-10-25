@@ -2,10 +2,15 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
   __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['jquery', 'backbone', 'services/mediator', 'services/proxy/proxy', 'backbone_nested'], function($, Backbone, mediator, proxy) {
+define(function(require) {
+  var $, Backbone, TrackModel, mediator, proxy;
+  $ = require('jquery');
+  Backbone = require('backbone');
+  mediator = require('services/mediator');
+  proxy = require('services/proxy/proxy');
+  require('backbone_nested');
   'use strict';
 
-  var TrackModel;
   return TrackModel = (function(_super) {
 
     __extends(TrackModel, _super);

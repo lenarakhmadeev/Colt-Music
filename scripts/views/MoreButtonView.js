@@ -1,10 +1,12 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['views/View', 'tpl!templates/more.html'], function(View, moreTemplate) {
+define(function(require) {
+  var MoreButtonView, View, moreTemplate;
+  View = require('views/View');
+  moreTemplate = require('tpl!templates/more.html');
   'use strict';
 
-  var MoreButtonView;
   return MoreButtonView = (function(_super) {
 
     __extends(MoreButtonView, _super);

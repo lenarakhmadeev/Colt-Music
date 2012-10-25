@@ -1,8 +1,9 @@
 
-define(['underscore'], function(_) {
+define(function(require) {
+  var audioItemFilter, pickAudioData, vkFilters, _;
+  _ = require('underscore');
   'use strict';
 
-  var audioItemFilter, pickAudioData, vkFilters;
   pickAudioData = function(data) {
     var result;
     result = _.pick(data, 'owner_id', 'url', 'duration');

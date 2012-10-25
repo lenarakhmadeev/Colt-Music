@@ -1,8 +1,11 @@
 
-define(['jquery', 'vk', 'services/proxy/vkFilters'], function($, vk, vkFilters) {
+define(function(require) {
+  var $, vk, vkFilters, vkProxy;
+  $ = require('jquery');
+  vk = require('vk');
+  vkFilters = require('services/proxy/vkFilters');
   'use strict';
 
-  var vkProxy;
   return vkProxy = {
     searchAudio: function(artist, title, offset, count) {
       var dfd, params;

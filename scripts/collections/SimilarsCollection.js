@@ -1,10 +1,14 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['underscore', 'collections/Collection', 'services/proxy/proxy', 'models/SimilarModel'], function(_, Collection, proxy, SimilarModel) {
+define(function(require) {
+  var Collection, SimilarModel, SimilarsCollection, proxy, _;
+  _ = require('underscore');
+  Collection = require('collections/Collection');
+  proxy = require('services/proxy/proxy');
+  SimilarModel = require('models/SimilarModel');
   'use strict';
 
-  var SimilarsCollection;
   return SimilarsCollection = (function(_super) {
 
     __extends(SimilarsCollection, _super);

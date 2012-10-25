@@ -1,10 +1,16 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['backbone', 'models/TrackModel', 'services/mediator', 'collections/SimilarsCollection', 'services/proxy/proxy', 'backbone_nested'], function(Backbone, TrackModel, mediator, SimilarsCollection, proxy) {
+define(function(require) {
+  var Backbone, ItemModel, SimilarsCollection, TrackModel, mediator, proxy;
+  Backbone = require('backbone');
+  TrackModel = require('models/TrackModel');
+  mediator = require('services/mediator');
+  SimilarsCollection = require('collections/SimilarsCollection');
+  proxy = require('services/proxy/proxy');
+  require('backbone_nested');
   'use strict';
 
-  var ItemModel;
   return ItemModel = (function(_super) {
 
     __extends(ItemModel, _super);

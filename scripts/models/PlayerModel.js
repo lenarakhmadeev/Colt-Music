@@ -1,10 +1,13 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['backbone', 'services/mediator', 'services/player'], function(Backbone, mediator, player) {
+define(function(require) {
+  var Backbone, PlayerModel, mediator, player;
+  Backbone = require('backbone');
+  mediator = require('services/mediator');
+  player = require('services/player');
   'use strict';
 
-  var PlayerModel;
   return PlayerModel = (function(_super) {
 
     __extends(PlayerModel, _super);

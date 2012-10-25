@@ -1,8 +1,9 @@
 
-define(['services/mediator'], function(mediator) {
+define(function(require) {
+  var flow, mediator;
+  mediator = require('services/mediator');
   'use strict';
 
-  var flow;
   return flow = {
     init: function() {
       mediator.subscribe('flow:next', this.next, this);

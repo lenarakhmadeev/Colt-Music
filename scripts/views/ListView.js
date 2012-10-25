@@ -1,10 +1,16 @@
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define(['underscore', 'vk', 'services/mediator', 'views/View', 'views/ItemView', 'views/NavigationView'], function(_, vk, mediator, View, ItemView, NavigationView) {
+define(function(require) {
+  var ItemView, ListView, NavigationView, View, mediator, vk, _;
+  _ = require('underscore');
+  vk = require('vk');
+  mediator = require('services/mediator');
+  View = require('views/View');
+  ItemView = require('views/ItemView');
+  NavigationView = require('views/NavigationView');
   'use strict';
 
-  var ListView;
   return ListView = (function(_super) {
 
     __extends(ListView, _super);

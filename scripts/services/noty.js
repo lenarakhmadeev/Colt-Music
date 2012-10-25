@@ -1,6 +1,12 @@
 
-define(['underscore', 'jquery', 'services/mediator', 'humane'], function(_, $, mediator, humane) {
-  var noty;
+define(function(require) {
+  var $, humane, mediator, noty, _;
+  _ = require('underscore');
+  $ = require('jquery');
+  mediator = require('services/mediator');
+  humane = require('humane');
+  'use strict';
+
   return noty = {
     timeout: 1500,
     init: function() {
