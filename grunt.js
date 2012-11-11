@@ -56,6 +56,46 @@ module.exports = function (grunt) {
 			}
 		},
 
+
+		requirejs: {
+			dist: {
+				options: {
+					optimize: "none",
+
+					//If using UglifyJS for script optimization, these config options can be
+					//used to pass configuration values to UglifyJS.
+					//See https://github.com/mishoo/UglifyJS for the possible values.
+//					uglify: {
+//						toplevel: true,
+//						ascii_only: true,
+//						beautify: true,
+//						max_line_length: 1000,
+//
+//						//How to pass uglifyjs defined symbols for AST symbol replacement,
+//						//see "defines" options for ast_mangle in the uglifys docs.
+//						defines: {
+//							DEBUG: ['name', 'false']
+//						},
+//
+//						//Custom value supported by r.js but done differently
+//						//in uglifyjs directly:
+//						//Skip the processor.ast_mangle() part of the uglify call (r.js 2.0.5+)
+//						no_mangle: true
+//					},
+
+
+					baseUrl: "build/scripts",
+					name: "main",
+					mainConfigFile: "build/scripts/config.js",
+					out: "optimized.js",
+					excludeShallow: [
+						'vk'
+					],
+					optimizeAllPluginResources: true
+				}
+			}
+		},
+
 		watch: {
 			files: 'app/**',
 			tasks: 'build'
@@ -65,5 +105,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('build', 'clean:build coffee:build copy:build compass:build concat:css');
 	grunt.registerTask('run', 'build server watch');
+
+	grunt.registerTask('dist', 'requirejs:dist');
 
 };
