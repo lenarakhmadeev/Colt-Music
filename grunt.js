@@ -85,11 +85,11 @@ module.exports = function (grunt) {
 
 
 					baseUrl: "build/scripts",
-					name: "main",
+					name: "config",
 					mainConfigFile: "build/scripts/config.js",
-					out: "optimized.js",
+					out: "dist/optimized.js",
 					excludeShallow: [
-						'vk'
+						'http://vk.com/js/api/xd_connection'
 					],
 					optimizeAllPluginResources: true
 				}

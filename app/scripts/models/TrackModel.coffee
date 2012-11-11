@@ -4,7 +4,6 @@ define ( require )->
 	Backbone = require( 'backbone' )
 	mediator = require( 'services/mediator' )
 	proxy= require( 'services/proxy/proxy' )
-	require( 'backbone_nested' )
 
 	'use strict'
 

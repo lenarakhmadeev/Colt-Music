@@ -7,7 +7,7 @@
  * MIT Licensed (LICENSE)
  */
 /*global $, _, Backbone */
-(function(){
+(function($, _, Backbone){
   'use strict';
 
   Backbone.NestedModel = Backbone.Model.extend({
@@ -229,4 +229,4 @@
 
   });
 
-})();
+})($, _, Backbone);

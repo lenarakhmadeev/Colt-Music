@@ -2,9 +2,7 @@
 define ( require, exports, module )->
 	$ = require( 'jquery' )
 	mediator = require( 'services/mediator' )
-	require( 'jquery_jplayer' )
 
-	'use strict'
 
 	# Отвечает за воспроизведение треков
 	player =

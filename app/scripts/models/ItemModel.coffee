@@ -5,7 +5,6 @@ define ( require )->
 	mediator = require( 'services/mediator' )
 	SimilarsCollection = require( 'collections/SimilarsCollection' )
 	proxy = require( 'services/proxy/proxy' )
-	require( 'backbone_nested' )
 
 	'use strict'
 

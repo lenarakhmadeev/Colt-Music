@@ -1,6 +1,3 @@
-
-'use strict'
-
 requirejs.config
 	# Начальная точка приложения
 	deps: [ 'main' ]
@@ -9,25 +6,17 @@ requirejs.config
 
 	paths:
 		# Библиотеки
-		jquery: 'libs/jquery/jquery-1.8.0'
+		$: 'libs/jquery/jquery-1.8.0'
 		# http://lodash.com/
 		# http://underscorejs.org/
-		underscore: 'libs/lodash'
+		_: 'libs/lodash'
 		# http://backbonejs.ru/
-		backbone: 'libs/backbone/backbone'
+		Backbone: 'libs/backbone/backbone'
 		json2: 'libs/json2'
 		# https://github.com/artjock/jpath
 		jpath: 'libs/jpath'
 		# http://wavded.github.com/humane-js/
 		humane: 'libs/humane'
-
-		# Плагины jquery
-		jquery_jplayer: 'libs/jquery/jplayer/jquery.jplayer.min'
-		jquery_marquee: 'libs/jquery/marquee'
-
-		# Плагины Backbone
-		# http://afeld.github.com/backbone-nested/
-		backbone_nested: 'libs/backbone/backbone-nested'
 
 		# Плагины requirejs
 		text: 'libs/requirejs/text'
@@ -39,27 +28,33 @@ requirejs.config
 		# Библиотека vk.com API для iframe приложений
 		vk: 'http://vk.com/js/api/xd_connection'
 
+	map:
+		# Синонимы
+		'*':
+			underscore: '_'
+			backbone: 'Backbone'
+			jquery: '$'
 
 	# Загрузка не AMD модулей
 	shim:
-		backbone_nested:
-			deps: [ 'backbone' ]
+		Backbone:
+			deps: [ '$', '_', 'json2' ]
+			exports: ()->
+				# Загружаем плагины сразу, так проще
+				# http://afeld.github.com/backbone-nested/
+				require [ 'libs/backbone/backbone-nested' ]
 
-		backbone:
-			deps: [ 'jquery', 'underscore', 'json2' ]
-			exports: 'Backbone'
+				this.Backbone
 
-		underscore:
-			exports: '_'
+		$:
+			exports: ()->
+				# Загружаем плагины сразу, так проще
+				require [ 'libs/jquery/jplayer/jquery.jplayer.min', 'libs/jquery/marquee' ]
+
+				this.$
 
 		vk:
 			exports: 'VK'
-
-		jquery_jplayer:
-			deps: [ 'jquery' ]
-
-		jquery_marquee:
-			deps: [ 'jquery' ]
 
 		jpath:
 			exports: 'jpath'
@@ -76,7 +71,7 @@ requirejs.config
 		'services/player':
 			swf_path: 'scripts/libs/jquery/jplayer'
 
-
+# Хендлер для ошибок
 requirejs.onError = ( errObject )->
 	requireType = errObject.requireType
 	requireModules = errObject.requireModules

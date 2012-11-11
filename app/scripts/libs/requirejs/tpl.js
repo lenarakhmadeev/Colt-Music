@@ -1,6 +1,6 @@
 // tpl.js plugin for requirejs / text.js
 // it loads and compiles underscore templates
-define(['underscore'], function (_) {
+define(['_'], function (_) {
 
     var loadResource = function (resourceName, parentRequire, callback, config) {
         parentRequire([("text!" + resourceName)],

@@ -1,6 +1,7 @@
 
 define ( require )->
 	jpath = require( 'jpath' )
+	_ = require( 'underscore' )
 
 	'use strict'
 

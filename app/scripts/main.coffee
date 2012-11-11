@@ -164,13 +164,16 @@ ___________________________________
 
 
 define ( require )->
+	# Хак, чтобы убрать из window
+	_ = require('underscore').noConflict()
+	$ = require('jquery').noConflict()
+	Backbone = require('backbone').noConflict()
+
 	AppView = require( 'views/AppView' )
 	player = require( 'services/player' )
 	flow = require( 'services/flow' )
 	logger = require( 'services/logger' )
 	scroll = require( 'services/scroll' )
-
-	'use strict'
 
 	# Создаем главную вью приложения
 	appView = new AppView()
