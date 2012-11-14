@@ -1,14 +1,15 @@
+
 @import "compass/css3/user-interface";
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
 
 @import "_fonts.scss";
-@import "_common.scss";
+@import "_sprite.scss";
 
 
 .b-player {
 	height: 151px;
-	background-image: image-url("player_background.png");
+	background-image: inline-image("backgrounds/player.png");
 
 	@include box-shadow(0 8px 30px #222);
 	@include user-select(none);
@@ -32,18 +33,18 @@
 
 
 			.b-player__play-button {
-				@include button-constuctor( 56px, 62px, "play_pre.png", "play_over.png", "play_down.png" );
+				@include player-sprite(play);
 			}
 
 
 			.b-player__pause-button {
-				@include button-constuctor( 46px, 62px, "pause_pre.png", "pause_over.png", "pause_down.png" );
+				@include player-sprite(pause);
 				display: none;
 			}
 
 
 		.b-player__prev-button {
-			@include button-constuctor( 34px, 29px, "prev_pre.png", "prev_over.png", "prev_down.png" );
+			@include player-sprite(prev);
 			margin-left: 23px;
 			margin-top: 15px;
 			float: left;
@@ -51,7 +52,7 @@
 
 
 		.b-player__next-button {
-			@include button-constuctor( 34px, 29px, "next_pre.png", "next_over.png", "next_down.png" );
+			@include player-sprite(next);
 			margin-left: 4px;
 			margin-top: 15px;
 			float: left;
@@ -83,29 +84,27 @@
 
 
 			.b-player__load-bar {
+				@include border-radius(4px);
 				height: 7px;
 				position: absolute;
-				background: image-url("load_pattern.png") repeat-x;
-				@include border-radius(4px);
-
+				background: inline-image("backgrounds/load-pattern.png") repeat-x;
 				overflow: visible;
 			}
 
 
 				.b-player__progress-bar {
+					@include border-radius(3px);
 					height: 7px;
 					position: absolute;
-					background: image-url("play_pattern.png") repeat-x;
-					@include border-radius(3px);
+					background: inline-image("backgrounds/play-pattern.png") repeat-x;
 				}
 
 
 					.b-player__progress-pick {
-
+						@include player-sprite(pick);
 						top: -9px;
 						position: absolute;
 						right: -4px;
-						@include button-constuctor( 8px, 24px, "pick_pre.png", "pick_on.png" );
 						z-index: 1001;
 					}
 
@@ -136,7 +135,7 @@
 
 
 				.b-player__add-button {
-					@include button-constuctor( 116px, 17px, "add_pre.png", "add_over.png", "add_down.png" );
+					@include player-sprite(add);
 					display: none;
 				}
 
@@ -155,12 +154,12 @@
 
 
 					.b-player__mute-button {
-						@include button-constuctor( 23px, 18px, "vol_b_pre.png", "vol_b_over.png", "vol_b_down.png" );
+						@include player-sprite(volume);
 					}
 
 
 					.b-player__unmute-button {
-						@include button-constuctor( 23px, 18px, "mute_b_pre.png", "mute_b_over.png", "mute_b_down.png" );
+						@include player-sprite(muted);
 						display: none;
 					}
 
@@ -179,40 +178,38 @@
 
 
 					.b-player__volume-bar {
+						@include border-radius(5px);
 						position: relative;
 						height: 9px;
-						background: image-url("volume_pattern.png") repeat-x;
-						@include border-radius(5px);
-
+						background: inline-image("backgrounds/volume-pattern.png") repeat-x;
 					}
 
 
 						.b-player__volume-pick {
+							@include player-sprite(pick);
 							top: -9px;
 							position: absolute;
 							right: -4px;
 							z-index: 1000;
-							@include button-constuctor( 8px, 24px, "pick_pre.png", "pick_on.png" );
 						}
 
 
 					.b-player__volume-mask {
+						@include player-sprite(volume-mask);
 						top: -1px;
 						position: absolute;
 						width: 132px;
 						height: 9px;
-						background-image: image-url("volume_mask.png");
-
 					}
 
 
 	.b-player__cover-place {
+		@include player-sprite(album);
 		padding-left: 26px;
 		padding-top: 9px;
 
 		height: 142px;
 		width: 149px;
-		background-image: image-url("album.png");
 
 		float: right;
 		margin-right: 48px;

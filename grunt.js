@@ -10,7 +10,8 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 
 		clean: {
-			build: 'build'
+			build: 'build',
+			dist: 'dist'
 		},
 
 		copy: {
@@ -106,6 +107,6 @@ module.exports = function (grunt) {
 	grunt.registerTask('build', 'clean:build coffee:build copy:build compass:build concat:css');
 	grunt.registerTask('run', 'build server watch');
 
-	grunt.registerTask('dist', 'requirejs:dist');
+	grunt.registerTask('dist', 'clean:dist requirejs:dist');
 
 };

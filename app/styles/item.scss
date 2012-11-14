@@ -2,7 +2,7 @@
 @import "compass/css3/box-shadow";
 
 @import "_fonts.scss";
-@import "_common.scss";
+@import "_sprite.scss";
 
 
 .b-item {
@@ -11,14 +11,14 @@
 
 	border: 1px solid black;
 
-	background-image: image-url('patterns/patt1.png');
+	background-image: inline-image("backgrounds/dark.png");
 	margin: 35px 70px;
 	padding: 0 1px;
 }
 
 
 .b-item_selected {
-	background-image: image-url('patterns/patt4.png');
+	background-image: inline-image("backgrounds/medium.png");
 }
 
 
@@ -99,21 +99,14 @@
 
 
 				.b-item__play-button {
-					@include button-constuctor(
-						93px, 32px,
-						'good/item_play_button.png',
-						'good/item_play_button_over.png' );
-
+					@include item-sprite(play);
 				}
 
 
 				.b-item__pause-button {
 					display: none;
 
-					@include button-constuctor(
-							93px, 32px,
-							'good/item_pause_button.png',
-							'good/item_pause_button_over.png' );
+					@include item-sprite(pause);
 				}
 
 
@@ -131,27 +124,24 @@
 
 
 			.b-item__wiki-button {
+				@include icons-sprite(wiki);
 				float: left;
 				display: none;
-
-				@include icon-constructor( 'wiki' );
 			}
 
 
 			.b-item__like-button {
+				@include icons-sprite(like);
 				float: left;
 				margin-left: 7px;
-
-				@include icon-constructor( 'like' );
 			}
 
 
 			.b-item__delete-button {
+				@include icons-sprite(delete);
 				float: left;
 				margin-left: 14px;
 				display: none;
-
-				@include icon-constructor( 'delete' );
 			}
 
 

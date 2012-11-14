@@ -1,5 +1,6 @@
 
 @import "_fonts.scss";
+@import "_sprite.scss";
 
 
 .b-more-button {
@@ -27,7 +28,7 @@
 
 			width: 16px;
 			height: 16px;
-			background-image: image-url('good/show_more_icon.png');
+			@include icons-sprite(show-more);
 		}
 
 

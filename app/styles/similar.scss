@@ -1,8 +1,9 @@
 
 @import "compass/css3/images";
-@import "_common.scss";
+
 @import "_fonts.scss";
 @import "_colors.scss";
+@import "_sprite.scss";
 
 
 .b-similar {
@@ -51,7 +52,7 @@
 
 
 		.b-similar__track-title {
-			@include black-gothic-font( 10pt );
+			@include black-gothic-font(10pt);
 			width: 210px;
 			cursor: pointer;
 		}
@@ -82,7 +83,7 @@
 			.b-similar__play-button  {
 				float: left;
 
-				@include icon-constructor( 'play' );
+				@include icons-sprite(play);
 			}
 
 
@@ -90,7 +91,7 @@
 				display: none;
 				float: left;
 
-				@include icon-constructor( 'pause' );
+				@include icons-sprite(pause);
 			}
 
 
@@ -98,7 +99,7 @@
 				float: left;
 				margin-left: 7px;
 
-				@include icon-constructor( 'add' );
+				@include icons-sprite(add);
 			}
 
 
@@ -106,7 +107,7 @@
 				float: left;
 				margin-left: 7px;
 
-				@include icon-constructor( 'like' );
+				@include icons-sprite(like);
 			}
 
 
@@ -115,5 +116,5 @@
 				margin-left: 7px;
 				display: none;
 
-				@include icon-constructor( 'wiki' );
+				@include icons-sprite(wiki);
 			}
