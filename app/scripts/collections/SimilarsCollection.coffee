@@ -32,6 +32,8 @@ define ( require )->
 
 					_.each( data, @addRaw, this )
 
+					@trigger('updated')
+
 				.fail ()=>
 					@setStatus( 'no' )
 

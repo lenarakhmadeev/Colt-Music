@@ -16,7 +16,7 @@ define ( require )->
 		className: 'b-similars'
 
 		initialize: ( options )->
-			@collection.on( 'add', @addItem, this )
+			@collection.on( 'updated', @updateSimilars, this )
 
 			@phraseView = new PhraseView( collection: @collection )
 			@moreButtonView = new MoreButtonView( collection: @collection )
@@ -28,7 +28,14 @@ define ( require )->
 			@renderMoreButton()
 
 
+		updateSimilars: ()->
+			@$('.b-similars__similars-container').empty()
+
+			@renderSimilars()
+
+
 		renderSimilars: ()->
+			# todo поделить на 2 группы и пихать в разные колонки
 			@collection.each( @addItem, this )
 
 
