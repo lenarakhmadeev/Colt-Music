@@ -110,11 +110,11 @@
 
 
 			.b-player__progress-mask {
+				@include player-sprite(progress-mask);
 				position: absolute;
 				top: -1px;
 				width: 342px;
 				height: 11px;
-				background: image-url("progress_mask.png");
 				z-index: 1000;
 			}
 

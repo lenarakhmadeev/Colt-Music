@@ -2,7 +2,6 @@
 define ( require )->
 	TrackModel = require( 'models/TrackModel' )
 
-	'use strict'
 
 	class SimilarModel extends TrackModel
 

@@ -14,7 +14,6 @@ define ( require )->
 
 	AppTemplate = require( 'tpl!templates/app.html' )
 
-	'use strict'
 
 	class AppView extends View
 

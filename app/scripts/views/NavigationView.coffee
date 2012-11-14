@@ -1,11 +1,10 @@
 
 define ( require )->
-	$ = require( 'jquery' )
+	$ = require( '$' )
 	mediator = require( 'services/mediator' )
 	View = require( 'views/View' )
 	navigationTemplate = require( 'tpl!templates/navigation.html' )
 
-	'use strict'
 
 	class NavigationView extends View
 

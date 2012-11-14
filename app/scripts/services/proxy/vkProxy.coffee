@@ -1,10 +1,9 @@
 
 define ( require )->
-	$ = require( 'jquery' )
+	$ = require( '$' )
 	vk = require( 'vk' )
 	vkFilters = require( 'services/proxy/vkFilters' )
 
-	'use strict'
 
 	vkProxy =
 

@@ -5,7 +5,6 @@ define ( require )->
 	MarqueeView = require( 'views/MarqueeView' )
 	playerTemplate = require( 'tpl!templates/player.html' )
 
-	'use strict'
 
 	class PlayerView extends View
 
@@ -71,7 +70,7 @@ define ( require )->
 
 
 		renderCover: ()->
-			cover = @model.getCurrent().get( 'info.images.126' ) or 'images/big.png'
+			cover = @model.getCurrent().get( 'info.images.126' ) or 'images/cover/big.png'
 			@$( '.b-player__cover-image' ).attr( 'src', cover )
 
 

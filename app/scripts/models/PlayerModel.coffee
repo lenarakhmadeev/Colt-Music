@@ -1,10 +1,9 @@
 
 define ( require )->
-	Backbone = require( 'backbone' )
+	Backbone = require( 'Backbone' )
 	mediator = require( 'services/mediator' )
 	player = require( 'services/player' )
 
-	'use strict'
 
 	class PlayerModel extends Backbone.Model
 

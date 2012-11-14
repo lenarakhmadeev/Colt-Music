@@ -5,7 +5,6 @@ define ( require )->
 	InfoView = require( 'views/InfoView' )
 	itemTemplate = require( 'tpl!templates/item.html' )
 
-	'use strict'
 
 	class ItemView extends View
 
@@ -49,7 +48,7 @@ define ( require )->
 
 
 		renderCover: ()->
-			cover = @model.get( 'info.images.126' ) or 'images/big.png'
+			cover = @model.get( 'info.images.126' ) or 'images/cover/big.png'
 			@$( '.b-item__cover-image' ).attr( 'src', cover )
 
 

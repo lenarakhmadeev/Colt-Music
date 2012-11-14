@@ -1,11 +1,10 @@
 
 define ( require )->
-	_ = require( 'underscore' )
+	_ = require( '_' )
 	Collection = require( 'collections/Collection' )
 	proxy = require( 'services/proxy/proxy' )
 	SimilarModel = require( 'models/SimilarModel' )
 
-	'use strict'
 
 	class SimilarsCollection extends Collection
 

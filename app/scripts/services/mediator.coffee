@@ -1,8 +1,7 @@
 
 define ( require )->
-	Backbone = require( 'backbone' )
+	Backbone = require( 'Backbone' )
 
-	'use strict'
 
 	# Коммуникация между модулями посредствам вызовов и прослушивания событий
 	mediator =

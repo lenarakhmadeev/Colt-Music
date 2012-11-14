@@ -1,8 +1,7 @@
 
 define (require)->
-	Backbone = require( 'backbone' )
+	Backbone = require( 'Backbone' )
 
-	'use strict'
 
 	# Упорядоченная коллекция со своими аттрибутами
 	class Collection extends Backbone.Collection

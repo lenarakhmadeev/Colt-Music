@@ -5,7 +5,7 @@
 
 
 body {
-	background-image: image-url('patterns/patt2.png');
+	background-image: inline-image("backgrounds/light.png");
 	margin: 0;
 }
 
@@ -24,7 +24,6 @@ body {
 		height: 200px;
 		position: absolute;
 		z-index: 500;
-		//background-image: image-url('patterns/patt2.png');
 		background-color: $light_gray;
 		border-bottom: 1px solid $dark_gray;
 	}

@@ -1,11 +1,10 @@
 
 define ( require )->
-	$ = require( 'jquery' )
-	Backbone = require( 'backbone' )
+	$ = require( '$' )
+	Backbone = require( 'Backbone' )
 	mediator = require( 'services/mediator' )
 	proxy= require( 'services/proxy/proxy' )
 
-	'use strict'
 
 	class TrackModel extends Backbone.NestedModel
 

@@ -1,8 +1,7 @@
 
 define ( require )->
-	$ = require( 'jquery' )
+	$ = require( '$' )
 
-	'use strict'
 
 	class LastFm
 

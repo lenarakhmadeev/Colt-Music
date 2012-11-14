@@ -1,13 +1,12 @@
 
 define ( require )->
-	_ = require( 'underscore' )
+	_ = require( '_' )
 	vk = require( 'vk' )
 	mediator = require( 'services/mediator' )
 	View = require( 'views/View' )
 	ItemView = require( 'views/ItemView' )
 	NavigationView = require( 'views/NavigationView' )
 
-	'use strict'
 
 	class ListView extends View
 

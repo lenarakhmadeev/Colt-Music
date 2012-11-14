@@ -1,8 +1,7 @@
 
 define ( require )->
-	_ = require( 'underscore' )
+	_ = require( '_' )
 
-	'use strict'
 
 	pickAudioData = ( data )->
 		result = _.pick( data, 'owner_id', 'url', 'duration' )

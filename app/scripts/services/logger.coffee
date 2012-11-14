@@ -3,7 +3,6 @@ define ( require )->
 	noty = require( 'services/noty' )
 	mediator = require( 'services/mediator' )
 
-	'use strict'
 
 	# Логгер. Часть логов выводится пользователю
 	# Возможно, стоит разделить или как-то переосмыслить

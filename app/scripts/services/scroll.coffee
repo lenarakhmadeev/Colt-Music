@@ -1,10 +1,9 @@
 
 define ( require )->
-	_ = require( 'underscore' )
+	_ = require( '_' )
 	vk = require( 'vk' )
 	mediator = require( 'services/mediator' )
 
-	'use strict'
 
 	scroll =
 

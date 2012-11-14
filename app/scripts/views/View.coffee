@@ -1,9 +1,8 @@
 
 define ( require )->
-	_ = require( 'underscore' )
-	Backbone = require( 'backbone' )
+	_ = require( '_' )
+	Backbone = require( 'Backbone' )
 
-	'use strict'
 
 	# Вью с наиболее общими сценариями использования
 	class View extends Backbone.View

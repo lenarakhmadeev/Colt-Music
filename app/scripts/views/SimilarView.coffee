@@ -3,7 +3,6 @@ define ( require )->
 	View = require( 'views/View' )
 	similarTemplate = require( 'tpl!templates/similar.html' )
 
-	'use strict'
 
 	class SimilarView extends View
 
@@ -34,7 +33,7 @@ define ( require )->
 		serialize: ()->
 			artist: @model.get( 'artist' )
 			title: @model.get( 'title' )
-			cover: @model.get( 'info.images.64' ) or 'http://placekitten.com/g/64/64'
+			cover: @model.get( 'info.images.64' ) or 'images/cover/small.png'
 
 
 		renderSelected: ()->
@@ -46,11 +45,11 @@ define ( require )->
 
 		renderPlayed: ()->
 			if @model.get( 'played' )
-				@$( '.b-similar__play-button').hide()
-				@$( '.b-similar__pause-button').show()
+				@$( '.b-similar__play-button' ).hide()
+				@$( '.b-similar__pause-button' ).show()
 			else
-				@$( '.b-similar__play-button').show()
-				@$( '.b-similar__pause-button').hide()
+				@$( '.b-similar__play-button' ).show()
+				@$( '.b-similar__pause-button' ).hide()
 
 
 		play: ()->

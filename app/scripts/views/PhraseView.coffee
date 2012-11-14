@@ -2,7 +2,6 @@
 define ( require )->
 	View = require( 'views/View' )
 
-	'use strict'
 
 	# Фразы, если что-то найдено
 	yes_phrases = [

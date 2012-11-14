@@ -1,12 +1,11 @@
 
 define ( require )->
-	Backbone = require( 'backbone' )
+	Backbone = require( 'Backbone' )
 	TrackModel = require( 'models/TrackModel' )
 	mediator = require( 'services/mediator' )
 	SimilarsCollection = require( 'collections/SimilarsCollection' )
 	proxy = require( 'services/proxy/proxy' )
 
-	'use strict'
 
 	class ItemModel extends TrackModel
 

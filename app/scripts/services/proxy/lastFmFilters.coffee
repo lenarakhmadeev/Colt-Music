@@ -1,9 +1,8 @@
 
 define ( require )->
 	jpath = require( 'jpath' )
-	_ = require( 'underscore' )
+	_ = require( '_' )
 
-	'use strict'
 
 	lastFmFilters =
 

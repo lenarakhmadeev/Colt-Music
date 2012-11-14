@@ -1,11 +1,10 @@
 
 define ( require )->
-	_ = require( 'underscore' )
-	$ = require( 'jquery' )
+	_ = require( '_' )
+	$ = require( '$' )
 	mediator = require( 'services/mediator' )
 	humane = require( 'humane' )
 
-	'use strict'
 
 	# Оповещения пользователю
 	noty =

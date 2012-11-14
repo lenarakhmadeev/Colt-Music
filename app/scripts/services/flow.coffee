@@ -2,7 +2,6 @@
 define ( require )->
 	mediator = require( 'services/mediator' )
 
-	'use strict'
 
 	# Логика установки текущей записи, перехода к следующей/предыдущей в списке
 	flow =

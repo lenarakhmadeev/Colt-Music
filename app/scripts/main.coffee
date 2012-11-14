@@ -165,9 +165,9 @@ ___________________________________
 
 define ( require )->
 	# Хак, чтобы убрать из window
-	_ = require('underscore').noConflict()
-	$ = require('jquery').noConflict()
-	Backbone = require('backbone').noConflict()
+	_ = require( '_' ).noConflict()
+	$ = require( '$' ).noConflict()
+	Backbone = require( 'Backbone' ).noConflict()
 
 	AppView = require( 'views/AppView' )
 	player = require( 'services/player' )

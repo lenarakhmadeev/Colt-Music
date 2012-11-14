@@ -1,10 +1,9 @@
 
 define ( require, exports, module )->
-	$ = require( 'jquery' )
+	$ = require( '$' )
 	LastFm = require( 'services/proxy/LastFm' )
 	lastFmFilters = require( 'services/proxy/lastFmFilters' )
 
-	'use strict'
 
 	config = module.config()
 	lastFm = new LastFm( config.lastFm_key, config.lastFm_url )

@@ -1,6 +1,6 @@
 
 define ( require, exports, module )->
-	$ = require( 'jquery' )
+	$ = require( '$' )
 	mediator = require( 'services/mediator' )
 
 

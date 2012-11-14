@@ -1,6 +1,6 @@
 
 define ( require )->
-	$ = require( 'jquery' )
+	$ = require( '$' )
 	mediator = require( 'services/mediator' )
 	View = require( 'views/View' )
 	SimilarView = require( 'views/SimilarView' )
@@ -8,7 +8,6 @@ define ( require )->
 	MoreButtonView = require( 'views/MoreButtonView' )
 	similarsTemplate = require( 'tpl!templates/similars.html' )
 
-	'use strict'
 
 	class SimilarsView extends View
 

@@ -3,7 +3,6 @@ define ( require )->
 	View = require( 'views/View' )
 	moreTemplate = require( 'tpl!templates/more.html' )
 
-	'use strict'
 
 	class MoreButtonView extends View
 

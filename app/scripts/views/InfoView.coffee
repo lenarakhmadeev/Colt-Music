@@ -3,7 +3,6 @@ define ( require )->
 	View = require( 'views/View' )
 	infoTemplate = require( 'tpl!templates/info.html' )
 
-	'use strict'
 
 	class InfoView extends View
 
