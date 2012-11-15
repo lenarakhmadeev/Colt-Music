@@ -40,7 +40,7 @@ define ( require )->
 			data.pages.push( type: 'num', page: page - 3 ) if page - 3 > -1
 			data.pages.push( type: 'num', page: page - 2 ) if page - 2 > -1
 			data.pages.push( type: 'num', page: page - 1 ) if page - 1 > -1 
-			data.pages.push( type: 'cur_num', page: page)
+			data.pages.push( type: 'cur_num', page: page) if page?
 			data.pages.push( type: 'num', page: page + 1 ) if page + 1 < pages
 			data.pages.push( type: 'num', page: page + 2 ) if page + 2 < pages
 			data.pages.push( type: 'num', page: page + 3 ) if page + 3 < pages
