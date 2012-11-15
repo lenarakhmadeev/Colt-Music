@@ -1,6 +1,7 @@
 
 define ( require )->
 	mediator = require( 'services/mediator' )
+	_ = require( '_' )
 
 
 	# Логика установки текущей записи, перехода к следующей/предыдущей в списке
@@ -21,44 +22,32 @@ define ( require )->
 
 		_next: ( track )->
 			if track.get( 'type' ) == 'item'
-				next = @nextForItem()
+				@nextForItem( track )
 			else
-				return if track == track.collection.last() and
-					track.collection.parent == track.collection.parent.collection.last()
-				next = @nextForSim()
-
-			next
+				@nextForSim( track )
 
 
-		nextForItem: ()->
-			if @currentTrack.similarsCollection.length
-				next = @currentTrack.similarsCollection.at( 0 )
+		nextForItem: ( track )->
+			if track.similarsCollection.length
+				track.similarsCollection.at( 0 )
 			else
-				next = @nextInCollection( @currentTrack )
-				@checkLastInPage( @currentTrack )
+				@nextInCollection( track )
 
-			next
 
-		nextForSim: ()->
-			if @currentTrack == @currentTrack.collection.last()
-				next = @nextInCollection( @currentTrack.collection.parent )
-				@checkLastInPage( @currentTrack.collection.parent )
+		nextForSim: ( track )->
+			parentItem = track.collection.parent
+			if @isLast( track )
+				# Последняя рекомендация последней записи
+				return if @isLast( parentItem )
+
+				@nextInCollection( parentItem )
 			else
-				next = @nextInCollection( @currentTrack )
-
-			next
+				@nextInCollection( track )
 
 
 		nextInCollection: ( track )->
 			id = track.id + 1
 			track.collection.get( id )
-
-
-		checkLastInPage: ( track )->
-			if _.last( track.collection.own.get( 'content' ) ) == track
-
-				# событие
-				track.collection.nextPage()
 
 
 		# Проигрывание предыдущей записи
@@ -69,16 +58,15 @@ define ( require )->
 
 		_prev: ( track )->
 			if track.get( 'type' ) == 'item'
-				return if track == track.collection.first()
-				prev = @prevForItem()
+				@prevForItem( track )
 			else
-				prev = @prevForSim()
-
-			prev
+				@prevForSim( track )
 
 
-		prevForItem: ()->
-			prevItem = @prevInCollection( @currentTrack )
+		prevForItem: ( track )->
+			return if @isFirst( track )
+
+			prevItem = @prevInCollection( track )
 
 			if prevItem.similarsCollection.length
 				prevItem.similarsCollection.last()
@@ -86,11 +74,11 @@ define ( require )->
 				prevItem
 
 
-		prevForSim: ()->
-			if @currentTrack == @currentTrack.collection.first()
-				@currentTrack.collection.parent
+		prevForSim: ( track )->
+			if @isFirst( track )
+				track.collection.parent
 			else
-				@prevInCollection( @currentTrack )
+				@prevInCollection( track )
 
 
 		prevInCollection: ( track )->
@@ -98,15 +86,37 @@ define ( require )->
 			track.collection.get( id )
 
 
+		isLast: ( track )->
+			track == track.collection.last()
+
+
+		isFirst: ( track )->
+			track == track.collection.first()
+
+
+		loadTrackPage: ( track )->
+			if track.get( 'type' ) == 'similar'
+				track = track.collection.parent
+
+			mediator.publish( 'list:load_page', @getItemPage( track ) )
+
+
+		getItemPage: ( item )->
+			pageSize = item.collection.pageSize
+			indx = item.id
+
+			Math.floor(indx / pageSize)
+
+
 		# Устанавливает текущую запись
 		setCurrent: ( track )->
 			@currentTrack.setCurrent( false ) if @currentTrack?
-
 			@currentTrack = track
+			@loadTrackPage( track )
+			@preloadNextSimilar( track )
 
-			#@preloadNextSimilar( track )
 
-
+		# Подгружает audio_url для след similar
 		preloadNextSimilar: ( track )->
 			nextNext = @_next( track )
 			if nextNext? and nextNext.get( 'type' ) == 'similar'

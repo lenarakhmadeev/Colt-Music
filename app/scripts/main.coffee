@@ -93,6 +93,10 @@
 
 	+колонки css3 тупые
 
+		+переделать list
+		+событие для след страницы
+		+прелоад
+
 --------------------------------------------------------------------------------
 
 	Тестировать в браузерах
@@ -104,12 +108,7 @@
 		код
 		комментарии
 
-
-	*переделать list
-		событие для след страницы
-		прелоад
-
-___________________________________
+__________________________________
 	ver 1.5
 
 		Посмотреть все минусы
@@ -162,6 +161,9 @@ define ( require )->
 	_ = require( '_' ).noConflict()
 	$ = require( '$' ).noConflict()
 	Backbone = require( 'Backbone' ).noConflict()
+	delete window._
+	delete window.$
+	delete window.Backbone
 
 	AppView = require( 'views/AppView' )
 	player = require( 'services/player' )

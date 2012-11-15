@@ -20,7 +20,7 @@ define (require)->
 
 		# Пересчитывает порядок моделей
 		recalculateIds: ()->
-			id = 1
+			id = 0
 			for model in @models
 				model.set( { 'id': id++ } ) #, { silent: true } )
 

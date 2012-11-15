@@ -13,10 +13,6 @@ define ( require )->
 		model: ItemModel
 
 		initialize: ( models, options )->
-			# Начальная страница при загрузке
-			@own.set
-				page: 0
-
 			@on( 'reset', @firstLoad, this )
 
 			mediator.subscribe( 'list:load_page', @loadPage, this )
@@ -32,7 +28,7 @@ define ( require )->
 
 		# Первая загрузка страница
 		firstLoad: ()->
-			@loadPage( @own.get( 'page' ) )
+			@loadPage( 0 )
 
 
 		# Проигрывает первую запись на странице
@@ -47,6 +43,8 @@ define ( require )->
 
 		# Загружает страницу
 		loadPage: ( page )->
+			return if page == @own.get( 'page' )
+
 			@preloadPage( page )
 			@_loadPage( page )
 
@@ -76,7 +74,7 @@ define ( require )->
 
 
 		# Моделей на странице
-		pageSize: 5
+		pageSize: 10
 
 
 		# Возвращает модели страницы
