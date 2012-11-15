@@ -3,13 +3,11 @@ var __hasProp = {}.hasOwnProperty,
 
 define(function(require) {
   var Collection, ItemModel, ListCollection, mediator, proxy, _;
-  _ = require('underscore');
+  _ = require('_');
   Collection = require('collections/Collection');
   ItemModel = require('models/ItemModel');
   mediator = require('services/mediator');
   proxy = require('services/proxy/proxy');
-  'use strict';
-
   return ListCollection = (function(_super) {
 
     __extends(ListCollection, _super);
@@ -21,9 +19,6 @@ define(function(require) {
     ListCollection.prototype.model = ItemModel;
 
     ListCollection.prototype.initialize = function(models, options) {
-      this.own.set({
-        page: 0
-      });
       this.on('reset', this.firstLoad, this);
       mediator.subscribe('list:load_page', this.loadPage, this);
       return mediator.subscribe('list:play_first', this.playFirst, this);
@@ -37,7 +32,7 @@ define(function(require) {
     };
 
     ListCollection.prototype.firstLoad = function() {
-      return this.loadPage(this.own.get('page'));
+      return this.loadPage(0);
     };
 
     ListCollection.prototype.playFirst = function() {
@@ -49,6 +44,9 @@ define(function(require) {
     };
 
     ListCollection.prototype.loadPage = function(page) {
+      if (page === this.own.get('page')) {
+        return;
+      }
       this.preloadPage(page);
       this._loadPage(page);
       return this.preloadPage(page + 1);
@@ -73,7 +71,7 @@ define(function(require) {
       return model.fetch();
     };
 
-    ListCollection.prototype.pageSize = 5;
+    ListCollection.prototype.pageSize = 10;
 
     ListCollection.prototype.getPage = function(page) {
       var end, start;

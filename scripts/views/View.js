@@ -3,10 +3,8 @@ var __hasProp = {}.hasOwnProperty,
 
 define(function(require) {
   var Backbone, View, _;
-  _ = require('underscore');
-  Backbone = require('backbone');
-  'use strict';
-
+  _ = require('_');
+  Backbone = require('Backbone');
   return View = (function(_super) {
 
     __extends(View, _super);

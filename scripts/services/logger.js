@@ -3,8 +3,6 @@ define(function(require) {
   var logger, mediator, noty;
   noty = require('services/noty');
   mediator = require('services/mediator');
-  'use strict';
-
   return logger = {
     init: function() {
       noty.init();

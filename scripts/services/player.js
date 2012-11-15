@@ -1,11 +1,8 @@
 
 define(function(require, exports, module) {
   var $, mediator, player;
-  $ = require('jquery');
+  $ = require('$');
   mediator = require('services/mediator');
-  require('jquery_jplayer');
-  'use strict';
-
   return player = {
     init: function() {
       return this.initJPlayer();

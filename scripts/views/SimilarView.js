@@ -5,8 +5,6 @@ define(function(require) {
   var SimilarView, View, similarTemplate;
   View = require('views/View');
   similarTemplate = require('tpl!templates/similar.html');
-  'use strict';
-
   return SimilarView = (function(_super) {
 
     __extends(SimilarView, _super);
@@ -43,7 +41,7 @@ define(function(require) {
       return {
         artist: this.model.get('artist'),
         title: this.model.get('title'),
-        cover: this.model.get('info.images.64') || 'http://placekitten.com/g/64/64'
+        cover: this.model.get('info.images.64') || 'images/cover/small.png'
       };
     };
 

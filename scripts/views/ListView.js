@@ -3,14 +3,12 @@ var __hasProp = {}.hasOwnProperty,
 
 define(function(require) {
   var ItemView, ListView, NavigationView, View, mediator, vk, _;
-  _ = require('underscore');
+  _ = require('_');
   vk = require('vk');
   mediator = require('services/mediator');
   View = require('views/View');
   ItemView = require('views/ItemView');
   NavigationView = require('views/NavigationView');
-  'use strict';
-
   return ListView = (function(_super) {
 
     __extends(ListView, _super);

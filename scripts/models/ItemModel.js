@@ -3,14 +3,11 @@ var __hasProp = {}.hasOwnProperty,
 
 define(function(require) {
   var Backbone, ItemModel, SimilarsCollection, TrackModel, mediator, proxy;
-  Backbone = require('backbone');
+  Backbone = require('Backbone');
   TrackModel = require('models/TrackModel');
   mediator = require('services/mediator');
   SimilarsCollection = require('collections/SimilarsCollection');
   proxy = require('services/proxy/proxy');
-  require('backbone_nested');
-  'use strict';
-
   return ItemModel = (function(_super) {
 
     __extends(ItemModel, _super);

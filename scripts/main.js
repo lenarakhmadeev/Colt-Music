@@ -88,33 +88,26 @@
 
 	+ресайз контейнера
 
---------------------------------------------------------------------------------
+	+картинки
 
-	Верстка item
-		*колонки css3 тупые
+	+колонки css3 тупые
+
+		+переделать list
+		+событие для след страницы
+		+прелоад
+
+--------------------------------------------------------------------------------
 
 	Тестировать в браузерах
 
 	Деплой
 
-	оптимизировать загрузку
-
-	картинки
-
 	Почистить
 		стили
 		код
 		комментарии
-		картинки
 
-
-	переделать list
-		событие для след страницы
-		прелоад
-
-		баг
-
-___________________________________
+__________________________________
 	ver 1.5
 
 		Посмотреть все минусы
@@ -161,14 +154,18 @@ ___________________________________
 */
 
 define(function(require) {
-  var AppView, appView, flow, logger, player, scroll;
+  var $, AppView, Backbone, appView, flow, logger, player, scroll, _;
+  _ = require('_').noConflict();
+  $ = require('$').noConflict();
+  Backbone = require('Backbone').noConflict();
+  delete window._;
+  delete window.$;
+  delete window.Backbone;
   AppView = require('views/AppView');
   player = require('services/player');
   flow = require('services/flow');
   logger = require('services/logger');
   scroll = require('services/scroll');
-  'use strict';
-
   appView = new AppView();
   appView.render();
   $('body').append(appView.el);

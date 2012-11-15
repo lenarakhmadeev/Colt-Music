@@ -3,12 +3,10 @@ var __hasProp = {}.hasOwnProperty,
 
 define(function(require) {
   var Collection, SimilarModel, SimilarsCollection, proxy, _;
-  _ = require('underscore');
+  _ = require('_');
   Collection = require('collections/Collection');
   proxy = require('services/proxy/proxy');
   SimilarModel = require('models/SimilarModel');
-  'use strict';
-
   return SimilarsCollection = (function(_super) {
 
     __extends(SimilarsCollection, _super);
@@ -37,7 +35,8 @@ define(function(require) {
         _this.offset += _this.count;
         status = data.length < _this.count ? 'no' : 'yes';
         _this.setStatus(status);
-        return _.each(data, _this.addRaw, _this);
+        _.each(data, _this.addRaw, _this);
+        return _this.trigger('updated');
       }).fail(function() {
         return _this.setStatus('no');
       });

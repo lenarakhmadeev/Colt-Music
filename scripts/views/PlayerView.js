@@ -7,8 +7,6 @@ define(function(require) {
   mediator = require('services/mediator');
   MarqueeView = require('views/MarqueeView');
   playerTemplate = require('tpl!templates/player.html');
-  'use strict';
-
   return PlayerView = (function(_super) {
 
     __extends(PlayerView, _super);
@@ -83,7 +81,7 @@ define(function(require) {
 
     PlayerView.prototype.renderCover = function() {
       var cover;
-      cover = this.model.getCurrent().get('info.images.126') || 'images/big.png';
+      cover = this.model.getCurrent().get('info.images.126') || 'images/cover/big.png';
       return this.$('.b-player__cover-image').attr('src', cover);
     };
 

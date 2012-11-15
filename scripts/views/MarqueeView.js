@@ -3,11 +3,8 @@ var __hasProp = {}.hasOwnProperty,
 
 define(function(require) {
   var $, MarqueeView, View;
-  $ = require('jquery');
+  $ = require('$');
   View = require('views/View');
-  require('jquery_marquee');
-  'use strict';
-
   return MarqueeView = (function(_super) {
 
     __extends(MarqueeView, _super);

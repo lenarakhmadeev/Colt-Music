@@ -7,19 +7,39 @@
   src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
 }
 
-/* line 5, ../../app/styles/more.scss */
+/* line 242, player/*.png */
+.player-sprite {
+  background: url('../images/player-s93a7b84bfe.png') no-repeat;
+}
+
+/* line 66, item/*.png */
+.item-sprite {
+  background: url('../images/item-sc720ff8abe.png') no-repeat;
+}
+
+/* line 138, icons/*.png */
+.icons-sprite, .b-more-button__show-more-icon {
+  background: url('../images/icons-s56021c39b0.png') no-repeat;
+}
+
+/* line 122, navigation/*.png */
+.navigation-sprite {
+  background: url('../images/navigation-sf9b1191564.png') no-repeat;
+}
+
+/* line 6, ../../app/styles/more.scss */
 .b-more-button {
   margin: 5px auto;
   width: 140px;
   height: 20px;
 }
 
-/* line 11, ../../app/styles/more.scss */
+/* line 12, ../../app/styles/more.scss */
 .b-more-button__show-more-button {
   cursor: pointer;
 }
 
-/* line 15, ../../app/styles/more.scss */
+/* line 16, ../../app/styles/more.scss */
 .b-more-button__show-more-text {
   font-family: Gothic, sans-serif;
   font-size: 12pt;
@@ -30,17 +50,19 @@
   float: left;
 }
 
-/* line 22, ../../app/styles/more.scss */
+/* line 23, ../../app/styles/more.scss */
 .b-more-button__show-more-icon {
   float: left;
   margin-left: 10px;
   margin-top: 3px;
   width: 16px;
   height: 16px;
-  background-image: url('../images/good/show_more_icon.png?1351160033');
+  background-position: 0 -156px;
+  height: 16px;
+  width: 16px;
 }
 
-/* line 34, ../../app/styles/more.scss */
+/* line 35, ../../app/styles/more.scss */
 .b-more-button__show-loader {
   margin-left: 35px;
   font-family: Gothic, sans-serif;

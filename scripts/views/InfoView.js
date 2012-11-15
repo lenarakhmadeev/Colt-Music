@@ -5,8 +5,6 @@ define(function(require) {
   var InfoView, View, infoTemplate;
   View = require('views/View');
   infoTemplate = require('tpl!templates/info.html');
-  'use strict';
-
   return InfoView = (function(_super) {
 
     __extends(InfoView, _super);

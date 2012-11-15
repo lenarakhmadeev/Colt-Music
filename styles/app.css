@@ -1,6 +1,6 @@
 /* line 7, ../../app/styles/app.scss */
 body {
-  background-image: url('../images/patterns/patt2.png?1351160033');
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sKFwU5JXAYqt0AAAAgSURBVAjXTcExAQAgDAOwgn8rs9jw7CDJzIC2DmTdfB6+oQ77Uf8VOQAAAABJRU5ErkJggg==');
   margin: 0;
 }
 
@@ -25,23 +25,23 @@ body {
   border-bottom: 1px solid #bebebe;
 }
 
-/* line 32, ../../app/styles/app.scss */
+/* line 31, ../../app/styles/app.scss */
 .b-app__player-place {
   height: 151px;
 }
 
-/* line 37, ../../app/styles/app.scss */
+/* line 36, ../../app/styles/app.scss */
 .b-app__navigation-place {
   height: 20px;
   margin-top: 15px;
 }
 
-/* line 43, ../../app/styles/app.scss */
+/* line 42, ../../app/styles/app.scss */
 .b-app__list-place {
   margin-top: 200px;
 }
 
-/* line 49, ../../app/styles/app.scss */
+/* line 48, ../../app/styles/app.scss */
 .b-list {
   width: 827px;
   margin-top: 70px;

@@ -7,8 +7,6 @@ define(function(require) {
   SimilarsView = require('views/SimilarsView');
   InfoView = require('views/InfoView');
   itemTemplate = require('tpl!templates/item.html');
-  'use strict';
-
   return ItemView = (function(_super) {
 
     __extends(ItemView, _super);
@@ -60,7 +58,7 @@ define(function(require) {
 
     ItemView.prototype.renderCover = function() {
       var cover;
-      cover = this.model.get('info.images.126') || 'images/big.png';
+      cover = this.model.get('info.images.126') || 'images/cover/big.png';
       return this.$('.b-item__cover-image').attr('src', cover);
     };
 

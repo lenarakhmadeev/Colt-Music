@@ -12,8 +12,6 @@ define(function(require) {
   NavigationView = require('views/NavigationView');
   ListView = require('views/ListView');
   AppTemplate = require('tpl!templates/app.html');
-  'use strict';
-
   return AppView = (function(_super) {
 
     __extends(AppView, _super);

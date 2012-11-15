@@ -1,42 +1,42 @@
-'use strict';
 
 requirejs.config({
   deps: ['main'],
   baseUrl: 'scripts',
   paths: {
-    jquery: 'libs/jquery/jquery-1.8.0',
-    underscore: 'libs/lodash',
-    backbone: 'libs/backbone/backbone',
+    $: 'libs/jquery/jquery-1.8.0',
+    _: 'libs/lodash',
+    Backbone: 'libs/backbone/backbone',
     json2: 'libs/json2',
     jpath: 'libs/jpath',
     humane: 'libs/humane',
-    jquery_jplayer: 'libs/jquery/jplayer/jquery.jplayer.min',
-    jquery_marquee: 'libs/jquery/marquee',
-    backbone_nested: 'libs/backbone/backbone-nested',
     text: 'libs/requirejs/text',
     tpl: 'libs/requirejs/tpl',
     templates: '../templates',
     vk: 'http://vk.com/js/api/xd_connection'
   },
+  map: {
+    '*': {
+      underscore: '_',
+      backbone: 'Backbone',
+      jquery: '$'
+    }
+  },
   shim: {
-    backbone_nested: {
-      deps: ['backbone']
+    Backbone: {
+      deps: ['$', '_', 'json2'],
+      exports: function() {
+        require(['libs/backbone/backbone-nested']);
+        return this.Backbone;
+      }
     },
-    backbone: {
-      deps: ['jquery', 'underscore', 'json2'],
-      exports: 'Backbone'
-    },
-    underscore: {
-      exports: '_'
+    $: {
+      exports: function() {
+        require(['libs/jquery/jplayer/jquery.jplayer.min', 'libs/jquery/marquee']);
+        return this.$;
+      }
     },
     vk: {
       exports: 'VK'
-    },
-    jquery_jplayer: {
-      deps: ['jquery']
-    },
-    jquery_marquee: {
-      deps: ['jquery']
     },
     jpath: {
       exports: 'jpath'

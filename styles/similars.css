@@ -18,27 +18,36 @@
 
 /* line 21, ../../app/styles/similars.scss */
 .b-similars__phrase {
-  margin-top: 10px;
-  display: block;
   font-family: Gothic, sans-serif;
   font-size: 12pt;
   font-weight: normal;
   color: #212121;
+  margin-top: 10px;
+  display: block;
 }
 
-/* line 29, ../../app/styles/similars.scss */
+/* line 28, ../../app/styles/similars.scss */
 .b-similars__similars-container {
-  -webkit-columns: 2;
-  -moz-columns: 2;
-  -ms-columns: 2;
-  -o-columns: 2;
-  columns: 2;
-  -webkit-column-gap: 0;
-  -moz-column-gap: 0;
-  -ms-column-gap: 0;
-  -o-column-gap: 0;
-  column-gap: 0;
   background-color: #dfdfdf;
   border: 1px solid whitesmoke;
   display: none;
+}
+
+/* line 36, ../../app/styles/similars.scss */
+.b-similars__similars-container-col1 {
+  float: left;
+  width: 50%;
+}
+
+/* line 42, ../../app/styles/similars.scss */
+.b-similars__similars-container-col2 {
+  float: right;
+  width: 50%;
+}
+
+/* line 49, ../../app/styles/similars.scss */
+.b-similars__similars-container-clear {
+  clear: both;
+  width: 0;
+  height: 0;
 }

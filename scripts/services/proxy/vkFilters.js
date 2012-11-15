@@ -1,9 +1,7 @@
 
 define(function(require) {
   var audioItemFilter, pickAudioData, vkFilters, _;
-  _ = require('underscore');
-  'use strict';
-
+  _ = require('_');
   pickAudioData = function(data) {
     var result;
     result = _.pick(data, 'owner_id', 'url', 'duration');

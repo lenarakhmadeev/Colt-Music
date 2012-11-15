@@ -1,11 +1,9 @@
 
 define(function(require) {
   var mediator, scroll, vk, _;
-  _ = require('underscore');
+  _ = require('_');
   vk = require('vk');
   mediator = require('services/mediator');
-  'use strict';
-
   return scroll = {
     init: function() {
       vk.callMethod('scrollSubscribe', {

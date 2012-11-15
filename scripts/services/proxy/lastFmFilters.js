@@ -1,9 +1,8 @@
 
 define(function(require) {
-  var jpath, lastFmFilters;
+  var jpath, lastFmFilters, _;
   jpath = require('jpath');
-  'use strict';
-
+  _ = require('_');
   return lastFmFilters = {
     info: function(data) {
       var rawImages;

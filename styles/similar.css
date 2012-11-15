@@ -7,7 +7,27 @@
   src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
 }
 
-/* line 8, ../../app/styles/similar.scss */
+/* line 242, player/*.png */
+.player-sprite {
+  background: url('../images/player-s93a7b84bfe.png') no-repeat;
+}
+
+/* line 66, item/*.png */
+.item-sprite {
+  background: url('../images/item-sc720ff8abe.png') no-repeat;
+}
+
+/* line 138, icons/*.png */
+.icons-sprite, .b-similar__play-button, .b-similar__pause-button, .b-similar__add-button, .b-similar__like-button, .b-similar__wiki-button {
+  background: url('../images/icons-s56021c39b0.png') no-repeat;
+}
+
+/* line 122, navigation/*.png */
+.navigation-sprite {
+  background: url('../images/navigation-sf9b1191564.png') no-repeat;
+}
+
+/* line 9, ../../app/styles/similar.scss */
 .b-similar {
   margin-top: 1px;
   margin-left: 1px;
@@ -24,7 +44,7 @@
   background-image: linear-gradient(top, #dfdfdf, #bebebe);
 }
 
-/* line 26, ../../app/styles/similar.scss */
+/* line 27, ../../app/styles/similar.scss */
 .b-similar_selected {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bebebe), color-stop(100%, #dfdfdf));
   background-image: -webkit-linear-gradient(top, #bebebe, #dfdfdf);
@@ -33,7 +53,7 @@
   background-image: linear-gradient(top, #bebebe, #dfdfdf);
 }
 
-/* line 32, ../../app/styles/similar.scss */
+/* line 33, ../../app/styles/similar.scss */
 .b-similar__album-cover {
   outline: 1px solid whitesmoke;
   width: 64px;
@@ -42,19 +62,19 @@
   cursor: pointer;
 }
 
-/* line 41, ../../app/styles/similar.scss */
+/* line 42, ../../app/styles/similar.scss */
 .b-similar__cover-image {
   width: 64px;
   height: 64px;
 }
 
-/* line 47, ../../app/styles/similar.scss */
+/* line 48, ../../app/styles/similar.scss */
 .b-similar__content {
   margin-left: 15px;
   float: left;
 }
 
-/* line 53, ../../app/styles/similar.scss */
+/* line 54, ../../app/styles/similar.scss */
 .b-similar__track-title {
   font-family: Gothic, sans-serif;
   font-size: 10pt;
@@ -64,7 +84,7 @@
   cursor: pointer;
 }
 
-/* line 60, ../../app/styles/similar.scss */
+/* line 61, ../../app/styles/similar.scss */
 .b-similar__artist-name {
   font-weight: bold;
   height: 17px;
@@ -72,85 +92,80 @@
   overflow: hidden;
 }
 
-/* line 69, ../../app/styles/similar.scss */
+/* line 70, ../../app/styles/similar.scss */
 .b-similar__track-name {
   height: 17px;
   display: block;
   overflow: hidden;
 }
 
-/* line 76, ../../app/styles/similar.scss */
+/* line 77, ../../app/styles/similar.scss */
 .b-similar__buttons {
   margin-top: 7px;
   cursor: pointer;
 }
 
-/* line 82, ../../app/styles/similar.scss */
+/* line 83, ../../app/styles/similar.scss */
 .b-similar__play-button {
   float: left;
-  width: 13px;
+  background-position: 0 -52px;
   height: 13px;
-  cursor: pointer;
-  background-image: url('../images/good/play_icon.png?1351160033');
+  width: 13px;
 }
-/* line 15, ../../app/styles/_common.scss */
-.b-similar__play-button:hover {
-  background-image: url('../images/good/play_icon_over.png?1351160033');
+/* line 43, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.b-similar__play-button:hover, .b-similar__play-button.play_hover, .b-similar__play-button.play-hover {
+  background-position: 0 -65px;
 }
 
-/* line 89, ../../app/styles/similar.scss */
+/* line 90, ../../app/styles/similar.scss */
 .b-similar__pause-button {
   display: none;
   float: left;
-  width: 13px;
+  background-position: 0 -130px;
   height: 13px;
-  cursor: pointer;
-  background-image: url('../images/good/pause_icon.png?1351160033');
+  width: 13px;
 }
-/* line 15, ../../app/styles/_common.scss */
-.b-similar__pause-button:hover {
-  background-image: url('../images/good/pause_icon_over.png?1351160033');
+/* line 43, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.b-similar__pause-button:hover, .b-similar__pause-button.pause_hover, .b-similar__pause-button.pause-hover {
+  background-position: 0 -143px;
 }
 
-/* line 97, ../../app/styles/similar.scss */
+/* line 98, ../../app/styles/similar.scss */
 .b-similar__add-button {
   float: left;
   margin-left: 7px;
-  width: 13px;
+  background-position: 0 -104px;
   height: 13px;
-  cursor: pointer;
-  background-image: url('../images/good/add_icon.png?1351160033');
+  width: 13px;
 }
-/* line 15, ../../app/styles/_common.scss */
-.b-similar__add-button:hover {
-  background-image: url('../images/good/add_icon_over.png?1351160033');
+/* line 43, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.b-similar__add-button:hover, .b-similar__add-button.add_hover, .b-similar__add-button.add-hover {
+  background-position: 0 -117px;
 }
 
-/* line 105, ../../app/styles/similar.scss */
+/* line 106, ../../app/styles/similar.scss */
 .b-similar__like-button {
   float: left;
   margin-left: 7px;
-  width: 13px;
+  background-position: 0 -26px;
   height: 13px;
-  cursor: pointer;
-  background-image: url('../images/good/like_icon.png?1351160033');
+  width: 13px;
 }
-/* line 15, ../../app/styles/_common.scss */
-.b-similar__like-button:hover {
-  background-image: url('../images/good/like_icon_over.png?1351160033');
+/* line 43, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.b-similar__like-button:hover, .b-similar__like-button.like_hover, .b-similar__like-button.like-hover {
+  background-position: 0 -39px;
 }
 
-/* line 113, ../../app/styles/similar.scss */
+/* line 114, ../../app/styles/similar.scss */
 .b-similar__wiki-button {
   float: left;
   margin-left: 7px;
   display: none;
-  width: 13px;
+  background-position: 0 -78px;
   height: 13px;
-  cursor: pointer;
-  background-image: url('../images/good/wiki_icon.png?1351160033');
+  width: 13px;
 }
-/* line 15, ../../app/styles/_common.scss */
-.b-similar__wiki-button:hover {
-  background-image: url('../images/good/wiki_icon_over.png?1351160033');
+/* line 43, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
+.b-similar__wiki-button:hover, .b-similar__wiki-button.wiki_hover, .b-similar__wiki-button.wiki-hover {
+  background-position: 0 -91px;
 }

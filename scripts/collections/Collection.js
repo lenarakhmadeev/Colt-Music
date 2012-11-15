@@ -3,9 +3,7 @@ var __hasProp = {}.hasOwnProperty,
 
 define(function(require) {
   var Backbone, Collection;
-  Backbone = require('backbone');
-  'use strict';
-
+  Backbone = require('Backbone');
   return Collection = (function(_super) {
 
     __extends(Collection, _super);
@@ -18,7 +16,7 @@ define(function(require) {
 
     Collection.prototype.recalculateIds = function() {
       var id, model, _i, _len, _ref;
-      id = 1;
+      id = 0;
       _ref = this.models;
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         model = _ref[_i];

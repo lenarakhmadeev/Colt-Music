@@ -3,11 +3,9 @@ var __hasProp = {}.hasOwnProperty,
 
 define(function(require) {
   var Backbone, PlayerModel, mediator, player;
-  Backbone = require('backbone');
+  Backbone = require('Backbone');
   mediator = require('services/mediator');
   player = require('services/player');
-  'use strict';
-
   return PlayerModel = (function(_super) {
 
     __extends(PlayerModel, _super);

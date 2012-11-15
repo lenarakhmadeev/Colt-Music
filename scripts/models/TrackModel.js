@@ -4,13 +4,10 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
 
 define(function(require) {
   var $, Backbone, TrackModel, mediator, proxy;
-  $ = require('jquery');
-  Backbone = require('backbone');
+  $ = require('$');
+  Backbone = require('Backbone');
   mediator = require('services/mediator');
   proxy = require('services/proxy/proxy');
-  require('backbone_nested');
-  'use strict';
-
   return TrackModel = (function(_super) {
 
     __extends(TrackModel, _super);

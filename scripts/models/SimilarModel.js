@@ -4,8 +4,6 @@ var __hasProp = {}.hasOwnProperty,
 define(function(require) {
   var SimilarModel, TrackModel;
   TrackModel = require('models/TrackModel');
-  'use strict';
-
   return SimilarModel = (function(_super) {
 
     __extends(SimilarModel, _super);

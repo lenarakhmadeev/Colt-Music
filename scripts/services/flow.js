@@ -1,9 +1,8 @@
 
 define(function(require) {
-  var flow, mediator;
+  var flow, mediator, _;
   mediator = require('services/mediator');
-  'use strict';
-
+  _ = require('_');
   return flow = {
     init: function() {
       mediator.subscribe('flow:next', this.next, this);
@@ -18,46 +17,35 @@ define(function(require) {
       }
     },
     _next: function(track) {
-      var next;
       if (track.get('type') === 'item') {
-        next = this.nextForItem();
+        return this.nextForItem(track);
       } else {
-        if (track === track.collection.last() && track.collection.parent === track.collection.parent.collection.last()) {
+        return this.nextForSim(track);
+      }
+    },
+    nextForItem: function(track) {
+      if (track.similarsCollection.length) {
+        return track.similarsCollection.at(0);
+      } else {
+        return this.nextInCollection(track);
+      }
+    },
+    nextForSim: function(track) {
+      var parentItem;
+      parentItem = track.collection.parent;
+      if (this.isLast(track)) {
+        if (this.isLast(parentItem)) {
           return;
         }
-        next = this.nextForSim();
-      }
-      return next;
-    },
-    nextForItem: function() {
-      var next;
-      if (this.currentTrack.similarsCollection.length) {
-        next = this.currentTrack.similarsCollection.at(0);
+        return this.nextInCollection(parentItem);
       } else {
-        next = this.nextInCollection(this.currentTrack);
-        this.checkLastInPage(this.currentTrack);
+        return this.nextInCollection(track);
       }
-      return next;
-    },
-    nextForSim: function() {
-      var next;
-      if (this.currentTrack === this.currentTrack.collection.last()) {
-        next = this.nextInCollection(this.currentTrack.collection.parent);
-        this.checkLastInPage(this.currentTrack.collection.parent);
-      } else {
-        next = this.nextInCollection(this.currentTrack);
-      }
-      return next;
     },
     nextInCollection: function(track) {
       var id;
       id = track.id + 1;
       return track.collection.get(id);
-    },
-    checkLastInPage: function(track) {
-      if (_.last(track.collection.own.get('content')) === track) {
-        return track.collection.nextPage();
-      }
     },
     prev: function() {
       var prev;
@@ -67,31 +55,29 @@ define(function(require) {
       }
     },
     _prev: function(track) {
-      var prev;
       if (track.get('type') === 'item') {
-        if (track === track.collection.first()) {
-          return;
-        }
-        prev = this.prevForItem();
+        return this.prevForItem(track);
       } else {
-        prev = this.prevForSim();
+        return this.prevForSim(track);
       }
-      return prev;
     },
-    prevForItem: function() {
+    prevForItem: function(track) {
       var prevItem;
-      prevItem = this.prevInCollection(this.currentTrack);
+      if (this.isFirst(track)) {
+        return;
+      }
+      prevItem = this.prevInCollection(track);
       if (prevItem.similarsCollection.length) {
         return prevItem.similarsCollection.last();
       } else {
         return prevItem;
       }
     },
-    prevForSim: function() {
-      if (this.currentTrack === this.currentTrack.collection.first()) {
-        return this.currentTrack.collection.parent;
+    prevForSim: function(track) {
+      if (this.isFirst(track)) {
+        return track.collection.parent;
       } else {
-        return this.prevInCollection(this.currentTrack);
+        return this.prevInCollection(track);
       }
     },
     prevInCollection: function(track) {
@@ -99,11 +85,31 @@ define(function(require) {
       id = track.id - 1;
       return track.collection.get(id);
     },
+    isLast: function(track) {
+      return track === track.collection.last();
+    },
+    isFirst: function(track) {
+      return track === track.collection.first();
+    },
+    loadTrackPage: function(track) {
+      if (track.get('type') === 'similar') {
+        track = track.collection.parent;
+      }
+      return mediator.publish('list:load_page', this.getItemPage(track));
+    },
+    getItemPage: function(item) {
+      var indx, pageSize;
+      pageSize = item.collection.pageSize;
+      indx = item.id;
+      return Math.floor(indx / pageSize);
+    },
     setCurrent: function(track) {
       if (this.currentTrack != null) {
         this.currentTrack.setCurrent(false);
       }
-      return this.currentTrack = track;
+      this.currentTrack = track;
+      this.loadTrackPage(track);
+      return this.preloadNextSimilar(track);
     },
     preloadNextSimilar: function(track) {
       var nextNext;

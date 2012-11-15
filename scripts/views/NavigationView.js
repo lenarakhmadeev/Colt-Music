@@ -3,12 +3,10 @@ var __hasProp = {}.hasOwnProperty,
 
 define(function(require) {
   var $, NavigationView, View, mediator, navigationTemplate;
-  $ = require('jquery');
+  $ = require('$');
   mediator = require('services/mediator');
   View = require('views/View');
   navigationTemplate = require('tpl!templates/navigation.html');
-  'use strict';
-
   return NavigationView = (function(_super) {
 
     __extends(NavigationView, _super);

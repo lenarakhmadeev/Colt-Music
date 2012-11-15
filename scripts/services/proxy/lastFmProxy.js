@@ -1,11 +1,9 @@
 
 define(function(require, exports, module) {
   var $, LastFm, config, lastFm, lastFmFilters, lastFmProxy;
-  $ = require('jquery');
+  $ = require('$');
   LastFm = require('services/proxy/LastFm');
   lastFmFilters = require('services/proxy/lastFmFilters');
-  'use strict';
-
   config = module.config();
   lastFm = new LastFm(config.lastFm_key, config.lastFm_url);
   return lastFmProxy = {

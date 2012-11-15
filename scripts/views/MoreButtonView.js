@@ -5,8 +5,6 @@ define(function(require) {
   var MoreButtonView, View, moreTemplate;
   View = require('views/View');
   moreTemplate = require('tpl!templates/more.html');
-  'use strict';
-
   return MoreButtonView = (function(_super) {
 
     __extends(MoreButtonView, _super);

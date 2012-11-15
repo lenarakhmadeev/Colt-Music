@@ -1,12 +1,10 @@
 
 define(function(require) {
   var $, humane, mediator, noty, _;
-  _ = require('underscore');
-  $ = require('jquery');
+  _ = require('_');
+  $ = require('$');
   mediator = require('services/mediator');
   humane = require('humane');
-  'use strict';
-
   return noty = {
     timeout: 1500,
     init: function() {
