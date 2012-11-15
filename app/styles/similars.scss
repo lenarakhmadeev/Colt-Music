@@ -19,22 +19,38 @@
 
 
 		.b-similars__phrase {
+			@include black-gothic-font(12pt);
 			margin-top: 10px;
 			display: block;
-
-			@include black-gothic-font(12pt);
 		}
 
 
 	.b-similars__similars-container {
-		@include columns(2);
-		@include column-gap(0);
-
 		background-color: $light_gray;
 		border: 1px solid $white-border;
 
 		display: none;
 	}
+
+
+		.b-similars__similars-container-col1 {
+			float: left;
+			width: 50%;
+		}
+
+
+		.b-similars__similars-container-col2 {
+			float: right;
+			width: 50%;
+		}
+
+
+		// Хак для колонок
+		.b-similars__similars-container-clear {
+			clear: both;
+			width: 0;
+			height: 0;
+		}
 
 
 	.b-similars__more-button-place {

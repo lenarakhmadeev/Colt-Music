@@ -1,6 +1,7 @@
 
 define ( require )->
 	$ = require( '$' )
+	_ = require( '_' )
 	mediator = require( 'services/mediator' )
 	View = require( 'views/View' )
 	SimilarView = require( 'views/SimilarView' )
@@ -29,14 +30,38 @@ define ( require )->
 
 
 		updateSimilars: ()->
-			@$('.b-similars__similars-container').empty()
+			@$('.b-similars__similars-container-col1').empty()
+			@$('.b-similars__similars-container-col2').empty()
 
 			@renderSimilars()
 
 
 		renderSimilars: ()->
-			# todo поделить на 2 группы и пихать в разные колонки
-			@collection.each( @addItem, this )
+			return if not @collection.length
+
+			[ left, right ] = @divideCollection( @collection )
+
+			@renderColumn( '.b-similars__similars-container-col1', left )
+			@renderColumn( '.b-similars__similars-container-col2', right )
+
+			# По умолчанию display: none
+			@$( '.b-similars__similars-container' ).show()
+
+			# Ресайз контейнера приложения
+			mediator.publish( 'app:resize' )
+
+
+		renderColumn: ( columnSelector, models )->
+			callback = (model)->
+				@addItem(columnSelector, model)
+
+			_.each( models, callback, this )
+
+
+		divideCollection: (collection)->
+			middle = Math.ceil(collection.length / 2)
+
+			[ collection[...middle], collection[middle...] ]
 
 
 		renderPhrase: ()->
@@ -49,14 +74,11 @@ define ( require )->
 			@append( '.b-similars__more-button-place', @moreButtonView )
 
 
-		addItem: ( model )->
+		addItem: ( columnSelector, model )->
 			simView = new SimilarView( model: model )
 			simView.render()
 
 			# Добавляем на страницу
-			@append( '.b-similars__similars-container', simView )
+			@append( columnSelector, simView )
 
-			# По умолчанию display: none
-			@$( '.b-similars__similars-container' ).show()
 
-			mediator.publish( 'app:resize' )
