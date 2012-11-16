@@ -5,11 +5,12 @@
 
 .b-more-button {
 	margin: 5px auto;
-	width: 140px;
+	width: 200px;
 	height: 20px;
 }
 
 	.b-more-button__show-more-button {
+		margin-left: 35px;
 		cursor: pointer;
 	}
 
@@ -33,7 +34,7 @@
 
 
 	.b-more-button__show-loader {
-		margin-left: 35px;
+		margin-left: 60px;
 
 		@include white-gothic-font(12pt, bold);
 	}
