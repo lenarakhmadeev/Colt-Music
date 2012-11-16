@@ -79,10 +79,12 @@ define(function(require) {
           page: page - 1
         });
       }
-      data.pages.push({
-        type: 'cur_num',
-        page: page
-      });
+      if (page != null) {
+        data.pages.push({
+          type: 'cur_num',
+          page: page
+        });
+      }
       if (page + 1 < pages) {
         data.pages.push({
           type: 'num',

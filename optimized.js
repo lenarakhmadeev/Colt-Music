@@ -17826,10 +17826,12 @@ define('views/NavigationView',['require','$','services/mediator','views/View','t
           page: page - 1
         });
       }
-      data.pages.push({
-        type: 'cur_num',
-        page: page
-      });
+      if (page != null) {
+        data.pages.push({
+          type: 'cur_num',
+          page: page
+        });
+      }
       if (page + 1 < pages) {
         data.pages.push({
           type: 'num',
@@ -19000,13 +19002,11 @@ define('services/scroll',['require','_','vk','services/mediator'],function(requi
 		+событие для след страницы
 		+прелоад
 
+	+Деплой
+
 --------------------------------------------------------------------------------
 
 	Тестировать в браузерах
-
-	Оформление приложения
-
-	Деплой
 
 	Почистить
 		стили
