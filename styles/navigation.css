@@ -9,22 +9,22 @@
 
 /* line 242, player/*.png */
 .player-sprite {
-  background: url('../images/player-s93a7b84bfe.png') no-repeat;
+  background: url('../images/player-sdbe12c62c6.png') no-repeat;
 }
 
 /* line 66, item/*.png */
 .item-sprite {
-  background: url('../images/item-sc720ff8abe.png') no-repeat;
+  background: url('../images/item-s5201a6477f.png') no-repeat;
 }
 
 /* line 138, icons/*.png */
 .icons-sprite {
-  background: url('../images/icons-s56021c39b0.png') no-repeat;
+  background: url('../images/icons-s25753a842f.png') no-repeat;
 }
 
 /* line 122, navigation/*.png */
 .navigation-sprite, .b-navigation__next, .b-navigation__prev, .b-navigation__first, .b-navigation__last, .b-navigation__item, .b-navigation__item_current, .b-navigation__space {
-  background: url('../images/navigation-sf9b1191564.png') no-repeat;
+  background: url('../images/navigation-sd19e8ff86c.png') no-repeat;
 }
 
 /* line 6, ../../app/styles/navigation.scss */
@@ -40,9 +40,9 @@
   cursor: pointer;
 }
 
-/* line 16, ../../app/styles/navigation.scss */
+/* line 15, ../../app/styles/navigation.scss */
 .b-navigation__next {
-  background-position: 0 -156px;
+  background-position: 0 -164px;
   height: 17px;
   width: 10px;
   height: 17px;
@@ -53,12 +53,12 @@
 }
 /* line 43, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .b-navigation__next:hover, .b-navigation__next.next_hover, .b-navigation__next.next-hover {
-  background-position: 0 -139px;
+  background-position: 0 -146px;
 }
 
-/* line 26, ../../app/styles/navigation.scss */
+/* line 25, ../../app/styles/navigation.scss */
 .b-navigation__prev {
-  background-position: 0 -173px;
+  background-position: 0 -182px;
   height: 17px;
   width: 10px;
   height: 16px;
@@ -67,12 +67,12 @@
 }
 /* line 43, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .b-navigation__prev:hover, .b-navigation__prev.prev_hover, .b-navigation__prev.prev-hover {
-  background-position: 0 -122px;
+  background-position: 0 -128px;
 }
 
-/* line 34, ../../app/styles/navigation.scss */
+/* line 33, ../../app/styles/navigation.scss */
 .b-navigation__first {
-  background-position: 0 -78px;
+  background-position: 0 -82px;
   height: 17px;
   width: 17px;
   height: 17px;
@@ -83,12 +83,12 @@
 }
 /* line 43, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .b-navigation__first:hover, .b-navigation__first.first_hover, .b-navigation__first.first-hover {
-  background-position: 0 -44px;
+  background-position: 0 -46px;
 }
 
-/* line 44, ../../app/styles/navigation.scss */
+/* line 43, ../../app/styles/navigation.scss */
 .b-navigation__last {
-  background-position: 0 -61px;
+  background-position: 0 -64px;
   height: 17px;
   width: 17px;
   height: 16px;
@@ -97,12 +97,12 @@
 }
 /* line 43, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .b-navigation__last:hover, .b-navigation__last.last_hover, .b-navigation__last.last-hover {
-  background-position: 0 -27px;
+  background-position: 0 -28px;
 }
 
-/* line 52, ../../app/styles/navigation.scss */
+/* line 51, ../../app/styles/navigation.scss */
 .b-navigation__item {
-  background-position: 0 -190px;
+  background-position: 0 -200px;
   height: 27px;
   width: 24px;
   height: 27px;
@@ -112,12 +112,12 @@
 }
 /* line 43, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .b-navigation__item:hover, .b-navigation__item.number_hover, .b-navigation__item.number-hover {
-  background-position: 0 -95px;
+  background-position: 0 -100px;
 }
 
-/* line 61, ../../app/styles/navigation.scss */
+/* line 60, ../../app/styles/navigation.scss */
 .b-navigation__item_current {
-  background-position: 0 -95px;
+  background-position: 0 -100px;
   height: 27px;
   width: 24px;
   height: 27px;
@@ -127,7 +127,7 @@
   cursor: default;
 }
 
-/* line 71, ../../app/styles/navigation.scss */
+/* line 70, ../../app/styles/navigation.scss */
 .b-navigation__space {
   background-position: 0 0;
   height: 27px;

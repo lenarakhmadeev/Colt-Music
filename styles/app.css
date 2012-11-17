@@ -7,14 +7,6 @@ body {
 /* line 18, ../../app/styles/app.scss */
 .b-app__slider {
   width: 100%;
-  -webkit-transition-property: top;
-  -moz-transition-property: top;
-  -o-transition-property: top;
-  transition-property: top;
-  -webkit-transition-duration: 0.2s;
-  -moz-transition-duration: 0.2s;
-  -o-transition-duration: 0.2s;
-  transition-duration: 0.2s;
   -webkit-box-shadow: 0 8px 30px #222222;
   -moz-box-shadow: 0 8px 30px #222222;
   box-shadow: 0 8px 30px #222222;
@@ -41,7 +33,7 @@ body {
   margin-top: 200px;
 }
 
-/* line 48, ../../app/styles/app.scss */
+/* line 47, ../../app/styles/app.scss */
 .b-list {
   width: 827px;
   margin-top: 70px;

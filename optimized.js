@@ -19013,8 +19013,13 @@ define('services/scroll',['require','_','vk','services/mediator'],function(requi
 		код
 		комментарии
 
+	lastfm ключ
+
 __________________________________
 	ver 1.5
+
+		notyfication
+			логи
 
 		Посмотреть все минусы
 

@@ -33,19 +33,19 @@
   display: none;
 }
 
-/* line 36, ../../app/styles/similars.scss */
+/* line 35, ../../app/styles/similars.scss */
 .b-similars__similars-container-col1 {
   float: left;
   width: 50%;
 }
 
-/* line 42, ../../app/styles/similars.scss */
+/* line 41, ../../app/styles/similars.scss */
 .b-similars__similars-container-col2 {
   float: right;
   width: 50%;
 }
 
-/* line 49, ../../app/styles/similars.scss */
+/* line 48, ../../app/styles/similars.scss */
 .b-similars__similars-container-clear {
   clear: both;
   width: 0;

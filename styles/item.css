@@ -9,22 +9,22 @@
 
 /* line 242, player/*.png */
 .player-sprite {
-  background: url('../images/player-s93a7b84bfe.png') no-repeat;
+  background: url('../images/player-sdbe12c62c6.png') no-repeat;
 }
 
 /* line 66, item/*.png */
 .item-sprite, .b-item__play-button, .b-item__pause-button {
-  background: url('../images/item-sc720ff8abe.png') no-repeat;
+  background: url('../images/item-s5201a6477f.png') no-repeat;
 }
 
 /* line 138, icons/*.png */
 .icons-sprite, .b-item__wiki-button, .b-item__like-button, .b-item__delete-button {
-  background: url('../images/icons-s56021c39b0.png') no-repeat;
+  background: url('../images/icons-s25753a842f.png') no-repeat;
 }
 
 /* line 122, navigation/*.png */
 .navigation-sprite {
-  background: url('../images/navigation-sf9b1191564.png') no-repeat;
+  background: url('../images/navigation-sd19e8ff86c.png') no-repeat;
 }
 
 /* line 8, ../../app/styles/item.scss */
@@ -43,19 +43,19 @@
   padding: 0 1px;
 }
 
-/* line 20, ../../app/styles/item.scss */
+/* line 18, ../../app/styles/item.scss */
 .b-item_selected {
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAAXNSR0IArs4c6QAAAAZiS0dEAFsAXABgnpTzKQAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9sLFgYjBXzBgEIAAAAwSURBVAjXY2xuaf//5csXBgUFBYbPnz8zMDGgARYREREGdnZ2hjdv3jB8+fIFUwUAjjgOneB8JOgAAAAASUVORK5CYII=');
 }
 
-/* line 25, ../../app/styles/item.scss */
+/* line 23, ../../app/styles/item.scss */
 .b-item__header {
   height: 120px;
   border-bottom: 1px solid black;
   position: relative;
 }
 
-/* line 32, ../../app/styles/item.scss */
+/* line 30, ../../app/styles/item.scss */
 .b-item__album-cover {
   width: 126px;
   height: 126px;
@@ -68,7 +68,7 @@
   cursor: pointer;
 }
 
-/* line 45, ../../app/styles/item.scss */
+/* line 43, ../../app/styles/item.scss */
 .b-item__cover-image {
   width: 126px;
   height: 126px;
@@ -76,18 +76,18 @@
   z-index: 1000;
 }
 
-/* line 54, ../../app/styles/item.scss */
+/* line 51, ../../app/styles/item.scss */
 .b-item__cover-shadow {
+  -webkit-box-shadow: 0 0 30px 0 black, 0 0 30px 0 black, 0 0 30px 0 black;
+  -moz-box-shadow: 0 0 30px 0 black, 0 0 30px 0 black, 0 0 30px 0 black;
+  box-shadow: 0 0 30px 0 black, 0 0 30px 0 black, 0 0 30px 0 black;
   position: absolute;
   top: 116px;
   height: 10px;
   width: 126px;
-  -webkit-box-shadow: 0 0 30px 0 black, 0 0 30px 0 black, 0 0 30px 0 black;
-  -moz-box-shadow: 0 0 30px 0 black, 0 0 30px 0 black, 0 0 30px 0 black;
-  box-shadow: 0 0 30px 0 black, 0 0 30px 0 black, 0 0 30px 0 black;
 }
 
-/* line 65, ../../app/styles/item.scss */
+/* line 61, ../../app/styles/item.scss */
 .b-item__content {
   position: absolute;
   left: 180px;
@@ -96,7 +96,7 @@
   width: 470px;
 }
 
-/* line 75, ../../app/styles/item.scss */
+/* line 70, ../../app/styles/item.scss */
 .b-item__track-title {
   font-family: Gothic, sans-serif;
   font-size: 12pt;
@@ -108,19 +108,19 @@
   cursor: pointer;
 }
 
-/* line 84, ../../app/styles/item.scss */
+/* line 78, ../../app/styles/item.scss */
 .b-item__artist-name {
   font-weight: bold;
 }
 
-/* line 94, ../../app/styles/item.scss */
+/* line 88, ../../app/styles/item.scss */
 .b-item__state-buttons {
   height: 40px;
   position: absolute;
   bottom: 0;
 }
 
-/* line 101, ../../app/styles/item.scss */
+/* line 95, ../../app/styles/item.scss */
 .b-item__play-button {
   background-position: 0 0;
   height: 32px;
@@ -128,22 +128,22 @@
 }
 /* line 43, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .b-item__play-button:hover, .b-item__play-button.play_hover, .b-item__play-button.play-hover {
-  background-position: 0 -32px;
+  background-position: 0 -33px;
 }
 
-/* line 106, ../../app/styles/item.scss */
+/* line 100, ../../app/styles/item.scss */
 .b-item__pause-button {
   display: none;
-  background-position: 0 -64px;
+  background-position: 0 -66px;
   height: 32px;
   width: 93px;
 }
 /* line 43, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .b-item__pause-button:hover, .b-item__pause-button.pause_hover, .b-item__pause-button.pause-hover {
-  background-position: 0 -96px;
+  background-position: 0 -99px;
 }
 
-/* line 118, ../../app/styles/item.scss */
+/* line 112, ../../app/styles/item.scss */
 .b-item__control-buttons {
   position: absolute;
   right: 10px;
@@ -151,9 +151,9 @@
   height: 90px;
 }
 
-/* line 126, ../../app/styles/item.scss */
+/* line 120, ../../app/styles/item.scss */
 .b-item__wiki-button {
-  background-position: 0 -78px;
+  background-position: 0 -84px;
   height: 13px;
   width: 13px;
   float: left;
@@ -161,12 +161,12 @@
 }
 /* line 43, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .b-item__wiki-button:hover, .b-item__wiki-button.wiki_hover, .b-item__wiki-button.wiki-hover {
-  background-position: 0 -91px;
+  background-position: 0 -98px;
 }
 
-/* line 133, ../../app/styles/item.scss */
+/* line 127, ../../app/styles/item.scss */
 .b-item__like-button {
-  background-position: 0 -26px;
+  background-position: 0 -28px;
   height: 13px;
   width: 13px;
   float: left;
@@ -174,12 +174,12 @@
 }
 /* line 43, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .b-item__like-button:hover, .b-item__like-button.like_hover, .b-item__like-button.like-hover {
-  background-position: 0 -39px;
+  background-position: 0 -42px;
 }
 
-/* line 140, ../../app/styles/item.scss */
+/* line 134, ../../app/styles/item.scss */
 .b-item__delete-button {
-  background-position: 0 -13px;
+  background-position: 0 -14px;
   height: 13px;
   width: 13px;
   float: left;
