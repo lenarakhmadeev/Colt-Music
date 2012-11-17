@@ -17,8 +17,8 @@ body {
 
 	.b-app__slider {
 		width: 100%;
-		@include transition-property(top);
-		@include transition-duration(0.2s);
+		//@include transition-property(top);
+		//@include transition-duration(0.0s);
 		@include box-shadow(0 8px 30px #222);
 
 		height: 200px;
@@ -41,7 +41,6 @@ body {
 
 	.b-app__list-place {
 		margin-top: 200px;
-
 	}
 
 

@@ -16,25 +16,22 @@
 
 		.b-more-button__show-more-text {
 			@include white-gothic-font(12pt, bold);
-
 			display: block;
 			float: left;
 		}
 
 		.b-more-button__show-more-icon {
+			@include icons-sprite(show-more);
 			float: left;
-
 			margin-left: 10px;
 			margin-top: 3px;
-
 			width: 16px;
 			height: 16px;
-			@include icons-sprite(show-more);
+
 		}
 
 
 	.b-more-button__show-loader {
-		margin-left: 60px;
-
 		@include white-gothic-font(12pt, bold);
+		margin-left: 60px;
 	}

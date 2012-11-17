@@ -1,5 +1,6 @@
 
 @import "compass/css3/images";
+@import "compass/css3/box-shadow";
 
 @import "_fonts.scss";
 @import "_colors.scss";
@@ -7,26 +8,19 @@
 
 
 .b-similar {
+	@include background-image(
+			linear-gradient(top, $light_gray, $dark_gray));
+	@include box-shadow(0px 0px 0px 1px $white-border);
 	margin-top: 1px;
 	margin-left: 1px;
-
 	height: 64px;
-
-	padding-left: 20px;
-	padding-right: 10px;
-	padding-top: 8px;
-	padding-bottom: 7px;
-
-	box-shadow: 0px 0px 0px 1px $white-border;
-
-	@include background-image(
-		linear-gradient( top, $light_gray, $dark_gray ) );
+	padding: 8px 10px 7px 20px;
 }
 
 
 .b-similar_selected {
 	@include background-image(
-		linear-gradient( top, $dark_gray, $light_gray) );
+		linear-gradient(top, $dark_gray, $light_gray));
 }
 
 
@@ -81,40 +75,35 @@
 
 
 			.b-similar__play-button  {
-				float: left;
-
 				@include icons-sprite(play);
+				float: left;
 			}
 
 
 			.b-similar__pause-button {
+				@include icons-sprite(pause);
 				display: none;
 				float: left;
-
-				@include icons-sprite(pause);
 			}
 
 
 			.b-similar__add-button {
+				@include icons-sprite(add);
 				float: left;
 				margin-left: 7px;
-
-				@include icons-sprite(add);
 			}
 
 
 			.b-similar__like-button {
+				@include icons-sprite(like);
 				float: left;
 				margin-left: 7px;
-
-				@include icons-sprite(like);
 			}
 
 
 			.b-similar__wiki-button {
+				@include icons-sprite(wiki);
 				float: left;
 				margin-left: 7px;
 				display: none;
-
-				@include icons-sprite(wiki);
 			}

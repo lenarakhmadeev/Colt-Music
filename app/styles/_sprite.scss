@@ -1,13 +1,20 @@
 
-$player-layout:smart;
+// Чтобы не вылезали другие спрайты при масштабировании
+$spacing: 1px;
+
+$player-layout: smart;
+$player-spacing: $spacing;
 $player-sprite-dimensions: true;
 @import "player/*.png";
 
+$item-spacing: $spacing;
 $item-sprite-dimensions: true;
 @import "item/*.png";
 
+$icons-spacing: $spacing;
 $icons-sprite-dimensions: true;
 @import "icons/*.png";
 
+$navigation-spacing: $spacing;
 $navigation-sprite-dimensions: true;
 @import "navigation/*.png";
