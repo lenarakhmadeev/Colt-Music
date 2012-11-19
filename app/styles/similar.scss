@@ -20,7 +20,7 @@
 
 .b-similar_selected {
 	@include background-image(
-		linear-gradient(top, $dark_gray, $light_gray));
+		linear-gradient(top, darken($dark_gray, 25), lighten($light_gray, 15)));
 }
 
 

@@ -45,7 +45,7 @@ define ( require )->
 			@renderColumn( '.b-similars__similars-container-col2', right )
 
 			# По умолчанию display: none
-			@$( '.b-similars__similars-container' ).show()
+			@$( '.b-similars__similars-container' ).css(display: 'table')
 
 			# Ресайз контейнера приложения
 			mediator.publish( 'app:resize' )

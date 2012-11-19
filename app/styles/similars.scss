@@ -29,6 +29,7 @@
 		background-color: $light_gray;
 		border: 1px solid $white-border;
 		display: none;
+		width: 100%;
 	}
 
 
@@ -41,14 +42,6 @@
 		.b-similars__similars-container-col2 {
 			float: right;
 			width: 50%;
-		}
-
-
-		// Хак для колонок
-		.b-similars__similars-container-clear {
-			clear: both;
-			width: 0;
-			height: 0;
 		}
 
 
