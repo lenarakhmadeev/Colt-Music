@@ -137,6 +137,7 @@
 				.b-player__add-button {
 					@include player-sprite(add);
 					display: none;
+					cursor: pointer;
 				}
 
 

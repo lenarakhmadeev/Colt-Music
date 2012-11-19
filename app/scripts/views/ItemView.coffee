@@ -61,11 +61,15 @@ define ( require )->
 
 		renderPlayed: ()->
 			if @model.get( 'played' )
-				@$( '.b-item__play-button').hide()
-				@$( '.b-item__pause-button').show()
+				@$( '.b-item__play-button' ).hide()
+				@$( '.b-item__pause-button' ).show()
+
+				@$( '.b-item__album-cover, .b-item__track-title' ).attr( 'title', 'Пауза' )
 			else
-				@$( '.b-item__play-button').show()
-				@$( '.b-item__pause-button').hide()
+				@$( '.b-item__play-button' ).show()
+				@$( '.b-item__pause-button' ).hide()
+
+				@$( '.b-item__album-cover, .b-item__track-title' ).attr( 'title', 'Играть' )
 
 
 		play: ()->

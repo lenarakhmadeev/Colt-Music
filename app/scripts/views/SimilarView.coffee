@@ -48,9 +48,13 @@ define ( require )->
 			if @model.get( 'played' )
 				@$( '.b-similar__play-button' ).hide()
 				@$( '.b-similar__pause-button' ).show()
+
+				@$( '.b-similar__album-cover, .b-similar__track-title' ).attr( 'title', 'Пауза' )
 			else
 				@$( '.b-similar__play-button' ).show()
 				@$( '.b-similar__pause-button' ).hide()
+
+				@$( '.b-similar__album-cover, .b-similar__track-title' ).attr( 'title', 'Играть' )
 
 
 		play: ()->
