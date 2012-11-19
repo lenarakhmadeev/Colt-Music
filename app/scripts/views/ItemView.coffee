@@ -4,6 +4,7 @@ define ( require )->
 	SimilarsView = require( 'views/SimilarsView' )
 	InfoView = require( 'views/InfoView' )
 	itemTemplate = require( 'tpl!templates/item.html' )
+	C = require( 'constants' )
 
 
 	class ItemView extends View
@@ -48,7 +49,7 @@ define ( require )->
 
 
 		renderCover: ()->
-			cover = @model.get( 'info.images.126' ) or 'images/cover/big.png'
+			cover = @model.get( 'info.images.126' ) or C.BIG_COVER
 			@$( '.b-item__cover-image' ).attr( 'src', cover )
 
 
