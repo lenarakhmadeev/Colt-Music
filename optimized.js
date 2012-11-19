@@ -16259,7 +16259,7 @@ define('text',['module'], function (module) {
     return text;
 });
 
-define('text!templates/player.html',[],function () { return '\n<div class="b-player__control-buttons">\n\t<div class="b-player__state-buttons">\n\t\t<div class="b-player__play-button"></div>\n\t\t<div class="b-player__pause-button"></div>\n\t</div>\n\n\t<div class="b-player__prev-button"></div>\n\t<div class="b-player__next-button"></div>\n</div>\n\n<div class="b-player__content">\n\t<div class="b-player__marquee-place"></div>\n\n\t<div class="b-player__progress">\n\t\t<div class="b-player__load-bar">\n\t\t\t<div class="b-player__progress-bar">\n\t\t\t\t<div class="b-player__progress-pick"></div>\n\t\t\t</div>\n\n\t\t\t<div class="b-player__progress-mask"></div>\n\t\t</div>\n\t</div>\n\n\t<div class="b-player__under">\n\t\t<div class="b-player__status-button">\n\t\t\t<div class="b-player__add-button"></div>\n\t\t</div>\n\n\t\t<div class="b-player__volume-controls">\n\t\t\t<div class="b-player__mute-controls">\n\t\t\t\t<div class="b-player__mute-button"></div>\n\t\t\t\t<div class="b-player__unmute-button"></div>\n\t\t\t</div>\n\n\t\t\t<div class="b-player__volume">\n\t\t\t\t<div class="b-player__volume-bar">\n\t\t\t\t\t<div class="b-player__volume-pick"></div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="b-player__volume-mask"></div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<div class="b-player__cover-place">\n\t<img class="b-player__cover-image" src="<%= cover %>"/>\n</div>';});
+define('text!templates/player.html',[],function () { return '\n<div class="b-player__control-buttons">\n\t<div class="b-player__state-buttons">\n\t\t<div class="b-player__play-button" title="Играть"></div>\n\t\t<div class="b-player__pause-button" title="Пауза"></div>\n\t</div>\n\n\t<div class="b-player__prev-button" title="Предыдущая запись"></div>\n\t<div class="b-player__next-button" title="Следующая запись"></div>\n</div>\n\n<div class="b-player__content">\n\t<div class="b-player__marquee-place"></div>\n\n\t<div class="b-player__progress">\n\t\t<div class="b-player__load-bar">\n\t\t\t<div class="b-player__progress-bar">\n\t\t\t\t<div class="b-player__progress-pick"></div>\n\t\t\t</div>\n\n\t\t\t<div class="b-player__progress-mask"></div>\n\t\t</div>\n\t</div>\n\n\t<div class="b-player__under">\n\t\t<div class="b-player__status-button">\n\t\t\t<div class="b-player__add-button" title="Добавить в Мои аудиозаписи"></div>\n\t\t</div>\n\n\t\t<div class="b-player__volume-controls">\n\t\t\t<div class="b-player__mute-controls">\n\t\t\t\t<div class="b-player__mute-button" title="Выключить звук"></div>\n\t\t\t\t<div class="b-player__unmute-button" title="Включить звук"></div>\n\t\t\t</div>\n\n\t\t\t<div class="b-player__volume">\n\t\t\t\t<div class="b-player__volume-bar">\n\t\t\t\t\t<div class="b-player__volume-pick"></div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="b-player__volume-mask"></div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<div class="b-player__cover-place">\n\t<img class="b-player__cover-image" src="<%= cover %>"/>\n</div>';});
 
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -17762,7 +17762,7 @@ define('collections/ListCollection',['require','_','collections/Collection','mod
   })(Collection);
 });
 
-define('text!templates/navigation.html',[],function () { return '\n<% for (var i = 0; i < pages.length; i++) { %>\n\t<% var curPage = pages[i]; %>\n\t\n\t<% if (curPage.type == \'first\') { %>\n\t\t<div class="b-navigation__first" data-page="<%= curPage.page %>"></div>\n\t<% } %>\n\n\t<% if (curPage.type == \'prev\') { %>\n\t\t<div class="b-navigation__prev" data-page="<%= curPage.page %>"></div>\n\t<% } %>\n\n\t<% if (curPage.type == \'num\') { %>\n\t\t<div class="b-navigation__item" data-page="<%= curPage.page %>" >\n\t\t\t<%= curPage.page + 1 %>\n\t\t</div>\n\t<% } %>\n\n\t<% if (curPage.type == \'cur_num\') { %>\n\t\t<div class="b-navigation__item b-navigation__item_current" data-page="<%= curPage.page %>" >\n\t\t\t<%= curPage.page + 1 %>\n\t\t</div>\n\t<% } %>\n\n\t<% if (curPage.type == \'next\') { %>\n\t\t<div class="b-navigation__next" data-page="<%= curPage.page %>"></div>\n\t<% } %>\n\n\t<% if (curPage.type == \'last\') { %>\n\t\t<div class="b-navigation__last" data-page="<%= curPage.page %>"></div>\n\t<% } %>\n\n\t<% if (curPage.type == \'space\') { %>\n\t\t<div class="b-navigation__space"></div>\n\t<% } %>\n<% } %>\n\n\n\n';});
+define('text!templates/navigation.html',[],function () { return '\n<% for (var i = 0; i < pages.length; i++) { %>\n\t<% var curPage = pages[i]; %>\n\t\n\t<% if (curPage.type == \'first\') { %>\n\t\t<div class="b-navigation__first" data-page="<%= curPage.page %>" title="Страница <%= curPage.page + 1 %>"></div>\n\t<% } %>\n\n\t<% if (curPage.type == \'prev\') { %>\n\t\t<div class="b-navigation__prev" data-page="<%= curPage.page %>" title="Страница <%= curPage.page + 1 %>"></div>\n\t<% } %>\n\n\t<% if (curPage.type == \'num\') { %>\n\t\t<div class="b-navigation__item" data-page="<%= curPage.page %>" title="Страница <%= curPage.page + 1 %>">\n\t\t\t<%= curPage.page + 1 %>\n\t\t</div>\n\t<% } %>\n\n\t<% if (curPage.type == \'cur_num\') { %>\n\t\t<div class="b-navigation__item b-navigation__item_current" data-page="<%= curPage.page %>" title="Страница <%= curPage.page + 1 %>">\n\t\t\t<%= curPage.page + 1 %>\n\t\t</div>\n\t<% } %>\n\n\t<% if (curPage.type == \'next\') { %>\n\t\t<div class="b-navigation__next" data-page="<%= curPage.page %>" title="Страница <%= curPage.page + 1 %>"></div>\n\t<% } %>\n\n\t<% if (curPage.type == \'last\') { %>\n\t\t<div class="b-navigation__last" data-page="<%= curPage.page %>" title="Страница <%= curPage.page + 1 %>"></div>\n\t<% } %>\n\n\t<% if (curPage.type == \'space\') { %>\n\t\t<div class="b-navigation__space"></div>\n\t<% } %>\n<% } %>\n\n\n\n';});
 
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -17910,7 +17910,7 @@ define('views/NavigationView',['require','$','services/mediator','views/View','t
   })(View);
 });
 
-define('text!templates/similar.html',[],function () { return '<div class="b-similar__album-cover">\n\t<img class="b-similar__cover-image" src="<%= cover %>" />\n</div>\n\n<div class="b-similar__content">\n\t<div class="b-similar__track-title">\n\t\t\t<span class="b-similar__artist-name">\n\t\t\t\t<%= artist %>\n\t\t\t</span>\n\t\t\t<span class="b-similar__track-name">\n\t\t\t\t<%= title %>\n\t\t\t</span>\n\t</div>\n\n\t<div class="b-similar__buttons">\n\t\t<div class="b-similar__play-button"></div>\n\t\t<div class="b-similar__pause-button"></div>\n\t\t<div class="b-similar__add-button"></div>\n\t\t<div class="b-similar__like-button"></div>\n\t\t<div class="b-similar__wiki-button"></div>\n\t</div>\n</div>\n';});
+define('text!templates/similar.html',[],function () { return '<div class="b-similar__album-cover" title="Играть">\n\t<img class="b-similar__cover-image" src="<%= cover %>" />\n</div>\n\n<div class="b-similar__content">\n\t<div class="b-similar__track-title" title="Играть">\n\t\t\t<span class="b-similar__artist-name">\n\t\t\t\t<%= artist %>\n\t\t\t</span>\n\t\t\t<span class="b-similar__track-name">\n\t\t\t\t<%= title %>\n\t\t\t</span>\n\t</div>\n\n\t<div class="b-similar__buttons">\n\t\t<div class="b-similar__play-button" title="Играть"></div>\n\t\t<div class="b-similar__pause-button" title="Пауза"></div>\n\t\t<div class="b-similar__add-button" title="Добавить в Мои аудиозаписи"></div>\n\t\t<div class="b-similar__like-button" title="Добавить на стену"></div>\n\t\t<div class="b-similar__wiki-button" title="Биография"></div>\n\t</div>\n</div>\n';});
 
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -17971,10 +17971,12 @@ define('views/SimilarView',['require','views/View','tpl!templates/similar.html',
     SimilarView.prototype.renderPlayed = function() {
       if (this.model.get('played')) {
         this.$('.b-similar__play-button').hide();
-        return this.$('.b-similar__pause-button').show();
+        this.$('.b-similar__pause-button').show();
+        return this.$('.b-similar__album-cover, .b-similar__track-title').attr('title', 'Пауза');
       } else {
         this.$('.b-similar__play-button').show();
-        return this.$('.b-similar__pause-button').hide();
+        this.$('.b-similar__pause-button').hide();
+        return this.$('.b-similar__album-cover, .b-similar__track-title').attr('title', 'Играть');
       }
     };
 
@@ -18054,7 +18056,7 @@ define('views/PhraseView',['require','views/View'],function(require) {
   })(View);
 });
 
-define('text!templates/more.html',[],function () { return '\n<% if (status == \'loading\') { %>\n\t<div class="b-more-button__show-loader">\n\t\tЗагрузка...\n\t</div>\n<% } %>\n\n<% if (status == \'no\') { %>\n<% } %>\n\n<% if (status == \'yes\') { %>\n\t<div class="b-more-button__show-more-button">\n\t\t<div class="b-more-button__show-more-text">Показать ещё</div>\n\t\t<div class="b-more-button__show-more-icon"></div>\n\t</div>\n<% } %>';});
+define('text!templates/more.html',[],function () { return '\n<% if (status == \'loading\') { %>\n\t<div class="b-more-button__show-loader" title="Ищем, подождите">\n\t\tЗагрузка...\n\t</div>\n<% } %>\n\n<% if (status == \'no\') { %>\n<% } %>\n\n<% if (status == \'yes\') { %>\n\t<div class="b-more-button__show-more-button" title="Найти ещё похожие">\n\t\t<div class="b-more-button__show-more-text">Показать ещё</div>\n\t\t<div class="b-more-button__show-more-icon"></div>\n\t</div>\n<% } %>';});
 
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -18234,7 +18236,7 @@ define('views/InfoView',['require','views/View','tpl!templates/info.html'],funct
   })(View);
 });
 
-define('text!templates/item.html',[],function () { return '\n<div class="b-item__header">\n\t<div class="b-item__album-cover">\n\t\t<img class="b-item__cover-image" src="<%= cover %>" />\n\t\t<div class="b-item__cover-shadow"></div>\n\t</div>\n\n\t<div class="b-item__content">\n\t\t<div class="b-item__track-title">\n\t\t\t<span class="b-item__artist-name">\n\t\t\t\t<%= artist %>\n\t\t\t</span>\n\t\t\t&nbsp; &mdash; &nbsp;\n\t\t\t<span class="b-item__track-name">\n\t\t\t\t<%= title %>\n\t\t\t</span>\n\t\t</div>\n\n\t\t<div class="b-item__state-buttons">\n\t\t\t<div class="b-item__play-button"></div>\n\t\t\t<div class="b-item__pause-button"></div>\n\t\t</div>\n\n\t\t<div class="b-item__info-place">\n\t\t\t<!-- InfoView -->\n\t\t</div>\n\t</div>\n\n\t<div class="b-item__control-buttons">\n\t\t<div class="b-item__wiki-button"></div>\n\t\t<div class="b-item__like-button"></div>\n\t\t<div class="b-item__delete-button"></div>\n\t</div>\n</div>\n\n<div class="b-item__similars-place">\n\t<!-- SimilarsView -->\n</div>\n';});
+define('text!templates/item.html',[],function () { return '\n<div class="b-item__header">\n\t<div class="b-item__album-cover" title="Играть">\n\t\t<img class="b-item__cover-image" src="<%= cover %>" />\n\t\t<div class="b-item__cover-shadow"></div>\n\t</div>\n\n\t<div class="b-item__content">\n\t\t<div class="b-item__track-title" title="Играть">\n\t\t\t<span class="b-item__artist-name">\n\t\t\t\t<%= artist %>\n\t\t\t</span>\n\t\t\t&nbsp; &mdash; &nbsp;\n\t\t\t<span class="b-item__track-name">\n\t\t\t\t<%= title %>\n\t\t\t</span>\n\t\t</div>\n\n\t\t<div class="b-item__state-buttons">\n\t\t\t<div class="b-item__play-button"></div>\n\t\t\t<div class="b-item__pause-button"></div>\n\t\t</div>\n\n\t\t<div class="b-item__info-place">\n\t\t\t<!-- InfoView -->\n\t\t</div>\n\t</div>\n\n\t<div class="b-item__control-buttons">\n\t\t<div class="b-item__wiki-button" title="Биография"></div>\n\t\t<div class="b-item__like-button" title="Добавить на стену"></div>\n\t\t<div class="b-item__delete-button" title="Удалить запись"></div>\n\t</div>\n</div>\n\n<div class="b-item__similars-place">\n\t<!-- SimilarsView -->\n</div>\n';});
 
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -18311,10 +18313,12 @@ define('views/ItemView',['require','views/View','views/SimilarsView','views/Info
     ItemView.prototype.renderPlayed = function() {
       if (this.model.get('played')) {
         this.$('.b-item__play-button').hide();
-        return this.$('.b-item__pause-button').show();
+        this.$('.b-item__pause-button').show();
+        return this.$('.b-item__album-cover, .b-item__track-title').attr('title', 'Пауза');
       } else {
         this.$('.b-item__play-button').show();
-        return this.$('.b-item__pause-button').hide();
+        this.$('.b-item__pause-button').hide();
+        return this.$('.b-item__album-cover, .b-item__track-title').attr('title', 'Играть');
       }
     };
 

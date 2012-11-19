@@ -73,10 +73,12 @@ define(function(require) {
     ItemView.prototype.renderPlayed = function() {
       if (this.model.get('played')) {
         this.$('.b-item__play-button').hide();
-        return this.$('.b-item__pause-button').show();
+        this.$('.b-item__pause-button').show();
+        return this.$('.b-item__album-cover, .b-item__track-title').attr('title', 'Пауза');
       } else {
         this.$('.b-item__play-button').show();
-        return this.$('.b-item__pause-button').hide();
+        this.$('.b-item__pause-button').hide();
+        return this.$('.b-item__album-cover, .b-item__track-title').attr('title', 'Играть');
       }
     };
 

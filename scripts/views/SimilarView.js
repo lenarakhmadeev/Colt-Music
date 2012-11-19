@@ -57,10 +57,12 @@ define(function(require) {
     SimilarView.prototype.renderPlayed = function() {
       if (this.model.get('played')) {
         this.$('.b-similar__play-button').hide();
-        return this.$('.b-similar__pause-button').show();
+        this.$('.b-similar__pause-button').show();
+        return this.$('.b-similar__album-cover, .b-similar__track-title').attr('title', 'Пауза');
       } else {
         this.$('.b-similar__play-button').show();
-        return this.$('.b-similar__pause-button').hide();
+        this.$('.b-similar__pause-button').hide();
+        return this.$('.b-similar__album-cover, .b-similar__track-title').attr('title', 'Играть');
       }
     };
 

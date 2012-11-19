@@ -1,0 +1,39 @@
+
+<% for (var i = 0; i < pages.length; i++) { %>
+	<% var curPage = pages[i]; %>
+	
+	<% if (curPage.type == 'first') { %>
+		<div class="b-navigation__first" data-page="<%= curPage.page %>" title="Страница <%= curPage.page + 1 %>"></div>
+	<% } %>
+
+	<% if (curPage.type == 'prev') { %>
+		<div class="b-navigation__prev" data-page="<%= curPage.page %>" title="Страница <%= curPage.page + 1 %>"></div>
+	<% } %>
+
+	<% if (curPage.type == 'num') { %>
+		<div class="b-navigation__item" data-page="<%= curPage.page %>" title="Страница <%= curPage.page + 1 %>">
+			<%= curPage.page + 1 %>
+		</div>
+	<% } %>
+
+	<% if (curPage.type == 'cur_num') { %>
+		<div class="b-navigation__item b-navigation__item_current" data-page="<%= curPage.page %>" title="Страница <%= curPage.page + 1 %>">
+			<%= curPage.page + 1 %>
+		</div>
+	<% } %>
+
+	<% if (curPage.type == 'next') { %>
+		<div class="b-navigation__next" data-page="<%= curPage.page %>" title="Страница <%= curPage.page + 1 %>"></div>
+	<% } %>
+
+	<% if (curPage.type == 'last') { %>
+		<div class="b-navigation__last" data-page="<%= curPage.page %>" title="Страница <%= curPage.page + 1 %>"></div>
+	<% } %>
+
+	<% if (curPage.type == 'space') { %>
+		<div class="b-navigation__space"></div>
+	<% } %>
+<% } %>
+
+
+

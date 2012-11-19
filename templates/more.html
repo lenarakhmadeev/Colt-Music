@@ -1,0 +1,16 @@
+
+<% if (status == 'loading') { %>
+	<div class="b-more-button__show-loader" title="Ищем, подождите">
+		Загрузка...
+	</div>
+<% } %>
+
+<% if (status == 'no') { %>
+<% } %>
+
+<% if (status == 'yes') { %>
+	<div class="b-more-button__show-more-button" title="Найти ещё похожие">
+		<div class="b-more-button__show-more-text">Показать ещё</div>
+		<div class="b-more-button__show-more-icon"></div>
+	</div>
+<% } %>
