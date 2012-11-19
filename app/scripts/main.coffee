@@ -99,6 +99,12 @@
 
 	+Деплой
 
+	+на кнопках pointer
+
+	+ie delete bug
+
+	+обложка альбома в плеер как устанавливать
+
 --------------------------------------------------------------------------------
 
 	Тестировать в браузерах
@@ -110,6 +116,12 @@
 
 	lastfm ключ
 
+	сглаживание шрифтов
+
+	текущая похожаая
+
+	предложить флешплеер
+	колонки таблицей
 __________________________________
 	ver 1.5
 
@@ -134,6 +146,8 @@ __________________________________
 		посмотреть апи musicbrainz http://the.echonest.com/
 
 			wallpost с картинкой
+
+		бек плеера css
 
 	ver 2.0
 
@@ -166,9 +180,13 @@ define ( require )->
 	_ = require( '_' ).noConflict()
 	$ = require( '$' ).noConflict()
 	Backbone = require( 'Backbone' ).noConflict()
-	delete window._
-	delete window.$
-	delete window.Backbone
+
+	# IE delete bug
+	try
+		delete window._
+		delete window.$
+		delete window.Backbone
+	catch e
 
 	AppView = require( 'views/AppView' )
 	player = require( 'services/player' )

@@ -2,6 +2,7 @@
 define ( require )->
 	View = require( 'views/View' )
 	similarTemplate = require( 'tpl!templates/similar.html' )
+	C = require( 'constants' )
 
 
 	class SimilarView extends View
@@ -33,7 +34,7 @@ define ( require )->
 		serialize: ()->
 			artist: @model.get( 'artist' )
 			title: @model.get( 'title' )
-			cover: @model.get( 'info.images.64' ) or 'images/cover/small.png'
+			cover: @model.get( 'info.images.64' ) or C.SMALL_COVER
 
 
 		renderSelected: ()->

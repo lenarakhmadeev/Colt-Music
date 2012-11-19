@@ -1,7 +1,8 @@
 
-define ( require, exports, module )->
+define ( require )->
 	$ = require( '$' )
 	mediator = require( 'services/mediator' )
+	C = require( 'constants' )
 
 
 	# Отвечает за воспроизведение треков
@@ -20,7 +21,7 @@ define ( require, exports, module )->
 				ready: ()=>
 					@initEvents()
 
-				swfPath: module.config().swf_path
+				swfPath: C.JPLAYER_PATH
 				wmode: 'window'
 				volume: 1
 				solution: 'flash,html'

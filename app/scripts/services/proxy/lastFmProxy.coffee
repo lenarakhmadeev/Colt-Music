@@ -1,12 +1,12 @@
 
-define ( require, exports, module )->
+define ( require )->
 	$ = require( '$' )
 	LastFm = require( 'services/proxy/LastFm' )
 	lastFmFilters = require( 'services/proxy/lastFmFilters' )
+	C = require( 'constants' )
 
 
-	config = module.config()
-	lastFm = new LastFm( config.lastFm_key, config.lastFm_url )
+	lastFm = new LastFm( C.LASTFM_KEY, C.LASTFM_URL )
 
 	lastFmProxy =
 

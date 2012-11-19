@@ -94,13 +94,14 @@
 
 				.b-item__play-button {
 					@include item-sprite(play);
+					cursor: pointer;
 				}
 
 
 				.b-item__pause-button {
-					display: none;
-
 					@include item-sprite(pause);
+					display: none;
+					cursor: pointer;
 				}
 
 
@@ -120,7 +121,7 @@
 			.b-item__wiki-button {
 				@include icons-sprite(wiki);
 				float: left;
-				display: none;
+				//display: none;
 			}
 
 

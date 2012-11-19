@@ -4,6 +4,7 @@ define ( require )->
 	mediator = require( 'services/mediator' )
 	MarqueeView = require( 'views/MarqueeView' )
 	playerTemplate = require( 'tpl!templates/player.html' )
+	C = require( 'constants' )
 
 
 	class PlayerView extends View
@@ -24,6 +25,10 @@ define ( require )->
 			@model.on( 'change:current', @renderCurrent, this )
 
 			@marqueeView = new MarqueeView( model: @model )
+
+
+		serialize: ()->
+			cover: C.BIG_COVER
 
 
 		_render: ()->
@@ -70,7 +75,7 @@ define ( require )->
 
 
 		renderCover: ()->
-			cover = @model.getCurrent().get( 'info.images.126' ) or 'images/cover/big.png'
+			cover = @model.getCurrent().get( 'info.images.126' ) or C.BIG_COVER
 			@$( '.b-player__cover-image' ).attr( 'src', cover )
 
 

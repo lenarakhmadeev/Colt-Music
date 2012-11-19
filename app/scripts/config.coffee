@@ -60,16 +60,16 @@ requirejs.config
 			exports: 'jpath'
 
 
-	# Константы для модулей
-	config:
-		# Ключ для доступа к Last.fm API
-		'services/proxy/lastFmProxy':
-			lastFm_key: '6e827e122dacfa2346e88ef5a964b196'
-			lastFm_url: 'http://ws.audioscrobbler.com/2.0/'
+# Константы для модулей
+define 'constants', ( require )->
+	BIG_COVER: 'images/cover/big.png'
+	SMALL_COVER: 'images/cover/small.png'
 
-		# Путь до swf плеера jPlayer
-		'services/player':
-			swf_path: 'scripts/libs/jquery/jplayer'
+	JPLAYER_PATH: 'scripts/libs/jquery/jplayer'
+
+	LASTFM_KEY: '6e827e122dacfa2346e88ef5a964b196'
+	LASTFM_URL: 'http://ws.audioscrobbler.com/2.0/'
+
 
 # Хендлер для ошибок
 requirejs.onError = ( errObject )->

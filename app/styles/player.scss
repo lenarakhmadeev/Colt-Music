@@ -32,12 +32,14 @@
 
 			.b-player__play-button {
 				@include player-sprite(play);
+				cursor: pointer;
 			}
 
 
 			.b-player__pause-button {
 				@include player-sprite(pause);
 				display: none;
+				cursor: pointer;
 			}
 
 
@@ -46,6 +48,7 @@
 			margin-left: 23px;
 			margin-top: 15px;
 			float: left;
+			cursor: pointer;
 		}
 
 
@@ -54,6 +57,7 @@
 			margin-left: 4px;
 			margin-top: 15px;
 			float: left;
+			cursor: pointer;
 		}
 
 
@@ -151,12 +155,14 @@
 
 					.b-player__mute-button {
 						@include player-sprite(volume);
+						cursor: pointer;
 					}
 
 
 					.b-player__unmute-button {
 						@include player-sprite(muted);
 						display: none;
+						cursor: pointer;
 					}
 
 
