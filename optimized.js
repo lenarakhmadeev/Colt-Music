@@ -1,4 +1,3 @@
-
 /*!
  * Lo-Dash v0.7.0 <http://lodash.com>
  * Copyright 2012 John-David Dalton <http://allyoucanleet.com/>
@@ -19069,9 +19068,9 @@ define('main',['require','_','$','Backbone','views/AppView','services/player','s
   _ = require('_').noConflict();
   $ = require('$').noConflict();
   Backbone = require('Backbone').noConflict();
-  delete window._;
+  /*delete window._;
   delete window.$;
-  delete window.Backbone;
+  delete window.Backbone;*/
   AppView = require('views/AppView');
   player = require('services/player');
   flow = require('services/flow');
