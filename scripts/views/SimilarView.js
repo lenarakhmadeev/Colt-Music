@@ -2,9 +2,10 @@ var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
 define(function(require) {
-  var SimilarView, View, similarTemplate;
+  var C, SimilarView, View, similarTemplate;
   View = require('views/View');
   similarTemplate = require('tpl!templates/similar.html');
+  C = require('constants');
   return SimilarView = (function(_super) {
 
     __extends(SimilarView, _super);
@@ -41,7 +42,7 @@ define(function(require) {
       return {
         artist: this.model.get('artist'),
         title: this.model.get('title'),
-        cover: this.model.get('info.images.64') || 'images/cover/small.png'
+        cover: this.model.get('info.images.64') || C.SMALL_COVER
       };
     };
 

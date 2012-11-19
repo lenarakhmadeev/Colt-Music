@@ -1,11 +1,11 @@
 
-define(function(require, exports, module) {
-  var $, LastFm, config, lastFm, lastFmFilters, lastFmProxy;
+define(function(require) {
+  var $, C, LastFm, lastFm, lastFmFilters, lastFmProxy;
   $ = require('$');
   LastFm = require('services/proxy/LastFm');
   lastFmFilters = require('services/proxy/lastFmFilters');
-  config = module.config();
-  lastFm = new LastFm(config.lastFm_key, config.lastFm_url);
+  C = require('constants');
+  lastFm = new LastFm(C.LASTFM_KEY, C.LASTFM_URL);
   return lastFmProxy = {
     getTrackInfo: function(artist, title) {
       var dfd;

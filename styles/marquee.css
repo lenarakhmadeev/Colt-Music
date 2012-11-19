@@ -3,8 +3,8 @@
   font-family: Gothic;
   font-weight: 400;
   font-style: normal;
-  src: url("Century Gothic.eot");
-  src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
+  src: url("fonts/Century Gothic.eot");
+  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
 }
 
 /* line 5, ../../app/styles/marquee.scss */

@@ -98,19 +98,21 @@
 
 	+Деплой
 
---------------------------------------------------------------------------------
+	+на кнопках pointer
 
-	Тестировать в браузерах
+	+ie delete bug
 
-	Почистить
-		стили
-		код
-		комментарии
+	+обложка альбома в плеер как устанавливать
 
-	lastfm ключ
+	+текущая похожаая
 
-__________________________________
+	+колонки таблицей
+
+	+lastfm ключ
+_________________________________
 	ver 1.5
+
+		сглаживание шрифтов
 
 		notyfication
 			логи
@@ -133,6 +135,8 @@ __________________________________
 		посмотреть апи musicbrainz http://the.echonest.com/
 
 			wallpost с картинкой
+
+		бек плеера css
 
 	ver 2.0
 
@@ -163,9 +167,13 @@ define(function(require) {
   _ = require('_').noConflict();
   $ = require('$').noConflict();
   Backbone = require('Backbone').noConflict();
-  delete window._;
-  delete window.$;
-  delete window.Backbone;
+  try {
+    delete window._;
+    delete window.$;
+    delete window.Backbone;
+  } catch (e) {
+
+  }
   AppView = require('views/AppView');
   player = require('services/player');
   flow = require('services/flow');

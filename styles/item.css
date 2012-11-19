@@ -3,8 +3,8 @@
   font-family: Gothic;
   font-weight: 400;
   font-style: normal;
-  src: url("Century Gothic.eot");
-  src: local("☺"), url("http://fontsforweb.com/public/fonts/1168/GOTHIC.ttf") format("truetype");
+  src: url("fonts/Century Gothic.eot");
+  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
 }
 
 /* line 242, player/*.png */
@@ -125,25 +125,27 @@
   background-position: 0 0;
   height: 32px;
   width: 93px;
+  cursor: pointer;
 }
 /* line 43, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .b-item__play-button:hover, .b-item__play-button.play_hover, .b-item__play-button.play-hover {
   background-position: 0 -33px;
 }
 
-/* line 100, ../../app/styles/item.scss */
+/* line 101, ../../app/styles/item.scss */
 .b-item__pause-button {
-  display: none;
   background-position: 0 -66px;
   height: 32px;
   width: 93px;
+  display: none;
+  cursor: pointer;
 }
 /* line 43, ../../../../../../var/lib/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/utilities/sprites/_base.scss */
 .b-item__pause-button:hover, .b-item__pause-button.pause_hover, .b-item__pause-button.pause-hover {
   background-position: 0 -99px;
 }
 
-/* line 112, ../../app/styles/item.scss */
+/* line 113, ../../app/styles/item.scss */
 .b-item__control-buttons {
   position: absolute;
   right: 10px;
@@ -151,7 +153,7 @@
   height: 90px;
 }
 
-/* line 120, ../../app/styles/item.scss */
+/* line 121, ../../app/styles/item.scss */
 .b-item__wiki-button {
   background-position: 0 -84px;
   height: 13px;
@@ -164,7 +166,7 @@
   background-position: 0 -98px;
 }
 
-/* line 127, ../../app/styles/item.scss */
+/* line 128, ../../app/styles/item.scss */
 .b-item__like-button {
   background-position: 0 -28px;
   height: 13px;
@@ -177,7 +179,7 @@
   background-position: 0 -42px;
 }
 
-/* line 134, ../../app/styles/item.scss */
+/* line 135, ../../app/styles/item.scss */
 .b-item__delete-button {
   background-position: 0 -14px;
   height: 13px;

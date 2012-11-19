@@ -1,8 +1,9 @@
 
-define(function(require, exports, module) {
-  var $, mediator, player;
+define(function(require) {
+  var $, C, mediator, player;
   $ = require('$');
   mediator = require('services/mediator');
+  C = require('constants');
   return player = {
     init: function() {
       return this.initJPlayer();
@@ -14,7 +15,7 @@ define(function(require, exports, module) {
         ready: function() {
           return _this.initEvents();
         },
-        swfPath: module.config().swf_path,
+        swfPath: C.JPLAYER_PATH,
         wmode: 'window',
         volume: 1,
         solution: 'flash,html',

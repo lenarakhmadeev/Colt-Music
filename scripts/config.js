@@ -41,15 +41,6 @@ requirejs.config({
     jpath: {
       exports: 'jpath'
     }
-  },
-  config: {
-    'services/proxy/lastFmProxy': {
-      lastFm_key: '6e827e122dacfa2346e88ef5a964b196',
-      lastFm_url: 'http://ws.audioscrobbler.com/2.0/'
-    },
-    'services/player': {
-      swf_path: 'scripts/libs/jquery/jplayer'
-    }
   }
 });
 

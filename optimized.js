@@ -15743,10 +15743,22 @@ define('views/View',['require','_','Backbone'],function(require) {
 });
 
 
-define('services/player',['require','exports','module','$','services/mediator'],function(require, exports, module) {
-  var $, mediator, player;
+define('constants',['require'],function(require) {
+  return {
+    BIG_COVER: 'images/cover/big.png',
+    SMALL_COVER: 'images/cover/small.png',
+    JPLAYER_PATH: 'scripts/libs/jquery/jplayer',
+    LASTFM_KEY: '6e827e122dacfa2346e88ef5a964b196',
+    LASTFM_URL: 'http://ws.audioscrobbler.com/2.0/'
+  };
+});
+
+
+define('services/player',['require','$','services/mediator','constants'],function(require) {
+  var $, C, mediator, player;
   $ = require('$');
   mediator = require('services/mediator');
+  C = require('constants');
   return player = {
     init: function() {
       return this.initJPlayer();
@@ -15758,7 +15770,7 @@ define('services/player',['require','exports','module','$','services/mediator'],
         ready: function() {
           return _this.initEvents();
         },
-        swfPath: module.config().swf_path,
+        swfPath: C.JPLAYER_PATH,
         wmode: 'window',
         volume: 1,
         solution: 'flash,html',
@@ -16247,17 +16259,18 @@ define('text',['module'], function (module) {
     return text;
 });
 
-define('text!templates/player.html',[],function () { return '\n<div class="b-player__control-buttons">\n\t<div class="b-player__state-buttons">\n\t\t<div class="b-player__play-button"></div>\n\t\t<div class="b-player__pause-button"></div>\n\t</div>\n\n\t<div class="b-player__prev-button"></div>\n\t<div class="b-player__next-button"></div>\n</div>\n\n<div class="b-player__content">\n\t<div class="b-player__marquee-place">\n\t</div>\n\n\t<div class="b-player__progress">\n\n\n\t\t<div class="b-player__load-bar">\n\n\t\t\t<div class="b-player__progress-bar">\n\t\t\t\t<div class="b-player__progress-pick"></div>\n\n\t\t\t</div>\n\n\t\t\t<div class="b-player__progress-mask"></div>\n\n\t\t</div>\n\n\n\n\n\t</div>\n\n\t<div class="b-player__under">\n\t\t<div class="b-player__status-button">\n\t\t\t<div class="b-player__add-button"></div>\n\t\t</div>\n\n\t\t<div class="b-player__volume-controls">\n\t\t\t<div class="b-player__mute-controls">\n\t\t\t\t<div class="b-player__mute-button"></div>\n\t\t\t\t<div class="b-player__unmute-button"></div>\n\t\t\t</div>\n\n\t\t\t<div class="b-player__volume">\n\t\t\t\t<div class="b-player__volume-bar">\n\t\t\t\t\t<div class="b-player__volume-pick"></div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="b-player__volume-mask"></div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<div class="b-player__cover-place">\n\t<img class="b-player__cover-image" />\n</div>\n\n\n\n<!--\n\nb-player\n\tcontrol-buttons\n\t\tstate-buttons\n\t\t\tplay-button\n\t\t\tpause-button\n\n\t\tprev-button\n\t\tnext-button\n\n\tcontent\n\t\tb-marquee\n\n\t\tprogress-bar\n\n\t\tunder\n\t\t\tstatus-button\n\n\t\t\tvolume-controls\n\t\t\t\tmute-buttons\n\t\t\t\t\tmute-button\n\t\t\t\t\tunmute-button\n\n\t\t\t\tvolume-bar\n\n\n\n-->';});
+define('text!templates/player.html',[],function () { return '\n<div class="b-player__control-buttons">\n\t<div class="b-player__state-buttons">\n\t\t<div class="b-player__play-button"></div>\n\t\t<div class="b-player__pause-button"></div>\n\t</div>\n\n\t<div class="b-player__prev-button"></div>\n\t<div class="b-player__next-button"></div>\n</div>\n\n<div class="b-player__content">\n\t<div class="b-player__marquee-place"></div>\n\n\t<div class="b-player__progress">\n\t\t<div class="b-player__load-bar">\n\t\t\t<div class="b-player__progress-bar">\n\t\t\t\t<div class="b-player__progress-pick"></div>\n\t\t\t</div>\n\n\t\t\t<div class="b-player__progress-mask"></div>\n\t\t</div>\n\t</div>\n\n\t<div class="b-player__under">\n\t\t<div class="b-player__status-button">\n\t\t\t<div class="b-player__add-button"></div>\n\t\t</div>\n\n\t\t<div class="b-player__volume-controls">\n\t\t\t<div class="b-player__mute-controls">\n\t\t\t\t<div class="b-player__mute-button"></div>\n\t\t\t\t<div class="b-player__unmute-button"></div>\n\t\t\t</div>\n\n\t\t\t<div class="b-player__volume">\n\t\t\t\t<div class="b-player__volume-bar">\n\t\t\t\t\t<div class="b-player__volume-pick"></div>\n\t\t\t\t</div>\n\n\t\t\t\t<div class="b-player__volume-mask"></div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</div>\n\n<div class="b-player__cover-place">\n\t<img class="b-player__cover-image" src="<%= cover %>"/>\n</div>';});
 
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('views/PlayerView',['require','views/View','services/mediator','views/MarqueeView','tpl!templates/player.html'],function(require) {
-  var MarqueeView, PlayerView, View, mediator, playerTemplate;
+define('views/PlayerView',['require','views/View','services/mediator','views/MarqueeView','tpl!templates/player.html','constants'],function(require) {
+  var C, MarqueeView, PlayerView, View, mediator, playerTemplate;
   View = require('views/View');
   mediator = require('services/mediator');
   MarqueeView = require('views/MarqueeView');
   playerTemplate = require('tpl!templates/player.html');
+  C = require('constants');
   return PlayerView = (function(_super) {
 
     __extends(PlayerView, _super);
@@ -16283,6 +16296,12 @@ define('views/PlayerView',['require','views/View','services/mediator','views/Mar
       return this.marqueeView = new MarqueeView({
         model: this.model
       });
+    };
+
+    PlayerView.prototype.serialize = function() {
+      return {
+        cover: C.BIG_COVER
+      };
     };
 
     PlayerView.prototype._render = function() {
@@ -16332,7 +16351,7 @@ define('views/PlayerView',['require','views/View','services/mediator','views/Mar
 
     PlayerView.prototype.renderCover = function() {
       var cover;
-      cover = this.model.getCurrent().get('info.images.126') || 'images/cover/big.png';
+      cover = this.model.getCurrent().get('info.images.126') || C.BIG_COVER;
       return this.$('.b-player__cover-image').attr('src', cover);
     };
 
@@ -17106,13 +17125,13 @@ define('services/proxy/lastFmFilters',['require','jpath','_'],function(require) 
 });
 
 
-define('services/proxy/lastFmProxy',['require','exports','module','$','services/proxy/LastFm','services/proxy/lastFmFilters'],function(require, exports, module) {
-  var $, LastFm, config, lastFm, lastFmFilters, lastFmProxy;
+define('services/proxy/lastFmProxy',['require','$','services/proxy/LastFm','services/proxy/lastFmFilters','constants'],function(require) {
+  var $, C, LastFm, lastFm, lastFmFilters, lastFmProxy;
   $ = require('$');
   LastFm = require('services/proxy/LastFm');
   lastFmFilters = require('services/proxy/lastFmFilters');
-  config = module.config();
-  lastFm = new LastFm(config.lastFm_key, config.lastFm_url);
+  C = require('constants');
+  lastFm = new LastFm(C.LASTFM_KEY, C.LASTFM_URL);
   return lastFmProxy = {
     getTrackInfo: function(artist, title) {
       var dfd;
@@ -17896,10 +17915,11 @@ define('text!templates/similar.html',[],function () { return '<div class="b-simi
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('views/SimilarView',['require','views/View','tpl!templates/similar.html'],function(require) {
-  var SimilarView, View, similarTemplate;
+define('views/SimilarView',['require','views/View','tpl!templates/similar.html','constants'],function(require) {
+  var C, SimilarView, View, similarTemplate;
   View = require('views/View');
   similarTemplate = require('tpl!templates/similar.html');
+  C = require('constants');
   return SimilarView = (function(_super) {
 
     __extends(SimilarView, _super);
@@ -17936,7 +17956,7 @@ define('views/SimilarView',['require','views/View','tpl!templates/similar.html']
       return {
         artist: this.model.get('artist'),
         title: this.model.get('title'),
-        cover: this.model.get('info.images.64') || 'images/cover/small.png'
+        cover: this.model.get('info.images.64') || C.SMALL_COVER
       };
     };
 
@@ -18078,7 +18098,7 @@ define('views/MoreButtonView',['require','views/View','tpl!templates/more.html']
   })(View);
 });
 
-define('text!templates/similars.html',[],function () { return '\n<div class="b-similars__phrase-place">\n\t<!-- PhraseView -->\n</div>\n<div class="b-similars__similars-container">\n\t<div class="b-similars__similars-container-col1">\n\t\t<!-- SimilarView -->\n\t</div>\n\t<div class="b-similars__similars-container-col2">\n\t\t<!-- SimilarView -->\n\t</div>\n\t<div class="b-similars__similars-container-clear">&nbsp;</div>\n</div>\n<div class="b-similars__more-button-place">\n\t<!-- MoreButtonView -->\n</div>';});
+define('text!templates/similars.html',[],function () { return '\n<div class="b-similars__phrase-place">\n\t<!-- PhraseView -->\n</div>\n<div class="b-similars__similars-container">\n\t<div class="b-similars__similars-container-col1">\n\t\t<!-- SimilarView -->\n\t</div>\n\t<div class="b-similars__similars-container-col2">\n\t\t<!-- SimilarView -->\n\t</div>\n</div>\n<div class="b-similars__more-button-place">\n\t<!-- MoreButtonView -->\n</div>';});
 
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
@@ -19004,19 +19024,21 @@ define('services/scroll',['require','_','vk','services/mediator'],function(requi
 
 	+Деплой
 
---------------------------------------------------------------------------------
+	+на кнопках pointer
 
-	Тестировать в браузерах
+	+ie delete bug
 
-	Почистить
-		стили
-		код
-		комментарии
+	+обложка альбома в плеер как устанавливать
 
-	lastfm ключ
+	+текущая похожаая
 
-__________________________________
+	+колонки таблицей
+
+	+lastfm ключ
+_________________________________
 	ver 1.5
+
+		сглаживание шрифтов
 
 		notyfication
 			логи
@@ -19039,6 +19061,8 @@ __________________________________
 		посмотреть апи musicbrainz http://the.echonest.com/
 
 			wallpost с картинкой
+
+		бек плеера css
 
 	ver 2.0
 
@@ -19069,9 +19093,13 @@ define('main',['require','_','$','Backbone','views/AppView','services/player','s
   _ = require('_').noConflict();
   $ = require('$').noConflict();
   Backbone = require('Backbone').noConflict();
-  delete window._;
-  delete window.$;
-  delete window.Backbone;
+  try {
+    delete window._;
+    delete window.$;
+    delete window.Backbone;
+  } catch (e) {
+
+  }
   AppView = require('views/AppView');
   player = require('services/player');
   flow = require('services/flow');
@@ -19527,15 +19555,6 @@ requirejs.config({
     },
     jpath: {
       exports: 'jpath'
-    }
-  },
-  config: {
-    'services/proxy/lastFmProxy': {
-      lastFm_key: '6e827e122dacfa2346e88ef5a964b196',
-      lastFm_url: 'http://ws.audioscrobbler.com/2.0/'
-    },
-    'services/player': {
-      swf_path: 'scripts/libs/jquery/jplayer'
     }
   }
 });

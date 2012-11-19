@@ -2,11 +2,12 @@ var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
 define(function(require) {
-  var MarqueeView, PlayerView, View, mediator, playerTemplate;
+  var C, MarqueeView, PlayerView, View, mediator, playerTemplate;
   View = require('views/View');
   mediator = require('services/mediator');
   MarqueeView = require('views/MarqueeView');
   playerTemplate = require('tpl!templates/player.html');
+  C = require('constants');
   return PlayerView = (function(_super) {
 
     __extends(PlayerView, _super);
@@ -32,6 +33,12 @@ define(function(require) {
       return this.marqueeView = new MarqueeView({
         model: this.model
       });
+    };
+
+    PlayerView.prototype.serialize = function() {
+      return {
+        cover: C.BIG_COVER
+      };
     };
 
     PlayerView.prototype._render = function() {
@@ -81,7 +88,7 @@ define(function(require) {
 
     PlayerView.prototype.renderCover = function() {
       var cover;
-      cover = this.model.getCurrent().get('info.images.126') || 'images/cover/big.png';
+      cover = this.model.getCurrent().get('info.images.126') || C.BIG_COVER;
       return this.$('.b-player__cover-image').attr('src', cover);
     };
 
