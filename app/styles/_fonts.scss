@@ -1,8 +1,16 @@
 
 @import "_colors.scss";
-@import "compass/css3/font-face";
 
-@include font-face("Gothic", font-files('fonts/Gothic.ttf', 'ttf'), 'fonts/Century Gothic.eot');
+
+@font-face {
+	font-family: Gothic;
+	font-weight: 400;
+	font-style: normal;
+
+	src: url('fonts/Century Gothic.eot');
+	src: local('☺'),
+		url('fonts/Gothic.ttf') format("truetype");
+}
 
 
 @mixin gothic-font($font-size: 10pt, $font-weight: normal) {
