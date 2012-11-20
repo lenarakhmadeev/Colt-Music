@@ -6,6 +6,9 @@
 @import "_colors.scss";
 @import "_sprite.scss";
 
+@import "compass/support";
+
+$legacy-support-for-ie: true;
 
 .b-similar {
 	@include background-image(
