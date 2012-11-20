@@ -71,13 +71,10 @@ body {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
 }
 
-@charset "UTF-8";
 @font-face {
-  font-family: Gothic;
-  font-weight: 400;
-  font-style: normal;
-  src: url("fonts/Century Gothic.eot");
-  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
+  font-family: "Gothic";
+  src: url('fonts/fonts/Century Gothic.eot');
+  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
 }
 
 /* line 242, player/*.png */
@@ -212,13 +209,10 @@ body {
   cursor: default;
 }
 
-@charset "UTF-8";
 @font-face {
-  font-family: Gothic;
-  font-weight: 400;
-  font-style: normal;
-  src: url("fonts/Century Gothic.eot");
-  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
+  font-family: "Gothic";
+  src: url('fonts/fonts/Century Gothic.eot');
+  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
 }
 
 /* line 242, player/*.png */
@@ -602,13 +596,10 @@ body {
   overflow: auto;
 }
 
-@charset "UTF-8";
 @font-face {
-  font-family: Gothic;
-  font-weight: 400;
-  font-style: normal;
-  src: url("fonts/Century Gothic.eot");
-  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
+  font-family: "Gothic";
+  src: url('fonts/fonts/Century Gothic.eot');
+  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
 }
 
 /* line 5, ../../app/styles/marquee.scss */
@@ -628,13 +619,10 @@ body {
   text-shadow: 1px 1px 2px black;
 }
 
-@charset "UTF-8";
 @font-face {
-  font-family: Gothic;
-  font-weight: 400;
-  font-style: normal;
-  src: url("fonts/Century Gothic.eot");
-  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
+  font-family: "Gothic";
+  src: url('fonts/fonts/Century Gothic.eot');
+  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
 }
 
 /* line 242, player/*.png */
@@ -823,13 +811,10 @@ body {
   background-position: 0 0;
 }
 
-@charset "UTF-8";
 @font-face {
-  font-family: Gothic;
-  font-weight: 400;
-  font-style: normal;
-  src: url("fonts/Century Gothic.eot");
-  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
+  font-family: "Gothic";
+  src: url('fonts/fonts/Century Gothic.eot');
+  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
 }
 
 /* line 12, ../../app/styles/similars.scss */
@@ -871,13 +856,10 @@ body {
   width: 50%;
 }
 
-@charset "UTF-8";
 @font-face {
-  font-family: Gothic;
-  font-weight: 400;
-  font-style: normal;
-  src: url("fonts/Century Gothic.eot");
-  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
+  font-family: "Gothic";
+  src: url('fonts/fonts/Century Gothic.eot');
+  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
 }
 
 /* line 4, ../../app/styles/info.scss */
@@ -916,13 +898,10 @@ body {
   font-weight: bold;
 }
 
-@charset "UTF-8";
 @font-face {
-  font-family: Gothic;
-  font-weight: 400;
-  font-style: normal;
-  src: url("fonts/Century Gothic.eot");
-  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
+  font-family: "Gothic";
+  src: url('fonts/fonts/Century Gothic.eot');
+  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
 }
 
 /* line 242, player/*.png */
@@ -991,13 +970,10 @@ body {
   margin-left: 60px;
 }
 
-@charset "UTF-8";
 @font-face {
-  font-family: Gothic;
-  font-weight: 400;
-  font-style: normal;
-  src: url("fonts/Century Gothic.eot");
-  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
+  font-family: "Gothic";
+  src: url('fonts/fonts/Century Gothic.eot');
+  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
 }
 
 /* line 242, player/*.png */
@@ -1022,6 +998,8 @@ body {
 
 /* line 10, ../../app/styles/similar.scss */
 .b-similar {
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FFDFDFDF', endColorstr='#FFBEBEBE');
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #dfdfdf), color-stop(100%, #bebebe));
   background-image: -webkit-linear-gradient(top, #dfdfdf, #bebebe);
   background-image: -moz-linear-gradient(top, #dfdfdf, #bebebe);
@@ -1036,8 +1014,10 @@ body {
   padding: 8px 10px 7px 20px;
 }
 
-/* line 21, ../../app/styles/similar.scss */
+/* line 23, ../../app/styles/similar.scss */
 .b-similar_selected {
+  *zoom: 1;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF7E7E7E', endColorstr='#FFFFFFFF');
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #7e7e7e), color-stop(100%, #ffffff));
   background-image: -webkit-linear-gradient(top, #7e7e7e, #ffffff);
   background-image: -moz-linear-gradient(top, #7e7e7e, #ffffff);
@@ -1045,7 +1025,7 @@ body {
   background-image: linear-gradient(top, #7e7e7e, #ffffff);
 }
 
-/* line 27, ../../app/styles/similar.scss */
+/* line 30, ../../app/styles/similar.scss */
 .b-similar__album-cover {
   border: 1px solid whitesmoke;
   width: 64px;
@@ -1054,19 +1034,19 @@ body {
   cursor: pointer;
 }
 
-/* line 36, ../../app/styles/similar.scss */
+/* line 39, ../../app/styles/similar.scss */
 .b-similar__cover-image {
   width: 64px;
   height: 64px;
 }
 
-/* line 42, ../../app/styles/similar.scss */
+/* line 45, ../../app/styles/similar.scss */
 .b-similar__content {
   margin-left: 15px;
   float: left;
 }
 
-/* line 48, ../../app/styles/similar.scss */
+/* line 51, ../../app/styles/similar.scss */
 .b-similar__track-title {
   font-family: Gothic, sans-serif;
   font-size: 10pt;
@@ -1076,7 +1056,7 @@ body {
   cursor: pointer;
 }
 
-/* line 55, ../../app/styles/similar.scss */
+/* line 58, ../../app/styles/similar.scss */
 .b-similar__artist-name {
   font-weight: bold;
   height: 17px;
@@ -1084,20 +1064,20 @@ body {
   overflow: hidden;
 }
 
-/* line 64, ../../app/styles/similar.scss */
+/* line 67, ../../app/styles/similar.scss */
 .b-similar__track-name {
   height: 17px;
   display: block;
   overflow: hidden;
 }
 
-/* line 71, ../../app/styles/similar.scss */
+/* line 74, ../../app/styles/similar.scss */
 .b-similar__buttons {
   margin-top: 7px;
   cursor: pointer;
 }
 
-/* line 77, ../../app/styles/similar.scss */
+/* line 80, ../../app/styles/similar.scss */
 .b-similar__play-button {
   background-position: 0 -56px;
   height: 13px;
@@ -1109,7 +1089,7 @@ body {
   background-position: 0 -70px;
 }
 
-/* line 83, ../../app/styles/similar.scss */
+/* line 86, ../../app/styles/similar.scss */
 .b-similar__pause-button {
   background-position: 0 -140px;
   height: 13px;
@@ -1122,7 +1102,7 @@ body {
   background-position: 0 -154px;
 }
 
-/* line 90, ../../app/styles/similar.scss */
+/* line 93, ../../app/styles/similar.scss */
 .b-similar__add-button {
   background-position: 0 -112px;
   height: 13px;
@@ -1135,7 +1115,7 @@ body {
   background-position: 0 -126px;
 }
 
-/* line 97, ../../app/styles/similar.scss */
+/* line 100, ../../app/styles/similar.scss */
 .b-similar__like-button {
   background-position: 0 -28px;
   height: 13px;
@@ -1148,7 +1128,7 @@ body {
   background-position: 0 -42px;
 }
 
-/* line 104, ../../app/styles/similar.scss */
+/* line 107, ../../app/styles/similar.scss */
 .b-similar__wiki-button {
   background-position: 0 -84px;
   height: 13px;
