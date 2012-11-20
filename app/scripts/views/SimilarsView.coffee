@@ -39,7 +39,7 @@ define ( require )->
 		renderSimilars: ()->
 			return if not @collection.length
 
-			[ left, right ] = @divideCollection( @collection )
+			[ left, right ] = @divideModels( @collection.models )
 
 			@renderColumn( '.b-similars__similars-container-col1', left )
 			@renderColumn( '.b-similars__similars-container-col2', right )
@@ -52,16 +52,16 @@ define ( require )->
 
 
 		renderColumn: ( columnSelector, models )->
-			callback = (model)->
-				@addItem(columnSelector, model)
+			callback = ( model )->
+				@addItem( columnSelector, model )
 
 			_.each( models, callback, this )
 
 
-		divideCollection: (collection)->
-			middle = Math.ceil(collection.length / 2)
+		divideModels: ( models )->
+			middle = Math.ceil( models.length / 2 )
 
-			[ collection[...middle], collection[middle...] ]
+			[ models[...middle], models[middle...] ]
 
 
 		renderPhrase: ()->
