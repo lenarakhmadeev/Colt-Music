@@ -5,6 +5,7 @@ define ( require )->
 	ItemModel = require( 'models/ItemModel' )
 	mediator = require( 'services/mediator' )
 	proxy = require( 'services/proxy/proxy' )
+	C = require( 'constants' )
 
 
 	# Список аудиозаписей пользователя
@@ -74,7 +75,7 @@ define ( require )->
 
 
 		# Моделей на странице
-		pageSize: 10
+		pageSize: C.PAGE_SIZE
 
 
 		# Возвращает модели страницы

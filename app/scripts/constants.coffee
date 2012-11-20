@@ -7,3 +7,5 @@ define ( require )->
 
 	LASTFM_KEY: '6e827e122dacfa2346e88ef5a964b196'
 	LASTFM_URL: 'http://ws.audioscrobbler.com/2.0/'
+
+	PAGE_SIZE: 25
