@@ -1,18 +1,17 @@
 
 @import "compass/css3/images";
 @import "compass/css3/box-shadow";
+@import "compass/utilities/general/hacks";
 
 @import "_fonts.scss";
 @import "_colors.scss";
 @import "_sprite.scss";
 
-@import "compass/support";
-
-$legacy-support-for-ie: true;
-
 .b-similar {
+	@include filter-gradient($light_gray, $dark_gray);
 	@include background-image(
 			linear-gradient(top, $light_gray, $dark_gray));
+
 	@include box-shadow(0px 0px 0px 1px $white-border);
 	margin-top: 1px;
 	margin-left: 1px;
@@ -22,6 +21,7 @@ $legacy-support-for-ie: true;
 
 
 .b-similar_selected {
+	@include filter-gradient(darken($dark_gray, 25), lighten($light_gray, 15));
 	@include background-image(
 		linear-gradient(top, darken($dark_gray, 25), lighten($light_gray, 15)));
 }
