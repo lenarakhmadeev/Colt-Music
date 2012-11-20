@@ -19040,6 +19040,8 @@ define('services/scroll',['require','_','vk','services/mediator'],function(requi
 	+колонки таблицей
 
 	+lastfm ключ
+
+	проверить перендеры
 _________________________________
 	ver 1.5
 

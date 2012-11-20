@@ -1,7 +1,10 @@
+@charset "UTF-8";
 @font-face {
-  font-family: "Gothic";
-  src: url('fonts/fonts/Century Gothic.eot');
-  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("fonts/Century Gothic.eot");
+  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
 }
 
 /* line 12, ../../app/styles/similars.scss */

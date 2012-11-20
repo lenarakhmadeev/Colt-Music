@@ -71,10 +71,13 @@ body {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
 }
 
+@charset "UTF-8";
 @font-face {
-  font-family: "Gothic";
-  src: url('fonts/fonts/Century Gothic.eot');
-  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("fonts/Century Gothic.eot");
+  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
 }
 
 /* line 242, player/*.png */
@@ -209,10 +212,13 @@ body {
   cursor: default;
 }
 
+@charset "UTF-8";
 @font-face {
-  font-family: "Gothic";
-  src: url('fonts/fonts/Century Gothic.eot');
-  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("fonts/Century Gothic.eot");
+  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
 }
 
 /* line 242, player/*.png */
@@ -596,10 +602,13 @@ body {
   overflow: auto;
 }
 
+@charset "UTF-8";
 @font-face {
-  font-family: "Gothic";
-  src: url('fonts/fonts/Century Gothic.eot');
-  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("fonts/Century Gothic.eot");
+  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
 }
 
 /* line 5, ../../app/styles/marquee.scss */
@@ -619,10 +628,13 @@ body {
   text-shadow: 1px 1px 2px black;
 }
 
+@charset "UTF-8";
 @font-face {
-  font-family: "Gothic";
-  src: url('fonts/fonts/Century Gothic.eot');
-  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("fonts/Century Gothic.eot");
+  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
 }
 
 /* line 242, player/*.png */
@@ -811,10 +823,13 @@ body {
   background-position: 0 0;
 }
 
+@charset "UTF-8";
 @font-face {
-  font-family: "Gothic";
-  src: url('fonts/fonts/Century Gothic.eot');
-  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("fonts/Century Gothic.eot");
+  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
 }
 
 /* line 12, ../../app/styles/similars.scss */
@@ -856,10 +871,13 @@ body {
   width: 50%;
 }
 
+@charset "UTF-8";
 @font-face {
-  font-family: "Gothic";
-  src: url('fonts/fonts/Century Gothic.eot');
-  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("fonts/Century Gothic.eot");
+  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
 }
 
 /* line 4, ../../app/styles/info.scss */
@@ -898,10 +916,13 @@ body {
   font-weight: bold;
 }
 
+@charset "UTF-8";
 @font-face {
-  font-family: "Gothic";
-  src: url('fonts/fonts/Century Gothic.eot');
-  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("fonts/Century Gothic.eot");
+  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
 }
 
 /* line 242, player/*.png */
@@ -970,10 +991,13 @@ body {
   margin-left: 60px;
 }
 
+@charset "UTF-8";
 @font-face {
-  font-family: "Gothic";
-  src: url('fonts/fonts/Century Gothic.eot');
-  src: url('fonts/fonts/Century Gothic.eot?#iefix') format('eot'), url('fonts/fonts/Gothic.ttf') format('truetype');
+  font-family: Gothic;
+  font-weight: 400;
+  font-style: normal;
+  src: url("fonts/Century Gothic.eot");
+  src: local("☺"), url("fonts/Gothic.ttf") format("truetype");
 }
 
 /* line 242, player/*.png */
