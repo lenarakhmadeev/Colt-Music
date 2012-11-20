@@ -2,11 +2,12 @@ var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
 define(function(require) {
-  var InfoView, ItemView, SimilarsView, View, itemTemplate;
+  var C, InfoView, ItemView, SimilarsView, View, itemTemplate;
   View = require('views/View');
   SimilarsView = require('views/SimilarsView');
   InfoView = require('views/InfoView');
   itemTemplate = require('tpl!templates/item.html');
+  C = require('constants');
   return ItemView = (function(_super) {
 
     __extends(ItemView, _super);
@@ -58,7 +59,7 @@ define(function(require) {
 
     ItemView.prototype.renderCover = function() {
       var cover;
-      cover = this.model.get('info.images.126') || 'images/cover/big.png';
+      cover = this.model.get('info.images.126') || C.BIG_COVER;
       return this.$('.b-item__cover-image').attr('src', cover);
     };
 

@@ -18154,7 +18154,7 @@ define('views/SimilarsView',['require','$','_','services/mediator','views/View',
       if (!this.collection.length) {
         return;
       }
-      _ref = this.divideCollection(this.collection), left = _ref[0], right = _ref[1];
+      _ref = this.divideModels(this.collection.models), left = _ref[0], right = _ref[1];
       this.renderColumn('.b-similars__similars-container-col1', left);
       this.renderColumn('.b-similars__similars-container-col2', right);
       this.$('.b-similars__similars-container').show();
@@ -18169,10 +18169,10 @@ define('views/SimilarsView',['require','$','_','services/mediator','views/View',
       return _.each(models, callback, this);
     };
 
-    SimilarsView.prototype.divideCollection = function(collection) {
+    SimilarsView.prototype.divideModels = function(models) {
       var middle;
-      middle = Math.ceil(collection.length / 2);
-      return [collection.slice(0, middle), collection.slice(middle)];
+      middle = Math.ceil(models.length / 2);
+      return [models.slice(0, middle), models.slice(middle)];
     };
 
     SimilarsView.prototype.renderPhrase = function() {
@@ -18241,12 +18241,13 @@ define('text!templates/item.html',[],function () { return '\n<div class="b-item_
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('views/ItemView',['require','views/View','views/SimilarsView','views/InfoView','tpl!templates/item.html'],function(require) {
-  var InfoView, ItemView, SimilarsView, View, itemTemplate;
+define('views/ItemView',['require','views/View','views/SimilarsView','views/InfoView','tpl!templates/item.html','constants'],function(require) {
+  var C, InfoView, ItemView, SimilarsView, View, itemTemplate;
   View = require('views/View');
   SimilarsView = require('views/SimilarsView');
   InfoView = require('views/InfoView');
   itemTemplate = require('tpl!templates/item.html');
+  C = require('constants');
   return ItemView = (function(_super) {
 
     __extends(ItemView, _super);
@@ -18298,7 +18299,7 @@ define('views/ItemView',['require','views/View','views/SimilarsView','views/Info
 
     ItemView.prototype.renderCover = function() {
       var cover;
-      cover = this.model.get('info.images.126') || 'images/cover/big.png';
+      cover = this.model.get('info.images.126') || C.BIG_COVER;
       return this.$('.b-item__cover-image').attr('src', cover);
     };
 

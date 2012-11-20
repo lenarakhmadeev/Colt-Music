@@ -50,7 +50,7 @@ define(function(require) {
       if (!this.collection.length) {
         return;
       }
-      _ref = this.divideCollection(this.collection), left = _ref[0], right = _ref[1];
+      _ref = this.divideModels(this.collection.models), left = _ref[0], right = _ref[1];
       this.renderColumn('.b-similars__similars-container-col1', left);
       this.renderColumn('.b-similars__similars-container-col2', right);
       this.$('.b-similars__similars-container').show();
@@ -65,10 +65,10 @@ define(function(require) {
       return _.each(models, callback, this);
     };
 
-    SimilarsView.prototype.divideCollection = function(collection) {
+    SimilarsView.prototype.divideModels = function(models) {
       var middle;
-      middle = Math.ceil(collection.length / 2);
-      return [collection.slice(0, middle), collection.slice(middle)];
+      middle = Math.ceil(models.length / 2);
+      return [models.slice(0, middle), models.slice(middle)];
     };
 
     SimilarsView.prototype.renderPhrase = function() {
