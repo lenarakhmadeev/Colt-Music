@@ -2,6 +2,7 @@
 define ( require )->
 	noty = require( 'services/noty' )
 	mediator = require( 'services/mediator' )
+	urlParams = require( 'services/urlParams' )
 
 
 	# Логгер. Часть логов выводится пользователю
@@ -34,11 +35,14 @@ define ( require )->
 		userInfo: ( message )->
 			noty.info( message )
 
+		# _gaq.push(['_trackEvent', category, action, opt_label, opt_value, opt_noninteraction]);
 
 		log: ( message )->
 			console.log 'logger.log', message
+			_gaq.push(['_trackEvent', 'logger', 'log', message, urlParams['viewer_id']]);
 
 
 		error: ( message )->
 			console.log 'logger.error', message
+			_gaq.push(['_trackEvent', 'logger', 'error', message, urlParams['viewer_id']]);
 

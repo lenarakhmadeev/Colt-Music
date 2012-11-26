@@ -180,6 +180,10 @@ define ( require )->
 		delete window.Backbone
 	catch e
 
+	# Сбор ошибок jQuery
+	$.error = ( message )->
+		_gaq.push( [ '_trackEvent', 'jQuery Error', message, navigator.userAgent, 0, true ] )
+
 	AppView = require( 'views/AppView' )
 	player = require( 'services/player' )
 	flow = require( 'services/flow' )
