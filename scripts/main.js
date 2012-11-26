@@ -176,6 +176,9 @@ define(function(require) {
   } catch (e) {
 
   }
+  $.error = function(message) {
+    return _gaq.push(['_trackEvent', 'jQuery Error', message, navigator.userAgent, 0, true]);
+  };
   AppView = require('views/AppView');
   player = require('services/player');
   flow = require('services/flow');

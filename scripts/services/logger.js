@@ -1,8 +1,9 @@
 
 define(function(require) {
-  var logger, mediator, noty;
+  var logger, mediator, noty, urlParams;
   noty = require('services/noty');
   mediator = require('services/mediator');
+  urlParams = require('services/urlParams');
   return logger = {
     init: function() {
       noty.init();
@@ -22,10 +23,12 @@ define(function(require) {
       return noty.info(message);
     },
     log: function(message) {
-      return console.log('logger.log', message);
+      console.log('logger.log', message);
+      return _gaq.push(['_trackEvent', 'logger', 'log', message, urlParams['viewer_id']]);
     },
     error: function(message) {
-      return console.log('logger.error', message);
+      console.log('logger.error', message);
+      return _gaq.push(['_trackEvent', 'logger', 'error', message, urlParams['viewer_id']]);
     }
   };
 });

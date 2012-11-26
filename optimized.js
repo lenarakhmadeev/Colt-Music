@@ -15749,7 +15749,8 @@ define('constants',['require'],function(require) {
     SMALL_COVER: 'images/cover/small.png',
     JPLAYER_PATH: 'scripts/libs/jquery/jplayer',
     LASTFM_KEY: '6e827e122dacfa2346e88ef5a964b196',
-    LASTFM_URL: 'http://ws.audioscrobbler.com/2.0/'
+    LASTFM_URL: 'http://ws.audioscrobbler.com/2.0/',
+    PAGE_SIZE: 25
   };
 });
 
@@ -17564,10 +17565,11 @@ define('collections/SimilarsCollection',['require','_','collections/Collection',
         _this.offset += _this.count;
         status = data.length < _this.count ? 'no' : 'yes';
         _this.setStatus(status);
-        _.each(data, _this.addRaw, _this);
-        return _this.trigger('updated');
+        return _.each(data, _this.addRaw, _this);
       }).fail(function() {
         return _this.setStatus('no');
+      }).always(function() {
+        return _this.trigger('updated');
       });
     };
 
@@ -17666,13 +17668,14 @@ define('models/ItemModel',['require','Backbone','models/TrackModel','services/me
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('collections/ListCollection',['require','_','collections/Collection','models/ItemModel','services/mediator','services/proxy/proxy'],function(require) {
-  var Collection, ItemModel, ListCollection, mediator, proxy, _;
+define('collections/ListCollection',['require','_','collections/Collection','models/ItemModel','services/mediator','services/proxy/proxy','constants'],function(require) {
+  var C, Collection, ItemModel, ListCollection, mediator, proxy, _;
   _ = require('_');
   Collection = require('collections/Collection');
   ItemModel = require('models/ItemModel');
   mediator = require('services/mediator');
   proxy = require('services/proxy/proxy');
+  C = require('constants');
   return ListCollection = (function(_super) {
 
     __extends(ListCollection, _super);
@@ -17736,7 +17739,7 @@ define('collections/ListCollection',['require','_','collections/Collection','mod
       return model.fetch();
     };
 
-    ListCollection.prototype.pageSize = 10;
+    ListCollection.prototype.pageSize = C.PAGE_SIZE;
 
     ListCollection.prototype.getPage = function(page) {
       var end, start;
@@ -18013,8 +18016,8 @@ var __hasProp = {}.hasOwnProperty,
 define('views/PhraseView',['require','views/View'],function(require) {
   var PhraseView, View, no_phrases, yes_phrases;
   View = require('views/View');
-  yes_phrases = ['Похожее', 'Ой, смотри - что для тебя нашли', 'Возможно заинтересует', 'После этого трека слушают:', 'Ещё хорошей музыки?', 'Рекомендуем!', 'А это уже слышали?', 'По секрету - это отличные треки', 'Послушай', 'Такая вот музыка', 'Может, понравится', 'Как тебе?', 'Определено, то, что ты искал', 'Музыка "что надо"', 'Должно понравиться', 'Вот как-то так', 'Джеймс Бонд все нашел', 'Женщина-кошка остановила свой выбор на:', 'Слышали, может?', 'Работаем без отдыха', 'Исключительно для тебя', 'Хорошей музыки много не бывает', 'На твой вкус'];
-  no_phrases = ['Жаль, но ничего не нашлось', 'Пока ничего похожего не найдено', 'Поищем еще!', 'Не с кем даже сравнить', 'Может, послушаем что-то другое', 'Совпадений не найдено', 'Вот незадача - ничего не нашли', 'Тю-тю', 'Послушаем что-то другое?', 'Пока сложно найти что-то похожее', 'Поработаем надо этим', 'Приходи попозже, мы еще поищем', 'Тяжело что-то порекомендовать', 'Они слишком индивидуальны', 'Миссия невыполнима', 'Ур-ру-ру, кто-то тут ничего не нашел', 'Халк все диски раздавил', 'Да что за беда', 'Мы таких не знаем', 'Индиана Джонс ищет Грааль - он не может вам помочь', 'Просим прощения, исправимся', 'Ищем-ищем, найти не можем'];
+  yes_phrases = ['Похожее', 'Ой, смотри, что для тебя нашли!', 'Возможно заинтересует', 'После этого трека слушают:', 'Ещё хорошей музыки?', 'Рекомендуем!', 'А это уже слышали?', 'По секрету - это отличные треки', 'Послушай', 'Такая вот музыка', 'Может, понравится', 'Как тебе?', 'Определено, то, что ты искал', 'Музыка "что надо"', 'Должно понравиться', 'Вот как-то так', 'Джеймс Бонд все нашел', 'Женщина-кошка остановила свой выбор на:', 'Слышали, может?', 'Работаем без отдыха', 'Исключительно для тебя', 'Хорошей музыки много не бывает', 'На твой вкус', 'Искали-искали и нашли', ':)', 'У тебя отличный вкус', 'И это подойдет', 'Маша шла-шла, пирожок нашла', 'Искатели искали-искали и выискали', 'Первый трек вообще кайф', '42', 'Что может быть лучше хорошей музыки?', 'Сидим всем офисом слушаем'];
+  no_phrases = ['Жаль, но ничего не нашлось', 'Пока ничего похожего не найдено', 'Поищем еще!', 'Не с кем даже сравнить', 'Может, послушаем что-то другое', 'Совпадений не найдено', 'Вот незадача - ничего не нашли', 'Тю-тю', 'Послушаем что-то другое?', 'Пока сложно найти что-то похожее', 'Поработаем надо этим', 'Приходи попозже, мы еще поищем', 'Тяжело что-то порекомендовать', 'Они слишком индивидуальны', 'Миссия невыполнима', 'Ур-ру-ру, кто-то тут ничего не нашел', 'Халк все диски раздавил', 'Да что за беда', 'Мы таких не знаем', 'Индиана Джонс ищет Грааль - он не может вам помочь', 'Просим прощения, исправимся', 'Ищем-ищем, найти не можем', 'Дед искал - не нашел, баба искала - не нашла', ':(', 'У нас пропала вся картотека для этой записи', 'Cherchez la femme', 'Кинологи выехали. Будем искать!', 'Маша шла-шла, пирожок не нашла', 'О! Нашли самую тайную фразу. Но не музыку', 'Пуаро тоже ошибается', 'Холмс тоже ошибается', 'Опять эти гномы все перепутали', 'Кладоискатель сломался', ''];
   return PhraseView = (function(_super) {
 
     __extends(PhraseView, _super);
@@ -18028,7 +18031,7 @@ define('views/PhraseView',['require','views/View'],function(require) {
     PhraseView.prototype.className = 'b-similars__phrase';
 
     PhraseView.prototype.initialize = function(options) {
-      return this.collection.on('reset add remove', this.render, this);
+      return this.collection.on('updated', this.render, this);
     };
 
     PhraseView.prototype._render = function() {
@@ -18879,10 +18882,25 @@ define('services/noty',['require','_','$','services/mediator','humane'],function
 });
 
 
-define('services/logger',['require','services/noty','services/mediator'],function(require) {
-  var logger, mediator, noty;
+define('services/urlParams',['require'],function(require) {
+  var curr, location, pair, pairs, params, _i, _len;
+  location = document.location.search.substr(1);
+  pairs = location.split('&');
+  params = {};
+  for (_i = 0, _len = pairs.length; _i < _len; _i++) {
+    pair = pairs[_i];
+    curr = pair.split('=');
+    params[curr[0]] = curr[1];
+  }
+  return params;
+});
+
+
+define('services/logger',['require','services/noty','services/mediator','services/urlParams'],function(require) {
+  var logger, mediator, noty, urlParams;
   noty = require('services/noty');
   mediator = require('services/mediator');
+  urlParams = require('services/urlParams');
   return logger = {
     init: function() {
       noty.init();
@@ -18902,10 +18920,12 @@ define('services/logger',['require','services/noty','services/mediator'],functio
       return noty.info(message);
     },
     log: function(message) {
-      return console.log('logger.log', message);
+      console.log('logger.log', message);
+      return _gaq.push(['_trackEvent', 'logger', 'log', message, urlParams['viewer_id']]);
     },
     error: function(message) {
-      return console.log('logger.error', message);
+      console.log('logger.error', message);
+      return _gaq.push(['_trackEvent', 'logger', 'error', message, urlParams['viewer_id']]);
     }
   };
 });
@@ -19107,6 +19127,9 @@ define('main',['require','_','$','Backbone','views/AppView','services/player','s
   } catch (e) {
 
   }
+  $.error = function(message) {
+    return _gaq.push(['_trackEvent', 'jQuery Error', message, navigator.userAgent, 0, true]);
+  };
   AppView = require('views/AppView');
   player = require('services/player');
   flow = require('services/flow');

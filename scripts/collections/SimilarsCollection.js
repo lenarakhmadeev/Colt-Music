@@ -35,10 +35,11 @@ define(function(require) {
         _this.offset += _this.count;
         status = data.length < _this.count ? 'no' : 'yes';
         _this.setStatus(status);
-        _.each(data, _this.addRaw, _this);
-        return _this.trigger('updated');
+        return _.each(data, _this.addRaw, _this);
       }).fail(function() {
         return _this.setStatus('no');
+      }).always(function() {
+        return _this.trigger('updated');
       });
     };
 
