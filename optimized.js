@@ -18921,11 +18921,11 @@ define('services/logger',['require','services/noty','services/mediator','service
     },
     log: function(message) {
       console.log('logger.log', message);
-      return _gaq.push(['_trackEvent', 'logger', 'log', message, urlParams['viewer_id']]);
+      return _gaq.push(['_trackEvent', 'logger', 'log', message, urlParams['viewer_id'], true]);
     },
     error: function(message) {
       console.log('logger.error', message);
-      return _gaq.push(['_trackEvent', 'logger', 'error', message, urlParams['viewer_id']]);
+      return _gaq.push(['_trackEvent', 'logger', 'error', message, urlParams['viewer_id'], true]);
     }
   };
 });
