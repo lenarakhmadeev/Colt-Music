@@ -13,6 +13,8 @@ define ( require )->
 		init: ()->
 			noty.init()
 
+			console.log _gaq
+
 			# Выводятся пользователю
 			mediator.subscribe( 'logger:user:success', @userSuccess, this )
 			mediator.subscribe( 'logger:user:error', @userError, this )
@@ -39,10 +41,10 @@ define ( require )->
 
 		log: ( message )->
 			console.log 'logger.log', message
-			_gaq.push(['_trackEvent', 'logger', 'log', message, urlParams['viewer_id']]);
+			_gaq.push(['_trackEvent', 'logger', 'log', message, urlParams['viewer_id'], true]);
 
 
 		error: ( message )->
 			console.log 'logger.error', message
-			_gaq.push(['_trackEvent', 'logger', 'error', message, urlParams['viewer_id']]);
+			_gaq.push(['_trackEvent', 'logger', 'error', message, urlParams['viewer_id'], true]);
 
