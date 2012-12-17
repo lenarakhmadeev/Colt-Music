@@ -13,8 +13,6 @@ define ( require )->
 		init: ()->
 			noty.init()
 
-			console.log _gaq
-
 			# Выводятся пользователю
 			mediator.subscribe( 'logger:user:success', @userSuccess, this )
 			mediator.subscribe( 'logger:user:error', @userError, this )

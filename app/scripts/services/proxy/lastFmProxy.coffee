@@ -3,7 +3,7 @@ define ( require )->
 	$ = require( '$' )
 	LastFm = require( 'services/proxy/LastFm' )
 	lastFmFilters = require( 'services/proxy/lastFmFilters' )
-	C = require( 'constants' )
+	C = require( 'services/constants' )
 
 
 	lastFm = new LastFm( C.LASTFM_KEY, C.LASTFM_URL )

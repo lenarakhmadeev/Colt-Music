@@ -4,7 +4,7 @@ define ( require )->
 	mediator = require( 'services/mediator' )
 	MarqueeView = require( 'views/MarqueeView' )
 	playerTemplate = require( 'tpl!templates/player.html' )
-	C = require( 'constants' )
+	C = require( 'services/constants' )
 
 
 	class PlayerView extends View

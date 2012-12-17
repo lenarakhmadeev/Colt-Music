@@ -4,7 +4,7 @@ define ( require )->
 	SimilarsView = require( 'views/SimilarsView' )
 	InfoView = require( 'views/InfoView' )
 	itemTemplate = require( 'tpl!templates/item.html' )
-	C = require( 'constants' )
+	C = require( 'services/constants' )
 
 
 	class ItemView extends View

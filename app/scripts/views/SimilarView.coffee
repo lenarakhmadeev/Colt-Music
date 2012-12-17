@@ -2,7 +2,7 @@
 define ( require )->
 	View = require( 'views/View' )
 	similarTemplate = require( 'tpl!templates/similar.html' )
-	C = require( 'constants' )
+	C = require( 'services/constants' )
 
 
 	class SimilarView extends View

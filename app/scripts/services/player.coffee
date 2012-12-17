@@ -2,7 +2,7 @@
 define ( require )->
 	$ = require( '$' )
 	mediator = require( 'services/mediator' )
-	C = require( 'constants' )
+	C = require( 'services/constants' )
 
 
 	# Отвечает за воспроизведение треков

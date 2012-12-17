@@ -5,7 +5,7 @@ define ( require )->
 	ItemModel = require( 'models/ItemModel' )
 	mediator = require( 'services/mediator' )
 	proxy = require( 'services/proxy/proxy' )
-	C = require( 'constants' )
+	C = require( 'services/constants' )
 
 
 	# Список аудиозаписей пользователя
