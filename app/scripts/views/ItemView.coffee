@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	View = require( 'views/View' )
 	SimilarsView = require( 'views/SimilarsView' )
 	InfoView = require( 'views/InfoView' )
@@ -21,7 +21,7 @@ define ( require )->
 			'click .b-item__like-button': 'addToWall'
 
 
-		initialize: ( options )->
+		initialize: ( options ) ->
 			@model.on( 'change:selected', @renderSelected, this )
 			@model.on( 'change:played', @renderPlayed, this )
 			@model.on( 'change:info', @renderCover, this )
@@ -30,12 +30,12 @@ define ( require )->
 			@infoView = new InfoView( model: @model )
 
 
-		serialize: ()->
+		serialize: ->
 			artist: @model.get( 'artist' )
 			title: @model.get( 'title' )
 
 
-		_render: ()->
+		_render: ->
 			@infoView.render()
 			@append( '.b-item__info-place', @infoView )
 
@@ -48,19 +48,19 @@ define ( require )->
 			@renderPlayed()
 
 
-		renderCover: ()->
+		renderCover: ->
 			cover = @model.get( 'info.images.126' ) or C.BIG_COVER
 			@$( '.b-item__cover-image' ).attr( 'src', cover )
 
 
-		renderSelected: ()->
+		renderSelected: ->
 			if @model.get( 'selected' )
 				@$el.addClass( 'b-item_selected' )
 			else
 				@$el.removeClass( 'b-item_selected' )
 
 
-		renderPlayed: ()->
+		renderPlayed: ->
 			if @model.get( 'played' )
 				@$( '.b-item__play-button' ).hide()
 				@$( '.b-item__pause-button' ).show()
@@ -73,18 +73,18 @@ define ( require )->
 				@$( '.b-item__album-cover, .b-item__track-title' ).attr( 'title', 'Играть' )
 
 
-		play: ()->
+		play: ->
 			@model.play()
 
 
-		pause: ()->
+		pause: ->
 			@model.pause()
 
 
-		togglePlay: ()->
+		togglePlay: ->
 			@model.togglePlay()
 
 
-		addToWall: ()->
+		addToWall: ->
 			@model.addToWall()
 

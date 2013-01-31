@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	_ = require( '_' )
 	vk = require( 'vk' )
 	mediator = require( 'services/mediator' )
@@ -12,11 +12,11 @@ define ( require )->
 
 		className: 'b-list'
 
-		initialize: ( options )->
+		initialize: ( options ) ->
 			@collection.own.on( 'change:content', @render, this )
 
 
-		_render: ()->
+		_render: ->
 			vk.callMethod( 'scrollWindow', 0, 0 )
 
 			content = @collection.own.get( 'content' )
@@ -25,7 +25,7 @@ define ( require )->
 			mediator.publish( 'app:resize' )
 
 
-		addItem: ( model )->
+		addItem: ( model ) ->
 			itemView = new ItemView( model: model )
 			itemView.render()
 

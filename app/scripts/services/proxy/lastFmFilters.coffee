@@ -1,12 +1,12 @@
 
-define ( require )->
+define ( require ) ->
 	jpath = require( 'jpath' )
 	_ = require( '_' )
 
 
 	lastFmFilters =
 
-		info: ( data )->
+		info: ( data ) ->
 			rawImages = jpath( data, '.track.album.image' )
 
 			album: jpath( data, '.track.album.title' )
@@ -15,7 +15,7 @@ define ( require )->
 			wiki: jpath( data, '.track.wiki' )
 
 
-		similar: ( data )->
+		similar: ( data ) ->
 			tracks = jpath( data, '.similartracks.track' )
 
 			# Если нет похожих, lasFm возвращает саму запись почему-то
@@ -24,10 +24,10 @@ define ( require )->
 			_.map( tracks, @filterSimilar , this )
 
 
-		topTracks: ()->
+		topTracks: ->
 
 
-		filterImages : ( data, sizes)->
+		filterImages : ( data, sizes) ->
 			return null unless data?
 
 			result = {}
@@ -44,7 +44,7 @@ define ( require )->
 			'large': 174
 			'extralarge': 300
 
-		filterInfoImages: ( data )->
+		filterInfoImages: ( data ) ->
 			@filterImages( data, @infoImageSizes )
 
 
@@ -54,11 +54,11 @@ define ( require )->
 			'large': 126
 			'extralarge': 300
 
-		filterSimilarImages: ( data )->
+		filterSimilarImages: ( data ) ->
 			@filterImages( data, @similarImageSizes )
 
 
-		filterSimilar: ( data )->
+		filterSimilar: ( data ) ->
 			rawImages = jpath( data, '.image' )
 
 			artist: jpath( data, '.artist.name' )

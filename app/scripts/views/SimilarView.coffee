@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	View = require( 'views/View' )
 	similarTemplate = require( 'tpl!templates/similar.html' )
 	C = require( 'services/constants' )
@@ -21,30 +21,30 @@ define ( require )->
 			'click .b-similar__wiki-button': 'showWiki'
 
 
-		initialize: ( options )->
+		initialize: ( options ) ->
 			@model.on( 'change:selected', @renderSelected, this )
 			@model.on( 'change:played', @renderPlayed, this )
 
 
-		_render: ()->
+		_render: ->
 			@renderSelected()
 			@renderPlayed()
 
 
-		serialize: ()->
+		serialize: ->
 			artist: @model.get( 'artist' )
 			title: @model.get( 'title' )
 			cover: @model.get( 'info.images.64' ) or C.SMALL_COVER
 
 
-		renderSelected: ()->
+		renderSelected: ->
 			if @model.get ( 'selected' )
 				@$el.addClass( 'b-similar_selected' )
 			else
 				@$el.removeClass( 'b-similar_selected' )
 
 
-		renderPlayed: ()->
+		renderPlayed: ->
 			if @model.get( 'played' )
 				@$( '.b-similar__play-button' ).hide()
 				@$( '.b-similar__pause-button' ).show()
@@ -57,24 +57,24 @@ define ( require )->
 				@$( '.b-similar__album-cover, .b-similar__track-title' ).attr( 'title', 'Играть' )
 
 
-		play: ()->
+		play: ->
 			@model.play()
 
 
-		pause: ()->
+		pause: ->
 			@model.pause()
 
 
-		togglePlay: ()->
+		togglePlay: ->
 			@model.togglePlay()
 
 
-		addToAudio: ()->
+		addToAudio: ->
 			@model.addToAudio()
 
 
-		addToWall: ()->
+		addToWall: ->
 			@model.addToWall()
 
 
-		showWiki: ()->
+		showWiki: ->

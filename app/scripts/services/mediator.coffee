@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	Backbone = require( 'Backbone' )
 
 

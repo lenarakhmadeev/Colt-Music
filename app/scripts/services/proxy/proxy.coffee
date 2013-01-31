@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	_ = require( '_' )
 	lastFmProxy = require( 'services/proxy/lastFmProxy' )
 	vkProxy = require( 'services/proxy/vkProxy' )

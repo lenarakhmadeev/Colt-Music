@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	mediator = require( 'services/mediator' )
 	vk = require( 'vk' )
 
@@ -21,7 +21,7 @@ define ( require )->
 
 		className: 'b-app'
 
-		initialize: ( options )->
+		initialize: ( options ) ->
 			@initPlayer()
 			@initListCollection()
 			@initNavigation()
@@ -31,12 +31,12 @@ define ( require )->
 			mediator.subscribe( 'app:resize', @resizeWindow, this )
 
 
-		scroll: ( scrollTop )->
+		scroll: ( scrollTop ) ->
 			pos = Math.max( scrollTop - 75, 0 )
 			@$( '.b-app__slider' ).offset( top: pos );
 
 
-		resizeWindow: ()->
+		resizeWindow: ->
 			height = @$el.height()
 			return if @height == height
 
@@ -45,25 +45,25 @@ define ( require )->
 			vk.callMethod('resizeWindow', null, height + 200)
 
 
-		initPlayer: ()->
+		initPlayer: ->
 			playerModel = new PlayerModel()
 			@playerView = new PlayerView( model: playerModel )
 
 
-		initListCollection: ()->
+		initListCollection: ->
 			@listCollection = new ListCollection()
 			@listCollection.getAudio()
 
 
-		initNavigation: ()->
+		initNavigation: ->
 			@navigationView = new NavigationView( collection: @listCollection )
 
 
-		initList: ()->
+		initList: ->
 			@listView = new ListView( collection: @listCollection )
 
 
-		_render: ()->
+		_render: ->
 			@append( '.b-app__player-place', @playerView )
 			@append( '.b-app__navigation-place', @navigationView )
 			@append( '.b-app__list-place', @listView )

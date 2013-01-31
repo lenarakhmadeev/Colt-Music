@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	noty = require( 'services/noty' )
 	mediator = require( 'services/mediator' )
 	urlParams = require( 'services/urlParams' )
@@ -10,7 +10,7 @@ define ( require )->
 	logger =
 
 		# Инициализация модуля
-		init: ()->
+		init: ->
 			noty.init()
 
 			# Выводятся пользователю
@@ -24,25 +24,25 @@ define ( require )->
 
 
 		# Успешное выполнение
-		userSuccess: ( message )->
+		userSuccess: ( message ) ->
 			noty.success( message )
 
 		# Ошибка
-		userError: ( message )->
+		userError: ( message ) ->
 			noty.error( message )
 
 		# Оповещение
-		userInfo: ( message )->
+		userInfo: ( message ) ->
 			noty.info( message )
 
 		# _gaq.push(['_trackEvent', category, action, opt_label, opt_value, opt_noninteraction]);
 
-		log: ( message )->
+		log: ( message ) ->
 			console.log 'logger.log', message
 			_gaq.push(['_trackEvent', 'logger', 'log', message, urlParams['viewer_id'], true]);
 
 
-		error: ( message )->
+		error: ( message ) ->
 			console.log 'logger.error', message
 			_gaq.push(['_trackEvent', 'logger', 'error', message, urlParams['viewer_id'], true]);
 

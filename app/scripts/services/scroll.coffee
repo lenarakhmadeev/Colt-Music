@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	_ = require( '_' )
 	vk = require( 'vk' )
 	mediator = require( 'services/mediator' )
@@ -8,12 +8,12 @@ define ( require )->
 	scroll =
 
 		# Инициализация модуля
-		init: ()->
+		init: ->
 			# Слушаем событие скролла VK
 			vk.callMethod( 'scrollSubscribe', fireEvent: true )
 			vk.addCallback( 'onScroll', _.bind( @_onScroll, this ) )
 
 
-		_onScroll: ( scrollTop, windowHeight )->
+		_onScroll: ( scrollTop, windowHeight ) ->
 			mediator.publish( 'scroll', scrollTop )
 

@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	View = require( 'views/View' )
 	mediator = require( 'services/mediator' )
 	MarqueeView = require( 'views/MarqueeView' )
@@ -21,26 +21,26 @@ define ( require )->
 			'click .b-player__add-button': 'addAudio'
 
 
-		initialize: ( options )->
+		initialize: ( options ) ->
 			@model.on( 'change:current', @renderCurrent, this )
 
 			@marqueeView = new MarqueeView( model: @model )
 
 
-		serialize: ()->
+		serialize: ->
 			cover: C.BIG_COVER
 
 
-		_render: ()->
+		_render: ->
 			@renderMarquee()
 
 
-		renderMarquee: ()->
+		renderMarquee: ->
 			@marqueeView.render()
 			@append( '.b-player__marquee-place', @marqueeView )
 
 
-		renderPlayed: ()->
+		renderPlayed: ->
 			played = @model.getCurrent().get( 'played' )
 
 			if played
@@ -51,7 +51,7 @@ define ( require )->
 				@$( '.b-player__pause-button' ).hide()
 
 
-		renderCurrent: ()->
+		renderCurrent: ->
 			@subscribePlayed()
 
 			@renderType()
@@ -59,13 +59,13 @@ define ( require )->
 			@renderPlayed()
 
 
-		subscribePlayed: ()->
+		subscribePlayed: ->
 			current = @model.getCurrent()
 			@model.off( 'change:played', null, this )
 			current.on( 'change:played', @renderPlayed, this )
 
 
-		renderType: ()->
+		renderType: ->
 			type = @model.getCurrent().get( 'type' )
 
 			if type == 'similar'
@@ -74,28 +74,28 @@ define ( require )->
 				@$( '.b-player__add-button' ).hide( 500 )
 
 
-		renderCover: ()->
+		renderCover: ->
 			cover = @model.getCurrent().get( 'info.images.126' ) or C.BIG_COVER
 			@$( '.b-player__cover-image' ).attr( 'src', cover )
 
 
-		resume: ()->
+		resume: ->
 			@model.resume()
 
 
-		pause: ()->
+		pause: ->
 			@model.pause()
 
 
-		prev: ()->
+		prev: ->
 			mediator.publish( 'flow:prev' )
 
 
-		next: ()->
+		next: ->
 			mediator.publish( 'flow:next' )
 
 
-		addAudio: ()->
+		addAudio: ->
 			track = @model.getCurrent()
 			track.addToAudio()
 

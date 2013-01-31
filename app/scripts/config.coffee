@@ -39,7 +39,7 @@ requirejs.config
 	shim:
 		Backbone:
 			deps: [ '$', '_', 'json2' ]
-			exports: ()->
+			exports: ->
 				# Загружаем плагины сразу, так проще
 				# http://afeld.github.com/backbone-nested/
 				require [ 'libs/backbone/backbone-nested' ]
@@ -47,7 +47,7 @@ requirejs.config
 				this.Backbone
 
 		$:
-			exports: ()->
+			exports: ->
 				# Загружаем плагины сразу, так проще
 				require [ 'libs/jquery/jplayer/jquery.jplayer.min', 'libs/jquery/marquee' ]
 
@@ -61,7 +61,7 @@ requirejs.config
 
 
 # Хендлер для ошибок
-requirejs.onError = ( errObject )->
+requirejs.onError = ( errObject ) ->
 	requireType = errObject.requireType
 	requireModules = errObject.requireModules
 	console.log( requireType, requireModules )

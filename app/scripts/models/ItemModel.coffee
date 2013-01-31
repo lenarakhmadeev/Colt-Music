@@ -1,10 +1,9 @@
-
-define ( require )->
-	Backbone = require( 'Backbone' )
-	TrackModel = require( 'models/TrackModel' )
-	mediator = require( 'services/mediator' )
-	SimilarsCollection = require( 'collections/SimilarsCollection' )
-	proxy = require( 'services/proxy/proxy' )
+define (require) ->
+	Backbone = require 'Backbone'
+	TrackModel = require 'models/TrackModel'
+	mediator = require 'services/mediator'
+	SimilarsCollection = require 'collections/SimilarsCollection'
+	proxy = require 'services/proxy/proxy'
 
 
 	class ItemModel extends TrackModel
@@ -33,13 +32,13 @@ define ( require )->
 				duration: null
 
 
-		initialize: ( attributes, options )->
+		initialize: (attributes, options) ->
 			@similarsCollection = new SimilarsCollection()
-			@similarsCollection.setParent( this )
+			@similarsCollection.setParent this
 
 
-		fetch: ()->
-			unless @get( 'has_info' )
+		fetch: ->
+			unless @get 'has_info'
 				@getTrackInfo() 
 			
 			@similarsCollection.getFirstSimilars()

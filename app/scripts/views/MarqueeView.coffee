@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	$ = require( '$' )
 	View = require( 'views/View' )
 
@@ -8,15 +8,15 @@ define ( require )->
 
 		className: 'b-marquee'
 
-		initialize: ( options )->
+		initialize: ( options ) ->
 			@model.on( 'change:current', @render, this )
 
 
-		_render: ()->
+		_render: ->
 			@$el.marquee( @getLine(), 'low' )
 
 
-		getLine: ()->
+		getLine: ->
 			current = @model.get( 'current' )
 			return '' unless current?
 
@@ -24,7 +24,7 @@ define ( require )->
 			"#{ time } #{ current.get( 'artist' ) } - #{ current.get( 'title' ) }"
 
 
-		convertTime: ( totalSec, separator = ':' )->
+		convertTime: ( totalSec, separator = ':' ) ->
 			hours = parseInt( totalSec / 3600 )
 			minutes = parseInt( totalSec / 60 ) % 60
 			seconds = totalSec % 60
@@ -45,7 +45,7 @@ define ( require )->
 			result.join( separator )
 
 
-		formatTime: ( time )->
+		formatTime: ( time ) ->
 			if time < 10 then '0' + time else time
 
 

@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	$ = require( '$' )
 	mediator = require( 'services/mediator' )
 	View = require( 'views/View' )
@@ -20,11 +20,11 @@ define ( require )->
 			'click .b-navigation__last': 'navigatePage'
 
 
-		initialize: ( options )->
+		initialize: ( options ) ->
 			@collection.own.on( 'change:content', @render, this )
 
 
-		serialize: ()->
+		serialize: ->
 			page = @collection.own.get( 'page' )
 			pages = @collection.pagesCount()
 
@@ -54,12 +54,12 @@ define ( require )->
 			data
 
 
-		navigatePage: ( event )->
+		navigatePage: ( event ) ->
 			page = @getTargetPage( event )
 			mediator.publish( 'list:load_page', page)
 
 
-		getTargetPage: ( event )->
+		getTargetPage: ( event ) ->
 			$( event.target ).data( 'page' )
 
 

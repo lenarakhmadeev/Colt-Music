@@ -1,5 +1,5 @@
 # Константы для модулей
-define ( require )->
+define ( require ) ->
 	BIG_COVER: 'images/cover/big.png'
 	SMALL_COVER: 'images/cover/small.png'
 

@@ -1,7 +1,9 @@
 
-define ( require )->
-	View = require( 'views/View' )
+define ( require ) ->
+	View = require 'views/View'
+	urlParams = require 'services/urlParams'
 
+	console.log 'PH', urlParams
 
 	# Фразы, если что-то найдено
 	yes_phrases = [
@@ -89,9 +91,15 @@ define ( require )->
 		'Холмс тоже ошибается'
 		'Опять эти гномы все перепутали'
 		'Кладоискатель сломался'
-		''
-
 	]
+
+	# todo!
+	try
+		res = urlParams.api_result.response[0]
+		name = "#{res.first_name} #{res.last_name}"
+		yes_phrases.push "Привет, #{name}, это для тебя!"
+	catch e
+		console.log e
 
 	class PhraseView extends View
 
@@ -99,20 +107,20 @@ define ( require )->
 
 		className: 'b-similars__phrase'
 
-		initialize: ( options )->
-			@collection.on( 'updated', @render, this )
+		initialize: (options) ->
+			@collection.on 'updated', @render, this
 
 
-		_render: ()->
-			@renderPhrase( @collection.length )
+		_render: ->
+			@renderPhrase @collection.length
 
 
-		renderPhrase: ( yes_ = true )->
+		renderPhrase: (yes_ = true) ->
 			phrases = if yes_ then yes_phrases else no_phrases
-			phrase = @randomElem( phrases )
-			@$el.html( phrase )
+			phrase = @randomElem phrases
+			@$el.html phrase
 
 
-		randomElem: ( arr )->
-			indx = Math.floor( Math.random() * arr.length )
-			arr[ indx ]
+		randomElem: (arr) ->
+			indx = Math.floor(Math.random() * arr.length)
+			arr[indx]

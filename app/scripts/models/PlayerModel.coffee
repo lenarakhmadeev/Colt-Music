@@ -1,36 +1,35 @@
-
-define ( require )->
-	Backbone = require( 'Backbone' )
-	mediator = require( 'services/mediator' )
-	player = require( 'services/player' )
+define (require) ->
+	Backbone = require 'Backbone'
+	mediator = require 'services/mediator'
+	player = require 'services/player'
 
 
 	class PlayerModel extends Backbone.Model
 
-		initialize: ( attributes, options )->
-			mediator.subscribe( 'player:play', @play, this )
+		initialize: ->
+			mediator.subscribe 'player:play', @play, this
 
 
-		play: ( model )->
-			@set( 'current', model )
+		play: (model) ->
+			@set 'current', model
 
 
-		pause: ()->
+		pause: ->
 			@getCurrent().pause()
 
 
-		resume: ()->
+		resume: ->
 			current = @getCurrent()
 
 			# Проверка первого нажатия
 			if current?
 				current.resume()
 			else
-				mediator.publish( 'list:play_first' )
+				mediator.publish 'list:play_first'
 
 
-		getCurrent: ()->
-			@get( 'current' )
+		getCurrent: ->
+			@get 'current'
 
 
 

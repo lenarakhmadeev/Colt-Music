@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	TrackModel = require( 'models/TrackModel' )
 
 

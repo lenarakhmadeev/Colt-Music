@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	View = require( 'views/View' )
 	moreTemplate = require( 'tpl!templates/more.html' )
 
@@ -14,13 +14,13 @@ define ( require )->
 			'click .b-more-button__show-more-button': 'getMoreSimilars'
 
 
-		initialize: ( options )->
+		initialize: ( options ) ->
 			@collection.own.on( 'change:status', @render, this )
 
 
-		serialize: ()->
+		serialize: ->
 			status: @collection.own.get( 'status' )
 
 
-		getMoreSimilars: ()->
+		getMoreSimilars: ->
 			@collection.getMoreSimilars()

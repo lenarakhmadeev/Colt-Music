@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	$ = require( '$' )
 	_ = require( '_' )
 	mediator = require( 'services/mediator' )
@@ -16,27 +16,27 @@ define ( require )->
 
 		className: 'b-similars'
 
-		initialize: ( options )->
+		initialize: ( options ) ->
 			@collection.on( 'updated', @updateSimilars, this )
 
 			@phraseView = new PhraseView( collection: @collection )
 			@moreButtonView = new MoreButtonView( collection: @collection )
 
 
-		_render: ()->
+		_render: ->
 			@renderSimilars()
 			@renderPhrase()
 			@renderMoreButton()
 
 
-		updateSimilars: ()->
+		updateSimilars: ->
 			@$('.b-similars__similars-container-col1').empty()
 			@$('.b-similars__similars-container-col2').empty()
 
 			@renderSimilars()
 
 
-		renderSimilars: ()->
+		renderSimilars: ->
 			return if not @collection.length
 
 			[ left, right ] = @divideModels( @collection.models )
@@ -51,30 +51,30 @@ define ( require )->
 			mediator.publish( 'app:resize' )
 
 
-		renderColumn: ( columnSelector, models )->
-			callback = ( model )->
+		renderColumn: ( columnSelector, models ) ->
+			callback = ( model ) ->
 				@addItem( columnSelector, model )
 
 			_.each( models, callback, this )
 
 
-		divideModels: ( models )->
+		divideModels: ( models ) ->
 			middle = Math.ceil( models.length / 2 )
 
 			[ models[...middle], models[middle...] ]
 
 
-		renderPhrase: ()->
+		renderPhrase: ->
 			@phraseView.render()
 			@append( '.b-similars__phrase-place', @phraseView )
 
 
-		renderMoreButton: ()->
+		renderMoreButton: ->
 			@moreButtonView.render()
 			@append( '.b-similars__more-button-place', @moreButtonView )
 
 
-		addItem: ( columnSelector, model )->
+		addItem: ( columnSelector, model ) ->
 			simView = new SimilarView( model: model )
 			simView.render()
 

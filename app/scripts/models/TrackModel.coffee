@@ -1,9 +1,8 @@
-
-define ( require )->
-	$ = require( '$' )
-	Backbone = require( 'Backbone' )
-	mediator = require( 'services/mediator' )
-	proxy= require( 'services/proxy/proxy' )
+define (require) ->
+	$ = require '$'
+	Backbone = require 'Backbone'
+	mediator = require 'services/mediator'
+	proxy= require 'services/proxy/proxy'
 
 
 	class TrackModel extends Backbone.NestedModel
@@ -32,122 +31,122 @@ define ( require )->
 				duration: null
 
 
-		getTrackInfo: ()->
-			@_getTrackInfo() unless @get( 'has_info' )
+		getTrackInfo: ->
+			@_getTrackInfo() unless @get 'has_info'
 
 
-		_getTrackInfo: ()->
-			proxy.getTrackInfo( @get( 'artist' ), @get( 'title' ) )
-				.done ( data )=>
-					@set( info: data )
+		_getTrackInfo: ->
+			proxy.getTrackInfo(@get('artist'), @get('title'))
+				.done (data) =>
+					@set info: data
 
-				.fail ( error )->
-					mediator.publish( 'logger:error', "getTrackInfo fail: #{ error.error_msg }" )
+				.fail (error) ->
+					mediator.publish 'logger:error', "getTrackInfo fail: #{ error.error_msg }"
 
-				.always ()=>
-					@set( 'has_info', true )
+				.always =>
+					@set 'has_info', true
 
 
-		getAudioUrl: ()->
+		getAudioUrl: ->
 			dfd = new $.Deferred()
 
-			if @get( 'has_audio' )
+			if @get 'has_audio'
 				dfd.resolve()
 			else
 				@_getAudioUrl()
-					.done ()->
+					.done ->
 						dfd.resolve()
 
-					.always ()=>
-						@set( 'has_audio', true )
+					.always =>
+						@set has_audio: true
 
 			dfd.promise()
 
 
-		_getAudioUrl: ()->
-			proxy.getAudioUrl( @get( 'artist' ), @get( 'title' ) )
-				.done ( data )=>
-					@set( audio: data )
+		_getAudioUrl: ->
+			proxy.getAudioUrl(@get('artist'), @get('title'))
+				.done (data) =>
+					@set audio: data
 
-				.fail ( error )->
-					mediator.publish( 'logger:user:error', 'Запись не найдена' )
-					mediator.publish( 'logger:error', "getAudioUrl fail: #{ error.error_msg }" )
-
-
-		setCurrent: ( current )->
-			@setSelected( current )
-			@setPlayed( current )
+				.fail (error) ->
+					mediator.publish 'logger:user:error', 'Запись не найдена'
+					mediator.publish 'logger:error', "getAudioUrl fail: #{ error.error_msg }"
 
 
-		setSelected: ( selected )->
-			@set( 'selected', selected )
+		setCurrent: (current) ->
+			@setSelected current
+			@setPlayed current
 
 
-		setPlayed: ( played )->
-			@set( 'played', played )
+		setSelected: (selected) ->
+			@set selected: selected
 
 
-		play: ()->
-			if @get( 'selected' )
+		setPlayed: (played) ->
+			@set played: played
+
+
+		play: ->
+			if @get 'selected'
 				@resume()
 			else
-				@getAudioUrl().done( @_play )
+				@getAudioUrl().done @_play
 
 
-		_play: ()=>
-			@setCurrent( true )
+		_play: =>
+			@setCurrent true
 
-			mediator.publish( 'player:play', this )
-			mediator.publish( 'flow:current', this )
-
-
-		pause: ()->
-			@setPlayed( false )
-			mediator.publish( 'player:pause' )
+			mediator.publish 'player:play', this
+			mediator.publish 'flow:current', this
 
 
-		resume: ()->
-			@setPlayed( true )
-			mediator.publish( 'player:resume' )
+		pause: ->
+			@setPlayed false
+			mediator.publish 'player:pause'
 
 
-		togglePlay: ()->
-			if @get( 'played' )
+		resume: ->
+			@setPlayed true
+			mediator.publish 'player:resume'
+
+
+		togglePlay: ->
+			if @get 'played'
 				@pause()
 			else
-				if @get( 'selected' )
+				if @get 'selected'
 					@resume()
 				else
 					@play()
 
 
-		addToWall: ()->
-			@getAudioUrl().done( @_addToWall )
+		addToWall: ->
+			@getAudioUrl().done @_addToWall
 
 
-		_addToWall: ()=>
-			proxy.addToWall( @get( 'audio.audio_id' ), @get( 'audio.owner_id' ) )
-				.done ()->
-					mediator.publish( 'logger:user:success', 'Запись размещена на стене' )
+		_addToWall: =>
+			proxy.addToWall(@get('audio.audio_id'), @get('audio.owner_id'))
+				.done ->
+					mediator.publish 'logger:user:success', 'Запись размещена на стене'
 
-				.fail ( error )->
+				.fail (error) ->
 					errorMessage = error.error_msg
-					mediator.publish( 'logger:user:error', 'Запись не может быть размещена на стене: ' + errorMessage )
-					mediator.publish( 'logger:error', "addToWall fail: #{ errorMessage }" )
+					mediator.publish 'logger:user:error', 'Запись не может быть размещена на стене: ' + errorMessage
+					mediator.publish 'logger:error', "addToWall fail: #{ errorMessage }"
 
 
-		addToAudio: ()->
-			@getAudioUrl().done( @_addToAudio )
+		addToAudio: ->
+			@getAudioUrl().done @_addToAudio
 
 
-		_addToAudio: ()=>
-			proxy.addToAudio( @get( 'audio.audio_id' ), @get( 'audio.owner_id' ) )
-				.done ( audio_id )=>
-					mediator.publish( 'logger:user:success', 'Запись успешно добавлена' )
+		_addToAudio: =>
+			proxy.addToAudio(@get('audio.audio_id'), @get('audio.owner_id'))
+				.done (audio_id) =>
+					mediator.publish 'logger:user:success', 'Запись успешно добавлена'
 
-				.fail ( error )->
+				.fail (error) ->
 					errorMessage = error.error_msg
-					mediator.publish( 'logger:user:error', 'Запись не может быть добавлена: ' + errorMessage )
-					mediator.publish( 'logger:error', "addToAudio fail: #{ errorMessage }" )
+					mediator.publish 'logger:user:error', 'Запись не может быть добавлена: ' + errorMessage
+					mediator.publish 'logger:error', "addToAudio fail: #{ errorMessage }"
 
 

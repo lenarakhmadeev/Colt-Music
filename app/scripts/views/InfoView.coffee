@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	View = require( 'views/View' )
 	infoTemplate = require( 'tpl!templates/info.html' )
 
@@ -10,10 +10,10 @@ define ( require )->
 
 		className: 'b-item-info'
 
-		initialize: ( options )->
+		initialize: ( options ) ->
 			@model.on( 'change:info', @render, this )
 
 
-		serialize: ()->
+		serialize: ->
 			album: @model.get( 'info.album' )
 			tags: ( @model.get( 'info.tags' ) or [] ).join(', ')

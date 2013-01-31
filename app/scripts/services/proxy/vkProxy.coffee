@@ -1,13 +1,14 @@
 
-define ( require )->
-	$ = require( '$' )
-	vk = require( 'vk' )
-	vkFilters = require( 'services/proxy/vkFilters' )
+define ( require ) ->
+	$ = require '$'
+	vk = require 'vk'
+	vkFilters = require 'services/proxy/vkFilters'
+	urlParams = require 'services/urlParams'
 
 
 	vkProxy =
 
-		searchAudio: ( artist, title, offset, count )->
+		searchAudio: ( artist, title, offset, count ) ->
 			dfd = new $.Deferred()
 
 			params =
@@ -17,7 +18,7 @@ define ( require )->
 				count: count
 				offset: offset
 
-			vk.api 'audio.search', params, ( data )->
+			vk.api 'audio.search', params, ( data ) ->
 				if 'error' of data
 					dfd.reject( data.error )
 				else
@@ -27,27 +28,27 @@ define ( require )->
 			dfd.promise()
 
 
-		getAudioUrl: ( artist, title )->
+		getAudioUrl: ( artist, title ) ->
 			dfd = new $.Deferred()
 
 			@searchAudio( artist, title, 0, 1 )
-				.done ( data )->
+				.done ( data ) ->
 					result = vkFilters.audioUrl( data )
 					dfd.resolve( result )
 
-				.fail ()->
+				.fail ->
 					dfd.reject( arguments... )
 
 			dfd.promise()
 
 
-		addToWall: ( audio_id, owner_id )->
+		addToWall: ( audio_id, owner_id ) ->
 			dfd = new $.Deferred()
 
 			params =
-				attachments: "audio#{ owner_id }_#{ audio_id }"
+				attachments: "audio#{ owner_id }_#{ audio_id },http://vk.com/app3130571"
 
-			vk.api 'wall.post', params, ( data )->
+			vk.api 'wall.post', params, ( data ) ->
 				console.log 'post', data
 
 				if 'error' of data
@@ -58,14 +59,14 @@ define ( require )->
 			dfd.promise()
 
 
-		addToAudio: (audio_id, owner_id)->
+		addToAudio: (audio_id, owner_id) ->
 			dfd = new $.Deferred()
 
 			params =
 				aid: audio_id
 				oid: owner_id
 
-			vk.api 'audio.add', params, ( data )->
+			vk.api 'audio.add', params, ( data ) ->
 				if 'error' of data
 					dfd.reject( data.error )
 				else
@@ -74,13 +75,29 @@ define ( require )->
 			dfd.promise()
 
 
-		getAudioList: ()->
+		getAudioList: ->
 			dfd = new $.Deferred()
 
-			vk.api 'audio.get', {}, (data)->
+			vk.api 'audio.get', {}, (data) ->
 				if 'error' of data
 					dfd.reject( data.error )
 				else
 					dfd.resolve( vkFilters.getAudio( data.response ) )
 
 			dfd.promise()
+
+
+		checkSettings: (settings) ->
+			userSettings = +urlParams.api_settings
+			userSettings & settings
+
+
+		showSettings: (settings) ->
+			vk.callMethod 'showSettingsBox', settings
+
+
+		addToMenu: ->
+			settings = 256
+			unless @checkSettings(settings)
+				@showSettings settings
+

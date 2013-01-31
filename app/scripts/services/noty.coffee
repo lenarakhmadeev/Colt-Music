@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	_ = require( '_' )
 	$ = require( '$' )
 	mediator = require( 'services/mediator' )
@@ -13,14 +13,14 @@ define ( require )->
 		timeout: 1500
 
 		# Инициализация модуля
-		init: ()->
+		init: ->
 			mediator.subscribe( 'scroll', @_onScroll, this )
 
 			@_extendHumane()
 
 
 		# Расширяем humane новыми типами сообщений
-		_extendHumane: ()->
+		_extendHumane: ->
 			humane.error = humane.spawn
 				addnCls: 'humane-original-error'
 				timeout: @timeout
@@ -31,22 +31,22 @@ define ( require )->
 
 
 		# Сообщение об ошибке
-		error: ( message )->
+		error: ( message ) ->
 			@_notify( 'error', message )
 
 
 		# Сообщение об успешном выполнении
-		success: ( message )->
+		success: ( message ) ->
 			@_notify( 'success', message )
 
 
 		# Простое сообщение
-		info: ( message )->
+		info: ( message ) ->
 			@_notify( 'log', message )
 
 
 		# Общий метод вывода сообщений
-		_notify: ( type, message )->
+		_notify: ( type, message ) ->
 			console.log 'message', message, this
 			humane[ type ]( message )
 
@@ -56,9 +56,9 @@ define ( require )->
 
 
 		# Возвращает смещение сверху в пискелях для сообщения
-		_getPosition: ()->
+		_getPosition: ->
 			@topPosition
 
 
 		# Запоминаем положение скролла
-		_onScroll: ( @topPosition )->
+		_onScroll: ( @topPosition ) ->

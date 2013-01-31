@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	_ = require( '_' )
 	Backbone = require( 'Backbone' )
 
@@ -8,7 +8,7 @@ define ( require )->
 	class View extends Backbone.View
 
 		# Возвращает данные, необходимые для рендера
-		serialize: ()->
+		serialize: ->
 			if @model
 				@model.toJSON()
 			else
@@ -19,13 +19,13 @@ define ( require )->
 
 
 		# Рендерит шаблон, который объявлен декларативно
-		renderTemplate: ()->
+		renderTemplate: ->
 			# Все кладем в ключ data, для удобства в шаблонизаторе
 			@template( @serialize() ) if @template
 
 
 		# Выполняет наиболее общий случай рендера
-		render: ()->
+		render: ->
 			# Очищаем HTML
 			@$el.children().remove()
 			@$el.empty()
@@ -48,7 +48,7 @@ define ( require )->
 
 		# Shortcut для добавления подвью в конец
 		# view | selector, view
-		append: ()->
+		append: ->
 			if arguments.length == 1
 				view = arguments[ 0 ]
 

@@ -167,11 +167,11 @@ _________________________________
 ###
 
 
-define ( require )->
+define (require) ->
 	# Хак, чтобы убрать из window
-	_ = require( '_' ).noConflict()
-	$ = require( '$' ).noConflict()
-	Backbone = require( 'Backbone' ).noConflict()
+	_ = require('_').noConflict()
+	$ = require('$').noConflict()
+	Backbone = require('Backbone').noConflict()
 
 	# IE delete bug
 	try
@@ -181,25 +181,29 @@ define ( require )->
 	catch e
 
 	# Сбор ошибок jQuery
-	$.error = ( message )->
+	$.error = (message) ->
 		_gaq.push( [ '_trackEvent', 'jQuery Error', message, navigator.userAgent, 0, true ] )
 
-	AppView = require( 'views/AppView' )
-	player = require( 'services/player' )
-	flow = require( 'services/flow' )
-	logger = require( 'services/logger' )
-	scroll = require( 'services/scroll' )
+	AppView = require 'views/AppView'
+	player = require 'services/player'
+	flow = require 'services/flow'
+	logger = require 'services/logger'
+	scroll = require 'services/scroll'
+	vkProxy = require 'services/proxy/vkProxy'
 
 	# Создаем главную вью приложения
 	appView = new AppView()
 	appView.render()
 
 	# Добавляем его к body
-	$( 'body' ).append( appView.el )
+	$('body').append appView.el
 
 	# Запускаем не MVC модули
 	player.init()
 	flow.init()
 	logger.init()
 	scroll.init()
+
+	# Запрашиваем добавление в меню
+	vkProxy.addToMenu()
 

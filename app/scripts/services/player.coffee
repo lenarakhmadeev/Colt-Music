@@ -1,5 +1,5 @@
 
-define ( require )->
+define ( require ) ->
 	$ = require( '$' )
 	mediator = require( 'services/mediator' )
 	C = require( 'services/constants' )
@@ -9,16 +9,16 @@ define ( require )->
 	player =
 
 		# Инициализация модуля
-		init: ()->
+		init: ->
 			@initJPlayer()
 
 
 		# Инициализация jPlayer
-		initJPlayer: ()->
+		initJPlayer: ->
 			@jp = $( '#jp' )
 
 			@jp.jPlayer
-				ready: ()=>
+				ready: =>
 					@initEvents()
 
 				swfPath: C.JPLAYER_PATH
@@ -26,7 +26,7 @@ define ( require )->
 				volume: 1
 				solution: 'flash,html'
 
-				ended: ()->
+				ended: ->
 					mediator.publish( 'flow:next' )
 
 				cssSelectorAncestor: '.b-player'
@@ -42,30 +42,30 @@ define ( require )->
 
 
 		# Инициализация слушателей событий
-		initEvents: ()->
+		initEvents: ->
 			mediator.subscribe( 'player:play', @play, this )
 			mediator.subscribe( 'player:pause', @pause, this )
 			mediator.subscribe( 'player:resume', @resume, this )
 
 
 		# Начинает вопроизведение трека
-		play: ( model )->
+		play: ( model ) ->
 			@jp.jPlayer( 'setMedia', mp3 : model.get( 'audio.url' ) )
 			@jp.jPlayer( 'play' )
 
 
 		# Пауза
-		pause: ()->
+		pause: ->
 			@jp.jPlayer( 'pause' )
 
 
 		# Продолжает воспроизведение
-		resume: ()->
+		resume: ->
 			@jp.jPlayer( 'play' )
 
 
 		# Меняет состояние поигрывания на обратное: паузу на плей, плей на паузу
-		togglePlay: ()->
+		togglePlay: ->
 			event = if @paused then 'player:resume' else 'player:pause'
 			mediator.publish( event )
 

@@ -1,9 +1,9 @@
 
-define ( require )->
+define ( require ) ->
 	_ = require( '_' )
 
 
-	pickAudioData = ( data )->
+	pickAudioData = ( data ) ->
 		result = _.pick( data, 'owner_id', 'url', 'duration' )
 
 		# Меняем aid на audio_id
@@ -12,7 +12,7 @@ define ( require )->
 		result
 
 
-	audioItemFilter = ( data )->
+	audioItemFilter = ( data ) ->
 		result = _.pick( data, 'artist', 'title' )
 		result.audio = pickAudioData( data )
 
@@ -21,13 +21,13 @@ define ( require )->
 
 	vkFilters =
 
-		getAudio: ( data )->
+		getAudio: ( data ) ->
 			_.map( data, audioItemFilter )
 
 
-		searchAudio: ( data )->
+		searchAudio: ( data ) ->
 			_.map( data[ 1... ], pickAudioData )
 
 
-		audioUrl: ( data )->
+		audioUrl: ( data ) ->
 			data[ 0 ]
