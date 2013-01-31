@@ -17410,6 +17410,7 @@ define('models/TrackModel',['require','$','Backbone','services/mediator','servic
       var dfd,
         _this = this;
       dfd = new $.Deferred();
+
       if (this.get('has_audio')) {
         dfd.resolve();
       } else {
@@ -17418,7 +17419,7 @@ define('models/TrackModel',['require','$','Backbone','services/mediator','servic
         }).always(function() {
           return _this.set('has_audio', true);
           });
-        });
+
       }
       return dfd.promise();
     };
