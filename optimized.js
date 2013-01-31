@@ -13690,12 +13690,12 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 
 define("$", (function (global) {
     return function () {
-        var ret, fn;
-        return ret || global.function () {
+        var func = function () {
         require(['libs/jquery/jplayer/jquery.jplayer.min', 'libs/jquery/marquee']);
         return this.$;
       };
-    };
+        return func.apply(global, arguments);
+    }
 }(this)));
 
 /*
@@ -15659,12 +15659,12 @@ define("json2", function(){});
 
 define("Backbone", ["$","_","json2"], (function (global) {
     return function () {
-        var ret, fn;
-        return ret || global.function () {
+        var func = function () {
         require(['libs/backbone/backbone-nested']);
         return this.Backbone;
       };
-    };
+        return func.apply(global, arguments);
+    }
 }(this)));
 
 
@@ -15743,7 +15743,7 @@ define('views/View',['require','_','Backbone'],function(require) {
 });
 
 
-define('services/constants',['require'],function(require) {
+define('constants',['require'],function(require) {
   return {
     BIG_COVER: 'images/cover/big.png',
     SMALL_COVER: 'images/cover/small.png',
@@ -15755,11 +15755,11 @@ define('services/constants',['require'],function(require) {
 });
 
 
-define('services/player',['require','$','services/mediator','services/constants'],function(require) {
+define('services/player',['require','$','services/mediator','constants'],function(require) {
   var $, C, mediator, player;
   $ = require('$');
   mediator = require('services/mediator');
-  C = require('services/constants');
+  C = require('constants');
   return player = {
     init: function() {
       return this.initJPlayer();
@@ -15830,7 +15830,7 @@ define('models/PlayerModel',['require','Backbone','services/mediator','services/
       return PlayerModel.__super__.constructor.apply(this, arguments);
     }
 
-    PlayerModel.prototype.initialize = function() {
+    PlayerModel.prototype.initialize = function(attributes, options) {
       return mediator.subscribe('player:play', this.play, this);
     };
 
@@ -16265,13 +16265,13 @@ define('text!templates/player.html',[],function () { return '\n<div class="b-pla
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('views/PlayerView',['require','views/View','services/mediator','views/MarqueeView','tpl!templates/player.html','services/constants'],function(require) {
+define('views/PlayerView',['require','views/View','services/mediator','views/MarqueeView','tpl!templates/player.html','constants'],function(require) {
   var C, MarqueeView, PlayerView, View, mediator, playerTemplate;
   View = require('views/View');
   mediator = require('services/mediator');
   MarqueeView = require('views/MarqueeView');
   playerTemplate = require('tpl!templates/player.html');
-  C = require('services/constants');
+  C = require('constants');
   return PlayerView = (function(_super) {
 
     __extends(PlayerView, _super);
@@ -17054,9 +17054,8 @@ jpath.exec = function(json, step, exist) {
 
 define("jpath", (function (global) {
     return function () {
-        var ret, fn;
-        return ret || global.jpath;
-    };
+        return global.jpath;
+    }
 }(this)));
 
 
@@ -17127,12 +17126,12 @@ define('services/proxy/lastFmFilters',['require','jpath','_'],function(require) 
 });
 
 
-define('services/proxy/lastFmProxy',['require','$','services/proxy/LastFm','services/proxy/lastFmFilters','services/constants'],function(require) {
+define('services/proxy/lastFmProxy',['require','$','services/proxy/LastFm','services/proxy/lastFmFilters','constants'],function(require) {
   var $, C, LastFm, lastFm, lastFmFilters, lastFmProxy;
   $ = require('$');
   LastFm = require('services/proxy/LastFm');
   lastFmFilters = require('services/proxy/lastFmFilters');
-  C = require('services/constants');
+  C = require('constants');
   lastFm = new LastFm(C.LASTFM_KEY, C.LASTFM_URL);
   return lastFmProxy = {
     getTrackInfo: function(artist, title) {
@@ -17417,8 +17416,7 @@ define('models/TrackModel',['require','$','Backbone','services/mediator','servic
         this._getAudioUrl().done(function() {
           return dfd.resolve();
         }).always(function() {
-          return _this.set({
-            has_audio: true
+          return _this.set('has_audio', true);
           });
         });
       }
@@ -17443,15 +17441,11 @@ define('models/TrackModel',['require','$','Backbone','services/mediator','servic
     };
 
     TrackModel.prototype.setSelected = function(selected) {
-      return this.set({
-        selected: selected
-      });
+      return this.set('selected', selected);
     };
 
     TrackModel.prototype.setPlayed = function(played) {
-      return this.set({
-        played: played
-      });
+      return this.set('played', played);
     };
 
     TrackModel.prototype.play = function() {
@@ -17707,14 +17701,14 @@ define('models/ItemModel',['require','Backbone','models/TrackModel','services/me
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('collections/ListCollection',['require','_','collections/Collection','models/ItemModel','services/mediator','services/proxy/proxy','services/constants'],function(require) {
+define('collections/ListCollection',['require','_','collections/Collection','models/ItemModel','services/mediator','services/proxy/proxy','constants'],function(require) {
   var C, Collection, ItemModel, ListCollection, mediator, proxy, _;
   _ = require('_');
   Collection = require('collections/Collection');
   ItemModel = require('models/ItemModel');
   mediator = require('services/mediator');
   proxy = require('services/proxy/proxy');
-  C = require('services/constants');
+  C = require('constants');
   return ListCollection = (function(_super) {
 
     __extends(ListCollection, _super);
@@ -17957,11 +17951,11 @@ define('text!templates/similar.html',[],function () { return '<div class="b-simi
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('views/SimilarView',['require','views/View','tpl!templates/similar.html','services/constants'],function(require) {
+define('views/SimilarView',['require','views/View','tpl!templates/similar.html','constants'],function(require) {
   var C, SimilarView, View, similarTemplate;
   View = require('views/View');
   similarTemplate = require('tpl!templates/similar.html');
-  C = require('services/constants');
+  C = require('constants');
   return SimilarView = (function(_super) {
 
     __extends(SimilarView, _super);
@@ -18291,13 +18285,13 @@ define('text!templates/item.html',[],function () { return '\n<div class="b-item_
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('views/ItemView',['require','views/View','views/SimilarsView','views/InfoView','tpl!templates/item.html','services/constants'],function(require) {
+define('views/ItemView',['require','views/View','views/SimilarsView','views/InfoView','tpl!templates/item.html','constants'],function(require) {
   var C, InfoView, ItemView, SimilarsView, View, itemTemplate;
   View = require('views/View');
   SimilarsView = require('views/SimilarsView');
   InfoView = require('views/InfoView');
   itemTemplate = require('tpl!templates/item.html');
-  C = require('services/constants');
+  C = require('constants');
   return ItemView = (function(_super) {
 
     __extends(ItemView, _super);
@@ -18669,7 +18663,7 @@ define('services/flow',['require','services/mediator','_'],function(require) {
 
 ;!function (name, context, definition) {
    if (typeof module !== 'undefined') module.exports = definition(name, context)
-   else if (typeof define === 'function' && typeof define.amd  === 'object') define('humane',definition)
+   else if (typeof define === 'function' && typeof define.amd  === 'object') define('humane',[],definition)
    else context[name] = definition(name, context)
 }('humane', this, function (name, context) {
    var win = window
