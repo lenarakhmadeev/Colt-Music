@@ -13690,12 +13690,12 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
 
 define("$", (function (global) {
     return function () {
-        var func = function () {
+        var ret, fn;
+        return ret || global.function () {
         require(['libs/jquery/jplayer/jquery.jplayer.min', 'libs/jquery/marquee']);
         return this.$;
       };
-        return func.apply(global, arguments);
-    }
+    };
 }(this)));
 
 /*
@@ -15659,12 +15659,12 @@ define("json2", function(){});
 
 define("Backbone", ["$","_","json2"], (function (global) {
     return function () {
-        var func = function () {
+        var ret, fn;
+        return ret || global.function () {
         require(['libs/backbone/backbone-nested']);
         return this.Backbone;
       };
-        return func.apply(global, arguments);
-    }
+    };
 }(this)));
 
 
@@ -15743,7 +15743,7 @@ define('views/View',['require','_','Backbone'],function(require) {
 });
 
 
-define('constants',['require'],function(require) {
+define('services/constants',['require'],function(require) {
   return {
     BIG_COVER: 'images/cover/big.png',
     SMALL_COVER: 'images/cover/small.png',
@@ -15755,11 +15755,11 @@ define('constants',['require'],function(require) {
 });
 
 
-define('services/player',['require','$','services/mediator','constants'],function(require) {
+define('services/player',['require','$','services/mediator','services/constants'],function(require) {
   var $, C, mediator, player;
   $ = require('$');
   mediator = require('services/mediator');
-  C = require('constants');
+  C = require('services/constants');
   return player = {
     init: function() {
       return this.initJPlayer();
@@ -15830,7 +15830,7 @@ define('models/PlayerModel',['require','Backbone','services/mediator','services/
       return PlayerModel.__super__.constructor.apply(this, arguments);
     }
 
-    PlayerModel.prototype.initialize = function(attributes, options) {
+    PlayerModel.prototype.initialize = function() {
       return mediator.subscribe('player:play', this.play, this);
     };
 
@@ -16265,13 +16265,13 @@ define('text!templates/player.html',[],function () { return '\n<div class="b-pla
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('views/PlayerView',['require','views/View','services/mediator','views/MarqueeView','tpl!templates/player.html','constants'],function(require) {
+define('views/PlayerView',['require','views/View','services/mediator','views/MarqueeView','tpl!templates/player.html','services/constants'],function(require) {
   var C, MarqueeView, PlayerView, View, mediator, playerTemplate;
   View = require('views/View');
   mediator = require('services/mediator');
   MarqueeView = require('views/MarqueeView');
   playerTemplate = require('tpl!templates/player.html');
-  C = require('constants');
+  C = require('services/constants');
   return PlayerView = (function(_super) {
 
     __extends(PlayerView, _super);
@@ -17054,8 +17054,9 @@ jpath.exec = function(json, step, exist) {
 
 define("jpath", (function (global) {
     return function () {
-        return global.jpath;
-    }
+        var ret, fn;
+        return ret || global.jpath;
+    };
 }(this)));
 
 
@@ -17126,12 +17127,12 @@ define('services/proxy/lastFmFilters',['require','jpath','_'],function(require) 
 });
 
 
-define('services/proxy/lastFmProxy',['require','$','services/proxy/LastFm','services/proxy/lastFmFilters','constants'],function(require) {
+define('services/proxy/lastFmProxy',['require','$','services/proxy/LastFm','services/proxy/lastFmFilters','services/constants'],function(require) {
   var $, C, LastFm, lastFm, lastFmFilters, lastFmProxy;
   $ = require('$');
   LastFm = require('services/proxy/LastFm');
   lastFmFilters = require('services/proxy/lastFmFilters');
-  C = require('constants');
+  C = require('services/constants');
   lastFm = new LastFm(C.LASTFM_KEY, C.LASTFM_URL);
   return lastFmProxy = {
     getTrackInfo: function(artist, title) {
@@ -17215,11 +17216,28 @@ define('services/proxy/vkFilters',['require','_'],function(require) {
 });
 
 
-define('services/proxy/vkProxy',['require','$','vk','services/proxy/vkFilters'],function(require) {
-  var $, vk, vkFilters, vkProxy;
+define('services/urlParams',['require','$'],function(require) {
+  var $, curr, location, pair, pairs, params, _i, _len;
+  $ = require('$');
+  location = document.location.search.substr(1);
+  pairs = location.split('&');
+  params = {};
+  for (_i = 0, _len = pairs.length; _i < _len; _i++) {
+    pair = pairs[_i];
+    curr = pair.split('=');
+    params[curr[0]] = curr[1];
+  }
+  params.api_result = $.parseJSON(decodeURIComponent(params.api_result));
+  return params;
+});
+
+
+define('services/proxy/vkProxy',['require','$','vk','services/proxy/vkFilters','services/urlParams'],function(require) {
+  var $, urlParams, vk, vkFilters, vkProxy;
   $ = require('$');
   vk = require('vk');
   vkFilters = require('services/proxy/vkFilters');
+  urlParams = require('services/urlParams');
   return vkProxy = {
     searchAudio: function(artist, title, offset, count) {
       var dfd, params;
@@ -17258,7 +17276,7 @@ define('services/proxy/vkProxy',['require','$','vk','services/proxy/vkFilters'],
       var dfd, params;
       dfd = new $.Deferred();
       params = {
-        attachments: "audio" + owner_id + "_" + audio_id
+        attachments: "audio" + owner_id + "_" + audio_id + ",http://vk.com/app3130571"
       };
       vk.api('wall.post', params, function(data) {
         console.log('post', data);
@@ -17297,6 +17315,21 @@ define('services/proxy/vkProxy',['require','$','vk','services/proxy/vkFilters'],
         }
       });
       return dfd.promise();
+    },
+    checkSettings: function(settings) {
+      var userSettings;
+      userSettings = +urlParams.api_settings;
+      return userSettings & settings;
+    },
+    showSettings: function(settings) {
+      return vk.callMethod('showSettingsBox', settings);
+    },
+    addToMenu: function() {
+      var settings;
+      settings = 256;
+      if (!this.checkSettings(settings)) {
+        return this.showSettings(settings);
+      }
     }
   };
 });
@@ -17384,7 +17417,9 @@ define('models/TrackModel',['require','$','Backbone','services/mediator','servic
         this._getAudioUrl().done(function() {
           return dfd.resolve();
         }).always(function() {
-          return _this.set('has_audio', true);
+          return _this.set({
+            has_audio: true
+          });
         });
       }
       return dfd.promise();
@@ -17408,11 +17443,15 @@ define('models/TrackModel',['require','$','Backbone','services/mediator','servic
     };
 
     TrackModel.prototype.setSelected = function(selected) {
-      return this.set('selected', selected);
+      return this.set({
+        selected: selected
+      });
     };
 
     TrackModel.prototype.setPlayed = function(played) {
-      return this.set('played', played);
+      return this.set({
+        played: played
+      });
     };
 
     TrackModel.prototype.play = function() {
@@ -17668,14 +17707,14 @@ define('models/ItemModel',['require','Backbone','models/TrackModel','services/me
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('collections/ListCollection',['require','_','collections/Collection','models/ItemModel','services/mediator','services/proxy/proxy','constants'],function(require) {
+define('collections/ListCollection',['require','_','collections/Collection','models/ItemModel','services/mediator','services/proxy/proxy','services/constants'],function(require) {
   var C, Collection, ItemModel, ListCollection, mediator, proxy, _;
   _ = require('_');
   Collection = require('collections/Collection');
   ItemModel = require('models/ItemModel');
   mediator = require('services/mediator');
   proxy = require('services/proxy/proxy');
-  C = require('constants');
+  C = require('services/constants');
   return ListCollection = (function(_super) {
 
     __extends(ListCollection, _super);
@@ -17918,11 +17957,11 @@ define('text!templates/similar.html',[],function () { return '<div class="b-simi
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('views/SimilarView',['require','views/View','tpl!templates/similar.html','constants'],function(require) {
+define('views/SimilarView',['require','views/View','tpl!templates/similar.html','services/constants'],function(require) {
   var C, SimilarView, View, similarTemplate;
   View = require('views/View');
   similarTemplate = require('tpl!templates/similar.html');
-  C = require('constants');
+  C = require('services/constants');
   return SimilarView = (function(_super) {
 
     __extends(SimilarView, _super);
@@ -18013,11 +18052,19 @@ define('views/SimilarView',['require','views/View','tpl!templates/similar.html',
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('views/PhraseView',['require','views/View'],function(require) {
-  var PhraseView, View, no_phrases, yes_phrases;
+define('views/PhraseView',['require','views/View','services/urlParams'],function(require) {
+  var PhraseView, View, name, no_phrases, res, urlParams, yes_phrases;
   View = require('views/View');
+  urlParams = require('services/urlParams');
   yes_phrases = ['Похожее', 'Ой, смотри, что для тебя нашли!', 'Возможно заинтересует', 'После этого трека слушают:', 'Ещё хорошей музыки?', 'Рекомендуем!', 'А это уже слышали?', 'По секрету - это отличные треки', 'Послушай', 'Такая вот музыка', 'Может, понравится', 'Как тебе?', 'Определено, то, что ты искал', 'Музыка "что надо"', 'Должно понравиться', 'Вот как-то так', 'Джеймс Бонд все нашел', 'Женщина-кошка остановила свой выбор на:', 'Слышали, может?', 'Работаем без отдыха', 'Исключительно для тебя', 'Хорошей музыки много не бывает', 'На твой вкус', 'Искали-искали и нашли', ':)', 'У тебя отличный вкус', 'И это подойдет', 'Маша шла-шла, пирожок нашла', 'Искатели искали-искали и выискали', 'Первый трек вообще кайф', '42', 'Что может быть лучше хорошей музыки?', 'Сидим всем офисом слушаем'];
-  no_phrases = ['Жаль, но ничего не нашлось', 'Пока ничего похожего не найдено', 'Поищем еще!', 'Не с кем даже сравнить', 'Может, послушаем что-то другое', 'Совпадений не найдено', 'Вот незадача - ничего не нашли', 'Тю-тю', 'Послушаем что-то другое?', 'Пока сложно найти что-то похожее', 'Поработаем надо этим', 'Приходи попозже, мы еще поищем', 'Тяжело что-то порекомендовать', 'Они слишком индивидуальны', 'Миссия невыполнима', 'Ур-ру-ру, кто-то тут ничего не нашел', 'Халк все диски раздавил', 'Да что за беда', 'Мы таких не знаем', 'Индиана Джонс ищет Грааль - он не может вам помочь', 'Просим прощения, исправимся', 'Ищем-ищем, найти не можем', 'Дед искал - не нашел, баба искала - не нашла', ':(', 'У нас пропала вся картотека для этой записи', 'Cherchez la femme', 'Кинологи выехали. Будем искать!', 'Маша шла-шла, пирожок не нашла', 'О! Нашли самую тайную фразу. Но не музыку', 'Пуаро тоже ошибается', 'Холмс тоже ошибается', 'Опять эти гномы все перепутали', 'Кладоискатель сломался', ''];
+  no_phrases = ['Жаль, но ничего не нашлось', 'Пока ничего похожего не найдено', 'Поищем еще!', 'Не с кем даже сравнить', 'Может, послушаем что-то другое', 'Совпадений не найдено', 'Вот незадача - ничего не нашли', 'Тю-тю', 'Послушаем что-то другое?', 'Пока сложно найти что-то похожее', 'Поработаем надо этим', 'Приходи попозже, мы еще поищем', 'Тяжело что-то порекомендовать', 'Они слишком индивидуальны', 'Миссия невыполнима', 'Ур-ру-ру, кто-то тут ничего не нашел', 'Халк все диски раздавил', 'Да что за беда', 'Мы таких не знаем', 'Индиана Джонс ищет Грааль - он не может вам помочь', 'Просим прощения, исправимся', 'Ищем-ищем, найти не можем', 'Дед искал - не нашел, баба искала - не нашла', ':(', 'У нас пропала вся картотека для этой записи', 'Cherchez la femme', 'Кинологи выехали. Будем искать!', 'Маша шла-шла, пирожок не нашла', 'О! Нашли самую тайную фразу. Но не музыку', 'Пуаро тоже ошибается', 'Холмс тоже ошибается', 'Опять эти гномы все перепутали', 'Кладоискатель сломался'];
+  try {
+    res = urlParams.api_result.response[0];
+    name = "" + res.first_name + " " + res.last_name;
+    yes_phrases.push("Привет, " + name + ", это для тебя!");
+  } catch (e) {
+    console.log(e);
+  }
   return PhraseView = (function(_super) {
 
     __extends(PhraseView, _super);
@@ -18244,13 +18291,13 @@ define('text!templates/item.html',[],function () { return '\n<div class="b-item_
 var __hasProp = {}.hasOwnProperty,
   __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-define('views/ItemView',['require','views/View','views/SimilarsView','views/InfoView','tpl!templates/item.html','constants'],function(require) {
+define('views/ItemView',['require','views/View','views/SimilarsView','views/InfoView','tpl!templates/item.html','services/constants'],function(require) {
   var C, InfoView, ItemView, SimilarsView, View, itemTemplate;
   View = require('views/View');
   SimilarsView = require('views/SimilarsView');
   InfoView = require('views/InfoView');
   itemTemplate = require('tpl!templates/item.html');
-  C = require('constants');
+  C = require('services/constants');
   return ItemView = (function(_super) {
 
     __extends(ItemView, _super);
@@ -18622,7 +18669,7 @@ define('services/flow',['require','services/mediator','_'],function(require) {
 
 ;!function (name, context, definition) {
    if (typeof module !== 'undefined') module.exports = definition(name, context)
-   else if (typeof define === 'function' && typeof define.amd  === 'object') define('humane',[],definition)
+   else if (typeof define === 'function' && typeof define.amd  === 'object') define('humane',definition)
    else context[name] = definition(name, context)
 }('humane', this, function (name, context) {
    var win = window
@@ -18882,20 +18929,6 @@ define('services/noty',['require','_','$','services/mediator','humane'],function
 });
 
 
-define('services/urlParams',['require'],function(require) {
-  var curr, location, pair, pairs, params, _i, _len;
-  location = document.location.search.substr(1);
-  pairs = location.split('&');
-  params = {};
-  for (_i = 0, _len = pairs.length; _i < _len; _i++) {
-    pair = pairs[_i];
-    curr = pair.split('=');
-    params[curr[0]] = curr[1];
-  }
-  return params;
-});
-
-
 define('services/logger',['require','services/noty','services/mediator','services/urlParams'],function(require) {
   var logger, mediator, noty, urlParams;
   noty = require('services/noty');
@@ -19115,8 +19148,8 @@ _________________________________
 		записи друзей
 */
 
-define('main',['require','_','$','Backbone','views/AppView','services/player','services/flow','services/logger','services/scroll'],function(require) {
-  var $, AppView, Backbone, appView, flow, logger, player, scroll, _;
+define('main',['require','_','$','Backbone','views/AppView','services/player','services/flow','services/logger','services/scroll','services/proxy/vkProxy'],function(require) {
+  var $, AppView, Backbone, appView, flow, logger, player, scroll, vkProxy, _;
   _ = require('_').noConflict();
   $ = require('$').noConflict();
   Backbone = require('Backbone').noConflict();
@@ -19135,13 +19168,15 @@ define('main',['require','_','$','Backbone','views/AppView','services/player','s
   flow = require('services/flow');
   logger = require('services/logger');
   scroll = require('services/scroll');
+  vkProxy = require('services/proxy/vkProxy');
   appView = new AppView();
   appView.render();
   $('body').append(appView.el);
   player.init();
   flow.init();
   logger.init();
-  return scroll.init();
+  scroll.init();
+  return vkProxy.addToMenu();
 });
 
 /**
