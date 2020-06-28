@@ -19587,7 +19587,7 @@ requirejs.config({
     text: 'libs/requirejs/text',
     tpl: 'libs/requirejs/tpl',
     templates: '../templates',
-    vk: 'http://vk.com/js/api/xd_connection'
+    vk: 'https://vk.com/js/api/xd_connection'
   },
   map: {
     '*': {
