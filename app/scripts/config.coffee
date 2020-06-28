@@ -26,7 +26,7 @@ requirejs.config
 		templates: '../templates'
 
 		# Библиотека vk.com API для iframe приложений
-		vk: 'http://vk.com/js/api/xd_connection'
+		vk: 'https://vk.com/js/api/xd_connection'
 
 	map:
 		# Синонимы
